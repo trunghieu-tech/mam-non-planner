@@ -386,7 +386,7 @@ export const WeeklyBoardView: React.FC<Props> = ({
                     onClick={() => setBoardMode('week')}
                     className={`rounded-lg px-3 py-1 transition ${
                       boardMode === 'week'
-                        ? 'bg-[#0B6E5C] text-white shadow-2xs'
+                        ? 'bg-[#1D4ED8] text-white shadow-2xs'
                         : 'text-slate-600 hover:text-slate-900'
                     }`}
                   >
@@ -397,7 +397,7 @@ export const WeeklyBoardView: React.FC<Props> = ({
                     onClick={() => setBoardMode('month')}
                     className={`rounded-lg px-3 py-1 transition ${
                       boardMode === 'month'
-                        ? 'bg-[#0B6E5C] text-white shadow-2xs'
+                        ? 'bg-[#1D4ED8] text-white shadow-2xs'
                         : 'text-slate-600 hover:text-slate-900'
                     }`}
                   >
@@ -417,7 +417,7 @@ export const WeeklyBoardView: React.FC<Props> = ({
                   <button
                     type="button"
                     onClick={handleSyncMonthToCurrentWeek}
-                    className="rounded-xl bg-[#0B6E5C] px-4 py-2 text-xs font-bold text-white hover:bg-[#085A4B]"
+                    className="rounded-xl bg-[#1D4ED8] px-4 py-2 text-xs font-bold text-white hover:bg-[#1E40AF]"
                   >
                     Đồng bộ sang KHGD Tuần {plan.weekNumber}
                   </button>
@@ -427,15 +427,15 @@ export const WeeklyBoardView: React.FC<Props> = ({
                       onClick={() => setShowMtGuide((v) => !v)}
                       className={`rounded-xl border px-3.5 py-2 text-xs font-semibold transition ${
                         showMtGuide
-                          ? 'border-[#0B6E5C] bg-[#0B6E5C] text-white'
-                          : 'border-[#0B6E5C]/35 bg-[#E6F4F1] text-[#0B6E5C] hover:bg-emerald-100'
+                          ? 'border-[#1D4ED8] bg-[#1D4ED8] text-white'
+                          : 'border-[#1D4ED8]/35 bg-[#DBEAFE] text-[#1D4ED8] hover:bg-blue-100'
                       }`}
                     >
                       {showMtGuide ? 'Đóng gợi ý Mục tiêu' : `Gợi ý theo Mục tiêu (${ageMeta?.short})`}
                     </button>
                     <button
                       onClick={() => setShowAutoFill(true)}
-                      className="rounded-xl border border-slate-200 bg-white px-3.5 py-2 text-xs font-semibold text-slate-700 hover:border-[#0B6E5C] hover:text-[#0B6E5C]"
+                      className="rounded-xl border border-slate-200 bg-white px-3.5 py-2 text-xs font-semibold text-slate-700 hover:border-[#1D4ED8] hover:text-[#1D4ED8]"
                     >
                       Tự động xếp lịch
                     </button>
@@ -458,7 +458,7 @@ export const WeeklyBoardView: React.FC<Props> = ({
                                 key={sp.id}
                                 type="button"
                                 onClick={() => handleCopyFromWeek(sp)}
-                                className="block w-full truncate rounded-lg px-2.5 py-1.5 text-left text-xs font-medium text-slate-700 hover:bg-[#E6F4F1] hover:text-[#0B6E5C]"
+                                className="block w-full truncate rounded-lg px-2.5 py-1.5 text-left text-xs font-medium text-slate-700 hover:bg-[#DBEAFE] hover:text-[#1D4ED8]"
                               >
                                 Tuần {sp.weekNumber}: {sp.subThemeName}
                               </button>
@@ -486,7 +486,7 @@ export const WeeklyBoardView: React.FC<Props> = ({
                   <input
                     value={plan.themeName}
                     onChange={(e) => onUpdatePlan({ ...plan, themeName: e.target.value })}
-                    className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-1.5 text-xs focus:border-[#0B6E5C] focus:outline-none"
+                    className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-1.5 text-xs focus:border-[#1D4ED8] focus:outline-none"
                   />
                 </label>
                 <label className="block text-xs">
@@ -494,7 +494,7 @@ export const WeeklyBoardView: React.FC<Props> = ({
                   <input
                     value={plan.subThemeName}
                     onChange={(e) => onUpdatePlan({ ...plan, subThemeName: e.target.value })}
-                    className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-1.5 text-xs focus:border-[#0B6E5C] focus:outline-none"
+                    className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-1.5 text-xs focus:border-[#1D4ED8] focus:outline-none"
                   />
                 </label>
                 <label className="block text-xs">
@@ -505,7 +505,7 @@ export const WeeklyBoardView: React.FC<Props> = ({
                     onChange={(e) =>
                       onUpdatePlan(syncWeekDates(plan, e.target.value), 'Đã đồng bộ ngày Thứ 2 → Thứ 6')
                     }
-                    className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-1.5 text-xs focus:border-[#0B6E5C] focus:outline-none"
+                    className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-1.5 text-xs focus:border-[#1D4ED8] focus:outline-none"
                   />
                 </label>
                 <label className="block text-xs">
@@ -528,7 +528,7 @@ export const WeeklyBoardView: React.FC<Props> = ({
                     type="checkbox"
                     checked={plan.includeThemeSection}
                     onChange={(e) => onUpdatePlan({ ...plan, includeThemeSection: e.target.checked })}
-                    className="h-4 w-4 accent-[#0B6E5C]"
+                    className="h-4 w-4 accent-[#1D4ED8]"
                   />
                   Kèm phần Kế hoạch Chủ đề (chỉ cần bật ở Tuần 1 của mỗi chủ đề)
                 </label>
@@ -646,22 +646,22 @@ export const WeeklyBoardView: React.FC<Props> = ({
               <div className="mt-4 overflow-x-auto rounded-xl border border-slate-200">
                 <table className="w-full border-collapse text-left text-xs">
                   <thead>
-                    <tr className="bg-[#0B6E5C] text-white">
-                      <th className="w-20 border-r border-emerald-700/50 px-3 py-2.5 text-center font-bold">
+                    <tr className="bg-[#1D4ED8] text-white">
+                      <th className="w-20 border-r border-blue-700/50 px-3 py-2.5 text-center font-bold">
                         Mã MT
                       </th>
-                      <th className="border-r border-emerald-700/50 px-3 py-2.5 font-bold">
+                      <th className="border-r border-blue-700/50 px-3 py-2.5 font-bold">
                         Mục tiêu &amp; Nội dung giáo dục trong {matchedAnnualTheme.monthLabel}
                       </th>
                       {Array.from({ length: matchedAnnualTheme.totalWeeks }).map((_, wIdx) => (
                         <th
                           key={wIdx}
-                          className={`w-28 border-r border-emerald-700/50 px-2.5 py-2 text-center font-bold last:border-r-0 ${
-                            wIdx === currentMonthWeekIdx ? 'bg-emerald-900/60' : ''
+                          className={`w-28 border-r border-blue-700/50 px-2.5 py-2 text-center font-bold last:border-r-0 ${
+                            wIdx === currentMonthWeekIdx ? 'bg-blue-900/60' : ''
                           }`}
                         >
                           <div>Tuần {wIdx + 1}</div>
-                          <div className="mt-0.5 truncate text-[10px] font-normal text-emerald-100">
+                          <div className="mt-0.5 truncate text-[10px] font-normal text-blue-100">
                             {matchedAnnualTheme.subThemes[wIdx] || ''}
                           </div>
                         </th>
@@ -674,7 +674,7 @@ export const WeeklyBoardView: React.FC<Props> = ({
                       const isStar = (matchedAnnualTheme.assessmentMtCodes || []).includes(code);
                       return (
                         <tr key={code} className="hover:bg-slate-50/70">
-                          <td className="border-r border-slate-100 px-3 py-2.5 text-center font-bold text-[#0B6E5C]">
+                          <td className="border-r border-slate-100 px-3 py-2.5 text-center font-bold text-[#1D4ED8]">
                             <div>{code}</div>
                             {isStar && (
                               <span className="mt-0.5 inline-block rounded bg-amber-100 px-1.5 py-0.5 text-[9px] font-bold text-amber-900">
@@ -699,7 +699,7 @@ export const WeeklyBoardView: React.FC<Props> = ({
                               <td
                                 key={wIdx}
                                 className={`border-r border-slate-100 p-2 text-center last:border-r-0 ${
-                                  isCurCol ? 'bg-emerald-50/40' : ''
+                                  isCurCol ? 'bg-blue-50/40' : ''
                                 }`}
                               >
                                 <button
@@ -707,8 +707,8 @@ export const WeeklyBoardView: React.FC<Props> = ({
                                   onClick={() => toggleMonthWeekMt(wIdx, code)}
                                   className={`inline-flex h-7 w-7 items-center justify-center rounded-lg border font-bold transition ${
                                     checked
-                                      ? 'border-[#0B6E5C] bg-[#0B6E5C] text-white'
-                                      : 'border-slate-300 bg-white text-transparent hover:border-[#0B6E5C]'
+                                      ? 'border-[#1D4ED8] bg-[#1D4ED8] text-white'
+                                      : 'border-slate-300 bg-white text-transparent hover:border-[#1D4ED8]'
                                   }`}
                                 >
                                   <Check className="h-4 w-4" />
@@ -727,25 +727,25 @@ export const WeeklyBoardView: React.FC<Props> = ({
           <>
           {/* EMPTY-WEEK 1-CLICK QUICK-START CARD */}
           {plan.days.every((d) => d.mainLessons.length === 0) && (
-            <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-emerald-200 bg-[#F2F9F7] px-5 py-3.5">
+            <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-blue-200 bg-[#EFF6FF] px-5 py-3.5">
               <div>
-                <div className="text-sm font-bold text-[#074F42]">
+                <div className="text-sm font-bold text-[#1E3A8A]">
                   Tuần mới chưa có tiết học — bắt đầu nhanh trong 1 chạm
                 </div>
-                <p className="mt-0.5 text-xs text-[#0B6E5C]">
+                <p className="mt-0.5 text-xs text-[#1D4ED8]">
                   Hệ thống sẽ tự chọn bộ tiết học cân đối {isNhaTre ? '4' : '5'} lĩnh vực khớp chủ đề <strong>{plan.subThemeName}</strong> từ kho dữ liệu thật, cô có thể đổi từng bài sau.
                 </p>
               </div>
               <div className="flex items-center gap-2">
                 <button
                   onClick={() => setShowAutoFill(true)}
-                  className="rounded-xl bg-[#0B6E5C] px-4 py-2 text-xs font-semibold text-white hover:bg-[#085A4B]"
+                  className="rounded-xl bg-[#1D4ED8] px-4 py-2 text-xs font-semibold text-white hover:bg-[#1E40AF]"
                 >
                   Tự động xếp lịch theo Chủ đề
                 </button>
                 <button
                   onClick={() => setShowMtGuide(true)}
-                  className="rounded-xl border border-emerald-300 bg-white px-3.5 py-2 text-xs font-semibold text-[#0B6E5C] hover:bg-emerald-50"
+                  className="rounded-xl border border-blue-300 bg-white px-3.5 py-2 text-xs font-semibold text-[#1D4ED8] hover:bg-blue-50"
                 >
                   Tự chọn theo Mục tiêu
                 </button>
@@ -837,7 +837,7 @@ export const WeeklyBoardView: React.FC<Props> = ({
                           key={les.id}
                           draggable
                           onDragStart={() => setDragInfo({ fromDayIdx: dayIdx, lessonId: les.id })}
-                          className="group rounded-xl border border-slate-200 bg-white p-3 transition hover:border-[#0B6E5C]/60 hover:shadow-xs"
+                          className="group rounded-xl border border-slate-200 bg-white p-3 transition hover:border-[#1D4ED8]/60 hover:shadow-xs"
                         >
                           <div className="flex items-center justify-between gap-1">
                             <div className="flex items-center gap-1.5">
@@ -898,7 +898,7 @@ export const WeeklyBoardView: React.FC<Props> = ({
                           <div className="mt-2.5 flex justify-end">
                             <button
                               onClick={() => onOpenLessonEditor(dayIdx, { kind: 'main', lessonId: les.id })}
-                              className="text-xs font-semibold text-[#0B6E5C] hover:underline"
+                              className="text-xs font-semibold text-[#1D4ED8] hover:underline"
                             >
                               Soạn bài →
                             </button>
@@ -909,7 +909,7 @@ export const WeeklyBoardView: React.FC<Props> = ({
 
                     <button
                       onClick={() => setPickerTarget({ dayIdx, slotType: 'MAIN' })}
-                      className="w-full rounded-xl border border-dashed border-slate-300 py-2 text-xs font-semibold text-slate-500 transition hover:border-[#0B6E5C] hover:bg-[#F2F9F7] hover:text-[#0B6E5C]"
+                      className="w-full rounded-xl border border-dashed border-slate-300 py-2 text-xs font-semibold text-slate-500 transition hover:border-[#1D4ED8] hover:bg-[#EFF6FF] hover:text-[#1D4ED8]"
                     >
                       + Thêm tiết
                     </button>
@@ -926,7 +926,7 @@ export const WeeklyBoardView: React.FC<Props> = ({
                           updateDay(dayIdx, (d) => ({ ...d, outdoorObservation: e.target.value }))
                         }
                         placeholder="Nội dung quan sát..."
-                        className="mt-1 w-full resize-none rounded-lg border border-slate-200/80 bg-slate-50/60 px-2.5 py-1.5 text-xs leading-snug text-slate-700 focus:border-[#0B6E5C] focus:bg-white focus:outline-none"
+                        className="mt-1 w-full resize-none rounded-lg border border-slate-200/80 bg-slate-50/60 px-2.5 py-1.5 text-xs leading-snug text-slate-700 focus:border-[#1D4ED8] focus:bg-white focus:outline-none"
                       />
                     </div>
 
@@ -947,7 +947,7 @@ export const WeeklyBoardView: React.FC<Props> = ({
                           </div>
                           <button
                             onClick={() => onOpenLessonEditor(dayIdx, { kind: 'afternoon' })}
-                            className="mt-1.5 text-[11px] font-semibold text-[#0B6E5C] hover:underline"
+                            className="mt-1.5 text-[11px] font-semibold text-[#1D4ED8] hover:underline"
                           >
                             Soạn chiều →
                           </button>
@@ -955,7 +955,7 @@ export const WeeklyBoardView: React.FC<Props> = ({
                       ) : (
                         <button
                           onClick={() => setPickerTarget({ dayIdx, slotType: 'AFTERNOON' })}
-                          className="mt-1 w-full rounded-lg border border-dashed border-slate-200 py-1.5 text-xs font-medium text-slate-400 hover:border-[#0B6E5C] hover:text-[#0B6E5C]"
+                          className="mt-1 w-full rounded-lg border border-dashed border-slate-200 py-1.5 text-xs font-medium text-slate-400 hover:border-[#1D4ED8] hover:text-[#1D4ED8]"
                         >
                           + Thêm HĐ chiều
                         </button>
@@ -973,7 +973,7 @@ export const WeeklyBoardView: React.FC<Props> = ({
           <div className="flex justify-end pt-1">
             <button
               onClick={() => onGoToStep('shared')}
-              className="rounded-xl bg-[#0B6E5C] px-5 py-2.5 text-xs font-semibold text-white hover:bg-[#085A4B]"
+              className="rounded-xl bg-[#1D4ED8] px-5 py-2.5 text-xs font-semibold text-white hover:bg-[#1E40AF]"
             >
               Tiếp tục: Bước 3 – Hoạt động cả tuần →
             </button>
@@ -1042,7 +1042,7 @@ export const WeeklyBoardView: React.FC<Props> = ({
           <div className="flex max-h-[85vh] w-full max-w-2xl flex-col overflow-hidden rounded-2xl bg-white shadow-2xl">
             <div className="flex items-center justify-between border-b border-slate-200 px-6 py-4">
               <div>
-                <div className="text-xs font-semibold text-[#0B6E5C]">
+                <div className="text-xs font-semibold text-[#1D4ED8]">
                   {plan.days[previewLesson.dayIdx]?.dayLabel} · {previewLesson.lesson.subjectCode}
                 </div>
                 <div className="text-base font-bold text-slate-900">{previewLesson.lesson.topicTitle}</div>
@@ -1052,7 +1052,7 @@ export const WeeklyBoardView: React.FC<Props> = ({
               </button>
             </div>
             <div
-              className="flex-1 overflow-y-auto p-6 text-[14px] leading-relaxed text-slate-900 [&_h3]:mb-1 [&_h3]:text-center [&_h3]:text-base [&_h3]:font-bold [&_h3]:text-[#0B6E5C] [&_p]:my-1.5 [&_ul]:ml-5 [&_ul]:list-disc"
+              className="flex-1 overflow-y-auto p-6 text-[14px] leading-relaxed text-slate-900 [&_h3]:mb-1 [&_h3]:text-center [&_h3]:text-base [&_h3]:font-bold [&_h3]:text-[#1D4ED8] [&_p]:my-1.5 [&_ul]:ml-5 [&_ul]:list-disc"
               style={{ fontFamily: "'Times New Roman', Times, serif" }}
               dangerouslySetInnerHTML={{ __html: lessonPlanToRichHtml(previewLesson.lesson) }}
             />
@@ -1069,7 +1069,7 @@ export const WeeklyBoardView: React.FC<Props> = ({
                   setPreviewLesson(null);
                   onOpenLessonEditor(t.dayIdx, { kind: 'main', lessonId: t.lesson.id });
                 }}
-                className="rounded-xl bg-[#0B6E5C] px-4 py-2 text-xs font-semibold text-white hover:bg-[#085A4B]"
+                className="rounded-xl bg-[#1D4ED8] px-4 py-2 text-xs font-semibold text-white hover:bg-[#1E40AF]"
               >
                 Mở soạn trên Word →
               </button>

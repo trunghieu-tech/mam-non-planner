@@ -15,12 +15,12 @@ export const DocPreview: React.FC<Props> = ({ plan, objectives }) => {
     <div className="space-y-6">
       {/* Page 1: Cover */}
       <div className="a4-paper mx-auto max-w-[820px] rounded-sm p-10">
-        <div className="border-4 border-double border-[#0B6E5C] px-8 py-12 text-center">
+        <div className="border-4 border-double border-[#1D4ED8] px-8 py-12 text-center">
           <div className="text-sm uppercase tracking-wide">{plan.governingBody}</div>
           <div className="mt-1 text-base font-bold uppercase">{plan.schoolName}</div>
-          <div className="my-3 text-sm text-[#0B6E5C]">──────── ★ ────────</div>
+          <div className="my-3 text-sm text-[#1D4ED8]">──────── ★ ────────</div>
 
-          <div className="mt-10 text-2xl font-bold text-[#0B6E5C]">KẾ HOẠCH GIÁO DỤC MẦM NON</div>
+          <div className="mt-10 text-2xl font-bold text-[#1D4ED8]">KẾ HOẠCH GIÁO DỤC MẦM NON</div>
           <div className="mt-2 text-base font-bold">NĂM HỌC {plan.schoolYear}</div>
 
           <div className="mt-10 text-xl font-bold uppercase">CHỦ ĐỀ: {plan.themeName}</div>
@@ -44,7 +44,7 @@ export const DocPreview: React.FC<Props> = ({ plan, objectives }) => {
       {/* Page 2: Theme section (if enabled) */}
       {plan.includeThemeSection && (
         <div className="a4-paper mx-auto max-w-[820px] rounded-sm p-10 text-[13px] leading-relaxed">
-          <div className="text-center text-base font-bold text-[#0B6E5C] uppercase">
+          <div className="text-center text-base font-bold text-[#1D4ED8] uppercase">
             CHỦ ĐỀ: {plan.themeName}
           </div>
           <div className="text-center text-xs italic">
@@ -61,7 +61,7 @@ export const DocPreview: React.FC<Props> = ({ plan, objectives }) => {
                 ))}
                 {b.mtCodes.map((code) => (
                   <div key={code} className="pl-4">
-                    <strong className="text-[#0B6E5C]">{code}.</strong>{' '}
+                    <strong className="text-[#1D4ED8]">{code}.</strong>{' '}
                     {mtMap.get(code)?.description || '(Theo khung chuẩn GDMN)'}
                   </div>
                 ))}
@@ -72,7 +72,7 @@ export const DocPreview: React.FC<Props> = ({ plan, objectives }) => {
           <div className="mt-5 text-center font-bold">II. MẠNG NỘI DUNG</div>
           <table className="mt-2 text-xs">
             <thead>
-              <tr className="bg-[#E6F4F1] text-[#074F42]">
+              <tr className="bg-[#DBEAFE] text-[#1E3A8A]">
                 {plan.contentNetwork.map((br) => (
                   <th key={br.id} className="text-center font-bold">{br.branchTitle}</th>
                 ))}
@@ -94,7 +94,7 @@ export const DocPreview: React.FC<Props> = ({ plan, objectives }) => {
           <div className="mt-5 text-center font-bold">III. MẠNG HOẠT ĐỘNG</div>
           <table className="mt-2 text-xs">
             <thead>
-              <tr className="bg-[#0B6E5C] text-white">
+              <tr className="bg-[#1D4ED8] text-white">
                 <th className="w-[28%]">LĨNH VỰC</th>
                 <th>HOẠT ĐỘNG GIÁO DỤC CHỦ ĐỀ</th>
               </tr>
@@ -102,7 +102,7 @@ export const DocPreview: React.FC<Props> = ({ plan, objectives }) => {
             <tbody>
               {plan.activityNetwork.map((an) => (
                 <tr key={an.domainKey}>
-                  <td className="bg-[#F0FAF8] font-bold text-[#074F42]">{an.domainTitle}</td>
+                  <td className="bg-[#F0FAF8] font-bold text-[#1E3A8A]">{an.domainTitle}</td>
                   <td>
                     {an.items.map((it, i) => (
                       <div key={i}>- {it}</div>
@@ -117,7 +117,7 @@ export const DocPreview: React.FC<Props> = ({ plan, objectives }) => {
 
       {/* Page 3: Weekly Summary Table */}
       <div className="a4-paper mx-auto max-w-[820px] rounded-sm p-10 text-[13px] leading-relaxed">
-        <div className="text-center text-base font-bold text-[#0B6E5C]">
+        <div className="text-center text-base font-bold text-[#1D4ED8]">
           KẾ HOẠCH HOẠT ĐỘNG GIÁO DỤC TUẦN {plan.weekNumber}
         </div>
         <div className="text-center text-sm font-bold">Chủ đề nhánh: {plan.subThemeName}</div>
@@ -141,7 +141,7 @@ export const DocPreview: React.FC<Props> = ({ plan, objectives }) => {
                 ))}
               </td>
             </tr>
-            <tr className="bg-[#0B6E5C] text-center font-bold text-white">
+            <tr className="bg-[#1D4ED8] text-center font-bold text-white">
               <td className="w-[9%]">THỨ</td>
               <td className="w-[14%]">HĐ CHUNG</td>
               <td className="w-[31%]">LUYỆN TẬP CÓ MỤC ĐÍCH</td>
@@ -165,7 +165,7 @@ export const DocPreview: React.FC<Props> = ({ plan, objectives }) => {
                         <div className="font-bold">{les.topicTitle}</div>
                         {les.subTopics.map((st, si) => <div key={si}>{st}</div>)}
                         {les.linkedMtCodes.length > 0 && (
-                          <div className="text-[11px] italic text-[#0B6E5C]">({les.linkedMtCodes.join(', ')})</div>
+                          <div className="text-[11px] italic text-[#1D4ED8]">({les.linkedMtCodes.join(', ')})</div>
                         )}
                       </>
                     ) : '—'}

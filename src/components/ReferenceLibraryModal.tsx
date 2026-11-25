@@ -53,7 +53,7 @@ const MEDIA_KIND_BADGE: Record<SharedMediaResource['kind'], string> = {
   SLIDE: 'bg-amber-50 text-amber-900 ring-1 ring-amber-200',
   ELEARNING: 'bg-violet-50 text-violet-800 ring-1 ring-violet-200',
   IMAGE: 'bg-sky-50 text-sky-800 ring-1 ring-sky-200',
-  DOC: 'bg-emerald-50 text-emerald-800 ring-1 ring-emerald-200',
+  DOC: 'bg-blue-50 text-blue-800 ring-1 ring-blue-200',
 };
 
 function toYoutubeEmbed(url: string): string | null {
@@ -174,7 +174,7 @@ export const ReferenceLibraryModal: React.FC<Props> = ({
               <button
                 onClick={() => setTab('bank')}
                 className={`rounded-lg px-3 py-1 transition ${
-                  tab === 'bank' ? 'bg-white text-[#0B6E5C] shadow-2xs' : 'text-slate-600'
+                  tab === 'bank' ? 'bg-white text-[#1D4ED8] shadow-2xs' : 'text-slate-600'
                 }`}
               >
                 345 Mục tiêu ({dataset.totalActivities} HĐ)
@@ -182,7 +182,7 @@ export const ReferenceLibraryModal: React.FC<Props> = ({
               <button
                 onClick={() => setTab('works')}
                 className={`rounded-lg px-3 py-1 transition ${
-                  tab === 'works' ? 'bg-white text-[#0B6E5C] shadow-2xs' : 'text-slate-600'
+                  tab === 'works' ? 'bg-white text-[#1D4ED8] shadow-2xs' : 'text-slate-600'
                 }`}
               >
                 Kho Ngữ liệu &amp; 29 Chữ cái
@@ -190,7 +190,7 @@ export const ReferenceLibraryModal: React.FC<Props> = ({
               <button
                 onClick={() => setTab('media')}
                 className={`rounded-lg px-3 py-1 transition ${
-                  tab === 'media' ? 'bg-white text-[#0B6E5C] shadow-2xs' : 'text-slate-600'
+                  tab === 'media' ? 'bg-white text-[#1D4ED8] shadow-2xs' : 'text-slate-600'
                 }`}
               >
                 Bài mẫu &amp; Kho Media
@@ -198,7 +198,7 @@ export const ReferenceLibraryModal: React.FC<Props> = ({
               <button
                 onClick={() => setTab('crawled')}
                 className={`rounded-lg px-3 py-1 transition ${
-                  tab === 'crawled' ? 'bg-white text-[#0B6E5C] shadow-2xs' : 'text-slate-600'
+                  tab === 'crawled' ? 'bg-white text-[#1D4ED8] shadow-2xs' : 'text-slate-600'
                 }`}
               >
                 Giáo án thực tế ({crawledSummary.totalDocs})
@@ -236,7 +236,7 @@ export const ReferenceLibraryModal: React.FC<Props> = ({
                       onClick={() => onSelectAgeGroup(ag.id)}
                       className={`rounded-lg px-3 py-1.5 text-xs font-bold transition ${
                         selectedAgeGroup === ag.id
-                          ? 'bg-[#0B6E5C] text-white'
+                          ? 'bg-[#1D4ED8] text-white'
                           : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
                       }`}
                     >
@@ -260,7 +260,7 @@ export const ReferenceLibraryModal: React.FC<Props> = ({
                       onClick={() => setWorkKind(k.id)}
                       className={`rounded-lg px-2.5 py-1 text-xs font-semibold transition ${
                         workKind === k.id
-                          ? 'bg-emerald-100 text-emerald-900'
+                          ? 'bg-blue-100 text-blue-900'
                           : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
                       }`}
                     >
@@ -273,7 +273,7 @@ export const ReferenceLibraryModal: React.FC<Props> = ({
                       value={workQuery}
                       onChange={(e) => setWorkQuery(e.target.value)}
                       placeholder="Tìm tên bài thơ, bài hát, chữ cái..."
-                      className="w-56 rounded-xl border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs focus:border-[#0B6E5C] focus:bg-white focus:outline-none"
+                      className="w-56 rounded-xl border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs focus:border-[#1D4ED8] focus:bg-white focus:outline-none"
                     />
                   </div>
                 </div>
@@ -298,7 +298,7 @@ export const ReferenceLibraryModal: React.FC<Props> = ({
                     >
                       <div>
                         <div className="flex items-center justify-between gap-2">
-                          <span className="rounded-md bg-[#E6F4F1] px-2 py-0.5 text-[11px] font-bold text-[#0B6E5C]">
+                          <span className="rounded-md bg-[#DBEAFE] px-2 py-0.5 text-[11px] font-bold text-[#1D4ED8]">
                             {w.kind === 'POEM'
                               ? 'Bài thơ'
                               : w.kind === 'STORY'
@@ -326,7 +326,7 @@ export const ReferenceLibraryModal: React.FC<Props> = ({
                           onInsertCrawledLesson({ subject: subj, topic: topicPrefix }, '', selectedAgeGroup);
                           onClose();
                         }}
-                        className="mt-3 w-full rounded-xl bg-[#0B6E5C] px-3 py-2 text-xs font-bold text-white hover:bg-[#085A4B]"
+                        className="mt-3 w-full rounded-xl bg-[#1D4ED8] px-3 py-2 text-xs font-bold text-white hover:bg-[#1E40AF]"
                       >
                         + Đưa tác phẩm này thành 1 tiết trong tuần
                       </button>
@@ -376,7 +376,7 @@ export const ReferenceLibraryModal: React.FC<Props> = ({
                               );
                               onClose();
                             }}
-                            className="rounded-lg bg-[#0B6E5C] px-2.5 py-1.5 text-[11px] font-bold text-white hover:bg-[#085A4B]"
+                            className="rounded-lg bg-[#1D4ED8] px-2.5 py-1.5 text-[11px] font-bold text-white hover:bg-[#1E40AF]"
                           >
                             + Xếp vào tuần
                           </button>
@@ -406,7 +406,7 @@ export const ReferenceLibraryModal: React.FC<Props> = ({
                   </div>
                   <button
                     onClick={() => setShowAddMedia((v) => !v)}
-                    className="rounded-xl bg-[#0B6E5C] px-3.5 py-2 text-xs font-bold text-white hover:bg-[#085A4B]"
+                    className="rounded-xl bg-[#1D4ED8] px-3.5 py-2 text-xs font-bold text-white hover:bg-[#1E40AF]"
                   >
                     {showAddMedia ? 'Đóng biểu mẫu' : '+ Thêm Video / Học liệu mới'}
                   </button>
@@ -415,7 +415,7 @@ export const ReferenceLibraryModal: React.FC<Props> = ({
                 {showAddMedia && (
                   <form
                     onSubmit={handleCreateMedia}
-                    className="mt-3 grid gap-2.5 rounded-xl border border-emerald-200 bg-[#F8FCFB] p-3.5 md:grid-cols-12"
+                    className="mt-3 grid gap-2.5 rounded-xl border border-blue-200 bg-[#F5F9FF] p-3.5 md:grid-cols-12"
                   >
                     <select
                       value={newMediaKind}
@@ -453,7 +453,7 @@ export const ReferenceLibraryModal: React.FC<Props> = ({
                     />
                     <button
                       type="submit"
-                      className="rounded-lg bg-[#0B6E5C] px-3 py-1.5 text-xs font-bold text-white hover:bg-[#085A4B] md:col-span-1"
+                      className="rounded-lg bg-[#1D4ED8] px-3 py-1.5 text-xs font-bold text-white hover:bg-[#1E40AF] md:col-span-1"
                     >
                       Lưu
                     </button>
@@ -479,7 +479,7 @@ export const ReferenceLibraryModal: React.FC<Props> = ({
                           onClick={() => setMediaKind(k.id)}
                           className={`rounded-lg px-2.5 py-1 text-xs font-semibold transition ${
                             mediaKind === k.id
-                              ? 'bg-[#0B6E5C] text-white'
+                              ? 'bg-[#1D4ED8] text-white'
                               : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
                           }`}
                         >
@@ -519,7 +519,7 @@ export const ReferenceLibraryModal: React.FC<Props> = ({
                         value={mediaQuery}
                         onChange={(e) => setMediaQuery(e.target.value)}
                         placeholder="Tìm tên bài giảng, trường, chủ đề..."
-                        className="w-56 rounded-xl border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs focus:border-[#0B6E5C] focus:bg-white focus:outline-none"
+                        className="w-56 rounded-xl border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs focus:border-[#1D4ED8] focus:bg-white focus:outline-none"
                       />
                     </div>
                   </div>
@@ -527,10 +527,10 @@ export const ReferenceLibraryModal: React.FC<Props> = ({
 
                 {/* Khung xem trực tiếp Video Clip / Bộ tranh ảnh ngay trong trang */}
                 {previewMedia && (
-                  <div className="mt-3 rounded-2xl border-2 border-[#0B6E5C] bg-slate-900 p-4 text-white">
+                  <div className="mt-3 rounded-2xl border-2 border-[#1D4ED8] bg-slate-900 p-4 text-white">
                     <div className="flex items-start justify-between gap-3 pb-3">
                       <div>
-                        <div className="text-[11px] font-bold uppercase text-emerald-300">
+                        <div className="text-[11px] font-bold uppercase text-blue-300">
                           {MEDIA_KIND_LABELS[previewMedia.kind]} · {previewMedia.subjectCode} · {previewMedia.author}
                         </div>
                         <div className="mt-0.5 text-sm font-bold">{previewMedia.title}</div>
@@ -656,7 +656,7 @@ export const ReferenceLibraryModal: React.FC<Props> = ({
                               <button
                                 type="button"
                                 onClick={() => setPreviewMedia(m)}
-                                className="rounded-lg bg-[#0B6E5C] px-2.5 py-1 font-bold text-white hover:bg-[#085A4B]"
+                                className="rounded-lg bg-[#1D4ED8] px-2.5 py-1 font-bold text-white hover:bg-[#1E40AF]"
                               >
                                 {m.kind === 'IMAGE'
                                   ? `Xem ảnh${m.galleryUrls?.length ? ` (${m.galleryUrls.length})` : ''}`
@@ -667,7 +667,7 @@ export const ReferenceLibraryModal: React.FC<Props> = ({
                               href={m.url}
                               target="_blank"
                               rel="noreferrer"
-                              className="rounded-lg border border-slate-200 bg-white px-2.5 py-1 font-semibold text-slate-700 hover:border-[#0B6E5C] hover:text-[#0B6E5C]"
+                              className="rounded-lg border border-slate-200 bg-white px-2.5 py-1 font-semibold text-slate-700 hover:border-[#1D4ED8] hover:text-[#1D4ED8]"
                             >
                               {m.kind === 'SLIDE'
                                 ? 'Tải PPT'
@@ -680,7 +680,7 @@ export const ReferenceLibraryModal: React.FC<Props> = ({
                                 href={m.sourceUrl}
                                 target="_blank"
                                 rel="noreferrer"
-                                className="px-1 font-semibold text-slate-400 hover:text-[#0B6E5C] hover:underline"
+                                className="px-1 font-semibold text-slate-400 hover:text-[#1D4ED8] hover:underline"
                               >
                                 Bài gốc ↗
                               </a>
@@ -696,7 +696,7 @@ export const ReferenceLibraryModal: React.FC<Props> = ({
                                 onInsertCrawledLesson({ subject: subj, topic: m.title }, '', ag);
                                 onClose();
                               }}
-                              className="rounded-lg bg-emerald-50 px-2 py-1 font-bold text-[#0B6E5C] ring-1 ring-emerald-200 hover:bg-[#0B6E5C] hover:text-white"
+                              className="rounded-lg bg-blue-50 px-2 py-1 font-bold text-[#1D4ED8] ring-1 ring-blue-200 hover:bg-[#1D4ED8] hover:text-white"
                             >
                               + Xếp tiết
                             </button>

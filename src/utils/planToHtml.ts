@@ -48,8 +48,8 @@ export function buildInitialWordHtml(plan: WeeklyPlanDocument, objectives: Objec
   parts.push(`
     <p style="text-align: center;">${esc(plan.governingBody.toUpperCase())}</p>
     <p style="text-align: center;"><strong>${esc(plan.schoolName.toUpperCase())}</strong></p>
-    <p style="text-align: center;"><span style="color: #0B6E5C;">────────── ★ ──────────</span></p>
-    <h1 style="text-align: center;"><span style="color: #0B6E5C;">KẾ HOẠCH GIÁO DỤC MẦM NON</span></h1>
+    <p style="text-align: center;"><span style="color: #1D4ED8;">────────── ★ ──────────</span></p>
+    <h1 style="text-align: center;"><span style="color: #1D4ED8;">KẾ HOẠCH GIÁO DỤC MẦM NON</span></h1>
     <p style="text-align: center;"><strong>NĂM HỌC ${esc(plan.schoolYear)}</strong></p>
     <p style="text-align: center;"><strong>CHỦ ĐỀ: ${esc(plan.themeName.toUpperCase())}</strong></p>
     <p style="text-align: center;"><strong>Chủ đề nhánh Tuần ${plan.weekNumber}: ${esc(plan.subThemeName)}</strong></p>
@@ -61,7 +61,7 @@ export function buildInitialWordHtml(plan: WeeklyPlanDocument, objectives: Objec
   // 2. PHẦN CHỦ ĐỀ (nếu là Tuần 1)
   if (plan.includeThemeSection) {
     parts.push(`
-      <h1 style="text-align: center;"><span style="color: #0B6E5C;">CHỦ ĐỀ: ${esc(plan.themeName.toUpperCase())}</span></h1>
+      <h1 style="text-align: center;"><span style="color: #1D4ED8;">CHỦ ĐỀ: ${esc(plan.themeName.toUpperCase())}</span></h1>
       <p style="text-align: center;"><em>Thời gian thực hiện: ${plan.themeTotalWeeks} tuần (Từ ${esc(fmtDateLongVN(plan.themeStartDate))} đến ${esc(fmtDateLongVN(plan.themeEndDate))})</em></p>
       <h2>I. MỤC TIÊU CHỦ ĐỀ</h2>
     `);
@@ -80,7 +80,7 @@ export function buildInitialWordHtml(plan: WeeklyPlanDocument, objectives: Objec
       for (const code of block.mtCodes) {
         const obj = mtMap.get(code);
         parts.push(
-          `<li><strong><span style="color: #0B6E5C;">${esc(code)}.</span></strong> ${esc(obj ? obj.description : '(Theo khung chuẩn Chương trình GDMN)')}</li>`
+          `<li><strong><span style="color: #1D4ED8;">${esc(code)}.</span></strong> ${esc(obj ? obj.description : '(Theo khung chuẩn Chương trình GDMN)')}</li>`
         );
       }
       parts.push(`</ul>`);
@@ -119,7 +119,7 @@ export function buildInitialWordHtml(plan: WeeklyPlanDocument, objectives: Objec
 
   // 3. KẾ HOẠCH HOẠT ĐỘNG GIÁO DỤC TUẦN
   parts.push(`
-    <h1 style="text-align: center;"><span style="color: #0B6E5C;">KẾ HOẠCH HOẠT ĐỘNG GIÁO DỤC TUẦN ${plan.weekNumber}</span></h1>
+    <h1 style="text-align: center;"><span style="color: #1D4ED8;">KẾ HOẠCH HOẠT ĐỘNG GIÁO DỤC TUẦN ${plan.weekNumber}</span></h1>
     <p style="text-align: center;"><strong>Chủ đề nhánh: ${esc(plan.subThemeName)}</strong></p>
     <p style="text-align: center;"><em>Thời gian thực hiện: Từ ${esc(fmtDateVN(plan.weekStartDate))} đến ${esc(fmtDateVN(plan.weekEndDate))}</em></p>
     <h2>A. MỤC TIÊU TUẦN</h2>
@@ -215,7 +215,7 @@ export function buildInitialWordHtml(plan: WeeklyPlanDocument, objectives: Objec
         ? [
             `<p><strong>${esc(les.topicTitle)}</strong></p>`,
             ...les.subTopics.filter((x) => x.trim()).map((st) => `<p>${esc(st)}</p>`),
-            les.linkedMtCodes.length ? `<p><em><span style="color: #0B6E5C;">(${esc(les.linkedMtCodes.join(', '))})</span></em></p>` : '',
+            les.linkedMtCodes.length ? `<p><em><span style="color: #1D4ED8;">(${esc(les.linkedMtCodes.join(', '))})</span></em></p>` : '',
           ].join('')
         : '<p>—</p>';
       parts.push(`<tr>`);
@@ -308,14 +308,14 @@ export function buildInitialWordHtml(plan: WeeklyPlanDocument, objectives: Objec
     if (day.isHoliday) {
       parts.push(`
         <hr />
-        <h2 style="text-align: center;"><span style="color: #0B6E5C;">${esc(day.dayLabel.toUpperCase())}, ${esc(fmtDateLongVN(day.dateStr).toUpperCase())}</span></h2>
+        <h2 style="text-align: center;"><span style="color: #1D4ED8;">${esc(day.dayLabel.toUpperCase())}, ${esc(fmtDateLongVN(day.dateStr).toUpperCase())}</span></h2>
         <p style="text-align: center;"><strong><em>(${esc(day.holidayName || 'NGHỈ LỄ THEO QUY ĐỊNH NHÀ NƯỚC')})</em></strong></p>
       `);
       continue;
     }
     parts.push(`
       <hr />
-      <h2 style="text-align: center;"><span style="color: #0B6E5C;">${esc(day.dayLabel.toUpperCase())}, ${esc(fmtDateLongVN(day.dateStr).toUpperCase())}</span></h2>
+      <h2 style="text-align: center;"><span style="color: #1D4ED8;">${esc(day.dayLabel.toUpperCase())}, ${esc(fmtDateLongVN(day.dateStr).toUpperCase())}</span></h2>
       <p><strong>A. ĐÓN TRẺ – THỂ DỤC SÁNG – ĐIỂM DANH</strong></p>
       <ul>
         ${plan.welcomeRoutineNotes.filter((w) => w.trim()).map((w) => `<li>${escClean(w)}</li>`).join('')}
@@ -327,7 +327,7 @@ export function buildInitialWordHtml(plan: WeeklyPlanDocument, objectives: Objec
         <li><strong>Quan sát có chủ đích:</strong> ${esc(day.outdoorObservation)}</li>
         <li>${esc(tcvdTitle)} &nbsp;|&nbsp; ${esc(tcdgTitle)} &nbsp;|&nbsp; Chơi tự do với đồ chơi sân trường.</li>
       </ul>
-      <p><strong><span style="color: #0B6E5C;">C. HOẠT ĐỘNG CÓ CHỦ ĐÍCH</span></strong></p>
+      <p><strong><span style="color: #1D4ED8;">C. HOẠT ĐỘNG CÓ CHỦ ĐÍCH</span></strong></p>
     `);
 
     day.mainLessons.forEach((les, idx) => {
@@ -337,7 +337,7 @@ export function buildInitialWordHtml(plan: WeeklyPlanDocument, objectives: Objec
 
     parts.push(`
       <p><strong>D. HOẠT ĐỘNG GÓC:</strong> ${esc(plan.cornerTable.map((c) => `${c.cornerName} (${c.contents.map(stripCornerLabel).filter(Boolean).join(', ')})`).join('; '))}.</p>
-      <p><strong><span style="color: #0B6E5C;">E. HOẠT ĐỘNG CHIỀU</span></strong></p>
+      <p><strong><span style="color: #1D4ED8;">E. HOẠT ĐỘNG CHIỀU</span></strong></p>
     `);
     if (day.extracurricularTitle.trim()) {
       parts.push(`<p>- <strong>${esc(day.extracurricularTitle)}</strong></p>`);
@@ -386,7 +386,7 @@ export function buildInitialWordHtml(plan: WeeklyPlanDocument, objectives: Objec
           <p style="text-align: center;"><em>(Ký tên và đóng dấu)</em></p>
           ${
             plan.status === 'APPROVED'
-              ? `<p style="text-align: center;"><strong><span style="color: #0B6E5C;">✓ ĐÃ PHÊ DUYỆT TRỰC TUYẾN</span></strong></p><p style="text-align: center;"><em>${esc(plan.approvedAt ? fmtDateVN(plan.approvedAt.slice(0, 10)) : '')}</em></p>`
+              ? `<p style="text-align: center;"><strong><span style="color: #1D4ED8;">✓ ĐÃ PHÊ DUYỆT TRỰC TUYẾN</span></strong></p><p style="text-align: center;"><em>${esc(plan.approvedAt ? fmtDateVN(plan.approvedAt.slice(0, 10)) : '')}</em></p>`
               : `<p></p><p></p>`
           }
           <p style="text-align: center;"><strong>${esc(plan.approvedBy || plan.principalName)}</strong></p>

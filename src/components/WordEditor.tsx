@@ -111,7 +111,7 @@ interface Props {
 
 const TEXT_COLORS = [
   { label: 'Đen chuẩn', value: '#000000' },
-  { label: 'Xanh BGD', value: '#0B6E5C' },
+  { label: 'Xanh BGD', value: '#1D4ED8' },
   { label: 'Đỏ nhấn mạnh', value: '#DC2626' },
   { label: 'Xanh dương', value: '#1D4ED8' },
   { label: 'Nâu cam', value: '#B45309' },
@@ -262,7 +262,7 @@ export const WordEditor: React.FC<Props> = ({
   const btnCls = (active?: boolean) =>
     `inline-flex h-7 w-7 items-center justify-center rounded-md text-xs transition ${
       active
-        ? 'bg-[#E6F4F1] text-[#0B6E5C] ring-1 ring-[#0B6E5C]/30 font-bold'
+        ? 'bg-[#DBEAFE] text-[#1D4ED8] ring-1 ring-[#1D4ED8]/30 font-bold'
         : 'text-slate-700 hover:bg-slate-100'
     }`;
 
@@ -310,7 +310,7 @@ export const WordEditor: React.FC<Props> = ({
               else editor.chain().focus().toggleHeading({ level: Number(v[1]) as 1 | 2 | 3 }).run();
             }}
             title="Kiểu đoạn văn"
-            className="h-7 rounded-md border border-slate-200 bg-slate-50 px-2 text-xs font-medium text-slate-700 focus:border-[#0B6E5C] focus:outline-none"
+            className="h-7 rounded-md border border-slate-200 bg-slate-50 px-2 text-xs font-medium text-slate-700 focus:border-[#1D4ED8] focus:outline-none"
           >
             <option value="p">Văn bản thường</option>
             <option value="h1">Tiêu đề lớn (H1)</option>
@@ -323,7 +323,7 @@ export const WordEditor: React.FC<Props> = ({
             value={editor.getAttributes('textStyle').fontFamily || 'Times New Roman'}
             onChange={(e) => editor.chain().focus().setFontFamily(e.target.value).run()}
             title="Phông chữ"
-            className="h-7 rounded-md border border-slate-200 bg-slate-50 px-2 text-xs font-medium text-slate-700 focus:border-[#0B6E5C] focus:outline-none"
+            className="h-7 rounded-md border border-slate-200 bg-slate-50 px-2 text-xs font-medium text-slate-700 focus:border-[#1D4ED8] focus:outline-none"
           >
             <option value="Times New Roman">Times New Roman</option>
             <option value="Arial">Arial</option>
@@ -335,7 +335,7 @@ export const WordEditor: React.FC<Props> = ({
             value={editor.getAttributes('textStyle').fontSize || '13pt'}
             onChange={(e) => editor.chain().focus().setFontSize(e.target.value).run()}
             title="Cỡ chữ (chuẩn BGD: 12pt–13pt)"
-            className="h-7 w-16 rounded-md border border-slate-200 bg-slate-50 px-1.5 text-xs font-medium text-slate-700 focus:border-[#0B6E5C] focus:outline-none"
+            className="h-7 w-16 rounded-md border border-slate-200 bg-slate-50 px-1.5 text-xs font-medium text-slate-700 focus:border-[#1D4ED8] focus:outline-none"
           >
             {['11pt', '12pt', '13pt', '14pt', '16pt', '18pt'].map((s) => (
               <option key={s} value={s}>{s}</option>
@@ -492,7 +492,7 @@ export const WordEditor: React.FC<Props> = ({
                 setShowColorMenu(false);
                 setShowHighlightMenu(false);
               }}
-              className="inline-flex h-7 items-center gap-1 rounded-md bg-[#E6F4F1] px-2.5 text-xs font-semibold text-[#0B6E5C] hover:bg-emerald-100"
+              className="inline-flex h-7 items-center gap-1 rounded-md bg-[#DBEAFE] px-2.5 text-xs font-semibold text-[#1D4ED8] hover:bg-blue-100"
             >
               Chèn mẫu Mầm non <ChevronDown className="h-3 w-3" />
             </button>
@@ -505,7 +505,7 @@ export const WordEditor: React.FC<Props> = ({
                       smartInsertIntoEditor(editor, item.html, { mode: 'block' });
                       setShowSnippetMenu(false);
                     }}
-                    className="flex w-full items-center rounded-lg px-3 py-2 text-left text-xs font-medium text-slate-700 hover:bg-[#E6F4F1] hover:text-[#0B6E5C]"
+                    className="flex w-full items-center rounded-lg px-3 py-2 text-left text-xs font-medium text-slate-700 hover:bg-[#DBEAFE] hover:text-[#1D4ED8]"
                   >
                     + {item.label}
                   </button>
@@ -520,7 +520,7 @@ export const WordEditor: React.FC<Props> = ({
           <button
             onClick={() => normalizeWholeEditorDocument(editor)}
             title="Chuẩn hóa toàn trang về đúng phông Times New Roman 13pt, xóa định dạng lỗi & gạch đầu dòng thừa"
-            className="inline-flex h-7 items-center rounded-md px-2 text-xs font-medium text-slate-700 hover:bg-[#E6F4F1] hover:text-[#0B6E5C]"
+            className="inline-flex h-7 items-center rounded-md px-2 text-xs font-medium text-slate-700 hover:bg-[#DBEAFE] hover:text-[#1D4ED8]"
           >
             Chuẩn hóa
           </button>
@@ -539,13 +539,13 @@ export const WordEditor: React.FC<Props> = ({
         {/* Contextual Table Tools Bar (appears automatically when cursor is inside a table!) */}
         {inTable && (
           <div className="mt-1.5 flex flex-wrap items-center gap-1.5 border-t border-slate-100 pt-1.5 text-[11px]">
-            <span className="font-bold text-[#0B6E5C]">Công cụ bảng:</span>
+            <span className="font-bold text-[#1D4ED8]">Công cụ bảng:</span>
             <button onClick={() => editor.chain().focus().addRowBefore().run()} className="rounded bg-slate-100 px-2 py-0.5 hover:bg-slate-200">+ Hàng trên</button>
             <button onClick={() => editor.chain().focus().addRowAfter().run()} className="rounded bg-slate-100 px-2 py-0.5 hover:bg-slate-200">+ Hàng dưới</button>
             <button onClick={() => editor.chain().focus().addColumnBefore().run()} className="rounded bg-slate-100 px-2 py-0.5 hover:bg-slate-200">+ Cột trái</button>
             <button onClick={() => editor.chain().focus().addColumnAfter().run()} className="rounded bg-slate-100 px-2 py-0.5 hover:bg-slate-200">+ Cột phải</button>
-            <button onClick={() => editor.chain().focus().mergeCells().run()} className="rounded bg-emerald-50 px-2 py-0.5 font-semibold text-[#0B6E5C] hover:bg-emerald-100">Gộp ô</button>
-            <button onClick={() => editor.chain().focus().splitCell().run()} className="rounded bg-emerald-50 px-2 py-0.5 font-semibold text-[#0B6E5C] hover:bg-emerald-100">Tách ô</button>
+            <button onClick={() => editor.chain().focus().mergeCells().run()} className="rounded bg-blue-50 px-2 py-0.5 font-semibold text-[#1D4ED8] hover:bg-blue-100">Gộp ô</button>
+            <button onClick={() => editor.chain().focus().splitCell().run()} className="rounded bg-blue-50 px-2 py-0.5 font-semibold text-[#1D4ED8] hover:bg-blue-100">Tách ô</button>
             <button onClick={() => editor.chain().focus().deleteRow().run()} className="rounded bg-rose-50 px-2 py-0.5 text-rose-700 hover:bg-rose-100">Xóa hàng</button>
             <button onClick={() => editor.chain().focus().deleteColumn().run()} className="rounded bg-rose-50 px-2 py-0.5 text-rose-700 hover:bg-rose-100">Xóa cột</button>
             <button onClick={() => editor.chain().focus().deleteTable().run()} className="rounded bg-rose-100 px-2 py-0.5 font-semibold text-rose-800 hover:bg-rose-200">Xóa bảng</button>
@@ -569,7 +569,7 @@ export const WordEditor: React.FC<Props> = ({
             />
             <button
               onClick={handleReplaceAll}
-              className="rounded-lg bg-[#0B6E5C] px-3 py-1 text-xs font-semibold text-white hover:bg-[#085A4B]"
+              className="rounded-lg bg-[#1D4ED8] px-3 py-1 text-xs font-semibold text-white hover:bg-[#1E40AF]"
             >
               Thay thế tất cả
             </button>
@@ -612,7 +612,7 @@ export const WordEditor: React.FC<Props> = ({
               key={z}
               onClick={() => setZoom(z)}
               className={`rounded px-1.5 py-0.5 font-semibold ${
-                zoom === z ? 'bg-[#E6F4F1] text-[#0B6E5C]' : 'text-slate-500 hover:bg-slate-100'
+                zoom === z ? 'bg-[#DBEAFE] text-[#1D4ED8]' : 'text-slate-500 hover:bg-slate-100'
               }`}
             >
               {z}%

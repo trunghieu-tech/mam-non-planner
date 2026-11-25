@@ -28,7 +28,7 @@ export const StepHintBanner: React.FC<Props> = ({ storageKey, text, onOpenGuide 
   };
 
   return (
-    <div className="flex items-center justify-between gap-3 rounded-xl border border-emerald-200/80 bg-[#F2F9F7] px-3.5 py-2 text-xs text-[#074F42]">
+    <div className="flex items-center justify-between gap-3 rounded-xl border border-blue-200/80 bg-[#EFF6FF] px-3.5 py-2 text-xs text-[#1E3A8A]">
       <div className="min-w-0">
         <span className="leading-snug">{text}</span>
       </div>
@@ -36,7 +36,7 @@ export const StepHintBanner: React.FC<Props> = ({ storageKey, text, onOpenGuide 
         {onOpenGuide && (
           <button
             onClick={onOpenGuide}
-            className="font-semibold text-[#0B6E5C] underline-offset-2 hover:underline"
+            className="font-semibold text-[#1D4ED8] underline-offset-2 hover:underline"
           >
             Xem hướng dẫn chi tiết
           </button>

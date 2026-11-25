@@ -228,7 +228,7 @@ export const MtByGradeGuidePanel: React.FC<Props> = ({
                 key={ag.id}
                 onClick={() => onSwitchGrade?.(ag.id)}
                 className={`rounded-lg py-1.5 text-xs font-semibold transition ${
-                  active ? 'bg-[#0B6E5C] text-white' : 'text-slate-600 hover:bg-white'
+                  active ? 'bg-[#1D4ED8] text-white' : 'text-slate-600 hover:bg-white'
                 }`}
               >
                 {ag.short}
@@ -243,7 +243,7 @@ export const MtByGradeGuidePanel: React.FC<Props> = ({
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Tìm mã MT, bài hát, thơ..."
-              className="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-xs focus:border-[#0B6E5C] focus:bg-white focus:outline-none"
+              className="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-xs focus:border-[#1D4ED8] focus:bg-white focus:outline-none"
             />
           </div>
           <select
@@ -271,7 +271,7 @@ export const MtByGradeGuidePanel: React.FC<Props> = ({
                   title={`${d.dayLabel}: ${cnt} tiết chính`}
                   className={`rounded-md px-1.5 py-0.5 text-[10px] font-bold ${
                     cnt > 0
-                      ? 'bg-[#E6F4F1] text-[#0B6E5C]'
+                      ? 'bg-[#DBEAFE] text-[#1D4ED8]'
                       : 'bg-white text-slate-400 ring-1 ring-slate-200'
                   }`}
                 >
@@ -284,7 +284,7 @@ export const MtByGradeGuidePanel: React.FC<Props> = ({
             onClick={() => setPrioritizeTheme((v) => !v)}
             className={`rounded-full px-2.5 py-0.5 text-[10px] font-bold transition ${
               prioritizeTheme
-                ? 'bg-emerald-100 text-[#0B6E5C]'
+                ? 'bg-blue-100 text-[#1D4ED8]'
                 : 'bg-slate-200 text-slate-600'
             }`}
           >
@@ -296,7 +296,7 @@ export const MtByGradeGuidePanel: React.FC<Props> = ({
           <button
             onClick={() => setDomainFilter('ALL')}
             className={`rounded-full px-2.5 py-1 text-xs font-semibold ${
-              domainFilter === 'ALL' ? 'bg-[#0B6E5C] text-white' : 'bg-slate-100 text-slate-600'
+              domainFilter === 'ALL' ? 'bg-[#1D4ED8] text-white' : 'bg-slate-100 text-slate-600'
             }`}
           >
             Tất cả
@@ -309,7 +309,7 @@ export const MtByGradeGuidePanel: React.FC<Props> = ({
                 key={dv.key}
                 onClick={() => setDomainFilter(active ? 'ALL' : dv.key)}
                 className={`rounded-full px-2.5 py-1 text-xs font-semibold transition ${
-                  active ? 'bg-[#0B6E5C] text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+                  active ? 'bg-[#1D4ED8] text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
                 }`}
               >
                 {lbl}
@@ -358,10 +358,10 @@ export const MtByGradeGuidePanel: React.FC<Props> = ({
               >
                 <div className="flex items-center justify-between gap-2">
                   <div className="flex flex-wrap items-center gap-1.5">
-                    <span className="text-xs font-bold text-[#0B6E5C]">{obj.code}</span>
+                    <span className="text-xs font-bold text-[#1D4ED8]">{obj.code}</span>
                     <span className="text-xs text-slate-400">{obj.month}</span>
                     {rel.matchesTheme && (
-                      <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-bold text-emerald-800 ring-1 ring-emerald-200">
+                      <span className="rounded-full bg-blue-50 px-2 py-0.5 text-[10px] font-bold text-blue-800 ring-1 ring-blue-200">
                         Khớp chủ đề
                       </span>
                     )}
@@ -379,8 +379,8 @@ export const MtByGradeGuidePanel: React.FC<Props> = ({
                       }}
                       className={`rounded-lg px-2.5 py-1 text-xs font-semibold ${
                         isAttached
-                          ? 'bg-[#E6F4F1] text-[#0B6E5C]'
-                          : 'bg-slate-100 text-slate-600 hover:bg-[#0B6E5C] hover:text-white'
+                          ? 'bg-[#DBEAFE] text-[#1D4ED8]'
+                          : 'bg-slate-100 text-slate-600 hover:bg-[#1D4ED8] hover:text-white'
                       }`}
                     >
                       {isAttached ? 'Đã gắn' : 'Gắn MT'}
@@ -415,7 +415,7 @@ export const MtByGradeGuidePanel: React.FC<Props> = ({
                                 {item.subject}
                               </span>
                               {already ? (
-                                <span className="text-[11px] font-semibold text-emerald-700">
+                                <span className="text-[11px] font-semibold text-blue-700">
                                   ✓ Đã xếp {already}
                                 </span>
                               ) : (
@@ -433,7 +433,7 @@ export const MtByGradeGuidePanel: React.FC<Props> = ({
                                       e.target.value = '';
                                     }
                                   }}
-                                  className="rounded-lg border border-[#0B6E5C]/30 bg-[#E6F4F1] px-2 py-1 text-xs font-semibold text-[#0B6E5C] focus:outline-none"
+                                  className="rounded-lg border border-[#1D4ED8]/30 bg-[#DBEAFE] px-2 py-1 text-xs font-semibold text-[#1D4ED8] focus:outline-none"
                                 >
                                   <option value="" disabled>
                                     + Xếp vào ngày...
@@ -468,7 +468,7 @@ export const MtByGradeGuidePanel: React.FC<Props> = ({
                           <span className="text-slate-700">{c.topic}</span>
                           <button
                             onClick={() => onAddCornerIdea(c.cornerSubType || 'Góc phân vai', c.topic)}
-                            className="shrink-0 font-semibold text-[#0B6E5C] hover:underline"
+                            className="shrink-0 font-semibold text-[#1D4ED8] hover:underline"
                           >
                             + Góc
                           </button>
@@ -479,7 +479,7 @@ export const MtByGradeGuidePanel: React.FC<Props> = ({
                           <span className="text-slate-700">{r.topic}</span>
                           <button
                             onClick={() => onAddRoutineOrOutdoor(r.slotType, r.topic)}
-                            className="shrink-0 font-semibold text-[#0B6E5C] hover:underline"
+                            className="shrink-0 font-semibold text-[#1D4ED8] hover:underline"
                           >
                             + Tuần
                           </button>

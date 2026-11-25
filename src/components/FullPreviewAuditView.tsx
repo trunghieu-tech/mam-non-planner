@@ -108,7 +108,7 @@ export const FullPreviewAuditView: React.FC<Props> = ({
       {/* LEFT: LIVE A4 DOCUMENT OUTLINE */}
       <aside className="hidden w-60 shrink-0 flex-col border-r border-slate-200 bg-white md:flex">
         <div className="border-b border-slate-100 px-3.5 py-3">
-          <div className="text-[11px] font-bold uppercase tracking-wide text-[#0B6E5C]">
+          <div className="text-[11px] font-bold uppercase tracking-wide text-[#1D4ED8]">
             Mục lục bản in A4 ({headings.length})
           </div>
           <div className="mt-0.5 text-[10px] text-slate-500">
@@ -121,7 +121,7 @@ export const FullPreviewAuditView: React.FC<Props> = ({
               key={h.id}
               onClick={() => jumpToHeading(h.pos)}
               title={h.text}
-              className={`block w-full truncate rounded-md py-1.5 text-left text-xs transition hover:bg-[#E6F4F1] hover:text-[#0B6E5C] ${
+              className={`block w-full truncate rounded-md py-1.5 text-left text-xs transition hover:bg-[#DBEAFE] hover:text-[#1D4ED8] ${
                 h.level === 1
                   ? 'px-2 font-bold text-slate-900'
                   : h.level === 2
@@ -136,7 +136,7 @@ export const FullPreviewAuditView: React.FC<Props> = ({
         <div className="border-t border-slate-100 p-3">
           <button
             onClick={handleResyncNow}
-            className="w-full rounded-xl border border-emerald-200 bg-[#F2F9F7] px-3 py-2 text-[11px] font-semibold text-[#0B6E5C] hover:bg-[#E6F4F1]"
+            className="w-full rounded-xl border border-blue-200 bg-[#EFF6FF] px-3 py-2 text-[11px] font-semibold text-[#1D4ED8] hover:bg-[#DBEAFE]"
           >
             Đồng bộ lại từ Bước 1–3
           </button>
@@ -151,7 +151,7 @@ export const FullPreviewAuditView: React.FC<Props> = ({
             <span
               className={`rounded-full px-2.5 py-0.5 font-bold ${
                 passCount === checks.length
-                  ? 'bg-emerald-100 text-emerald-800'
+                  ? 'bg-blue-100 text-blue-800'
                   : 'bg-amber-100 text-amber-900'
               }`}
             >
@@ -167,7 +167,7 @@ export const FullPreviewAuditView: React.FC<Props> = ({
             </button>
             <button
               onClick={() => setMobileRightOpen(true)}
-              className="rounded-lg bg-[#0B6E5C] px-3 py-1 text-xs font-semibold text-white hover:bg-[#085A4B]"
+              className="rounded-lg bg-[#1D4ED8] px-3 py-1 text-xs font-semibold text-white hover:bg-[#1E40AF]"
             >
               Kiểm duyệt &amp; Xuất
             </button>
@@ -216,7 +216,7 @@ export const FullPreviewAuditView: React.FC<Props> = ({
             <button
               onClick={() => setRightMode('audit')}
               className={`rounded-lg py-1.5 transition ${
-                rightMode === 'audit' ? 'bg-white text-[#0B6E5C] shadow-2xs' : 'text-slate-600'
+                rightMode === 'audit' ? 'bg-white text-[#1D4ED8] shadow-2xs' : 'text-slate-600'
               }`}
             >
               Kiểm duyệt ({passCount}/{checks.length})
@@ -224,7 +224,7 @@ export const FullPreviewAuditView: React.FC<Props> = ({
             <button
               onClick={() => setRightMode('assistant')}
               className={`rounded-lg py-1.5 transition ${
-                rightMode === 'assistant' ? 'bg-white text-[#0B6E5C] shadow-2xs' : 'text-slate-600'
+                rightMode === 'assistant' ? 'bg-white text-[#1D4ED8] shadow-2xs' : 'text-slate-600'
               }`}
             >
               Chèn gợi ý
@@ -252,10 +252,10 @@ export const FullPreviewAuditView: React.FC<Props> = ({
                 onClick={() =>
                   onExportFullDocx(editorRef.current ? editorRef.current.getHTML() : compiledHtml)
                 }
-                className="block w-full rounded-2xl bg-[#0B6E5C] p-3.5 text-left text-white shadow-sm transition hover:bg-[#085A4B]"
+                className="block w-full rounded-2xl bg-[#1D4ED8] p-3.5 text-left text-white shadow-sm transition hover:bg-[#1E40AF]"
               >
                 <div className="text-xs font-bold">Xuất Giáo án đầy đủ (.docx chuẩn BGD)</div>
-                <div className="mt-0.5 text-[11px] text-emerald-100">
+                <div className="mt-0.5 text-[11px] text-blue-100">
                   Đủ 7 phần • Khổ A4 NĐ 30/2020 • Nộp Tổ trưởng &amp; BGH
                 </div>
               </button>
@@ -287,7 +287,7 @@ export const FullPreviewAuditView: React.FC<Props> = ({
                 <span
                   className={`rounded-full px-2 py-0.5 text-[10px] font-bold ${
                     passCount === checks.length
-                      ? 'bg-emerald-100 text-emerald-800'
+                      ? 'bg-blue-100 text-blue-800'
                       : 'bg-amber-100 text-amber-900'
                   }`}
                 >
@@ -300,7 +300,7 @@ export const FullPreviewAuditView: React.FC<Props> = ({
                   key={idx}
                   className={`rounded-xl border p-2.5 text-xs ${
                     c.ok
-                      ? 'border-emerald-200/70 bg-emerald-50/40'
+                      ? 'border-blue-200/70 bg-blue-50/40'
                       : 'border-amber-200 bg-amber-50/60'
                   }`}
                 >
@@ -308,7 +308,7 @@ export const FullPreviewAuditView: React.FC<Props> = ({
                     <span className="font-bold text-slate-800">{c.label}</span>
                     <span
                       className={`shrink-0 rounded px-1.5 py-0.5 text-[10px] font-bold ${
-                        c.ok ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-200 text-amber-950'
+                        c.ok ? 'bg-blue-100 text-blue-800' : 'bg-amber-200 text-amber-950'
                       }`}
                     >
                       {c.ok ? 'Đạt' : 'Cần bổ sung'}

@@ -12,7 +12,7 @@ export async function generateWeeklyXlsx(
   const ws1 = wb.addWorksheet('Ke_Hoach_Tuan');
   ws1.mergeCells('A1:F1');
   ws1.getCell('A1').value = `${plan.schoolName} — KẾ HOẠCH GIÁO DỤC TUẦN ${plan.weekNumber} (${plan.className})`;
-  ws1.getCell('A1').font = { name: 'Calibri', size: 14, bold: true, color: { argb: 'FF0B6E5C' } };
+  ws1.getCell('A1').font = { name: 'Calibri', size: 14, bold: true, color: { argb: 'FF1D4ED8' } };
   ws1.getCell('A1').alignment = { horizontal: 'center', vertical: 'middle' };
   ws1.getRow(1).height = 28;
 
@@ -24,7 +24,7 @@ export async function generateWeeklyXlsx(
   ws1.addRow([]);
   const hdr = ws1.addRow(['Thứ', 'Ngày', 'Môn / Lĩnh vực', 'Đề tài HĐ có chủ đích & Mã MT', 'HĐ ngoài trời', 'HĐ chiều (HĐNK & Giáo án chiều)']);
   hdr.eachCell((cell) => {
-    cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF0B6E5C' } };
+    cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF1D4ED8' } };
     cell.font = { name: 'Calibri', size: 11, bold: true, color: { argb: 'FFFFFFFF' } };
     cell.alignment = { horizontal: 'center', vertical: 'middle', wrapText: true };
   });
@@ -64,7 +64,7 @@ export async function generateWeeklyXlsx(
 
   const hdr2 = ws2.addRow(['Mã MT', 'Lĩnh vực', 'Nội dung mục tiêu', 'Nội dung giáo dục', 'Nguồn trong kế hoạch']);
   hdr2.eachCell((cell) => {
-    cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF0B6E5C' } };
+    cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF1D4ED8' } };
     cell.font = { name: 'Calibri', size: 11, bold: true, color: { argb: 'FFFFFFFF' } };
   });
 

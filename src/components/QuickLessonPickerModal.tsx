@@ -205,9 +205,9 @@ export const QuickLessonPickerModal: React.FC<Props> = ({
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/50 p-4 backdrop-blur-xs">
       <div className="flex max-h-[88vh] w-full max-w-3xl flex-col overflow-hidden rounded-2xl bg-white shadow-2xl">
         {/* Header */}
-        <div className="flex items-center justify-between border-b border-slate-200 bg-[#F2F9F7] px-5 py-3.5">
+        <div className="flex items-center justify-between border-b border-slate-200 bg-[#EFF6FF] px-5 py-3.5">
           <div>
-            <div className="text-xs font-bold uppercase text-[#0B6E5C]">
+            <div className="text-xs font-bold uppercase text-[#1D4ED8]">
               {slotType === 'MAIN' ? `Thêm Tiết học có chủ đích — ${dayLabel}` : `Thêm Hoạt động chiều — ${dayLabel}`}
             </div>
             <p className="mt-0.5 text-xs text-slate-600">
@@ -236,7 +236,7 @@ export const QuickLessonPickerModal: React.FC<Props> = ({
                     onClick={() => setSelectedSubject(subj.code)}
                     className={`rounded-xl border p-2.5 text-left transition ${
                       active
-                        ? 'border-[#0B6E5C] bg-[#E6F4F1] ring-2 ring-[#0B6E5C]/20'
+                        ? 'border-[#1D4ED8] bg-[#DBEAFE] ring-2 ring-[#1D4ED8]/20'
                         : 'border-slate-200 bg-white hover:border-slate-300 hover:bg-slate-50'
                     }`}
                   >
@@ -254,12 +254,12 @@ export const QuickLessonPickerModal: React.FC<Props> = ({
               })}
             </div>
             <div className="mt-2 rounded-lg bg-slate-50 px-3 py-1.5 text-[11px] text-slate-600">
-              <strong className="text-[#0B6E5C]">Khung sư phạm sẽ tự tạo:</strong> {subjectMeta.pedagogySummary}
+              <strong className="text-[#1D4ED8]">Khung sư phạm sẽ tự tạo:</strong> {subjectMeta.pedagogySummary}
             </div>
           </div>
 
           {/* Step B: Quick Custom Input */}
-          <div className="rounded-xl border border-emerald-200/80 bg-[#F8FCFB] p-3">
+          <div className="rounded-xl border border-blue-200/80 bg-[#F5F9FF] p-3">
             <div className="text-xs font-bold text-slate-800">2. Tự nhập nhanh tên đề tài của cô (hoặc chọn sẵn bên dưới):</div>
             <div className="mt-2 flex gap-2">
               <input
@@ -271,12 +271,12 @@ export const QuickLessonPickerModal: React.FC<Props> = ({
                   }
                 }}
                 placeholder={`VD: Nhập tên đề tài môn ${subjectMeta.shortLabel}...`}
-                className="flex-1 rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs focus:border-[#0B6E5C] focus:outline-none"
+                className="flex-1 rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs focus:border-[#1D4ED8] focus:outline-none"
               />
               <button
                 disabled={!customTopic.trim()}
                 onClick={() => handlePickLesson(customTopic)}
-                className="rounded-lg bg-[#0B6E5C] px-4 py-2 text-xs font-semibold text-white hover:bg-[#085A4B] disabled:opacity-40"
+                className="rounded-lg bg-[#1D4ED8] px-4 py-2 text-xs font-semibold text-white hover:bg-[#1E40AF] disabled:opacity-40"
               >
                 + Thêm ngay
               </button>
@@ -290,7 +290,7 @@ export const QuickLessonPickerModal: React.FC<Props> = ({
                 <button
                   onClick={() => setSourceTab('crawled')}
                   className={`rounded-lg px-3 py-1 transition ${
-                    sourceTab === 'crawled' ? 'bg-white text-[#0B6E5C] shadow-2xs' : 'text-slate-600'
+                    sourceTab === 'crawled' ? 'bg-white text-[#1D4ED8] shadow-2xs' : 'text-slate-600'
                   }`}
                 >
                   Đề tài thực tế môn {selectedSubject} ({crawledLessons.length})
@@ -298,7 +298,7 @@ export const QuickLessonPickerModal: React.FC<Props> = ({
                 <button
                   onClick={() => setSourceTab('mt')}
                   className={`rounded-lg px-3 py-1 transition ${
-                    sourceTab === 'mt' ? 'bg-white text-[#0B6E5C] shadow-2xs' : 'text-slate-600'
+                    sourceTab === 'mt' ? 'bg-white text-[#1D4ED8] shadow-2xs' : 'text-slate-600'
                   }`}
                 >
                   Gợi ý chuẩn theo 345 MT ({matchingObjectives.length})
@@ -309,7 +309,7 @@ export const QuickLessonPickerModal: React.FC<Props> = ({
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
                   placeholder="Lọc nhanh tên bài..."
-                  className="w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs focus:border-[#0B6E5C] focus:bg-white focus:outline-none"
+                  className="w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs focus:border-[#1D4ED8] focus:bg-white focus:outline-none"
                 />
               </div>
             </div>
@@ -329,13 +329,13 @@ export const QuickLessonPickerModal: React.FC<Props> = ({
                       className={`flex items-center justify-between gap-3 rounded-xl border p-3 transition ${
                         already
                           ? 'border-slate-200 bg-slate-50/70 opacity-75'
-                          : 'border-slate-200 bg-white hover:border-[#0B6E5C] hover:bg-[#F8FCFB]'
+                          : 'border-slate-200 bg-white hover:border-[#1D4ED8] hover:bg-[#F5F9FF]'
                       }`}
                     >
                       <div className="min-w-0">
                         <div className="flex flex-wrap items-center gap-1.5">
                           {les.mtCode && (
-                            <span className="rounded bg-[#E6F4F1] px-1.5 py-0.5 text-[10px] font-bold text-[#0B6E5C]">
+                            <span className="rounded bg-[#DBEAFE] px-1.5 py-0.5 text-[10px] font-bold text-[#1D4ED8]">
                               {les.mtCode}
                             </span>
                           )}
@@ -350,7 +350,7 @@ export const QuickLessonPickerModal: React.FC<Props> = ({
                             </span>
                           )}
                           {rel.matchesTheme && (
-                            <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-bold text-emerald-800 ring-1 ring-emerald-200">
+                            <span className="rounded-full bg-blue-50 px-2 py-0.5 text-[10px] font-bold text-blue-800 ring-1 ring-blue-200">
                               Khớp chủ đề
                             </span>
                           )}
@@ -362,7 +362,7 @@ export const QuickLessonPickerModal: React.FC<Props> = ({
                       </div>
                       <button
                         onClick={() => handlePickLesson(les.topic, les.mtCode, objByCode.get(les.mtCode))}
-                        className="shrink-0 rounded-lg bg-[#0B6E5C] px-3 py-1.5 text-xs font-semibold text-white hover:bg-[#085A4B]"
+                        className="shrink-0 rounded-lg bg-[#1D4ED8] px-3 py-1.5 text-xs font-semibold text-white hover:bg-[#1E40AF]"
                       >
                         Chọn bài này
                       </button>
@@ -387,16 +387,16 @@ export const QuickLessonPickerModal: React.FC<Props> = ({
                   return (
                     <div key={obj.id} className="rounded-xl border border-slate-200 bg-white p-3">
                       <div className="flex flex-wrap items-center gap-2">
-                        <span className="rounded bg-[#0B6E5C] px-1.5 py-0.5 text-[10px] font-bold text-white">
+                        <span className="rounded bg-[#1D4ED8] px-1.5 py-0.5 text-[10px] font-bold text-white">
                           {obj.code}
                         </span>
                         {inMonth && (
-                          <span className="rounded-full bg-[#E6F4F1] px-2 py-0.5 text-[10px] font-bold text-[#0B6E5C] ring-1 ring-emerald-300">
+                          <span className="rounded-full bg-[#DBEAFE] px-2 py-0.5 text-[10px] font-bold text-[#1D4ED8] ring-1 ring-blue-300">
                             MT Tháng này
                           </span>
                         )}
                         {rel.matchesTheme && (
-                          <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-bold text-emerald-800 ring-1 ring-emerald-200">
+                          <span className="rounded-full bg-blue-50 px-2 py-0.5 text-[10px] font-bold text-blue-800 ring-1 ring-blue-200">
                             Khớp chủ đề
                           </span>
                         )}
@@ -408,7 +408,7 @@ export const QuickLessonPickerModal: React.FC<Props> = ({
                           <button
                             type="button"
                             onClick={() => handlePickLesson(obj.eduContent, obj.code, obj)}
-                            className="shrink-0 font-bold text-[#0B6E5C] hover:underline"
+                            className="shrink-0 font-bold text-[#1D4ED8] hover:underline"
                           >
                             + Chọn nội dung này
                           </button>
@@ -430,11 +430,11 @@ export const QuickLessonPickerModal: React.FC<Props> = ({
                                     Đã có trong tuần
                                   </span>
                                 )}
-                                <span className="font-semibold text-[#074F42]">{act.type}:</span> {act.text}
+                                <span className="font-semibold text-[#1E3A8A]">{act.type}:</span> {act.text}
                               </div>
                               <button
                                 onClick={() => handlePickLesson(act.text, obj.code, obj)}
-                                className="shrink-0 rounded-md bg-white px-2.5 py-1 text-[11px] font-semibold text-[#0B6E5C] ring-1 ring-slate-200 hover:bg-[#0B6E5C] hover:text-white"
+                                className="shrink-0 rounded-md bg-white px-2.5 py-1 text-[11px] font-semibold text-[#1D4ED8] ring-1 ring-slate-200 hover:bg-[#1D4ED8] hover:text-white"
                               >
                                 + Chọn
                               </button>

@@ -118,7 +118,7 @@ export const ObjectiveBankView: React.FC<Props> = ({
             <p className="mt-0.5 text-xs text-slate-500">
               Phân màu trực quan theo 5 lĩnh vực phát triển — bấm chèn trực tiếp vào con trỏ Word.
               {activePlanTitle && (
-                <span className="ml-1.5 rounded bg-[#E6F4F1] px-2 py-0.5 font-semibold text-[#0B6E5C]">
+                <span className="ml-1.5 rounded bg-[#DBEAFE] px-2 py-0.5 font-semibold text-[#1D4ED8]">
                   Đang soạn: {activePlanTitle}
                 </span>
               )}
@@ -134,12 +134,12 @@ export const ObjectiveBankView: React.FC<Props> = ({
                 }}
                 className={`rounded-xl border px-3 py-2 text-left transition ${
                   ag.id === selectedAgeGroup
-                    ? 'border-[#0B6E5C] bg-[#0B6E5C] text-white shadow-xs'
+                    ? 'border-[#1D4ED8] bg-[#1D4ED8] text-white shadow-xs'
                     : 'border-slate-200 bg-slate-50 text-slate-700 hover:bg-white'
                 }`}
               >
                 <div className="text-xs font-bold">{ag.short}</div>
-                <div className={`text-[10px] ${ag.id === selectedAgeGroup ? 'text-emerald-100' : 'text-slate-400'}`}>
+                <div className={`text-[10px] ${ag.id === selectedAgeGroup ? 'text-blue-100' : 'text-slate-400'}`}>
                   {gradeMtCounts[ag.id] || 0} MT chuẩn
                 </div>
               </button>
@@ -153,7 +153,7 @@ export const ObjectiveBankView: React.FC<Props> = ({
             onClick={() => setDomainFilter('ALL')}
             className={`rounded-xl border px-3 py-2 text-left transition ${
               domainFilter === 'ALL'
-                ? 'border-[#0B6E5C] bg-[#0B6E5C] text-white'
+                ? 'border-[#1D4ED8] bg-[#1D4ED8] text-white'
                 : 'border-slate-200 bg-slate-50 text-slate-700 hover:bg-white'
             }`}
           >
@@ -190,7 +190,7 @@ export const ObjectiveBankView: React.FC<Props> = ({
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Tìm mã MT (VD: MT15), từ khóa bài thơ, trò chơi, toán, vận động..."
-              className="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm focus:border-[#0B6E5C] focus:bg-white focus:outline-none"
+              className="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm focus:border-[#1D4ED8] focus:bg-white focus:outline-none"
             />
           </div>
           <select
@@ -243,7 +243,7 @@ export const ObjectiveBankView: React.FC<Props> = ({
                 </div>
                 <button
                   onClick={() => onAttachMtToPlan(obj)}
-                  className="inline-flex items-center rounded-lg border border-[#0B6E5C] px-2.5 py-1 text-xs font-semibold text-[#0B6E5C] hover:bg-[#E6F4F1]"
+                  className="inline-flex items-center rounded-lg border border-[#1D4ED8] px-2.5 py-1 text-xs font-semibold text-[#1D4ED8] hover:bg-[#DBEAFE]"
                 >
                   + Chèn dòng {obj.code}
                 </button>
@@ -276,7 +276,7 @@ export const ObjectiveBankView: React.FC<Props> = ({
                         <div className="flex justify-end">
                           <button
                             onClick={() => onInsertActivityToPlan(obj, act)}
-                            className="inline-flex items-center rounded-lg bg-[#0B6E5C] px-2.5 py-1 text-[11px] font-semibold text-white hover:bg-[#085A4B]"
+                            className="inline-flex items-center rounded-lg bg-[#1D4ED8] px-2.5 py-1 text-[11px] font-semibold text-white hover:bg-[#1E40AF]"
                           >
                             + Chèn khung tiết vào Word
                           </button>

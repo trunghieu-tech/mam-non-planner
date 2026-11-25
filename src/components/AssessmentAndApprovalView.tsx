@@ -653,7 +653,7 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
               onClick={() => setSubTab('daily')}
               className={`rounded-lg px-3 py-2 text-xs font-bold transition ${
                 subTab === 'daily'
-                  ? 'bg-[#0B6E5C] text-white shadow-2xs'
+                  ? 'bg-[#1D4ED8] text-white shadow-2xs'
                   : 'text-slate-600 hover:bg-white hover:text-slate-900'
               }`}
             >
@@ -663,7 +663,7 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
               onClick={() => setSubTab('assessment')}
               className={`rounded-lg px-3 py-2 text-xs font-bold transition ${
                 subTab === 'assessment'
-                  ? 'bg-[#0B6E5C] text-white shadow-2xs'
+                  ? 'bg-[#1D4ED8] text-white shadow-2xs'
                   : 'text-slate-600 hover:bg-white hover:text-slate-900'
               }`}
             >
@@ -673,7 +673,7 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
               onClick={() => setSubTab('yearEnd')}
               className={`rounded-lg px-3 py-2 text-xs font-bold transition ${
                 subTab === 'yearEnd'
-                  ? 'bg-[#0B6E5C] text-white shadow-2xs'
+                  ? 'bg-[#1D4ED8] text-white shadow-2xs'
                   : 'text-slate-600 hover:bg-white hover:text-slate-900'
               }`}
             >
@@ -683,7 +683,7 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
               onClick={() => setSubTab('approval')}
               className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-2 text-xs font-bold transition ${
                 subTab === 'approval'
-                  ? 'bg-[#0B6E5C] text-white shadow-2xs'
+                  ? 'bg-[#1D4ED8] text-white shadow-2xs'
                   : 'text-slate-600 hover:bg-white hover:text-slate-900'
               }`}
             >
@@ -694,7 +694,7 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
                 </span>
               )}
               {plan.status === 'APPROVED' && (
-                <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-[10px] font-bold text-emerald-800">
+                <span className="rounded-full bg-blue-100 px-2 py-0.5 text-[10px] font-bold text-blue-800">
                   Đã ký
                 </span>
               )}
@@ -704,7 +704,7 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
           {subTab === 'daily' ? (
             <button
               onClick={handleSyncFromDailyEvaluations}
-              className="rounded-xl bg-[#0B6E5C] px-4 py-2 text-xs font-bold text-white hover:bg-[#085A4B]"
+              className="rounded-xl bg-[#1D4ED8] px-4 py-2 text-xs font-bold text-white hover:bg-[#1E40AF]"
             >
               Đồng bộ sang Cuối Chủ đề / Tháng →
             </button>
@@ -713,14 +713,14 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
               <button
                 onClick={() => handleExportDocx('individual')}
                 disabled={exportingDocx !== null}
-                className="rounded-xl border border-emerald-200 bg-[#F2F9F7] px-3.5 py-2 text-xs font-bold text-[#0B6E5C] transition hover:bg-[#E6F4F1] disabled:opacity-60"
+                className="rounded-xl border border-blue-200 bg-[#EFF6FF] px-3.5 py-2 text-xs font-bold text-[#1D4ED8] transition hover:bg-[#DBEAFE] disabled:opacity-60"
               >
                 {exportingDocx === 'individual' ? 'Đang xuất...' : 'Xuất Phiếu từng trẻ (.docx)'}
               </button>
               <button
                 onClick={() => handleExportDocx('summary')}
                 disabled={exportingDocx !== null}
-                className="rounded-xl bg-[#0B6E5C] px-3.5 py-2 text-xs font-bold text-white shadow-2xs transition hover:bg-[#085A4B] disabled:opacity-60"
+                className="rounded-xl bg-[#1D4ED8] px-3.5 py-2 text-xs font-bold text-white shadow-2xs transition hover:bg-[#1E40AF] disabled:opacity-60"
               >
                 {exportingDocx === 'summary' ? 'Đang xuất...' : 'Xuất Tổng hợp Chủ đề (.docx)'}
               </button>
@@ -728,7 +728,7 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
           ) : subTab === 'yearEnd' ? (
             <button
               onClick={handleSyncYearEnd}
-              className="rounded-xl bg-[#0B6E5C] px-4 py-2 text-xs font-bold text-white hover:bg-[#085A4B]"
+              className="rounded-xl bg-[#1D4ED8] px-4 py-2 text-xs font-bold text-white hover:bg-[#1E40AF]"
             >
               Đồng bộ từ tất cả Chủ đề / Tháng
             </button>
@@ -739,7 +739,7 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
                 onClick={() => setActiveRole('TEACHER')}
                 className={`rounded-lg px-3 py-1 font-bold transition ${
                   activeRole === 'TEACHER'
-                    ? 'bg-white text-[#0B6E5C] shadow-2xs ring-1 ring-slate-200'
+                    ? 'bg-white text-[#1D4ED8] shadow-2xs ring-1 ring-slate-200'
                     : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
@@ -767,7 +767,7 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
             <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-2xs">
               <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-4">
                 <div>
-                  <div className="text-xs font-bold uppercase tracking-wide text-[#0B6E5C]">
+                  <div className="text-xs font-bold uppercase tracking-wide text-[#1D4ED8]">
                     Đánh giá Trẻ Hàng ngày theo Tiết dạy có gắn Mã MT • Tuần {plan.weekNumber}
                   </div>
                   <p className="mt-1 text-xs text-slate-500">
@@ -791,13 +791,13 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
                       onClick={() => setSelectedDayIdx(idx)}
                       className={`inline-flex items-center gap-2 rounded-xl border px-3.5 py-2 text-xs font-bold transition ${
                         active
-                          ? 'border-[#0B6E5C] bg-[#0B6E5C] text-white'
+                          ? 'border-[#1D4ED8] bg-[#1D4ED8] text-white'
                           : 'border-slate-200 bg-slate-50 text-slate-700 hover:bg-white'
                       }`}
                     >
                       <span
                         className={`h-2 w-2 rounded-full ${
-                          hasMt ? (active ? 'bg-emerald-300' : 'bg-emerald-500') : 'bg-slate-300'
+                          hasMt ? (active ? 'bg-blue-300' : 'bg-blue-500') : 'bg-slate-300'
                         }`}
                       />
                       <span>
@@ -816,22 +816,22 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
                 <div className="mt-4 overflow-x-auto rounded-xl border border-slate-200">
                   <table className="w-full border-collapse text-left text-xs">
                     <thead>
-                      <tr className="bg-[#0B6E5C] text-white">
-                        <th className="w-10 border-r border-emerald-700/50 px-2.5 py-2.5 text-center font-bold">
+                      <tr className="bg-[#1D4ED8] text-white">
+                        <th className="w-10 border-r border-blue-700/50 px-2.5 py-2.5 text-center font-bold">
                           STT
                         </th>
-                        <th className="min-w-[180px] border-r border-emerald-700/50 px-3 py-2.5 font-bold">
+                        <th className="min-w-[180px] border-r border-blue-700/50 px-3 py-2.5 font-bold">
                           Họ và tên trẻ
                         </th>
                         {dayMtsWithTopics.map((m) => (
                           <th
                             key={m.code}
-                            className="border-r border-emerald-700/50 px-3 py-2 text-center font-bold last:border-r-0"
+                            className="border-r border-blue-700/50 px-3 py-2 text-center font-bold last:border-r-0"
                           >
                             <div>
                               {m.code}: {m.obj?.description || ''}
                             </div>
-                            <div className="mt-0.5 text-[10px] font-normal text-emerald-100">
+                            <div className="mt-0.5 text-[10px] font-normal text-blue-100">
                               {m.topics.join(' · ')}
                             </div>
                           </th>
@@ -860,7 +860,7 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
                                   onClick={() => toggleDailyCell(st.id, m.code)}
                                   className={`inline-flex min-w-[96px] items-center justify-center rounded-lg px-3 py-1.5 text-[11px] font-bold transition ${
                                     lv === 'ACHIEVED'
-                                      ? 'bg-emerald-50 text-emerald-700 hover:bg-emerald-100'
+                                      ? 'bg-blue-50 text-blue-700 hover:bg-blue-100'
                                       : lv === 'NEEDS_SUPPORT'
                                       ? 'bg-amber-100 text-amber-900 ring-1 ring-amber-300'
                                       : 'bg-slate-100 text-slate-400'
@@ -893,7 +893,7 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
             <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-2xs">
               <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-100 pb-4">
                 <div>
-                  <div className="text-xs font-bold uppercase tracking-wide text-[#0B6E5C]">
+                  <div className="text-xs font-bold uppercase tracking-wide text-[#1D4ED8]">
                     Hồ sơ Đánh giá Sự phát triển của trẻ cuối chủ đề • Lớp {plan.className}
                   </div>
                   <div className="mt-1 flex flex-wrap items-center gap-2">
@@ -901,7 +901,7 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
                     <select
                       value={selectedThemeName}
                       onChange={(e) => setSelectedThemeName(e.target.value)}
-                      className="rounded-xl border border-slate-300 bg-white px-3 py-1.5 text-sm font-bold text-slate-900 focus:border-[#0B6E5C] focus:outline-none"
+                      className="rounded-xl border border-slate-300 bg-white px-3 py-1.5 text-sm font-bold text-slate-900 focus:border-[#1D4ED8] focus:outline-none"
                     >
                       {availableThemes.map((th) => (
                         <option key={th} value={th}>
@@ -915,7 +915,7 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
                 <div className="flex flex-wrap items-center gap-2">
                   <button
                     onClick={onGoToAnnualRoster}
-                    className="rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-xs font-semibold text-slate-700 hover:border-[#0B6E5C] hover:bg-white hover:text-[#0B6E5C]"
+                    className="rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-xs font-semibold text-slate-700 hover:border-[#1D4ED8] hover:bg-white hover:text-[#1D4ED8]"
                   >
                     Danh sách trẻ ({students.length} bé)
                   </button>
@@ -927,7 +927,7 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
                   </button>
                   <button
                     onClick={markAllAchieved}
-                    className="rounded-xl border border-emerald-200 bg-emerald-50 px-3 py-2 text-xs font-bold text-emerald-800 hover:bg-emerald-100"
+                    className="rounded-xl border border-blue-200 bg-blue-50 px-3 py-2 text-xs font-bold text-blue-800 hover:bg-blue-100"
                   >
                     Đánh dấu tất cả Đạt ✓
                   </button>
@@ -941,13 +941,13 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
                 </div>
                 <div className="rounded-xl border border-slate-100 bg-slate-50/80 p-3">
                   <div className="text-[11px] font-medium text-slate-500">Số Mã MT trong chủ đề</div>
-                  <div className="mt-1 text-xl font-bold text-[#0B6E5C]">
+                  <div className="mt-1 text-xl font-bold text-[#1D4ED8]">
                     {draftAssessment.mtCodes.length} mục tiêu
                   </div>
                 </div>
-                <div className="rounded-xl border border-emerald-100 bg-emerald-50/60 p-3">
-                  <div className="text-[11px] font-medium text-emerald-800">Tỷ lệ Đạt (trên trẻ có ĐG)</div>
-                  <div className="mt-1 text-xl font-bold text-emerald-700">{stats.avgPct}%</div>
+                <div className="rounded-xl border border-blue-100 bg-blue-50/60 p-3">
+                  <div className="text-[11px] font-medium text-blue-800">Tỷ lệ Đạt (trên trẻ có ĐG)</div>
+                  <div className="mt-1 text-xl font-bold text-blue-700">{stats.avgPct}%</div>
                 </div>
                 <div className="rounded-xl border border-amber-100 bg-amber-50/60 p-3">
                   <div className="text-[11px] font-medium text-amber-900">Trẻ cần rèn / Miễn ĐG</div>
@@ -992,7 +992,7 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
                             draftAssessment[field.key] === samples[0] ? samples[1] : samples[0];
                           persistAssessment({ ...draftAssessment, [field.key]: nextSample });
                         }}
-                        className="text-[11px] font-semibold text-[#0B6E5C] hover:underline"
+                        className="text-[11px] font-semibold text-[#1D4ED8] hover:underline"
                       >
                         Đổi câu mẫu gợi ý
                       </button>
@@ -1003,7 +1003,7 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
                       onChange={(e) =>
                         persistAssessment({ ...draftAssessment, [field.key]: e.target.value })
                       }
-                      className="w-full rounded-xl border border-slate-200 bg-slate-50/60 p-2.5 text-xs leading-relaxed text-slate-800 focus:border-[#0B6E5C] focus:bg-white focus:outline-none"
+                      className="w-full rounded-xl border border-slate-200 bg-slate-50/60 p-2.5 text-xs leading-relaxed text-slate-800 focus:border-[#1D4ED8] focus:bg-white focus:outline-none"
                     />
                   </div>
                 ))}
@@ -1018,7 +1018,7 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
                 </h3>
                 <p className="mt-0.5 text-xs text-slate-500">
                   Bấm từng ô để chuyển vòng 3 mức:{' '}
-                  <strong className="text-emerald-700">Đạt ✓ (+)</strong> →{' '}
+                  <strong className="text-blue-700">Đạt ✓ (+)</strong> →{' '}
                   <strong className="text-amber-700">Rèn △ (-)</strong> →{' '}
                   <strong className="text-slate-500">Không ĐG —</strong> (dùng khi trẻ nghỉ ốm dài ngày, không làm sai % lớp).
                 </p>
@@ -1032,11 +1032,11 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
                 <div className="mt-4 overflow-x-auto rounded-xl border border-slate-200">
                   <table className="w-full border-collapse text-left text-xs">
                     <thead>
-                      <tr className="bg-[#0B6E5C] text-white">
-                        <th className="w-10 border-r border-emerald-700/50 px-2 py-2.5 text-center font-bold">
+                      <tr className="bg-[#1D4ED8] text-white">
+                        <th className="w-10 border-r border-blue-700/50 px-2 py-2.5 text-center font-bold">
                           STT
                         </th>
-                        <th className="sticky left-0 z-10 min-w-[165px] border-r border-emerald-700/50 bg-[#0B6E5C] px-3 py-2.5 font-bold">
+                        <th className="sticky left-0 z-10 min-w-[165px] border-r border-blue-700/50 bg-[#1D4ED8] px-3 py-2.5 font-bold">
                           Họ và tên trẻ
                         </th>
                         {draftAssessment.mtCodes.map((code) => {
@@ -1045,18 +1045,18 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
                             <th
                               key={code}
                               title={o ? `${code} (${o.domain}): ${o.description}` : code}
-                              className="min-w-[74px] cursor-help border-r border-emerald-700/50 px-2 py-2 text-center font-bold"
+                              className="min-w-[74px] cursor-help border-r border-blue-700/50 px-2 py-2 text-center font-bold"
                             >
                               <div>{code}</div>
                               {o && (
-                                <div className="mt-0.5 max-w-[82px] truncate text-[9px] font-normal text-emerald-100">
+                                <div className="mt-0.5 max-w-[82px] truncate text-[9px] font-normal text-blue-100">
                                   {o.description}
                                 </div>
                               )}
                             </th>
                           );
                         })}
-                        <th className="min-w-[72px] border-r border-emerald-700/50 px-2 py-2.5 text-center font-bold">
+                        <th className="min-w-[72px] border-r border-blue-700/50 px-2 py-2.5 text-center font-bold">
                           Tổng Đạt
                         </th>
                         <th className="min-w-[180px] px-3 py-2.5 font-bold">
@@ -1095,7 +1095,7 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
                                     title="Bấm để chuyển vòng: Đạt ✓ → Rèn △ → Không ĐG —"
                                     className={`inline-flex w-full flex-col items-center justify-center rounded-lg px-2 py-1 text-[11px] font-bold transition ${
                                       lv === 'ACHIEVED'
-                                        ? 'bg-emerald-50 text-emerald-700 hover:bg-emerald-100'
+                                        ? 'bg-blue-50 text-blue-700 hover:bg-blue-100'
                                         : lv === 'NEEDS_SUPPORT'
                                         ? 'bg-amber-100 text-amber-900 ring-1 ring-amber-300 hover:bg-amber-200'
                                         : 'bg-slate-100 text-slate-400 hover:bg-slate-200'
@@ -1125,7 +1125,7 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
                                 value={draftAssessment.studentNotes?.[st.id] ?? st.note ?? ''}
                                 onChange={(e) => updateStudentNote(st.id, e.target.value)}
                                 placeholder="Nhận xét riêng cho bé..."
-                                className="w-full rounded-lg border border-slate-200 bg-slate-50/70 px-2 py-1 text-[11px] text-slate-700 focus:border-[#0B6E5C] focus:bg-white focus:outline-none"
+                                className="w-full rounded-lg border border-slate-200 bg-slate-50/70 px-2 py-1 text-[11px] text-slate-700 focus:border-[#1D4ED8] focus:bg-white focus:outline-none"
                               />
                             </td>
                           </tr>
@@ -1141,7 +1141,7 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
                   Tổng hợp tự động phục vụ điều chỉnh kế hoạch góc chơi &amp; hoạt động chiều tuần tới:
                 </div>
                 {stats.supportStudents.length === 0 ? (
-                  <p className="mt-1 text-emerald-700">
+                  <p className="mt-1 text-blue-700">
                     ✓ 100% trẻ được đánh giá trong lớp đạt đầy đủ các mục tiêu của chủ đề{' '}
                     <strong>{selectedThemeName}</strong>.
                   </p>
@@ -1168,7 +1168,7 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
             <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-2xs">
               <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-4">
                 <div>
-                  <div className="text-xs font-bold uppercase tracking-wide text-[#0B6E5C]">
+                  <div className="text-xs font-bold uppercase tracking-wide text-[#1D4ED8]">
                     Tổng hợp Đánh giá Cuối độ tuổi (Cả năm học {plan.schoolYear}) • Lớp {plan.className}
                   </div>
                   <p className="mt-1 text-xs text-slate-500">
@@ -1176,7 +1176,7 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
                   </p>
                 </div>
                 {yearEndSyncedAt && (
-                  <span className="rounded-full bg-emerald-100 px-3 py-1 text-xs font-bold text-emerald-800">
+                  <span className="rounded-full bg-blue-100 px-3 py-1 text-xs font-bold text-blue-800">
                     ✓ Đã đồng bộ lúc {yearEndSyncedAt}
                   </span>
                 )}
@@ -1187,22 +1187,22 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
                   <div className="text-[11px] text-slate-500">Số Chủ đề/Tháng đã có dữ liệu</div>
                   <div className="mt-1 text-xl font-bold text-slate-900">{gradeAssessments.length} chủ đề</div>
                 </div>
-                <div className="rounded-xl bg-[#F2F9F7] p-3">
-                  <div className="text-[11px] text-[#074F42]">Tổng Mã MT đã đánh giá trong năm</div>
-                  <div className="mt-1 text-xl font-bold text-[#0B6E5C]">
+                <div className="rounded-xl bg-[#EFF6FF] p-3">
+                  <div className="text-[11px] text-[#1E3A8A]">Tổng Mã MT đã đánh giá trong năm</div>
+                  <div className="mt-1 text-xl font-bold text-[#1D4ED8]">
                     {yearEndSummary.allMts.length} / {gradeObjectives.length} MT
                   </div>
                 </div>
-                <div className="rounded-xl bg-emerald-50/70 p-3">
-                  <div className="text-[11px] text-emerald-800">Tỷ lệ Đạt trung bình cả năm</div>
-                  <div className="mt-1 text-xl font-bold text-emerald-700">{yearEndSummary.avgYearPct}%</div>
+                <div className="rounded-xl bg-blue-50/70 p-3">
+                  <div className="text-[11px] text-blue-800">Tỷ lệ Đạt trung bình cả năm</div>
+                  <div className="mt-1 text-xl font-bold text-blue-700">{yearEndSummary.avgYearPct}%</div>
                 </div>
               </div>
 
               <div className="mt-4 overflow-x-auto rounded-xl border border-slate-200">
                 <table className="w-full border-collapse text-left text-xs">
                   <thead>
-                    <tr className="bg-[#0B6E5C] text-white">
+                    <tr className="bg-[#1D4ED8] text-white">
                       <th className="w-10 px-3 py-2.5 text-center font-bold">STT</th>
                       <th className="px-3 py-2.5 font-bold">Họ và tên trẻ</th>
                       <th className="px-3 py-2.5 text-center font-bold">Số MT Đạt / Đã ĐG</th>
@@ -1229,7 +1229,7 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
                           <span
                             className={`rounded-full px-2.5 py-0.5 text-[11px] font-bold ${
                               r.pct >= 90
-                                ? 'bg-emerald-100 text-emerald-800'
+                                ? 'bg-blue-100 text-blue-800'
                                 : r.pct >= 75
                                 ? 'bg-amber-100 text-amber-900'
                                 : 'bg-rose-100 text-rose-800'
@@ -1240,7 +1240,7 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
                         </td>
                         <td className="px-3 py-2 text-xs">
                           {r.needSupportCodes.length === 0 ? (
-                            <span className="font-semibold text-emerald-700">
+                            <span className="font-semibold text-blue-700">
                               ✓ Đạt tốt tất cả các mục tiêu đã đánh giá
                             </span>
                           ) : (
@@ -1273,7 +1273,7 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
                   <div className="flex items-center justify-between gap-2">
                     <span className="text-xs font-medium text-slate-500">Tình trạng hiện tại:</span>
                     {plan.status === 'APPROVED' ? (
-                      <span className="rounded-full bg-emerald-100 px-3 py-1 text-xs font-bold text-emerald-800">
+                      <span className="rounded-full bg-blue-100 px-3 py-1 text-xs font-bold text-blue-800">
                         ✓ Đã phê duyệt trực tuyến
                       </span>
                     ) : plan.status === 'PENDING_REVIEW' ? (
@@ -1306,20 +1306,20 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
                   </div>
 
                   {plan.status === 'APPROVED' && (
-                    <div className="mt-4 rounded-xl border-2 border-emerald-600/70 bg-emerald-50/80 p-3 text-center">
-                      <div className="text-xs font-extrabold uppercase tracking-wider text-emerald-800">
+                    <div className="mt-4 rounded-xl border-2 border-blue-600/70 bg-blue-50/80 p-3 text-center">
+                      <div className="text-xs font-extrabold uppercase tracking-wider text-blue-800">
                         ✓ ĐÃ PHÊ DUYỆT TRỰC TUYẾN
                       </div>
                       <div className="mt-1 text-xs font-bold text-slate-900">
                         Người ký duyệt: {plan.approvedBy || plan.principalName}
                       </div>
-                      <div className="text-[11px] text-emerald-700">
+                      <div className="text-[11px] text-blue-700">
                         Thời gian ký: {plan.approvedAt}
                       </div>
                       <button
                         type="button"
                         onClick={onGoToPreview}
-                        className="mt-2.5 inline-flex items-center gap-1 rounded-lg bg-[#0B6E5C] px-3 py-1.5 text-[11px] font-bold text-white hover:bg-[#085A4B]"
+                        className="mt-2.5 inline-flex items-center gap-1 rounded-lg bg-[#1D4ED8] px-3 py-1.5 text-[11px] font-bold text-white hover:bg-[#1E40AF]"
                       >
                         Xem con dấu trên trang A4 (Bước 4) →
                       </button>
@@ -1336,7 +1336,7 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
                       <button
                         type="button"
                         onClick={handleSubmitForReview}
-                        className="w-full rounded-xl bg-[#0B6E5C] px-4 py-2.5 text-xs font-bold text-white shadow-2xs hover:bg-[#085A4B]"
+                        className="w-full rounded-xl bg-[#1D4ED8] px-4 py-2.5 text-xs font-bold text-white shadow-2xs hover:bg-[#1E40AF]"
                       >
                         {plan.status === 'PENDING_REVIEW'
                           ? 'Cập nhật & Gửi lại bản mới cho BGH'
@@ -1364,14 +1364,14 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
                       <input
                         value={approverInput}
                         onChange={(e) => setApproverInput(e.target.value)}
-                        className="mt-1 w-full rounded-lg border border-slate-300 bg-white px-3 py-1.5 text-xs font-semibold text-slate-900 focus:border-[#0B6E5C] focus:outline-none"
+                        className="mt-1 w-full rounded-lg border border-slate-300 bg-white px-3 py-1.5 text-xs font-semibold text-slate-900 focus:border-[#1D4ED8] focus:outline-none"
                       />
                     </div>
                     <div className="grid grid-cols-2 gap-2">
                       <button
                         type="button"
                         onClick={handleApproveOnline}
-                        className="rounded-xl bg-emerald-700 px-3 py-2.5 text-xs font-bold text-white hover:bg-emerald-800"
+                        className="rounded-xl bg-blue-700 px-3 py-2.5 text-xs font-bold text-white hover:bg-blue-800"
                       >
                         Phê duyệt &amp; Ký số
                       </button>
@@ -1393,7 +1393,7 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
                           type="button"
                           disabled={bulkApproving}
                           onClick={handleBulkApproveAll}
-                          className="mt-2 w-full rounded-xl border border-emerald-600 bg-white px-3 py-2 text-xs font-bold text-emerald-800 hover:bg-emerald-50 disabled:opacity-60"
+                          className="mt-2 w-full rounded-xl border border-blue-600 bg-white px-3 py-2 text-xs font-bold text-blue-800 hover:bg-blue-50 disabled:opacity-60"
                         >
                           {bulkApproving
                             ? 'Đang ký duyệt hàng loạt...'
@@ -1425,7 +1425,7 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
                     <select
                       value={commentSection}
                       onChange={(e) => setCommentSection(e.target.value)}
-                      className="rounded-lg border border-slate-300 bg-white px-2.5 py-1.5 text-xs font-semibold text-slate-900 focus:border-[#0B6E5C] focus:outline-none"
+                      className="rounded-lg border border-slate-300 bg-white px-2.5 py-1.5 text-xs font-semibold text-slate-900 focus:border-[#1D4ED8] focus:outline-none"
                     >
                       {TARGET_SECTIONS.map((sec) => (
                         <option key={sec} value={sec}>
@@ -1441,7 +1441,7 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
                         key={idx}
                         type="button"
                         onClick={() => setCommentText(sample)}
-                        className="rounded-lg border border-slate-200 bg-white px-2.5 py-1 text-[11px] text-slate-600 transition hover:border-[#0B6E5C] hover:text-[#0B6E5C]"
+                        className="rounded-lg border border-slate-200 bg-white px-2.5 py-1 text-[11px] text-slate-600 transition hover:border-[#1D4ED8] hover:text-[#1D4ED8]"
                       >
                         + {sample.slice(0, 44)}...
                       </button>
@@ -1457,11 +1457,11 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
                           ? 'Nhập nhận xét chuyên môn của Tổ trưởng / BGH...'
                           : 'Nhập ghi chú giải trình hoặc trao đổi của giáo viên...'
                       }
-                      className="flex-1 rounded-xl border border-slate-300 bg-white px-3 py-2 text-xs text-slate-900 focus:border-[#0B6E5C] focus:outline-none"
+                      className="flex-1 rounded-xl border border-slate-300 bg-white px-3 py-2 text-xs text-slate-900 focus:border-[#1D4ED8] focus:outline-none"
                     />
                     <button
                       type="submit"
-                      className="shrink-0 rounded-xl bg-[#0B6E5C] px-4 py-2 text-xs font-bold text-white hover:bg-[#085A4B]"
+                      className="shrink-0 rounded-xl bg-[#1D4ED8] px-4 py-2 text-xs font-bold text-white hover:bg-[#1E40AF]"
                     >
                       Gửi góp ý
                     </button>
@@ -1482,7 +1482,7 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
                             ? 'border-slate-200 bg-slate-50/70 opacity-75'
                             : cmt.authorRole !== 'TEACHER'
                             ? 'border-amber-200 bg-amber-50/40'
-                            : 'border-emerald-200 bg-white'
+                            : 'border-blue-200 bg-white'
                         }`}
                       >
                         <div className="flex flex-wrap items-center justify-between gap-2">
@@ -1491,7 +1491,7 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
                               className={`rounded px-2 py-0.5 text-[10px] font-bold ${
                                 cmt.authorRole !== 'TEACHER'
                                   ? 'bg-amber-200/80 text-amber-950'
-                                  : 'bg-[#E6F4F1] text-[#0B6E5C]'
+                                  : 'bg-[#DBEAFE] text-[#1D4ED8]'
                               }`}
                             >
                               {cmt.authorRole !== 'TEACHER' ? 'Tổ trưởng / BGH' : 'Giáo viên'}:{' '}
@@ -1510,7 +1510,7 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
                           <button
                             type="button"
                             onClick={() => onJumpToSection(cmt.targetSection)}
-                            className="font-bold text-[#0B6E5C] hover:underline"
+                            className="font-bold text-[#1D4ED8] hover:underline"
                           >
                             Mở sửa mục “{cmt.targetSection}” ngay →
                           </button>
@@ -1519,8 +1519,8 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
                             onClick={() => toggleResolveComment(cmt.id)}
                             className={`rounded-lg px-2.5 py-1 text-[11px] font-bold transition ${
                               cmt.resolved
-                                ? 'bg-emerald-100 text-emerald-800'
-                                : 'bg-white text-slate-600 ring-1 ring-slate-200 hover:bg-emerald-50 hover:text-emerald-800'
+                                ? 'bg-blue-100 text-blue-800'
+                                : 'bg-white text-slate-600 ring-1 ring-slate-200 hover:bg-blue-50 hover:text-blue-800'
                             }`}
                           >
                             {cmt.resolved ? 'Đã xử lý xong' : 'Đánh dấu đã xử lý'}

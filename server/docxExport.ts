@@ -151,10 +151,10 @@ export async function generateBgdDocx(
     width: { size: 100, type: WidthType.PERCENTAGE },
     layout: TableLayoutType.FIXED,
     borders: {
-      top: { style: BorderStyle.DOUBLE, size: 12, color: '0B6E5C' },
-      bottom: { style: BorderStyle.DOUBLE, size: 12, color: '0B6E5C' },
-      left: { style: BorderStyle.DOUBLE, size: 12, color: '0B6E5C' },
-      right: { style: BorderStyle.DOUBLE, size: 12, color: '0B6E5C' },
+      top: { style: BorderStyle.DOUBLE, size: 12, color: '1D4ED8' },
+      bottom: { style: BorderStyle.DOUBLE, size: 12, color: '1D4ED8' },
+      left: { style: BorderStyle.DOUBLE, size: 12, color: '1D4ED8' },
+      right: { style: BorderStyle.DOUBLE, size: 12, color: '1D4ED8' },
       insideHorizontal: { style: BorderStyle.NONE, size: 0, color: 'FFFFFF' },
       insideVertical: { style: BorderStyle.NONE, size: 0, color: 'FFFFFF' },
     },
@@ -177,14 +177,14 @@ export async function generateBgdDocx(
               }),
               pText('────────── ★ ──────────', {
                 align: AlignmentType.CENTER,
-                color: '0B6E5C',
+                color: '1D4ED8',
                 spaceAfter: 900,
               }),
               pText('KẾ HOẠCH GIÁO DỤC MẦM NON', {
                 align: AlignmentType.CENTER,
                 bold: true,
                 size: SZ_TITLE,
-                color: '0B6E5C',
+                color: '1D4ED8',
                 spaceAfter: 140,
               }),
               pText(`NĂM HỌC ${plan.schoolYear}`, {
@@ -258,7 +258,7 @@ export async function generateBgdDocx(
         align: AlignmentType.CENTER,
         bold: true,
         size: SZ_H1,
-        color: '0B6E5C',
+        color: '1D4ED8',
       }),
       pText(
         `Thời gian thực hiện: ${plan.themeTotalWeeks} tuần (Từ ${fmtDateLongVN(plan.themeStartDate)} đến ${fmtDateLongVN(plan.themeEndDate)})`,
@@ -279,7 +279,7 @@ export async function generateBgdDocx(
             indent: { left: 240 },
             spacing: { before: 20, after: 40, line: 276 },
             children: [
-              new TextRun({ text: `${code}. `, font: FONT, size: SZ_BODY, bold: true, color: '0B6E5C' }),
+              new TextRun({ text: `${code}. `, font: FONT, size: SZ_BODY, bold: true, color: '1D4ED8' }),
               new TextRun({
                 text: obj ? obj.description : '(Mục tiêu theo khung chuẩn Chương trình GDMN)',
                 font: FONT,
@@ -312,8 +312,8 @@ export async function generateBgdDocx(
           new TableRow({
             children: plan.contentNetwork.map((b) =>
               makeCell(
-                [pText(b.branchTitle, { align: AlignmentType.CENTER, bold: true, color: '074F42' })],
-                { widthPct: colW, fill: 'E6F4F1', vAlign: VerticalAlign.CENTER }
+                [pText(b.branchTitle, { align: AlignmentType.CENTER, bold: true, color: '1E3A8A' })],
+                { widthPct: colW, fill: 'DBEAFE', vAlign: VerticalAlign.CENTER }
               )
             ),
           }),
@@ -348,7 +348,7 @@ export async function generateBgdDocx(
           children: [
             makeCell(
               [pText('LĨNH VỰC PHÁT TRIỂN', { align: AlignmentType.CENTER, bold: true, color: 'FFFFFF' })],
-              { widthPct: 26, fill: '0B6E5C', vAlign: VerticalAlign.CENTER }
+              { widthPct: 26, fill: '1D4ED8', vAlign: VerticalAlign.CENTER }
             ),
             makeCell(
               [
@@ -358,7 +358,7 @@ export async function generateBgdDocx(
                   color: 'FFFFFF',
                 }),
               ],
-              { widthPct: 74, fill: '0B6E5C', vAlign: VerticalAlign.CENTER }
+              { widthPct: 74, fill: '1D4ED8', vAlign: VerticalAlign.CENTER }
             ),
           ],
         }),
@@ -366,7 +366,7 @@ export async function generateBgdDocx(
           (br) =>
             new TableRow({
               children: [
-                makeCell([pText(br.domainTitle, { bold: true, color: '074F42' })], {
+                makeCell([pText(br.domainTitle, { bold: true, color: '1E3A8A' })], {
                   widthPct: 26,
                   fill: 'F0FAF8',
                   vAlign: VerticalAlign.CENTER,
@@ -400,7 +400,7 @@ export async function generateBgdDocx(
       align: AlignmentType.CENTER,
       bold: true,
       size: SZ_H1,
-      color: '0B6E5C',
+      color: '1D4ED8',
     }),
     pText(`Chủ đề nhánh: ${plan.subThemeName}`, {
       align: AlignmentType.CENTER,
@@ -467,27 +467,27 @@ export async function generateBgdDocx(
       children: [
         makeCell([pText('THỨ', { align: AlignmentType.CENTER, bold: true, color: 'FFFFFF' })], {
           widthPct: 9,
-          fill: '0B6E5C',
+          fill: '1D4ED8',
           vAlign: VerticalAlign.CENTER,
         }),
         makeCell([pText('HOẠT ĐỘNG CHUNG', { align: AlignmentType.CENTER, bold: true, color: 'FFFFFF' })], {
           widthPct: 14,
-          fill: '0B6E5C',
+          fill: '1D4ED8',
           vAlign: VerticalAlign.CENTER,
         }),
         makeCell([pText('LUYỆN TẬP CÓ MỤC ĐÍCH', { align: AlignmentType.CENTER, bold: true, color: 'FFFFFF' })], {
           widthPct: 31,
-          fill: '0B6E5C',
+          fill: '1D4ED8',
           vAlign: VerticalAlign.CENTER,
         }),
         makeCell([pText('HOẠT ĐỘNG NGOÀI TRỜI', { align: AlignmentType.CENTER, bold: true, color: 'FFFFFF' })], {
           widthPct: 22,
-          fill: '0B6E5C',
+          fill: '1D4ED8',
           vAlign: VerticalAlign.CENTER,
         }),
         makeCell([pText('HOẠT ĐỘNG CHIỀU', { align: AlignmentType.CENTER, bold: true, color: 'FFFFFF' })], {
           widthPct: 24,
-          fill: '0B6E5C',
+          fill: '1D4ED8',
           vAlign: VerticalAlign.CENTER,
         }),
       ],
@@ -516,7 +516,7 @@ export async function generateBgdDocx(
         }
         if (les.linkedMtCodes.length > 0) {
           topicPs.push(
-            pText(`(${les.linkedMtCodes.join(', ')})`, { italic: true, color: '0B6E5C', size: 20, spaceAfter: 10 })
+            pText(`(${les.linkedMtCodes.join(', ')})`, { italic: true, color: '1D4ED8', size: 20, spaceAfter: 10 })
           );
         }
       } else {
@@ -616,7 +616,7 @@ export async function generateBgdDocx(
     pText('C. CÁC HOẠT ĐỘNG TỔ CHỨC DÙNG CHUNG TRONG TUẦN', {
       bold: true,
       size: SZ_SUB,
-      color: '0B6E5C',
+      color: '1D4ED8',
       spaceBefore: 240,
       spaceAfter: 100,
     }),
@@ -680,11 +680,11 @@ export async function generateBgdDocx(
       new TableRow({
         tableHeader: true,
         children: [
-          makeCell([pText('PHẦN', { align: AlignmentType.CENTER, bold: true, color: 'FFFFFF' })], { widthPct: 14, fill: '0B6E5C' }),
-          makeCell([pText('NỘI DUNG', { align: AlignmentType.CENTER, bold: true, color: 'FFFFFF' })], { widthPct: 20, fill: '0B6E5C' }),
-          makeCell([pText('YÊU CẦU', { align: AlignmentType.CENTER, bold: true, color: 'FFFFFF' })], { widthPct: 22, fill: '0B6E5C' }),
-          makeCell([pText('CHUẨN BỊ', { align: AlignmentType.CENTER, bold: true, color: 'FFFFFF' })], { widthPct: 16, fill: '0B6E5C' }),
-          makeCell([pText('TỔ CHỨC THỰC HIỆN', { align: AlignmentType.CENTER, bold: true, color: 'FFFFFF' })], { widthPct: 28, fill: '0B6E5C' }),
+          makeCell([pText('PHẦN', { align: AlignmentType.CENTER, bold: true, color: 'FFFFFF' })], { widthPct: 14, fill: '1D4ED8' }),
+          makeCell([pText('NỘI DUNG', { align: AlignmentType.CENTER, bold: true, color: 'FFFFFF' })], { widthPct: 20, fill: '1D4ED8' }),
+          makeCell([pText('YÊU CẦU', { align: AlignmentType.CENTER, bold: true, color: 'FFFFFF' })], { widthPct: 22, fill: '1D4ED8' }),
+          makeCell([pText('CHUẨN BỊ', { align: AlignmentType.CENTER, bold: true, color: 'FFFFFF' })], { widthPct: 16, fill: '1D4ED8' }),
+          makeCell([pText('TỔ CHỨC THỰC HIỆN', { align: AlignmentType.CENTER, bold: true, color: 'FFFFFF' })], { widthPct: 28, fill: '1D4ED8' }),
         ],
       }),
       ...plan.outdoorTable.map(
@@ -721,11 +721,11 @@ export async function generateBgdDocx(
       new TableRow({
         tableHeader: true,
         children: [
-          makeCell([pText('GÓC CHƠI', { align: AlignmentType.CENTER, bold: true, color: 'FFFFFF' })], { widthPct: 15, fill: '0B6E5C' }),
-          makeCell([pText('NỘI DUNG', { align: AlignmentType.CENTER, bold: true, color: 'FFFFFF' })], { widthPct: 21, fill: '0B6E5C' }),
-          makeCell([pText('YÊU CẦU', { align: AlignmentType.CENTER, bold: true, color: 'FFFFFF' })], { widthPct: 22, fill: '0B6E5C' }),
-          makeCell([pText('CHUẨN BỊ', { align: AlignmentType.CENTER, bold: true, color: 'FFFFFF' })], { widthPct: 18, fill: '0B6E5C' }),
-          makeCell([pText('TỔ CHỨC HOẠT ĐỘNG', { align: AlignmentType.CENTER, bold: true, color: 'FFFFFF' })], { widthPct: 24, fill: '0B6E5C' }),
+          makeCell([pText('GÓC CHƠI', { align: AlignmentType.CENTER, bold: true, color: 'FFFFFF' })], { widthPct: 15, fill: '1D4ED8' }),
+          makeCell([pText('NỘI DUNG', { align: AlignmentType.CENTER, bold: true, color: 'FFFFFF' })], { widthPct: 21, fill: '1D4ED8' }),
+          makeCell([pText('YÊU CẦU', { align: AlignmentType.CENTER, bold: true, color: 'FFFFFF' })], { widthPct: 22, fill: '1D4ED8' }),
+          makeCell([pText('CHUẨN BỊ', { align: AlignmentType.CENTER, bold: true, color: 'FFFFFF' })], { widthPct: 18, fill: '1D4ED8' }),
+          makeCell([pText('TỔ CHỨC HOẠT ĐỘNG', { align: AlignmentType.CENTER, bold: true, color: 'FFFFFF' })], { widthPct: 24, fill: '1D4ED8' }),
         ],
       }),
       ...plan.cornerTable.map(
@@ -757,7 +757,7 @@ export async function generateBgdDocx(
         align: AlignmentType.CENTER,
         bold: true,
         size: SZ_H1,
-        color: '0B6E5C',
+        color: '1D4ED8',
       }),
       pText(`${day.dayLabel}, ${fmtDateLongVN(day.dateStr)}`, {
         align: AlignmentType.CENTER,
@@ -790,7 +790,7 @@ export async function generateBgdDocx(
     );
 
     // C. HOẠT ĐỘNG CÓ CHỦ ĐÍCH (1 hoặc 2 tiết)
-    children.push(pText('C. HOẠT ĐỘNG CÓ CHỦ ĐÍCH', { bold: true, spaceBefore: 120, color: '0B6E5C' }));
+    children.push(pText('C. HOẠT ĐỘNG CÓ CHỦ ĐÍCH', { bold: true, spaceBefore: 120, color: '1D4ED8' }));
     day.mainLessons.forEach((les, idx) => {
       if (day.mainLessons.length > 1) {
         children.push(pText(`Tiết ${idx + 1}:`, { bold: true, italic: true, spaceBefore: 80 }));
@@ -809,7 +809,7 @@ export async function generateBgdDocx(
           pText(`Mục tiêu gắn kết: ${les.linkedMtCodes.join(', ')}`, {
             align: AlignmentType.CENTER,
             italic: true,
-            color: '0B6E5C',
+            color: '1D4ED8',
             spaceAfter: 80,
           })
         );
@@ -837,7 +837,7 @@ export async function generateBgdDocx(
     }
 
     // E. HOẠT ĐỘNG CHIỀU
-    children.push(pText('E. HOẠT ĐỘNG CHIỀU', { bold: true, spaceBefore: 120, color: '0B6E5C' }));
+    children.push(pText('E. HOẠT ĐỘNG CHIỀU', { bold: true, spaceBefore: 120, color: '1D4ED8' }));
     if (day.extracurricularTitle.trim()) {
       children.push(pText(`1. ${day.extracurricularTitle.trim()}`, { bold: true, indentLeft: 120 }));
     }
@@ -851,7 +851,7 @@ export async function generateBgdDocx(
         })
       );
       if (al.linkedMtCodes.length > 0) {
-        children.push(pText(`(Mục tiêu gắn kết: ${al.linkedMtCodes.join(', ')})`, { italic: true, indentLeft: 180, color: '0B6E5C' }));
+        children.push(pText(`(Mục tiêu gắn kết: ${al.linkedMtCodes.join(', ')})`, { italic: true, indentLeft: 180, color: '1D4ED8' }));
       }
       children.push(pText('I. Mục đích – Yêu cầu:', { bold: true, indentLeft: 180 }));
       for (const a of al.aims) if (a.trim()) children.push(bulletP(a.trim()));

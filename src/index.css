@@ -86,16 +86,16 @@
 }
 
 .word-page .ProseMirror th {
-  background-color: #e6f4f1;
+  background-color: #dbeafe;
   font-weight: 700;
-  color: #074f42;
+  color: #1e3a8a;
 }
 
 .word-page .ProseMirror .selectedCell::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(11, 110, 92, 0.14);
+  background: rgba(29, 78, 216, 0.14);
   pointer-events: none;
 }
 

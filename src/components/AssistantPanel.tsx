@@ -333,7 +333,7 @@ export const AssistantPanel: React.FC<Props> = ({
               {obj.month}
             </span>
             {isUsed && (
-              <span className="inline-flex items-center rounded-full bg-emerald-100 px-2 py-0.5 text-[10px] font-semibold text-emerald-800">
+              <span className="inline-flex items-center rounded-full bg-blue-100 px-2 py-0.5 text-[10px] font-semibold text-blue-800">
                 Đã có
               </span>
             )}
@@ -341,7 +341,7 @@ export const AssistantPanel: React.FC<Props> = ({
           <button
             onClick={() => onInsertMtLine(obj)}
             title={`Chèn dòng mục tiêu ${obj.code} vào vị trí con trỏ`}
-            className="inline-flex items-center rounded-md bg-slate-100 px-2 py-0.5 text-[10px] font-semibold text-[#0B6E5C] transition hover:bg-[#0B6E5C] hover:text-white"
+            className="inline-flex items-center rounded-md bg-slate-100 px-2 py-0.5 text-[10px] font-semibold text-[#1D4ED8] transition hover:bg-[#1D4ED8] hover:text-white"
           >
             + Chèn MT
           </button>
@@ -353,7 +353,7 @@ export const AssistantPanel: React.FC<Props> = ({
             {reasonTags.map((tag) => (
               <span
                 key={tag}
-                className="rounded bg-[#E6F4F1] px-1.5 py-0.5 text-[10px] font-medium text-[#074F42]"
+                className="rounded bg-[#DBEAFE] px-1.5 py-0.5 text-[10px] font-medium text-[#1E3A8A]"
               >
                 ★ {tag}
               </span>
@@ -395,7 +395,7 @@ export const AssistantPanel: React.FC<Props> = ({
                   <button
                     onClick={() => openActivityPreview(obj, act)}
                     title="Xem trước bố cục Word trước khi chèn"
-                    className="inline-flex items-center rounded px-1.5 py-0.5 text-[10px] font-medium text-slate-500 hover:bg-white hover:text-[#0B6E5C]"
+                    className="inline-flex items-center rounded px-1.5 py-0.5 text-[10px] font-medium text-slate-500 hover:bg-white hover:text-[#1D4ED8]"
                   >
                     Xem trước
                   </button>
@@ -406,13 +406,13 @@ export const AssistantPanel: React.FC<Props> = ({
                     <>
                       <button
                         onClick={() => onInsertActivityLine(obj, act)}
-                        className="inline-flex items-center rounded-md bg-[#0B6E5C] px-2.5 py-1 text-[10px] font-semibold text-white hover:bg-[#085A4B]"
+                        className="inline-flex items-center rounded-md bg-[#1D4ED8] px-2.5 py-1 text-[10px] font-semibold text-white hover:bg-[#1E40AF]"
                       >
                         + Chèn vào ô bảng
                       </button>
                       <button
                         onClick={() => onInsertLessonFrame(act.text, act.type, obj.code, obj)}
-                        className="inline-flex items-center rounded-md bg-white px-2 py-1 text-[10px] font-semibold text-[#0B6E5C] ring-1 ring-slate-200 hover:bg-[#E6F4F1]"
+                        className="inline-flex items-center rounded-md bg-white px-2 py-1 text-[10px] font-semibold text-[#1D4ED8] ring-1 ring-slate-200 hover:bg-[#DBEAFE]"
                       >
                         Khung tiết đầy đủ
                       </button>
@@ -421,7 +421,7 @@ export const AssistantPanel: React.FC<Props> = ({
                     <>
                       <button
                         onClick={() => onInsertLessonFrame(act.text, act.type, obj.code, obj)}
-                        className="inline-flex items-center rounded-md bg-[#0B6E5C] px-2.5 py-1 text-[10px] font-semibold text-white hover:bg-[#085A4B]"
+                        className="inline-flex items-center rounded-md bg-[#1D4ED8] px-2.5 py-1 text-[10px] font-semibold text-white hover:bg-[#1E40AF]"
                       >
                         + Chèn khung tiết học
                       </button>
@@ -477,7 +477,7 @@ export const AssistantPanel: React.FC<Props> = ({
                         onClick={() =>
                           openCrawledLessonPreview(l.topic, l.subject, obj.code, l.school, obj)
                         }
-                        className="ml-auto text-[10px] font-medium text-slate-500 hover:text-[#0B6E5C]"
+                        className="ml-auto text-[10px] font-medium text-slate-500 hover:text-[#1D4ED8]"
                       >
                         Xem trước
                       </button>
@@ -493,7 +493,7 @@ export const AssistantPanel: React.FC<Props> = ({
         {(hiddenCount > 0 || obj.eduContent) && (
           <button
             onClick={() => toggleExpandMt(obj.id)}
-            className="mt-2 flex w-full items-center justify-center rounded-lg bg-slate-50 py-1 text-[10px] font-semibold text-slate-600 transition hover:bg-slate-100 hover:text-[#0B6E5C]"
+            className="mt-2 flex w-full items-center justify-center rounded-lg bg-slate-50 py-1 text-[10px] font-semibold text-slate-600 transition hover:bg-slate-100 hover:text-[#1D4ED8]"
           >
             {isExpanded
               ? 'Thu gọn chi tiết'
@@ -511,7 +511,7 @@ export const AssistantPanel: React.FC<Props> = ({
       {/* Header */}
       <div className="flex items-center justify-between border-b border-slate-200 bg-white px-4 py-2.5">
         <div className="min-w-0">
-          <div className="text-xs font-bold text-[#0B6E5C]">
+          <div className="text-xs font-bold text-[#1D4ED8]">
             Trợ lý gợi ý &amp; Kho tham khảo
           </div>
           <div className="mt-0.5 flex items-center gap-1.5 text-[10px] text-slate-500">
@@ -519,7 +519,7 @@ export const AssistantPanel: React.FC<Props> = ({
               {dataset.ageGroups.find((g) => g.id === plan.ageGroupId)?.short}
             </span>
             <span>•</span>
-            <span className="text-emerald-700 font-semibold">Đã gắn {usedMtCodes.size} mã MT</span>
+            <span className="text-blue-700 font-semibold">Đã gắn {usedMtCodes.size} mã MT</span>
           </div>
         </div>
         <button
@@ -532,8 +532,8 @@ export const AssistantPanel: React.FC<Props> = ({
       </div>
 
       {/* Live Word Cursor Context Strip */}
-      <div className="border-b border-slate-200 bg-[#F2F9F7] px-3.5 py-2">
-        <div className="truncate text-[11px] font-semibold text-[#074F42]" title={cursorContext.sectionHeading}>
+      <div className="border-b border-slate-200 bg-[#EFF6FF] px-3.5 py-2">
+        <div className="truncate text-[11px] font-semibold text-[#1E3A8A]" title={cursorContext.sectionHeading}>
           Con trỏ: {cursorContext.sectionHeading}
         </div>
         <div className="mt-1 flex items-center justify-between text-[10px]">
@@ -542,7 +542,7 @@ export const AssistantPanel: React.FC<Props> = ({
               Đang trong ô bảng → Ưu tiên chèn dòng ngắn
             </span>
           ) : (
-            <span className="inline-flex items-center rounded-full bg-emerald-100 px-2 py-0.5 font-semibold text-emerald-900">
+            <span className="inline-flex items-center rounded-full bg-blue-100 px-2 py-0.5 font-semibold text-blue-900">
               Đang trên trang soạn → Chèn khung tiết đầy đủ
             </span>
           )}
@@ -556,7 +556,7 @@ export const AssistantPanel: React.FC<Props> = ({
             onClick={() => setActiveTab('smart')}
             className={`rounded-lg py-1.5 transition ${
               activeTab === 'smart'
-                ? 'bg-white text-[#0B6E5C] shadow-2xs'
+                ? 'bg-white text-[#1D4ED8] shadow-2xs'
                 : 'text-slate-500 hover:text-slate-700'
             }`}
           >
@@ -566,7 +566,7 @@ export const AssistantPanel: React.FC<Props> = ({
             onClick={() => setActiveTab('mt')}
             className={`rounded-lg py-1.5 transition ${
               activeTab === 'mt'
-                ? 'bg-white text-[#0B6E5C] shadow-2xs'
+                ? 'bg-white text-[#1D4ED8] shadow-2xs'
                 : 'text-slate-500 hover:text-slate-700'
             }`}
           >
@@ -576,7 +576,7 @@ export const AssistantPanel: React.FC<Props> = ({
             onClick={() => setActiveTab('crawled')}
             className={`rounded-lg py-1.5 transition ${
               activeTab === 'crawled'
-                ? 'bg-white text-[#0B6E5C] shadow-2xs'
+                ? 'bg-white text-[#1D4ED8] shadow-2xs'
                 : 'text-slate-500 hover:text-slate-700'
             }`}
           >
@@ -594,7 +594,7 @@ export const AssistantPanel: React.FC<Props> = ({
                 ? 'Tìm đề tài, bài hát, thơ, trò chơi, trường...'
                 : 'Tìm mã MT (VD: MT100), chủ đề, bài hát, toán...'
             }
-            className="w-full rounded-lg border border-slate-200 bg-slate-50 py-1.5 pr-7 pl-3 text-xs focus:border-[#0B6E5C] focus:bg-white focus:outline-none"
+            className="w-full rounded-lg border border-slate-200 bg-slate-50 py-1.5 pr-7 pl-3 text-xs focus:border-[#1D4ED8] focus:bg-white focus:outline-none"
           />
           {search && (
             <button
@@ -615,7 +615,7 @@ export const AssistantPanel: React.FC<Props> = ({
                 onClick={() => setDomainFilter('ALL')}
                 className={`rounded-full border px-2 py-0.5 text-[10px] font-semibold transition ${
                   domainFilter === 'ALL'
-                    ? 'border-[#0B6E5C] bg-[#0B6E5C] text-white'
+                    ? 'border-[#1D4ED8] bg-[#1D4ED8] text-white'
                     : 'border-slate-200 bg-slate-50 text-slate-600 hover:bg-slate-100'
                 }`}
               >
@@ -671,7 +671,7 @@ export const AssistantPanel: React.FC<Props> = ({
                   onClick={() => setCrawledViewMode('lessons')}
                   className={`rounded-md px-2.5 py-1 transition ${
                     crawledViewMode === 'lessons'
-                      ? 'bg-[#0B6E5C] text-white'
+                      ? 'bg-[#1D4ED8] text-white'
                       : 'text-slate-600 hover:text-slate-900'
                   }`}
                 >
@@ -681,7 +681,7 @@ export const AssistantPanel: React.FC<Props> = ({
                   onClick={() => setCrawledViewMode('docs')}
                   className={`rounded-md px-2.5 py-1 transition ${
                     crawledViewMode === 'docs'
-                      ? 'bg-[#0B6E5C] text-white'
+                      ? 'bg-[#1D4ED8] text-white'
                       : 'text-slate-600 hover:text-slate-900'
                   }`}
                 >
@@ -705,7 +705,7 @@ export const AssistantPanel: React.FC<Props> = ({
                     onClick={() => setSubjectFilter(subj)}
                     className={`rounded-full border px-2 py-0.5 text-[10px] font-semibold transition ${
                       active
-                        ? 'border-[#0B6E5C] bg-[#0B6E5C] text-white'
+                        ? 'border-[#1D4ED8] bg-[#1D4ED8] text-white'
                         : subj === 'Tất cả'
                         ? 'border-slate-200 bg-slate-50 text-slate-600 hover:bg-slate-100'
                         : `${sv.chipClass} hover:opacity-85`
@@ -723,10 +723,10 @@ export const AssistantPanel: React.FC<Props> = ({
 
       {/* Inline Visual Preview Drawer (appears cleanly over the list when clicking "Xem trước") */}
       {previewTarget && (
-        <div className="border-b-2 border-[#0B6E5C] bg-white p-3 shadow-md">
+        <div className="border-b-2 border-[#1D4ED8] bg-white p-3 shadow-md">
           <div className="flex items-start justify-between gap-2">
             <div className="min-w-0">
-              <div className="text-[10px] font-bold uppercase tracking-wide text-[#0B6E5C]">
+              <div className="text-[10px] font-bold uppercase tracking-wide text-[#1D4ED8]">
                 Xem trước định dạng sẽ chèn vào Word
               </div>
               <div className="mt-0.5 text-xs font-bold text-slate-900">{previewTarget.title}</div>
@@ -740,14 +740,14 @@ export const AssistantPanel: React.FC<Props> = ({
             </button>
           </div>
           <div
-            className="mt-2 max-h-48 overflow-y-auto rounded-lg border border-slate-200 bg-[#FCFDFC] p-3 text-[12px] leading-relaxed text-slate-800 [&_h3]:mb-1 [&_h3]:text-center [&_h3]:font-bold [&_h3]:text-[#0B6E5C] [&_p]:my-1 [&_ul]:ml-4 [&_ul]:list-disc"
+            className="mt-2 max-h-48 overflow-y-auto rounded-lg border border-slate-200 bg-[#FCFDFF] p-3 text-[12px] leading-relaxed text-slate-800 [&_h3]:mb-1 [&_h3]:text-center [&_h3]:font-bold [&_h3]:text-[#1D4ED8] [&_p]:my-1 [&_ul]:ml-4 [&_ul]:list-disc"
             style={{ fontFamily: "'Times New Roman', Times, serif" }}
             dangerouslySetInnerHTML={{ __html: previewTarget.html }}
           />
           <div className="mt-2.5 flex gap-2">
             <button
               onClick={previewTarget.onInsertFull}
-              className="flex-1 inline-flex items-center justify-center rounded-lg bg-[#0B6E5C] px-3 py-1.5 text-[11px] font-semibold text-white hover:bg-[#085A4B]"
+              className="flex-1 inline-flex items-center justify-center rounded-lg bg-[#1D4ED8] px-3 py-1.5 text-[11px] font-semibold text-white hover:bg-[#1E40AF]"
             >
               + Chèn khung tiết đầy đủ
             </button>
@@ -765,8 +765,8 @@ export const AssistantPanel: React.FC<Props> = ({
       <div className="flex-1 space-y-2.5 overflow-y-auto p-3.5">
         {activeTab === 'smart' && (
           <>
-            <div className="rounded-xl border border-emerald-200/80 bg-white p-2.5 text-[11px] text-slate-700">
-              <div className="font-bold text-[#074F42]">
+            <div className="rounded-xl border border-blue-200/80 bg-white p-2.5 text-[11px] text-slate-700">
+              <div className="font-bold text-[#1E3A8A]">
                 Đề xuất ưu tiên cho Tuần {plan.weekNumber}: {plan.subThemeName}
               </div>
               <div className="mt-0.5 text-[10px] text-slate-500">
@@ -823,7 +823,7 @@ export const AssistantPanel: React.FC<Props> = ({
                             {les.subject}
                           </span>
                           {les.mtCode && (
-                            <span className="rounded bg-[#E6F4F1] px-1.5 py-0.5 text-[10px] font-bold text-[#0B6E5C]">
+                            <span className="rounded bg-[#DBEAFE] px-1.5 py-0.5 text-[10px] font-bold text-[#1D4ED8]">
                               {les.mtCode}
                             </span>
                           )}
@@ -837,7 +837,7 @@ export const AssistantPanel: React.FC<Props> = ({
                             target="_blank"
                             rel="noreferrer"
                             title="Mở bài viết gốc của trường"
-                            className="text-[10px] font-semibold text-slate-400 hover:text-[#0B6E5C] hover:underline"
+                            className="text-[10px] font-semibold text-slate-400 hover:text-[#1D4ED8] hover:underline"
                           >
                             Nguồn ↗
                           </a>
@@ -869,13 +869,13 @@ export const AssistantPanel: React.FC<Props> = ({
                           <>
                             <button
                               onClick={() => onInsertShortLessonLine(les.topic, les.subject, les.mtCode)}
-                              className="inline-flex items-center rounded-md bg-[#0B6E5C] px-2.5 py-1 text-[10px] font-semibold text-white hover:bg-[#085A4B]"
+                              className="inline-flex items-center rounded-md bg-[#1D4ED8] px-2.5 py-1 text-[10px] font-semibold text-white hover:bg-[#1E40AF]"
                             >
                               + Chèn vào bảng
                             </button>
                             <button
                               onClick={() => onInsertLessonFrame(les.topic, les.subject, les.mtCode, linkedObj)}
-                              className="inline-flex items-center rounded-md bg-white px-2 py-1 text-[10px] font-semibold text-[#0B6E5C] ring-1 ring-slate-200 hover:bg-[#E6F4F1]"
+                              className="inline-flex items-center rounded-md bg-white px-2 py-1 text-[10px] font-semibold text-[#1D4ED8] ring-1 ring-slate-200 hover:bg-[#DBEAFE]"
                             >
                               Khung tiết
                             </button>
@@ -884,7 +884,7 @@ export const AssistantPanel: React.FC<Props> = ({
                           <>
                             <button
                               onClick={() => onInsertLessonFrame(les.topic, les.subject, les.mtCode, linkedObj)}
-                              className="inline-flex items-center rounded-md bg-[#0B6E5C] px-2.5 py-1 text-[10px] font-semibold text-white hover:bg-[#085A4B]"
+                              className="inline-flex items-center rounded-md bg-[#1D4ED8] px-2.5 py-1 text-[10px] font-semibold text-white hover:bg-[#1E40AF]"
                             >
                               + Chèn khung tiết
                             </button>
@@ -901,7 +901,7 @@ export const AssistantPanel: React.FC<Props> = ({
                           onClick={() =>
                             openCrawledLessonPreview(les.topic, les.subject, les.mtCode, les.schoolName, linkedObj)
                           }
-                          className="rounded px-1.5 py-1 text-[10px] font-medium text-slate-500 hover:bg-slate-100 hover:text-[#0B6E5C]"
+                          className="rounded px-1.5 py-1 text-[10px] font-medium text-slate-500 hover:bg-slate-100 hover:text-[#1D4ED8]"
                         >
                           Xem trước
                         </button>
@@ -909,7 +909,7 @@ export const AssistantPanel: React.FC<Props> = ({
                         {les.snippet && (
                           <button
                             onClick={() => toggleExpandSnippet(les.id)}
-                            className="ml-auto text-[10px] font-semibold text-[#0B6E5C] hover:underline"
+                            className="ml-auto text-[10px] font-semibold text-[#1D4ED8] hover:underline"
                           >
                             {snipOpen ? 'Ẩn trích đoạn' : 'Trích đoạn gốc'}
                           </button>
@@ -943,7 +943,7 @@ export const AssistantPanel: React.FC<Props> = ({
                             {doc.detectedMonth}
                           </span>
                           {topMt && (
-                            <span className="rounded bg-[#E6F4F1] px-1.5 py-0.5 text-[10px] font-bold text-[#0B6E5C]">
+                            <span className="rounded bg-[#DBEAFE] px-1.5 py-0.5 text-[10px] font-bold text-[#1D4ED8]">
                               {topMt}
                             </span>
                           )}
@@ -958,7 +958,7 @@ export const AssistantPanel: React.FC<Props> = ({
                           href={doc.postUrl}
                           target="_blank"
                           rel="noreferrer"
-                          className="shrink-0 text-[10px] font-semibold text-slate-400 hover:text-[#0B6E5C] hover:underline"
+                          className="shrink-0 text-[10px] font-semibold text-slate-400 hover:text-[#1D4ED8] hover:underline"
                         >
                           Nguồn ↗
                         </a>
@@ -969,7 +969,7 @@ export const AssistantPanel: React.FC<Props> = ({
                       <div className="mt-2">
                         <button
                           onClick={() => toggleExpandSnippet(snipKey)}
-                          className="text-[10px] font-semibold text-[#0B6E5C] hover:underline"
+                          className="text-[10px] font-semibold text-[#1D4ED8] hover:underline"
                         >
                           {snipOpen ? 'Ẩn trích đoạn văn bản gốc' : 'Xem trích đoạn văn bản gốc'}
                         </button>
@@ -998,7 +998,7 @@ export const AssistantPanel: React.FC<Props> = ({
                               <div className="mt-1.5 flex gap-1.5">
                                 <button
                                   onClick={() => onInsertLessonFrame(les.topic, les.subject, mt, obj)}
-                                  className="inline-flex items-center rounded bg-[#0B6E5C] px-2 py-0.5 text-[10px] font-semibold text-white hover:bg-[#085A4B]"
+                                  className="inline-flex items-center rounded bg-[#1D4ED8] px-2 py-0.5 text-[10px] font-semibold text-white hover:bg-[#1E40AF]"
                                 >
                                   + Chèn tiết
                                 </button>
@@ -1026,7 +1026,7 @@ export const AssistantPanel: React.FC<Props> = ({
       <div className="border-t border-slate-200 bg-white px-3.5 py-2.5">
         <button
           onClick={() => onOpenFullLibrary(activeTab === 'crawled' ? 'crawled' : 'bank')}
-          className="w-full rounded-lg border border-slate-200 py-1.5 text-[11px] font-semibold text-slate-700 transition hover:border-[#0B6E5C] hover:bg-[#F2F9F7] hover:text-[#0B6E5C]"
+          className="w-full rounded-lg border border-slate-200 py-1.5 text-[11px] font-semibold text-slate-700 transition hover:border-[#1D4ED8] hover:bg-[#EFF6FF] hover:text-[#1D4ED8]"
         >
           Mở rộng toàn màn hình kho tra cứu tham khảo →
         </button>

@@ -197,7 +197,7 @@ export const NewPlanModal: React.FC<Props> = ({
             </button>
             <button
               type="submit"
-              className="rounded-xl bg-[#0B6E5C] px-4 py-2 text-xs font-semibold text-white hover:bg-[#085A4B]"
+              className="rounded-xl bg-[#1D4ED8] px-4 py-2 text-xs font-semibold text-white hover:bg-[#1E40AF]"
             >
               Khởi tạo & Mở trình soạn
             </button>

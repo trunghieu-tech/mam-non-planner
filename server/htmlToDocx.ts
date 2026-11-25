@@ -329,7 +329,7 @@ function convertBlockList(nodes: Node[]): Array<Paragraph | Table> {
           const fill = isSignatureTable
             ? undefined
             : isHeaderRow
-            ? 'E6F4F1'
+            ? 'DBEAFE'
             : isTh
             ? 'F0FAF8'
             : undefined;

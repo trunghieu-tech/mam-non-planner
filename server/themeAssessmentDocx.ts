@@ -21,8 +21,8 @@ import type {
 import { packDocxBinary } from '../shared/binary.js';
 
 const FONT = 'Times New Roman';
-const BRAND = '0B6E5C';
-const BRAND_LIGHT = 'E6F4F1';
+const BRAND = '1D4ED8';
+const BRAND_LIGHT = 'DBEAFE';
 const BORDER_COLOR = '94A3B8';
 
 function cm(val: number): number {

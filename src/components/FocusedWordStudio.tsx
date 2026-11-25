@@ -377,7 +377,7 @@ export const FocusedWordStudio: React.FC<Props> = ({
       {!zenMode && (
       <aside className="flex w-64 shrink-0 flex-col border-r border-slate-200 bg-white">
         <div className="border-b border-slate-100 px-3.5 py-3">
-          <div className="text-[11px] font-bold uppercase tracking-wide text-[#0B6E5C]">
+          <div className="text-[11px] font-bold uppercase tracking-wide text-[#1D4ED8]">
             Danh sách tiết trong Tuần {plan.weekNumber}
           </div>
           <div className="mt-0.5 text-[10px] text-slate-500">
@@ -395,7 +395,7 @@ export const FocusedWordStudio: React.FC<Props> = ({
                 <button
                   onClick={() => setPickerDay({ dayIdx: dIdx, slotType: 'MAIN' })}
                   title={`Thêm tiết chính cho ${day.dayLabel}`}
-                  className="rounded p-0.5 text-[#0B6E5C] hover:bg-[#E6F4F1]"
+                  className="rounded p-0.5 text-[#1D4ED8] hover:bg-[#DBEAFE]"
                 >
                   <Plus className="h-3.5 w-3.5" />
                 </button>
@@ -411,7 +411,7 @@ export const FocusedWordStudio: React.FC<Props> = ({
                     onClick={() => setTarget({ dayIdx: dIdx, kind: 'main', lessonId: les.id })}
                     className={`flex w-full items-start gap-2 rounded-xl border px-2.5 py-2 text-left transition ${
                       isSelected
-                        ? 'border-[#0B6E5C] bg-[#E6F4F1] shadow-2xs'
+                        ? 'border-[#1D4ED8] bg-[#DBEAFE] shadow-2xs'
                         : 'border-transparent bg-slate-50/80 hover:bg-slate-100'
                     }`}
                   >
@@ -447,7 +447,7 @@ export const FocusedWordStudio: React.FC<Props> = ({
                   onClick={() => setTarget({ dayIdx: dIdx, kind: 'dayBook' })}
                   className={`flex-1 rounded-lg px-2 py-1 text-left text-[10px] font-semibold transition ${
                     target.dayIdx === dIdx && target.kind === 'dayBook'
-                      ? 'bg-[#E6F4F1] text-[#0B6E5C]'
+                      ? 'bg-[#DBEAFE] text-[#1D4ED8]'
                       : 'text-slate-500 hover:bg-slate-100'
                   }`}
                 >
@@ -463,7 +463,7 @@ export const FocusedWordStudio: React.FC<Props> = ({
                 >
                   <span>Nhận xét</span>
                   {(day.evalHealth || day.evalEmotionBehavior || day.evalKnowledgeSkill) && (
-                    <span className="h-2 w-2 rounded-full bg-emerald-500" />
+                    <span className="h-2 w-2 rounded-full bg-blue-500" />
                   )}
                 </button>
               </div>
@@ -474,13 +474,13 @@ export const FocusedWordStudio: React.FC<Props> = ({
         <div className="space-y-1.5 border-t border-slate-100 p-3">
           <button
             onClick={() => setShowDailyExportModal(true)}
-            className="w-full rounded-xl border border-emerald-200 bg-[#F2F9F7] py-2 text-xs font-bold text-[#0B6E5C] hover:bg-[#E6F4F1]"
+            className="w-full rounded-xl border border-blue-200 bg-[#EFF6FF] py-2 text-xs font-bold text-[#1D4ED8] hover:bg-[#DBEAFE]"
           >
             Xuất Sổ Ngày (.docx)
           </button>
           <button
             onClick={onGoToPreview}
-            className="w-full rounded-xl bg-[#0B6E5C] py-2 text-xs font-semibold text-white hover:bg-[#085A4B]"
+            className="w-full rounded-xl bg-[#1D4ED8] py-2 text-xs font-semibold text-white hover:bg-[#1E40AF]"
           >
             Xem trọn bộ A4 &amp; Xuất Word →
           </button>
@@ -496,7 +496,7 @@ export const FocusedWordStudio: React.FC<Props> = ({
             <div className="mx-auto max-w-4xl space-y-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-xs">
               <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-4">
                 <div>
-                  <div className="text-xs font-bold uppercase text-[#0B6E5C]">
+                  <div className="text-xs font-bold uppercase text-[#1D4ED8]">
                     Sổ Kế hoạch Giáo dục Ngày (tự động tổng hợp từ Lịch tuần &amp; Hoạt động cả tuần)
                   </div>
                   <h2 className="mt-0.5 text-lg font-bold text-slate-900">
@@ -506,7 +506,7 @@ export const FocusedWordStudio: React.FC<Props> = ({
                 <button
                   type="button"
                   onClick={() => setShowDailyExportModal(true)}
-                  className="rounded-xl bg-[#0B6E5C] px-4 py-2 text-xs font-bold text-white hover:bg-[#085A4B]"
+                  className="rounded-xl bg-[#1D4ED8] px-4 py-2 text-xs font-bold text-white hover:bg-[#1E40AF]"
                 >
                   Xuất Sổ Giáo án Ngày (.docx)
                 </button>
@@ -520,11 +520,11 @@ export const FocusedWordStudio: React.FC<Props> = ({
                 <div className="overflow-hidden rounded-xl border border-slate-200 text-xs">
                   <table className="w-full border-collapse text-left">
                     <thead>
-                      <tr className="bg-[#0B6E5C] text-white">
-                        <th className="w-44 border-r border-emerald-700/50 px-3.5 py-2.5 font-bold">
+                      <tr className="bg-[#1D4ED8] text-white">
+                        <th className="w-44 border-r border-blue-700/50 px-3.5 py-2.5 font-bold">
                           Thời điểm sinh hoạt
                         </th>
-                        <th className="border-r border-emerald-700/50 px-3.5 py-2.5 font-bold">
+                        <th className="border-r border-blue-700/50 px-3.5 py-2.5 font-bold">
                           Nội dung tổ chức trong ngày
                         </th>
                         <th className="w-56 px-3.5 py-2.5 font-bold">Nhận xét GV / BGH</th>
@@ -532,7 +532,7 @@ export const FocusedWordStudio: React.FC<Props> = ({
                     </thead>
                     <tbody className="divide-y divide-slate-200">
                       <tr>
-                        <td className="border-r border-slate-200 bg-slate-50/70 px-3.5 py-3 font-bold text-[#074F42]">
+                        <td className="border-r border-slate-200 bg-slate-50/70 px-3.5 py-3 font-bold text-[#1E3A8A]">
                           1. Đón trẻ &amp; Thể dục sáng
                         </td>
                         <td className="border-r border-slate-200 px-3.5 py-3 space-y-1 text-slate-700">
@@ -544,7 +544,7 @@ export const FocusedWordStudio: React.FC<Props> = ({
                         <td className="px-3.5 py-3 text-slate-400 italic">Theo nề nếp tuần</td>
                       </tr>
                       <tr>
-                        <td className="border-r border-slate-200 bg-slate-50/70 px-3.5 py-3 font-bold text-[#074F42]">
+                        <td className="border-r border-slate-200 bg-slate-50/70 px-3.5 py-3 font-bold text-[#1E3A8A]">
                           2. Hoạt động học
                         </td>
                         <td className="border-r border-slate-200 px-3.5 py-3 space-y-2">
@@ -557,7 +557,7 @@ export const FocusedWordStudio: React.FC<Props> = ({
                                   <span className="font-bold text-slate-900">
                                     [{les.subjectCode}] {les.topicTitle}{' '}
                                     {les.linkedMtCodes?.[0] && (
-                                      <span className="text-[#0B6E5C]">({les.linkedMtCodes.join(', ')})</span>
+                                      <span className="text-[#1D4ED8]">({les.linkedMtCodes.join(', ')})</span>
                                     )}
                                   </span>
                                   <button
@@ -565,7 +565,7 @@ export const FocusedWordStudio: React.FC<Props> = ({
                                     onClick={() =>
                                       setTarget({ dayIdx: target.dayIdx, kind: 'main', lessonId: les.id })
                                     }
-                                    className="font-bold text-[#0B6E5C] hover:underline"
+                                    className="font-bold text-[#1D4ED8] hover:underline"
                                   >
                                     Mở soạn Word →
                                   </button>
@@ -588,14 +588,14 @@ export const FocusedWordStudio: React.FC<Props> = ({
                               <strong>BGH góp ý:</strong> {dayUnresolvedComments[0].content}
                             </div>
                           ) : (
-                            <span className="text-[11px] text-emerald-700 font-semibold">
+                            <span className="text-[11px] text-blue-700 font-semibold">
                               {plan.status === 'APPROVED' ? '✓ BGH đã ký duyệt' : 'Không có góp ý'}
                             </span>
                           )}
                         </td>
                       </tr>
                       <tr>
-                        <td className="border-r border-slate-200 bg-slate-50/70 px-3.5 py-3 font-bold text-[#074F42]">
+                        <td className="border-r border-slate-200 bg-slate-50/70 px-3.5 py-3 font-bold text-[#1E3A8A]">
                           3. Hoạt động ngoài trời
                         </td>
                         <td className="border-r border-slate-200 px-3.5 py-3 text-slate-700">
@@ -605,7 +605,7 @@ export const FocusedWordStudio: React.FC<Props> = ({
                         <td className="px-3.5 py-3 text-slate-400">—</td>
                       </tr>
                       <tr>
-                        <td className="border-r border-slate-200 bg-slate-50/70 px-3.5 py-3 font-bold text-[#074F42]">
+                        <td className="border-r border-slate-200 bg-slate-50/70 px-3.5 py-3 font-bold text-[#1E3A8A]">
                           4. Chơi góc &amp; Chiều
                         </td>
                         <td className="border-r border-slate-200 px-3.5 py-3 space-y-1 text-slate-700">
@@ -620,7 +620,7 @@ export const FocusedWordStudio: React.FC<Props> = ({
                         <td className="px-3.5 py-3 text-slate-400">—</td>
                       </tr>
                       <tr>
-                        <td className="border-r border-slate-200 bg-slate-50/70 px-3.5 py-3 font-bold text-[#074F42]">
+                        <td className="border-r border-slate-200 bg-slate-50/70 px-3.5 py-3 font-bold text-[#1E3A8A]">
                           5. Nhận xét cuối ngày
                         </td>
                         <td className="border-r border-slate-200 px-3.5 py-3 space-y-1 text-slate-700" colSpan={2}>
@@ -630,7 +630,7 @@ export const FocusedWordStudio: React.FC<Props> = ({
                           <button
                             type="button"
                             onClick={() => setTarget({ dayIdx: target.dayIdx, kind: 'eval' })}
-                            className="mt-1 inline-block font-bold text-[#0B6E5C] hover:underline"
+                            className="mt-1 inline-block font-bold text-[#1D4ED8] hover:underline"
                           >
                             Ghi / Chỉnh sửa nhận xét cuối ngày →
                           </button>
@@ -648,14 +648,14 @@ export const FocusedWordStudio: React.FC<Props> = ({
             <div className="mx-auto max-w-3xl space-y-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-xs">
               <div className="flex items-center justify-between border-b border-slate-100 pb-3">
                 <div>
-                  <div className="text-xs font-bold uppercase text-[#0B6E5C]">
+                  <div className="text-xs font-bold uppercase text-[#1D4ED8]">
                     Nhật ký Đánh giá cuối ngày (3 tiêu chí chuẩn Bộ GD&ĐT)
                   </div>
                   <h2 className="mt-0.5 text-lg font-bold text-slate-900">
                     {activeDay.dayLabel}, ngày {fmtDateVN(activeDay.dateStr)}
                   </h2>
                 </div>
-                <span className="rounded-full bg-[#E6F4F1] px-3 py-1 text-xs font-semibold text-[#0B6E5C]">
+                <span className="rounded-full bg-[#DBEAFE] px-3 py-1 text-xs font-semibold text-[#1D4ED8]">
                   Tự ghép cuối ngày trên Word A4
                 </span>
               </div>
@@ -670,7 +670,7 @@ export const FocusedWordStudio: React.FC<Props> = ({
                     <button
                       key={i}
                       onClick={() => updateDayEval('evalHealth', txt)}
-                      className="rounded-full border border-emerald-200 bg-emerald-50/70 px-2.5 py-1 text-[11px] font-medium text-emerald-900 hover:bg-emerald-100"
+                      className="rounded-full border border-blue-200 bg-blue-50/70 px-2.5 py-1 text-[11px] font-medium text-blue-900 hover:bg-blue-100"
                     >
                       + {txt.slice(0, 48)}...
                     </button>
@@ -681,7 +681,7 @@ export const FocusedWordStudio: React.FC<Props> = ({
                   value={activeDay.evalHealth}
                   onChange={(e) => updateDayEval('evalHealth', e.target.value)}
                   placeholder="Nhập hoặc bấm chọn nhanh mẫu câu ở trên (để trống nếu muốn in dòng chấm viết tay)..."
-                  className="w-full rounded-xl border border-slate-200 p-3 text-xs focus:border-[#0B6E5C] focus:outline-none"
+                  className="w-full rounded-xl border border-slate-200 p-3 text-xs focus:border-[#1D4ED8] focus:outline-none"
                 />
               </div>
 
@@ -706,7 +706,7 @@ export const FocusedWordStudio: React.FC<Props> = ({
                   value={activeDay.evalEmotionBehavior}
                   onChange={(e) => updateDayEval('evalEmotionBehavior', e.target.value)}
                   placeholder="Nhập nhận xét cảm xúc, thái độ, nề nếp..."
-                  className="w-full rounded-xl border border-slate-200 p-3 text-xs focus:border-[#0B6E5C] focus:outline-none"
+                  className="w-full rounded-xl border border-slate-200 p-3 text-xs focus:border-[#1D4ED8] focus:outline-none"
                 />
               </div>
 
@@ -731,7 +731,7 @@ export const FocusedWordStudio: React.FC<Props> = ({
                   value={activeDay.evalKnowledgeSkill}
                   onChange={(e) => updateDayEval('evalKnowledgeSkill', e.target.value)}
                   placeholder="Nhập nhận xét kiến thức, kỹ năng trẻ đạt được trong ngày..."
-                  className="w-full rounded-xl border border-slate-200 p-3 text-xs focus:border-[#0B6E5C] focus:outline-none"
+                  className="w-full rounded-xl border border-slate-200 p-3 text-xs focus:border-[#1D4ED8] focus:outline-none"
                 />
               </div>
             </div>
@@ -740,9 +740,9 @@ export const FocusedWordStudio: React.FC<Props> = ({
           /* FOCUSED WORD EDITOR FOR THIS SINGLE LESSON */
           <>
             {/* Compact Synced Lesson Meta Strip */}
-            <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 bg-[#F8FCFB] px-4 py-2">
+            <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 bg-[#F5F9FF] px-4 py-2">
               <div className="flex min-w-0 flex-1 flex-wrap items-center gap-2">
-                <span className="rounded-md bg-[#0B6E5C] px-2 py-0.5 text-[10px] font-bold text-white">
+                <span className="rounded-md bg-[#1D4ED8] px-2 py-0.5 text-[10px] font-bold text-white">
                   {activeDay.dayLabel}
                 </span>
                 <select
@@ -769,7 +769,7 @@ export const FocusedWordStudio: React.FC<Props> = ({
                   onChange={(e) =>
                     updateActiveLesson((les) => ({ ...les, topicTitle: e.target.value }))
                   }
-                  className="min-w-[200px] flex-1 rounded-lg border border-slate-200 bg-white px-2.5 py-1 text-xs font-bold text-slate-900 focus:border-[#0B6E5C] focus:outline-none"
+                  className="min-w-[200px] flex-1 rounded-lg border border-slate-200 bg-white px-2.5 py-1 text-xs font-bold text-slate-900 focus:border-[#1D4ED8] focus:outline-none"
                   placeholder="Tên đề tài tiết học..."
                 />
               </div>
@@ -820,7 +820,7 @@ export const FocusedWordStudio: React.FC<Props> = ({
                 <button
                   onClick={handleRegeneratePedagogy}
                   title="Tạo lại toàn bộ bố cục I / II / III theo đúng khung sư phạm chuẩn của môn này"
-                  className="rounded-lg border border-emerald-200 bg-white px-2.5 py-1 text-[11px] font-semibold text-[#0B6E5C] hover:bg-[#E6F4F1]"
+                  className="rounded-lg border border-blue-200 bg-white px-2.5 py-1 text-[11px] font-semibold text-[#1D4ED8] hover:bg-[#DBEAFE]"
                 >
                   Khung chuẩn {resolveSubjectMeta(activeLesson.subjectCode).code}
                 </button>
@@ -829,7 +829,7 @@ export const FocusedWordStudio: React.FC<Props> = ({
                   title={zenMode ? 'Thoát chế độ tập trung' : 'Chế độ tập trung toàn màn hình'}
                   className={`rounded-lg border p-1.5 transition ${
                     zenMode
-                      ? 'border-[#0B6E5C] bg-[#0B6E5C] text-white'
+                      ? 'border-[#1D4ED8] bg-[#1D4ED8] text-white'
                       : 'border-slate-200 bg-white text-slate-600 hover:bg-slate-50'
                   }`}
                 >
@@ -839,7 +839,7 @@ export const FocusedWordStudio: React.FC<Props> = ({
                   onClick={() => setShowAssistant((v) => !v)}
                   className={`rounded-lg border px-2.5 py-1 text-[11px] font-semibold ${
                     showAssistant && !zenMode
-                      ? 'border-[#0B6E5C]/30 bg-[#E6F4F1] text-[#0B6E5C]'
+                      ? 'border-[#1D4ED8]/30 bg-[#DBEAFE] text-[#1D4ED8]'
                       : 'border-slate-200 bg-white text-slate-600'
                   }`}
                 >
@@ -903,7 +903,7 @@ export const FocusedWordStudio: React.FC<Props> = ({
                         url: newMediaUrl,
                       })
                     }
-                    className="rounded-lg bg-[#0B6E5C] px-3 py-1 text-[11px] font-bold text-white hover:bg-[#085A4B]"
+                    className="rounded-lg bg-[#1D4ED8] px-3 py-1 text-[11px] font-bold text-white hover:bg-[#1E40AF]"
                   >
                     + Đính kèm
                   </button>
@@ -926,7 +926,7 @@ export const FocusedWordStudio: React.FC<Props> = ({
                   <button
                     type="button"
                     onClick={() => onOpenFullLibrary('media')}
-                    className="rounded-lg border border-[#0B6E5C]/30 bg-white px-2.5 py-1 text-[10px] font-bold text-[#0B6E5C] hover:bg-[#E6F4F1]"
+                    className="rounded-lg border border-[#1D4ED8]/30 bg-white px-2.5 py-1 text-[10px] font-bold text-[#1D4ED8] hover:bg-[#DBEAFE]"
                   >
                     Mở Kho PPT / Clip / Ảnh →
                   </button>
@@ -949,7 +949,7 @@ export const FocusedWordStudio: React.FC<Props> = ({
                 <button
                   type="button"
                   onClick={handleMarkDayCommentsFixed}
-                  className="shrink-0 rounded-lg bg-emerald-700 px-3 py-1 text-[11px] font-bold text-white hover:bg-emerald-800"
+                  className="shrink-0 rounded-lg bg-blue-700 px-3 py-1 text-[11px] font-bold text-white hover:bg-blue-800"
                 >
                   Đã sửa xong – Báo BGH
                 </button>
@@ -973,7 +973,7 @@ export const FocusedWordStudio: React.FC<Props> = ({
             </p>
             <button
               onClick={() => setPickerDay({ dayIdx: target.dayIdx, slotType: 'MAIN' })}
-              className="mt-3 rounded-xl bg-[#0B6E5C] px-4 py-2 text-xs font-semibold text-white hover:bg-[#085A4B]"
+              className="mt-3 rounded-xl bg-[#1D4ED8] px-4 py-2 text-xs font-semibold text-white hover:bg-[#1E40AF]"
             >
               + Thêm tiết chính cho {activeDay.dayLabel}
             </button>
@@ -1074,7 +1074,7 @@ export const FocusedWordStudio: React.FC<Props> = ({
                     type="checkbox"
                     checked={incGvEval}
                     onChange={(e) => setIncGvEval(e.target.checked)}
-                    className="h-4 w-4 accent-[#0B6E5C]"
+                    className="h-4 w-4 accent-[#1D4ED8]"
                   />
                   Lấy mục Đánh giá / Nhận xét cuối ngày của Giáo viên
                 </label>
@@ -1083,7 +1083,7 @@ export const FocusedWordStudio: React.FC<Props> = ({
                     type="checkbox"
                     checked={incBghCmt}
                     onChange={(e) => setIncBghCmt(e.target.checked)}
-                    className="h-4 w-4 accent-[#0B6E5C]"
+                    className="h-4 w-4 accent-[#1D4ED8]"
                   />
                   Lấy cột Nhận xét chuyên môn của Ban Giám hiệu
                 </label>
@@ -1092,7 +1092,7 @@ export const FocusedWordStudio: React.FC<Props> = ({
                     type="checkbox"
                     checked={incSign}
                     onChange={(e) => setIncSign(e.target.checked)}
-                    className="h-4 w-4 accent-[#0B6E5C]"
+                    className="h-4 w-4 accent-[#1D4ED8]"
                   />
                   Gắn khung Chữ ký xác nhận cuối mỗi ngày
                 </label>
@@ -1110,7 +1110,7 @@ export const FocusedWordStudio: React.FC<Props> = ({
                   type="button"
                   disabled={exportingDaily}
                   onClick={handleExportDailyRangeDocx}
-                  className="rounded-xl bg-[#0B6E5C] px-4 py-2 font-bold text-white hover:bg-[#085A4B] disabled:opacity-60"
+                  className="rounded-xl bg-[#1D4ED8] px-4 py-2 font-bold text-white hover:bg-[#1E40AF] disabled:opacity-60"
                 >
                   {exportingDaily ? 'Đang tạo file...' : 'Tải Sổ Ngày (.docx)'}
                 </button>

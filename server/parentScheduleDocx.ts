@@ -17,8 +17,8 @@ import type { WeeklyPlanDocument } from '../shared/types.js';
 import { packDocxBinary } from '../shared/binary.js';
 
 const FONT = 'Times New Roman';
-const BRAND = '0B6E5C';
-const BRAND_LIGHT = 'E6F4F1';
+const BRAND = '1D4ED8';
+const BRAND_LIGHT = 'DBEAFE';
 const BORDER_COLOR = '8FAEA6';
 
 function cm(val: number): number {
@@ -79,7 +79,7 @@ export async function generateParentScheduleDocx(plan: WeeklyPlanDocument): Prom
     cell(
       [
         p(d.dayLabel.toUpperCase(), { bold: true, size: 11, color: 'FFFFFF', align: AlignmentType.CENTER, after: 10 }),
-        p(fmtShortDay(d.dateStr), { italic: true, size: 10, color: 'E6F4F1', align: AlignmentType.CENTER, before: 0 }),
+        p(fmtShortDay(d.dateStr), { italic: true, size: 10, color: 'DBEAFE', align: AlignmentType.CENTER, before: 0 }),
       ],
       { fill: BRAND, widthPct: 17, vAlign: VerticalAlign.CENTER }
     )

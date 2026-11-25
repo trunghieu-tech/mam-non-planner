@@ -179,7 +179,7 @@ export const SharedBlocksView: React.FC<Props> = ({
             </button>
             <button
               onClick={() => onGoToStep('focus')}
-              className="rounded-xl bg-[#0B6E5C] px-4 py-2 text-xs font-semibold text-white hover:bg-[#085A4B]"
+              className="rounded-xl bg-[#1D4ED8] px-4 py-2 text-xs font-semibold text-white hover:bg-[#1E40AF]"
             >
               Tiếp: Soạn Word →
             </button>
@@ -196,11 +196,11 @@ export const SharedBlocksView: React.FC<Props> = ({
                 onClick={() => setActiveBlock(t.id)}
                 className={`rounded-xl border px-4 py-2 text-xs font-semibold transition ${
                   active
-                    ? 'border-[#0B6E5C] bg-[#0B6E5C] text-white'
+                    ? 'border-[#1D4ED8] bg-[#1D4ED8] text-white'
                     : 'border-slate-200 bg-white text-slate-700 hover:border-slate-300'
                 }`}
               >
-                {t.label} <span className={`ml-1 ${active ? 'text-emerald-100' : 'text-slate-400'}`}>({t.badge})</span>
+                {t.label} <span className={`ml-1 ${active ? 'text-blue-100' : 'text-slate-400'}`}>({t.badge})</span>
               </button>
             );
           })}
@@ -214,7 +214,7 @@ export const SharedBlocksView: React.FC<Props> = ({
             {/* Left: Attached MTs summary across 5 domains */}
             <div className="space-y-3 lg:col-span-5">
               <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-2xs">
-                <div className="text-xs font-bold uppercase text-[#0B6E5C]">
+                <div className="text-xs font-bold uppercase text-[#1D4ED8]">
                   Mục tiêu đã gắn vào Tuần {plan.weekNumber} ({attachedMtSet.size} mã MT)
                 </div>
                 <p className="mt-0.5 text-[11px] text-slate-500">
@@ -234,7 +234,7 @@ export const SharedBlocksView: React.FC<Props> = ({
                         key={dv.key}
                         onClick={() => setMtDomainFilter(dv.key)}
                         className={`cursor-pointer rounded-xl border border-l-4 ${dv.borderClass} p-3 transition ${
-                          active ? 'border-[#0B6E5C] bg-[#F2F9F7]' : 'border-slate-200 bg-white hover:bg-slate-50'
+                          active ? 'border-[#1D4ED8] bg-[#EFF6FF]' : 'border-slate-200 bg-white hover:bg-slate-50'
                         }`}
                       >
                         <div className="flex items-center justify-between">
@@ -252,7 +252,7 @@ export const SharedBlocksView: React.FC<Props> = ({
                             codes.map((c) => (
                               <span
                                 key={c}
-                                className="inline-flex items-center gap-1 rounded-md bg-white px-2 py-0.5 text-[11px] font-bold text-[#0B6E5C] ring-1 ring-emerald-200"
+                                className="inline-flex items-center gap-1 rounded-md bg-white px-2 py-0.5 text-[11px] font-bold text-[#1D4ED8] ring-1 ring-blue-200"
                               >
                                 {c}
                                 <button
@@ -286,7 +286,7 @@ export const SharedBlocksView: React.FC<Props> = ({
                     value={mtSearch}
                     onChange={(e) => setMtSearch(e.target.value)}
                     placeholder="Tìm mã MT, từ khóa..."
-                    className="w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs focus:border-[#0B6E5C] focus:bg-white focus:outline-none"
+                    className="w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs focus:border-[#1D4ED8] focus:bg-white focus:outline-none"
                   />
                 </div>
               </div>
@@ -301,14 +301,14 @@ export const SharedBlocksView: React.FC<Props> = ({
                       onClick={() => toggleMt(mtDomainFilter, obj.code)}
                       className={`flex cursor-pointer items-start gap-3 rounded-xl border p-3 transition ${
                         checked
-                          ? 'border-[#0B6E5C] bg-[#E6F4F1]/60'
+                          ? 'border-[#1D4ED8] bg-[#DBEAFE]/60'
                           : 'border-slate-200 bg-white hover:border-slate-300 hover:bg-slate-50'
                       }`}
                     >
                       <div
                         className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-md border transition ${
                           checked
-                            ? 'border-[#0B6E5C] bg-[#0B6E5C] text-white'
+                            ? 'border-[#1D4ED8] bg-[#1D4ED8] text-white'
                             : 'border-slate-300 bg-white'
                         }`}
                       >
@@ -316,7 +316,7 @@ export const SharedBlocksView: React.FC<Props> = ({
                       </div>
                       <div className="min-w-0 flex-1">
                         <div className="flex flex-wrap items-center gap-1.5">
-                          <span className="rounded bg-[#0B6E5C] px-1.5 py-0.5 text-[10px] font-bold text-white">
+                          <span className="rounded bg-[#1D4ED8] px-1.5 py-0.5 text-[10px] font-bold text-white">
                             {obj.code}
                           </span>
                           <span className="rounded bg-slate-100 px-1.5 py-0.5 text-[10px] font-medium text-slate-600">
@@ -370,7 +370,7 @@ export const SharedBlocksView: React.FC<Props> = ({
                       morningExercise: { ...plan.morningExercise, warmup: e.target.value },
                     })
                   }
-                  className="mt-1 w-full rounded-xl border border-slate-200 p-2.5 text-xs focus:border-[#0B6E5C] focus:outline-none"
+                  className="mt-1 w-full rounded-xl border border-slate-200 p-2.5 text-xs focus:border-[#1D4ED8] focus:outline-none"
                 />
               </label>
               <label className="block text-xs">
@@ -384,7 +384,7 @@ export const SharedBlocksView: React.FC<Props> = ({
                       morningExercise: { ...plan.morningExercise, cooldown: e.target.value },
                     })
                   }
-                  className="mt-1 w-full rounded-xl border border-slate-200 p-2.5 text-xs focus:border-[#0B6E5C] focus:outline-none"
+                  className="mt-1 w-full rounded-xl border border-slate-200 p-2.5 text-xs focus:border-[#1D4ED8] focus:outline-none"
                 />
               </label>
             </div>
@@ -405,7 +405,7 @@ export const SharedBlocksView: React.FC<Props> = ({
                   return (
                     <div key={idx} className="rounded-xl border border-slate-200 bg-slate-50/70 p-3.5">
                       <div className="flex flex-wrap items-center justify-between gap-2">
-                        <span className="rounded-md bg-[#0B6E5C] px-2 py-0.5 text-[11px] font-bold text-white">
+                        <span className="rounded-md bg-[#1D4ED8] px-2 py-0.5 text-[11px] font-bold text-white">
                           {idx + 1}. Nhóm {mv.group}
                         </span>
                         <div className="flex flex-wrap gap-1">
@@ -424,7 +424,7 @@ export const SharedBlocksView: React.FC<Props> = ({
                                   `Đã chọn động tác "${pr.name}"!`
                                 );
                               }}
-                              className="rounded-full border border-emerald-200 bg-white px-2.5 py-0.5 text-[10px] font-semibold text-[#0B6E5C] hover:bg-[#E6F4F1]"
+                              className="rounded-full border border-blue-200 bg-white px-2.5 py-0.5 text-[10px] font-semibold text-[#1D4ED8] hover:bg-[#DBEAFE]"
                             >
                               + {pr.name.split('(')[0].trim()}
                             </button>
@@ -477,7 +477,7 @@ export const SharedBlocksView: React.FC<Props> = ({
               {plan.cornerTable.map((c, idx) => (
                 <div key={idx} className="rounded-2xl border border-slate-200 bg-white p-4 shadow-2xs">
                   <div className="flex items-center justify-between">
-                    <span className="rounded-lg bg-teal-100 px-2.5 py-1 text-xs font-bold text-teal-900">
+                    <span className="rounded-lg bg-blue-100 px-2.5 py-1 text-xs font-bold text-blue-900">
                       {idx + 1}. {c.cornerName}
                     </span>
                   </div>
@@ -544,8 +544,8 @@ export const SharedBlocksView: React.FC<Props> = ({
             </div>
 
             {/* Right: Live Corner Ideas grouped cleanly by each of the 5 corners */}
-            <div className="rounded-2xl border border-teal-200 bg-white p-4 shadow-2xs lg:col-span-4">
-              <div className="text-xs font-bold text-[#0B6E5C]">
+            <div className="rounded-2xl border border-blue-200 bg-white p-4 shadow-2xs lg:col-span-4">
+              <div className="text-xs font-bold text-[#1D4ED8]">
                 Ý tưởng chia riêng theo từng Góc chơi
               </div>
               <p className="mt-0.5 text-[11px] text-slate-500">
@@ -561,8 +561,8 @@ export const SharedBlocksView: React.FC<Props> = ({
                       onClick={() => setCornerFilter(cn)}
                       className={`rounded-full border px-2 py-0.5 text-[10px] font-semibold transition ${
                         active
-                          ? 'border-[#0B6E5C] bg-[#0B6E5C] text-white'
-                          : 'border-teal-200 bg-teal-50/70 text-teal-900 hover:bg-teal-100'
+                          ? 'border-[#1D4ED8] bg-[#1D4ED8] text-white'
+                          : 'border-blue-200 bg-blue-50/70 text-blue-900 hover:bg-blue-100'
                       }`}
                     >
                       {cn.replace('Góc ', '')} {cnt > 0 ? `(${cnt})` : ''}
@@ -595,7 +595,7 @@ export const SharedBlocksView: React.FC<Props> = ({
                               });
                               onUpdatePlan({ ...plan, cornerTable: next }, `Đã thêm vào ${c.cornerName}!`);
                             }}
-                            className="rounded bg-white px-1.5 py-0.5 text-[10px] font-semibold text-[#0B6E5C] ring-1 ring-slate-200 hover:bg-[#0B6E5C] hover:text-white"
+                            className="rounded bg-white px-1.5 py-0.5 text-[10px] font-semibold text-[#1D4ED8] ring-1 ring-slate-200 hover:bg-[#1D4ED8] hover:text-white"
                           >
                             + {c.cornerName.replace('Góc ', '')}
                           </button>
@@ -813,7 +813,7 @@ export const SharedBlocksView: React.FC<Props> = ({
                       />
                     </label>
                   </div>
-                  <div className="rounded-xl bg-[#F2F9F7] p-3 text-xs text-[#074F42]">
+                  <div className="rounded-xl bg-[#EFF6FF] p-3 text-xs text-[#1E3A8A]">
                     Nội dung ở đây tự động xuất hiện ở cả <strong>Bảng Tổng hợp Tuần</strong>, <strong>5 Ngày chi tiết</strong> và <strong>Tờ Lịch Tuần gửi Phụ huynh</strong>.
                   </div>
                 </div>
@@ -841,7 +841,7 @@ export const SharedBlocksView: React.FC<Props> = ({
                         onClick={() => setRoutineSlotId(slot.id)}
                         className={`rounded-full px-3 py-1.5 text-xs font-semibold transition ${
                           active
-                            ? 'bg-[#0B6E5C] text-white'
+                            ? 'bg-[#1D4ED8] text-white'
                             : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
                         }`}
                       >
@@ -868,7 +868,7 @@ export const SharedBlocksView: React.FC<Props> = ({
                       <div className="flex justify-end">
                         <button
                           onClick={() => appendDailyIdea(activeSlot, `${item.title}: ${item.detail}`)}
-                          className="rounded-lg bg-[#E6F4F1] px-3 py-1 text-xs font-semibold text-[#0B6E5C] hover:bg-[#0B6E5C] hover:text-white"
+                          className="rounded-lg bg-[#DBEAFE] px-3 py-1 text-xs font-semibold text-[#1D4ED8] hover:bg-[#1D4ED8] hover:text-white"
                         >
                           + Thêm vào tuần
                         </button>
@@ -892,7 +892,7 @@ export const SharedBlocksView: React.FC<Props> = ({
                   type="checkbox"
                   checked={plan.includeThemeSection}
                   onChange={(e) => onUpdatePlan({ ...plan, includeThemeSection: e.target.checked })}
-                  className="h-4 w-4 accent-[#0B6E5C]"
+                  className="h-4 w-4 accent-[#1D4ED8]"
                 />
                 Hiển thị Phần Kế hoạch Chủ đề (Mục tiêu Chủ đề, Mạng nội dung, Mạng hoạt động) trong file xuất Word
               </label>
@@ -910,7 +910,7 @@ export const SharedBlocksView: React.FC<Props> = ({
                     ],
                   })
                 }
-                className="rounded-lg bg-[#E6F4F1] px-3 py-1.5 text-xs font-semibold text-[#0B6E5C] hover:bg-emerald-100"
+                className="rounded-lg bg-[#DBEAFE] px-3 py-1.5 text-xs font-semibold text-[#1D4ED8] hover:bg-blue-100"
               >
                 + Thêm nhánh tuần
               </button>
@@ -928,7 +928,7 @@ export const SharedBlocksView: React.FC<Props> = ({
                         );
                         onUpdatePlan({ ...plan, contentNetwork: next });
                       }}
-                      className="flex-1 rounded-lg border border-slate-200 px-2.5 py-1 text-xs font-bold text-[#0B6E5C]"
+                      className="flex-1 rounded-lg border border-slate-200 px-2.5 py-1 text-xs font-bold text-[#1D4ED8]"
                     />
                     {plan.contentNetwork.length > 1 && (
                       <button

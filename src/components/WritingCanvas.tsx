@@ -94,7 +94,7 @@ export const WritingCanvas: React.FC<Props> = ({
     return (
       <div className="mx-auto max-w-3xl space-y-6 rounded-2xl border border-slate-200/80 bg-white p-8 shadow-xs">
         <div className="border-b border-slate-100 pb-4">
-          <div className="text-xs font-semibold uppercase tracking-wider text-[#0B6E5C]">Phần 1 • Trang bìa hồ sơ</div>
+          <div className="text-xs font-semibold uppercase tracking-wider text-[#1D4ED8]">Phần 1 • Trang bìa hồ sơ</div>
           <h1 className="mt-1 text-xl font-bold text-slate-900">Thông tin chung & Bìa Kế hoạch Giáo dục</h1>
           <p className="mt-1 text-xs text-slate-500">
             Nhập một lần tại đây — hệ thống tự đồng bộ vào trang bìa chuẩn Nghị định 30/2020/NĐ-CP, 5 ngày trong tuần và khối chữ ký BGH.
@@ -107,7 +107,7 @@ export const WritingCanvas: React.FC<Props> = ({
             <input
               value={plan.governingBody}
               onChange={(e) => onChange({ ...plan, governingBody: e.target.value })}
-              className="mt-1 w-full rounded-xl border border-slate-200 px-3.5 py-2 text-sm focus:border-[#0B6E5C] focus:outline-none"
+              className="mt-1 w-full rounded-xl border border-slate-200 px-3.5 py-2 text-sm focus:border-[#1D4ED8] focus:outline-none"
             />
           </div>
           <div>
@@ -115,7 +115,7 @@ export const WritingCanvas: React.FC<Props> = ({
             <input
               value={plan.schoolName}
               onChange={(e) => onChange({ ...plan, schoolName: e.target.value })}
-              className="mt-1 w-full rounded-xl border border-slate-200 px-3.5 py-2 text-sm focus:border-[#0B6E5C] focus:outline-none"
+              className="mt-1 w-full rounded-xl border border-slate-200 px-3.5 py-2 text-sm focus:border-[#1D4ED8] focus:outline-none"
             />
           </div>
           <div>
@@ -123,7 +123,7 @@ export const WritingCanvas: React.FC<Props> = ({
             <input
               value={plan.themeName}
               onChange={(e) => onChange({ ...plan, themeName: e.target.value })}
-              className="mt-1 w-full rounded-xl border border-slate-200 px-3.5 py-2 text-sm font-semibold focus:border-[#0B6E5C] focus:outline-none"
+              className="mt-1 w-full rounded-xl border border-slate-200 px-3.5 py-2 text-sm font-semibold focus:border-[#1D4ED8] focus:outline-none"
             />
           </div>
           <div>
@@ -131,7 +131,7 @@ export const WritingCanvas: React.FC<Props> = ({
             <input
               value={plan.subThemeName}
               onChange={(e) => onChange({ ...plan, subThemeName: e.target.value })}
-              className="mt-1 w-full rounded-xl border border-slate-200 px-3.5 py-2 text-sm font-semibold focus:border-[#0B6E5C] focus:outline-none"
+              className="mt-1 w-full rounded-xl border border-slate-200 px-3.5 py-2 text-sm font-semibold focus:border-[#1D4ED8] focus:outline-none"
             />
           </div>
           <div className="grid grid-cols-3 gap-2.5">
@@ -175,7 +175,7 @@ export const WritingCanvas: React.FC<Props> = ({
             <button
               type="button"
               onClick={() => onChange(syncWeekDates(plan, plan.weekStartDate))}
-              className="inline-flex items-center gap-1 rounded-xl border border-[#0B6E5C] bg-[#E6F4F1] px-3 py-2 text-xs font-semibold text-[#0B6E5C]"
+              className="inline-flex items-center gap-1 rounded-xl border border-[#1D4ED8] bg-[#DBEAFE] px-3 py-2 text-xs font-semibold text-[#1D4ED8]"
             >
               <RefreshCw className="h-3.5 w-3.5" /> Đồng bộ T2–T6
             </button>
@@ -203,7 +203,7 @@ export const WritingCanvas: React.FC<Props> = ({
             type="checkbox"
             checked={plan.includeThemeSection}
             onChange={(e) => onChange({ ...plan, includeThemeSection: e.target.checked })}
-            className="h-4 w-4 accent-[#0B6E5C]"
+            className="h-4 w-4 accent-[#1D4ED8]"
           />
           Kèm phần Kế hoạch Chủ đề (Mục tiêu 5 lĩnh vực, Mạng nội dung, Mạng hoạt động) khi xuất file Word — thường bật cho Tuần 1 của mỗi chủ đề.
         </label>
@@ -211,7 +211,7 @@ export const WritingCanvas: React.FC<Props> = ({
         <div className="flex justify-end border-t border-slate-100 pt-4">
           <button
             onClick={() => onNavigate('theme')}
-            className="inline-flex items-center gap-1 rounded-xl bg-[#0B6E5C] px-4 py-2 text-xs font-semibold text-white hover:bg-[#085A4B]"
+            className="inline-flex items-center gap-1 rounded-xl bg-[#1D4ED8] px-4 py-2 text-xs font-semibold text-white hover:bg-[#1E40AF]"
           >
             Tiếp: Mục tiêu & Mạng Chủ đề <ChevronRight className="h-4 w-4" />
           </button>
@@ -227,7 +227,7 @@ export const WritingCanvas: React.FC<Props> = ({
     return (
       <div className="mx-auto max-w-3xl space-y-6 rounded-2xl border border-slate-200/80 bg-white p-8 shadow-xs">
         <div className="border-b border-slate-100 pb-4">
-          <div className="text-xs font-semibold uppercase tracking-wider text-[#0B6E5C]">Phần 2 • Kế hoạch Chủ đề</div>
+          <div className="text-xs font-semibold uppercase tracking-wider text-[#1D4ED8]">Phần 2 • Kế hoạch Chủ đề</div>
           <h1 className="mt-1 text-xl font-bold text-slate-900">Mục tiêu Chủ đề, Mạng Nội dung & Mạng Hoạt động</h1>
         </div>
 
@@ -235,7 +235,7 @@ export const WritingCanvas: React.FC<Props> = ({
           <h2 className="text-sm font-bold text-slate-900">I. Mục tiêu Chủ đề (5 Lĩnh vực + Mã MT chuẩn)</h2>
           {plan.themeObjectives.map((block, bIdx) => (
             <div key={block.domainKey} className="rounded-xl border border-slate-200 bg-slate-50/50 p-4">
-              <div className="text-sm font-bold text-[#0B6E5C]">{block.domainTitle}</div>
+              <div className="text-sm font-bold text-[#1D4ED8]">{block.domainTitle}</div>
               <textarea
                 rows={3}
                 value={block.customGoals.join('\n')}
@@ -245,7 +245,7 @@ export const WritingCanvas: React.FC<Props> = ({
                   );
                   onChange({ ...plan, themeObjectives: next });
                 }}
-                className="mt-2 w-full rounded-xl border border-slate-200 bg-white p-2.5 text-xs leading-relaxed focus:border-[#0B6E5C] focus:outline-none"
+                className="mt-2 w-full rounded-xl border border-slate-200 bg-white p-2.5 text-xs leading-relaxed focus:border-[#1D4ED8] focus:outline-none"
               />
               <div className="mt-2.5 flex flex-wrap items-center gap-1.5">
                 {block.mtCodes.map((code) => {
@@ -254,10 +254,10 @@ export const WritingCanvas: React.FC<Props> = ({
                     <span
                       key={code}
                       title={obj?.description}
-                      className="inline-flex items-center gap-1 rounded-lg bg-[#0B6E5C] px-2.5 py-1 text-xs font-semibold text-white"
+                      className="inline-flex items-center gap-1 rounded-lg bg-[#1D4ED8] px-2.5 py-1 text-xs font-semibold text-white"
                     >
                       {code}
-                      <button onClick={() => toggleMtInTheme(bIdx, code)} className="ml-0.5 text-emerald-200 hover:text-white">
+                      <button onClick={() => toggleMtInTheme(bIdx, code)} className="ml-0.5 text-blue-200 hover:text-white">
                         ×
                       </button>
                     </span>
@@ -271,7 +271,7 @@ export const WritingCanvas: React.FC<Props> = ({
                       e.target.value = '';
                     }
                   }}
-                  className="rounded-lg border border-dashed border-[#0B6E5C] bg-white px-2.5 py-1 text-xs font-semibold text-[#0B6E5C]"
+                  className="rounded-lg border border-dashed border-[#1D4ED8] bg-white px-2.5 py-1 text-xs font-semibold text-[#1D4ED8]"
                 >
                   <option value="">+ Chọn mã MT...</option>
                   {ageObjectives
@@ -300,7 +300,7 @@ export const WritingCanvas: React.FC<Props> = ({
                   ],
                 })
               }
-              className="inline-flex items-center gap-1 rounded-lg bg-[#E6F4F1] px-2.5 py-1 text-xs font-semibold text-[#0B6E5C]"
+              className="inline-flex items-center gap-1 rounded-lg bg-[#DBEAFE] px-2.5 py-1 text-xs font-semibold text-[#1D4ED8]"
             >
               <Plus className="h-3.5 w-3.5" /> Thêm nhánh
             </button>
@@ -316,7 +316,7 @@ export const WritingCanvas: React.FC<Props> = ({
                       contentNetwork: plan.contentNetwork.map((b, i) => (i === idx ? { ...b, branchTitle: e.target.value } : b)),
                     })
                   }
-                  className="w-full rounded-lg border border-slate-200 bg-white px-2 py-1.5 text-xs font-bold text-[#074F42]"
+                  className="w-full rounded-lg border border-slate-200 bg-white px-2 py-1.5 text-xs font-bold text-[#1E3A8A]"
                 />
                 <textarea
                   rows={5}
@@ -339,7 +339,7 @@ export const WritingCanvas: React.FC<Props> = ({
           <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
             {plan.activityNetwork.map((an, idx) => (
               <div key={an.domainKey} className="rounded-xl border border-slate-200 bg-slate-50/70 p-3">
-                <div className="text-xs font-bold text-[#0B6E5C]">{an.domainTitle}</div>
+                <div className="text-xs font-bold text-[#1D4ED8]">{an.domainTitle}</div>
                 <textarea
                   rows={4}
                   value={an.items.join('\n')}
@@ -365,7 +365,7 @@ export const WritingCanvas: React.FC<Props> = ({
           </button>
           <button
             onClick={() => onNavigate('shared')}
-            className="inline-flex items-center gap-1 rounded-xl bg-[#0B6E5C] px-4 py-2 text-xs font-semibold text-white hover:bg-[#085A4B]"
+            className="inline-flex items-center gap-1 rounded-xl bg-[#1D4ED8] px-4 py-2 text-xs font-semibold text-white hover:bg-[#1E40AF]"
           >
             Tiếp: Khối dùng chung tuần <ChevronRight className="h-4 w-4" />
           </button>
@@ -381,7 +381,7 @@ export const WritingCanvas: React.FC<Props> = ({
     return (
       <div className="mx-auto max-w-3xl space-y-6 rounded-2xl border border-slate-200/80 bg-white p-8 shadow-xs">
         <div className="border-b border-slate-100 pb-4">
-          <div className="text-xs font-semibold uppercase tracking-wider text-[#0B6E5C]">Phần 3 • Dùng chung 5 ngày</div>
+          <div className="text-xs font-semibold uppercase tracking-wider text-[#1D4ED8]">Phần 3 • Dùng chung 5 ngày</div>
           <h1 className="mt-1 text-xl font-bold text-slate-900">Lễ giáo, Thể dục sáng, HĐ Ngoài trời & 5 Góc chơi</h1>
           <p className="mt-1 text-xs text-slate-500">
             Soạn một lần tại đây — hệ thống tự kế thừa sang cả 5 ngày Thứ 2–Thứ 6 và Bảng tổng hợp tuần.
@@ -420,11 +420,11 @@ export const WritingCanvas: React.FC<Props> = ({
         </div>
 
         <div className="space-y-2.5 border-t border-slate-100 pt-4">
-          <h2 className="text-sm font-bold text-[#0B6E5C]">Thể dục sáng (5 nhóm động tác)</h2>
+          <h2 className="text-sm font-bold text-[#1D4ED8]">Thể dục sáng (5 nhóm động tác)</h2>
           {plan.morningExercise.moves.map((mv, idx) => (
             <div key={idx} className="rounded-xl border border-slate-200 bg-slate-50/70 p-3">
               <div className="flex items-center gap-2">
-                <span className="rounded bg-[#0B6E5C] px-2 py-0.5 text-[11px] font-bold text-white">{mv.group}</span>
+                <span className="rounded bg-[#1D4ED8] px-2 py-0.5 text-[11px] font-bold text-white">{mv.group}</span>
                 <input
                   value={mv.name}
                   onChange={(e) => {
@@ -448,7 +448,7 @@ export const WritingCanvas: React.FC<Props> = ({
         </div>
 
         <div className="space-y-2.5 border-t border-slate-100 pt-4">
-          <h2 className="text-sm font-bold text-[#0B6E5C]">Hoạt động 5 Góc chơi trong tuần</h2>
+          <h2 className="text-sm font-bold text-[#1D4ED8]">Hoạt động 5 Góc chơi trong tuần</h2>
           {plan.cornerTable.map((c, idx) => (
             <div key={idx} className="rounded-xl border border-slate-200 bg-slate-50/70 p-3">
               <div className="grid grid-cols-1 gap-2 md:grid-cols-3">
@@ -460,7 +460,7 @@ export const WritingCanvas: React.FC<Props> = ({
                       cornerTable: plan.cornerTable.map((x, i) => (i === idx ? { ...x, cornerName: e.target.value } : x)),
                     })
                   }
-                  className="rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-xs font-bold text-[#074F42]"
+                  className="rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-xs font-bold text-[#1E3A8A]"
                 />
                 <input
                   value={c.contents.join('; ')}
@@ -489,7 +489,7 @@ export const WritingCanvas: React.FC<Props> = ({
           </button>
           <button
             onClick={() => onNavigate('day-0')}
-            className="inline-flex items-center gap-1 rounded-xl bg-[#0B6E5C] px-4 py-2 text-xs font-semibold text-white hover:bg-[#085A4B]"
+            className="inline-flex items-center gap-1 rounded-xl bg-[#1D4ED8] px-4 py-2 text-xs font-semibold text-white hover:bg-[#1E40AF]"
           >
             Bắt đầu soạn Thứ hai <ChevronRight className="h-4 w-4" />
           </button>
@@ -505,7 +505,7 @@ export const WritingCanvas: React.FC<Props> = ({
     return (
       <div className="mx-auto max-w-4xl space-y-5 rounded-2xl border border-slate-200/80 bg-white p-8 shadow-xs">
         <div className="border-b border-slate-100 pb-4">
-          <div className="text-xs font-semibold uppercase tracking-wider text-[#0B6E5C]">Tổng quan lịch tuần</div>
+          <div className="text-xs font-semibold uppercase tracking-wider text-[#1D4ED8]">Tổng quan lịch tuần</div>
           <h1 className="mt-1 text-xl font-bold text-slate-900">
             Bảng tổng hợp Kế hoạch Tuần {plan.weekNumber} ({fmtDateVN(plan.weekStartDate)} – {fmtDateVN(plan.weekEndDate)})
           </h1>
@@ -515,7 +515,7 @@ export const WritingCanvas: React.FC<Props> = ({
         <div className="overflow-x-auto rounded-xl border border-slate-200">
           <table className="w-full border-collapse text-left text-xs">
             <thead>
-              <tr className="bg-[#0B6E5C] text-white">
+              <tr className="bg-[#1D4ED8] text-white">
                 <th className="p-2.5 font-bold">Thứ / Ngày</th>
                 <th className="p-2.5 font-bold">Hoạt động có chủ đích</th>
                 <th className="p-2.5 font-bold">HĐ ngoài trời</th>
@@ -540,7 +540,7 @@ export const WritingCanvas: React.FC<Props> = ({
                       <div className="space-y-1">
                         {d.mainLessons.map((l) => (
                           <div key={l.id}>
-                            <span className="mr-1 rounded bg-[#E6F4F1] px-1.5 py-0.5 text-[10px] font-bold text-[#0B6E5C]">
+                            <span className="mr-1 rounded bg-[#DBEAFE] px-1.5 py-0.5 text-[10px] font-bold text-[#1D4ED8]">
                               {l.subjectCode}
                             </span>
                             <span className="font-semibold text-slate-800">{l.topicTitle}</span>
@@ -578,7 +578,7 @@ export const WritingCanvas: React.FC<Props> = ({
       <div className="border-b border-slate-100 pb-4">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <div>
-            <div className="text-xs font-semibold uppercase tracking-wider text-[#0B6E5C]">
+            <div className="text-xs font-semibold uppercase tracking-wider text-[#1D4ED8]">
               Hoạt động tích hợp trong ngày • Tuần {plan.weekNumber}
             </div>
             <h1 className="mt-1 text-2xl font-bold text-slate-900">
@@ -587,7 +587,7 @@ export const WritingCanvas: React.FC<Props> = ({
           </div>
           <button
             onClick={() => addMainLesson(dayIdx)}
-            className="inline-flex items-center gap-1.5 rounded-xl bg-[#0B6E5C] px-3.5 py-2 text-xs font-semibold text-white shadow-2xs hover:bg-[#085A4B]"
+            className="inline-flex items-center gap-1.5 rounded-xl bg-[#1D4ED8] px-3.5 py-2 text-xs font-semibold text-white shadow-2xs hover:bg-[#1E40AF]"
           >
             <Plus className="h-3.5 w-3.5" /> Thêm tiết học mới
           </button>
@@ -598,13 +598,13 @@ export const WritingCanvas: React.FC<Props> = ({
           <span className="text-slate-400">Tự động kế thừa từ tuần:</span>
           <button
             onClick={() => onNavigate('shared')}
-            className="rounded-full bg-slate-100 px-2.5 py-0.5 font-medium text-slate-600 hover:bg-[#E6F4F1] hover:text-[#0B6E5C]"
+            className="rounded-full bg-slate-100 px-2.5 py-0.5 font-medium text-slate-600 hover:bg-[#DBEAFE] hover:text-[#1D4ED8]"
           >
             A. Đón trẻ & Thể dục sáng ({plan.morningExercise.moves.length} động tác)
           </button>
           <button
             onClick={() => onNavigate('shared')}
-            className="rounded-full bg-slate-100 px-2.5 py-0.5 font-medium text-slate-600 hover:bg-[#E6F4F1] hover:text-[#0B6E5C]"
+            className="rounded-full bg-slate-100 px-2.5 py-0.5 font-medium text-slate-600 hover:bg-[#DBEAFE] hover:text-[#1D4ED8]"
           >
             D. Hoạt động góc ({plan.cornerTable.length} góc)
           </button>
@@ -620,14 +620,14 @@ export const WritingCanvas: React.FC<Props> = ({
           value={day.outdoorObservation}
           onChange={(e) => updateDay(dayIdx, { outdoorObservation: e.target.value })}
           placeholder="VD: Quan sát khung cảnh Trường Mầm non / Đồ chơi sân trường..."
-          className="w-full rounded-xl border border-slate-200 bg-slate-50/60 px-3.5 py-2.5 text-sm text-slate-800 focus:border-[#0B6E5C] focus:bg-white focus:outline-none"
+          className="w-full rounded-xl border border-slate-200 bg-slate-50/60 px-3.5 py-2.5 text-sm text-slate-800 focus:border-[#1D4ED8] focus:bg-white focus:outline-none"
         />
       </section>
 
       {/* C. Hoạt động có chủ đích (Main Lesson Editor) */}
       <section className="space-y-5">
         <div className="flex items-center justify-between">
-          <div className="text-xs font-bold uppercase tracking-wide text-[#0B6E5C]">
+          <div className="text-xs font-bold uppercase tracking-wide text-[#1D4ED8]">
             C. Hoạt động có chủ đích ({day.mainLessons.length} tiết)
           </div>
         </div>
@@ -644,12 +644,12 @@ export const WritingCanvas: React.FC<Props> = ({
         {day.mainLessons.map((les, lIdx) => (
           <article
             key={les.id}
-            className="space-y-4 rounded-2xl border border-slate-200 bg-slate-50/30 p-5 transition focus-within:border-[#0B6E5C]/60 focus-within:bg-white"
+            className="space-y-4 rounded-2xl border border-slate-200 bg-slate-50/30 p-5 transition focus-within:border-[#1D4ED8]/60 focus-within:bg-white"
           >
             {/* Lesson top bar */}
             <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-3">
               <div className="flex flex-wrap items-center gap-2">
-                <span className="rounded-lg bg-[#0B6E5C] px-2.5 py-1 text-xs font-bold text-white">
+                <span className="rounded-lg bg-[#1D4ED8] px-2.5 py-1 text-xs font-bold text-white">
                   Tiết {lIdx + 1}
                 </span>
                 <select
@@ -687,7 +687,7 @@ export const WritingCanvas: React.FC<Props> = ({
               <div className="flex items-center gap-1.5">
                 <button
                   onClick={() => onAskAssistantForSubject(les.subjectCode)}
-                  className="inline-flex items-center gap-1 rounded-lg bg-[#E6F4F1] px-2.5 py-1 text-[11px] font-semibold text-[#0B6E5C] hover:bg-emerald-100"
+                  className="inline-flex items-center gap-1 rounded-lg bg-[#DBEAFE] px-2.5 py-1 text-[11px] font-semibold text-[#1D4ED8] hover:bg-blue-100"
                 >
                   <Sparkles className="h-3 w-3" /> Gợi ý {les.subjectCode}
                 </button>
@@ -707,7 +707,7 @@ export const WritingCanvas: React.FC<Props> = ({
                 value={les.topicTitle}
                 onChange={(e) => updateMainLesson(dayIdx, lIdx, { topicTitle: e.target.value })}
                 placeholder="Nhập tên đề tài..."
-                className="w-full border-b border-transparent bg-transparent text-lg font-bold text-slate-900 placeholder:text-slate-300 focus:border-[#0B6E5C] focus:outline-none"
+                className="w-full border-b border-transparent bg-transparent text-lg font-bold text-slate-900 placeholder:text-slate-300 focus:border-[#1D4ED8] focus:outline-none"
               />
               <input
                 value={les.subTopics.join(' | ')}
@@ -729,7 +729,7 @@ export const WritingCanvas: React.FC<Props> = ({
                   rows={4}
                   value={les.aims.join('\n')}
                   onChange={(e) => updateMainLesson(dayIdx, lIdx, { aims: linesToArray(e.target.value) })}
-                  className="mt-1 w-full rounded-xl border border-slate-200 bg-white p-3 text-xs leading-relaxed text-slate-800 focus:border-[#0B6E5C] focus:outline-none"
+                  className="mt-1 w-full rounded-xl border border-slate-200 bg-white p-3 text-xs leading-relaxed text-slate-800 focus:border-[#1D4ED8] focus:outline-none"
                 />
               </div>
               <div>
@@ -738,7 +738,7 @@ export const WritingCanvas: React.FC<Props> = ({
                   rows={4}
                   value={les.preparation.join('\n')}
                   onChange={(e) => updateMainLesson(dayIdx, lIdx, { preparation: linesToArray(e.target.value) })}
-                  className="mt-1 w-full rounded-xl border border-slate-200 bg-white p-3 text-xs leading-relaxed text-slate-800 focus:border-[#0B6E5C] focus:outline-none"
+                  className="mt-1 w-full rounded-xl border border-slate-200 bg-white p-3 text-xs leading-relaxed text-slate-800 focus:border-[#1D4ED8] focus:outline-none"
                 />
               </div>
             </div>
@@ -756,7 +756,7 @@ export const WritingCanvas: React.FC<Props> = ({
                       ],
                     })
                   }
-                  className="text-[11px] font-semibold text-[#0B6E5C] hover:underline"
+                  className="text-[11px] font-semibold text-[#1D4ED8] hover:underline"
                 >
                   + Thêm bước hoạt động
                 </button>
@@ -895,14 +895,14 @@ export const WritingCanvas: React.FC<Props> = ({
         {dayIdx < 4 ? (
           <button
             onClick={() => onNavigate(`day-${dayIdx + 1}` as OutlineSection)}
-            className="inline-flex items-center gap-1 rounded-xl bg-[#0B6E5C] px-4 py-2 text-xs font-semibold text-white hover:bg-[#085A4B]"
+            className="inline-flex items-center gap-1 rounded-xl bg-[#1D4ED8] px-4 py-2 text-xs font-semibold text-white hover:bg-[#1E40AF]"
           >
             Soạn tiếp: {plan.days[dayIdx + 1].dayLabel} <ChevronRight className="h-4 w-4" />
           </button>
         ) : (
           <button
             onClick={() => onNavigate('week-table')}
-            className="inline-flex items-center gap-1 rounded-xl bg-[#0B6E5C] px-4 py-2 text-xs font-semibold text-white hover:bg-[#085A4B]"
+            className="inline-flex items-center gap-1 rounded-xl bg-[#1D4ED8] px-4 py-2 text-xs font-semibold text-white hover:bg-[#1E40AF]"
           >
             Xem lại Bảng tổng hợp Tuần <ChevronRight className="h-4 w-4" />
           </button>

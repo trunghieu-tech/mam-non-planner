@@ -133,7 +133,7 @@ export const UserGuideModal: React.FC<Props> = ({ onClose, onGoToStep }) => {
             onClick={() => setTab('flow')}
             className={`rounded-lg px-3.5 py-1.5 text-xs font-semibold transition ${
               tab === 'flow'
-                ? 'bg-[#0B6E5C] text-white'
+                ? 'bg-[#1D4ED8] text-white'
                 : 'bg-white text-slate-600 ring-1 ring-slate-200 hover:text-slate-900'
             }`}
           >
@@ -143,7 +143,7 @@ export const UserGuideModal: React.FC<Props> = ({ onClose, onGoToStep }) => {
             onClick={() => setTab('daily')}
             className={`rounded-lg px-3.5 py-1.5 text-xs font-semibold transition ${
               tab === 'daily'
-                ? 'bg-[#0B6E5C] text-white'
+                ? 'bg-[#1D4ED8] text-white'
                 : 'bg-white text-slate-600 ring-1 ring-slate-200 hover:text-slate-900'
             }`}
           >
@@ -153,7 +153,7 @@ export const UserGuideModal: React.FC<Props> = ({ onClose, onGoToStep }) => {
             onClick={() => setTab('tips')}
             className={`rounded-lg px-3.5 py-1.5 text-xs font-semibold transition ${
               tab === 'tips'
-                ? 'bg-[#0B6E5C] text-white'
+                ? 'bg-[#1D4ED8] text-white'
                 : 'bg-white text-slate-600 ring-1 ring-slate-200 hover:text-slate-900'
             }`}
           >
@@ -168,11 +168,11 @@ export const UserGuideModal: React.FC<Props> = ({ onClose, onGoToStep }) => {
               {GUIDE_STEPS.map((item) => (
                 <div
                   key={item.num}
-                  className="rounded-xl border border-slate-200 bg-white p-4 transition hover:border-[#0B6E5C]/40"
+                  className="rounded-xl border border-slate-200 bg-white p-4 transition hover:border-[#1D4ED8]/40"
                 >
                   <div className="flex flex-wrap items-start justify-between gap-2">
                     <div className="flex items-center gap-2.5">
-                      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#0B6E5C] text-xs font-bold text-white">
+                      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#1D4ED8] text-xs font-bold text-white">
                         {item.num}
                       </span>
                       <div>
@@ -187,7 +187,7 @@ export const UserGuideModal: React.FC<Props> = ({ onClose, onGoToStep }) => {
                         onGoToStep(item.step);
                         onClose();
                       }}
-                      className="rounded-lg bg-[#E6F4F1] px-3 py-1.5 text-xs font-semibold text-[#0B6E5C] hover:bg-[#0B6E5C] hover:text-white"
+                      className="rounded-lg bg-[#DBEAFE] px-3 py-1.5 text-xs font-semibold text-[#1D4ED8] hover:bg-[#1D4ED8] hover:text-white"
                     >
                       Mở Bước {item.num} →
                     </button>
@@ -196,7 +196,7 @@ export const UserGuideModal: React.FC<Props> = ({ onClose, onGoToStep }) => {
                   <ul className="mt-2.5 space-y-1.5 text-xs text-slate-700">
                     {item.actions.map((act, i) => (
                       <li key={i} className="flex items-start gap-2">
-                        <span className="font-bold text-[#0B6E5C]">•</span>
+                        <span className="font-bold text-[#1D4ED8]">•</span>
                         <span>{act}</span>
                       </li>
                     ))}
@@ -213,7 +213,7 @@ export const UserGuideModal: React.FC<Props> = ({ onClose, onGoToStep }) => {
                 <div key={slot.id} className="rounded-xl border border-slate-200 bg-white p-4">
                   <div className="flex flex-wrap items-center justify-between gap-2">
                     <h3 className="text-sm font-bold text-slate-900">{slot.title}</h3>
-                    <span className="rounded-full bg-[#E6F4F1] px-2.5 py-0.5 text-xs font-semibold text-[#0B6E5C]">
+                    <span className="rounded-full bg-[#DBEAFE] px-2.5 py-0.5 text-xs font-semibold text-[#1D4ED8]">
                       {slot.timeRange}
                     </span>
                   </div>
@@ -248,7 +248,7 @@ export const UserGuideModal: React.FC<Props> = ({ onClose, onGoToStep }) => {
           </span>
           <button
             onClick={onClose}
-            className="rounded-xl bg-[#0B6E5C] px-5 py-2 text-xs font-semibold text-white hover:bg-[#085A4B]"
+            className="rounded-xl bg-[#1D4ED8] px-5 py-2 text-xs font-semibold text-white hover:bg-[#1E40AF]"
           >
             Bắt đầu soạn bài
           </button>
