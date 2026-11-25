@@ -761,9 +761,9 @@ export default function App() {
   const unresolvedComments = (activePlan.reviewComments || []).filter((c) => !c.resolved).length;
 
   const STEPS: Array<{ id: WorkspaceStep; label: string }> = [
-    { id: 'annual', label: '1. Năm học & TKB' },
+    { id: 'annual', label: '1. Năm học' },
     { id: 'board', label: '2. KH Tháng & Tuần' },
-    { id: 'shared', label: '3. Hoạt động cả tuần' },
+    { id: 'shared', label: '3. HĐ cả tuần' },
     { id: 'focus', label: '4. Giáo án Ngày' },
     { id: 'preview', label: '5. Bản in A4' },
     { id: 'closing', label: '6. Đánh giá & Duyệt' },

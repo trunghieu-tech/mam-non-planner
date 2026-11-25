@@ -141,6 +141,42 @@ export async function initStaticApiIfNeeded(): Promise<void> {
           studentCode: st.studentCode || `HS${String(idx + 1).padStart(2, '0')}`,
         }));
       }
+      // Tự động bù 2 tuần giao tháng (28/09–02/10 và 30/11–04/12) cho dữ liệu cũ 34 tuần trong localStorage
+      if (Array.isArray(map[ag].themes)) {
+        const totalW = map[ag].themes.reduce((s, t) => s + (t.totalWeeks || 0), 0);
+        if (totalW === 34) {
+          map[ag].themes = map[ag].themes.map((th) => {
+            const defTh = defaults.themes.find((d) => d.monthNumber === th.monthNumber);
+            if (th.monthNumber === 9 && th.totalWeeks === 3 && th.startDate === '2026-09-07' && defTh) {
+              return {
+                ...th,
+                totalWeeks: 4,
+                festivalNote: th.festivalNote || defTh.festivalNote,
+                subThemes:
+                  th.subThemes.length < 4
+                    ? [...th.subThemes, defTh.subThemes[3] || 'Nhánh tuần 4 (Giao tháng 9–10)']
+                    : th.subThemes,
+              };
+            }
+            if (th.monthNumber === 12 && th.totalWeeks === 4 && th.startDate === '2026-12-07' && defTh) {
+              return {
+                ...th,
+                totalWeeks: 5,
+                startDate: '2026-11-30',
+                festivalNote: th.festivalNote || defTh.festivalNote,
+                subThemes:
+                  th.subThemes.length < 5
+                    ? [defTh.subThemes[0] || 'Tuần giao tháng 11–12', ...th.subThemes]
+                    : th.subThemes,
+              };
+            }
+            return {
+              ...th,
+              festivalNote: th.festivalNote || defTh?.festivalNote,
+            };
+          });
+        }
+      }
     }
     return map;
   };
@@ -151,7 +187,9 @@ export async function initStaticApiIfNeeded(): Promise<void> {
     if (rawLs) {
       try {
         const parsed = JSON.parse(rawLs) as Record<AgeGroupId, AnnualPlanDocument>;
-        return normalizeAnnualMap(parsed, seedDs.objectives);
+        const normalized = normalizeAnnualMap(parsed, seedDs.objectives);
+        localStorage.setItem(LS_KEYS.ANNUAL, JSON.stringify(normalized));
+        return normalized;
       } catch {
         // ignore invalid localStorage
       }

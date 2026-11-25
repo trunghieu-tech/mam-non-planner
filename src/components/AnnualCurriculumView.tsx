@@ -946,7 +946,8 @@ export const AnnualCurriculumView: React.FC<Props> = ({
                 </span>
               </div>
               <h1 className="mt-1.5 text-lg font-bold text-slate-900">
-                Phân phối Chương trình 9 Tháng (34–35 Tuần) &amp; Liên thông Chủ đề → Tuần
+                Phân phối Chương trình {annualPlan.themes.length} Tháng (
+                {annualPlan.themes.reduce((sum, th) => sum + th.totalWeeks, 0)} Tuần) &amp; Liên thông Chủ đề → Tuần
               </h1>
               <p className="mt-0.5 text-xs text-slate-500">
                 Chọn bất kỳ nhánh tuần nào bên dưới để khởi tạo hoặc mở ngay Kế hoạch Tuần (tự kế thừa thông tin lớp, mạng chủ đề và các mã MT của tháng).
