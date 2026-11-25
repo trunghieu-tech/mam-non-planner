@@ -163,12 +163,30 @@ export const AutoFillWeekModal: React.FC<Props> = ({
               });
             });
 
-          // 2. Collect matching BGD standard activities for this exact subject (STRICT domain + subject gate!)
+          // 2. Collect matching BGD standard & custom activities for this exact subject (prioritize MTs allocated to this week!)
+          const weekPlannedMtSet = new Set(plan.themeObjectives.flatMap((b) => b.mtCodes));
           for (const o of gradeObjectives) {
             if (!objectiveMatchesSubject(o, targetSubj)) continue;
-            for (const a of o.activities) {
+            const inWeekBonus = weekPlannedMtSet.has(o.code) ? 35 : 0;
+            const actsToUse =
+              o.activities.length > 0
+                ? o.activities
+                : [
+                    {
+                      id: `fallback_${o.code}`,
+                      objectiveId: o.id,
+                      ageGroupId: o.ageGroupId,
+                      mtCode: o.code,
+                      domain: o.domain,
+                      type: targetSubj,
+                      text: o.eduContent || o.description,
+                      month: o.month,
+                      theme: o.theme,
+                    },
+                  ];
+            for (const a of actsToUse) {
               if (isCornerOrNonMain(a.text) || normVN(a.type).includes('goc')) continue;
-              if (activityMatchesSubject(a.type, a.text, targetSubj)) {
+              if (o.activities.length === 0 || activityMatchesSubject(a.type, a.text, targetSubj)) {
                 const rel = scoreThemeRelevance(
                   `${o.theme} ${a.text}`,
                   plan.themeName,
@@ -181,8 +199,8 @@ export const AutoFillWeekModal: React.FC<Props> = ({
                   topic: a.text,
                   subject: bp.subject,
                   mtCode: o.code,
-                  sourceLabel: `${rel.matchesTheme ? '★ Khớp chủ đề • ' : ''}Chuẩn BGD • ${o.code}`,
-                  score: 8 + rel.score + tcBonus - (isOverlongAnthology(a.text) ? 25 : 0),
+                  sourceLabel: `${weekPlannedMtSet.has(o.code) ? '★ MT Tuần này • ' : rel.matchesTheme ? '★ Khớp chủ đề • ' : ''}${o.code}`,
+                  score: 8 + inWeekBonus + rel.score + tcBonus - (isOverlongAnthology(a.text) ? 25 : 0),
                 });
               }
             }

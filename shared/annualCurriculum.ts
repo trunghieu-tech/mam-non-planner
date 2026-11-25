@@ -66,9 +66,9 @@ const NINE_MONTH_TEMPLATES: Record<'NHA_TRE' | 'MAU_GIAO', MonthThemeTemplate[]>
       monthNumber: 9,
       monthLabel: 'Tháng 9',
       startDate: '2026-09-07',
-      totalWeeks: 3,
+      totalWeeks: 4,
       themeName: 'LỚP NHÀ TRẺ VUI VẺ CỦA BÉ',
-      subThemes: ['Ngày hội bé đến lớp', 'Cô giáo và các bạn của bé', 'Bé vui Tết Trung thu'],
+      subThemes: ['Ngày hội bé đến lớp', 'Cô giáo và các bạn của bé', 'Bé vui Tết Trung thu', 'Làm quen nề nếp lớp học'],
     },
     {
       monthNumber: 10,
@@ -89,10 +89,10 @@ const NINE_MONTH_TEMPLATES: Record<'NHA_TRE' | 'MAU_GIAO', MonthThemeTemplate[]>
     {
       monthNumber: 12,
       monthLabel: 'Tháng 12',
-      startDate: '2026-12-07',
-      totalWeeks: 4,
+      startDate: '2026-11-30',
+      totalWeeks: 5,
       themeName: 'GIA ĐÌNH THÂN YÊU CỦA BÉ',
-      subThemes: ['Ông bà, bố mẹ của bé', 'Ngôi nhà ấm áp của bé', 'Đồ dùng trong gia đình', 'Bé ngoan lễ phép ở nhà'],
+      subThemes: ['Ông bà, bố mẹ của bé', 'Ngôi nhà ấm áp của bé', 'Đồ dùng trong gia đình', 'Bé ngoan lễ phép ở nhà', 'Chào đón năm mới vui tươi'],
     },
     {
       monthNumber: 1,
@@ -140,9 +140,9 @@ const NINE_MONTH_TEMPLATES: Record<'NHA_TRE' | 'MAU_GIAO', MonthThemeTemplate[]>
       monthNumber: 9,
       monthLabel: 'Tháng 9',
       startDate: '2026-09-07',
-      totalWeeks: 3,
+      totalWeeks: 4,
       themeName: 'TRƯỜNG MẦM NON CỦA BÉ',
-      subThemes: ['Trường Mầm non thân yêu của bé', 'Lớp học, cô giáo và bạn bè', 'Bé vui hội Trăng rằm Trung thu'],
+      subThemes: ['Trường Mầm non thân yêu của bé', 'Lớp học, cô giáo và bạn bè', 'Bé vui hội Trăng rằm Trung thu', 'Nề nếp bé ngoan ở lớp'],
     },
     {
       monthNumber: 10,
@@ -163,10 +163,10 @@ const NINE_MONTH_TEMPLATES: Record<'NHA_TRE' | 'MAU_GIAO', MonthThemeTemplate[]>
     {
       monthNumber: 12,
       monthLabel: 'Tháng 12',
-      startDate: '2026-12-07',
-      totalWeeks: 4,
+      startDate: '2026-11-30',
+      totalWeeks: 5,
       themeName: 'NGHỀ NGHIỆP & THẾ GIỚI ĐỘNG VẬT',
-      subThemes: ['Một số nghề phổ biến quanh bé', 'Chú bộ đội kính yêu (22/12)', 'Những con vật nuôi trong gia đình', 'Động vật sống trong rừng & dưới nước'],
+      subThemes: ['Một số nghề phổ biến quanh bé', 'Nghề sản xuất và dịch vụ gần gũi', 'Chú bộ đội kính yêu (22/12)', 'Những con vật nuôi trong gia đình', 'Động vật sống trong rừng & dưới nước'],
     },
     {
       monthNumber: 1,
@@ -290,8 +290,17 @@ export function buildDefaultAnnualPlan(
   });
 
   const byr = birthYearByGrade(ageGroupId);
+  const gradePrefix =
+    ageGroupId === 'NHA_TRE_24_36T'
+      ? 'NT'
+      : ageGroupId === 'MAM_3_4T'
+      ? 'M3'
+      : ageGroupId === 'CHOI_4_5T'
+      ? 'C4'
+      : 'L5';
   const students: StudentRosterItem[] = DEFAULT_STUDENTS_SAMPLE.map((st, idx) => ({
     id: `stu_${ageGroupId}_${idx + 1}`,
+    studentCode: `${gradePrefix}${String(26001 + idx)}`,
     fullName: st.fullName,
     gender: st.gender,
     dob: st.dob.replace(/\/\d{4}$/, `/${byr}`),
@@ -314,6 +323,9 @@ export function buildDefaultAnnualPlan(
       students,
     },
     timetable: buildDefaultTimetable(ageGroupId),
+    endOfYearMtCodes: gradeObjs.map((o) => o.code),
+    nonObjectiveActivitiesNote:
+      'Đón trẻ đầu năm học, làm quen nề nếp sinh hoạt lớp, tổ chức Ngày hội đến trường, Vui Tết Trung thu, Chào mừng 20/11, Vui Xuân đón Tết và Tổng kết năm học.',
     themes,
   };
 }

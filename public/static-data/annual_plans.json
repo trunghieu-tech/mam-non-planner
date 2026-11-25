@@ -2,7 +2,7 @@
   "NHA_TRE_24_36T": {
     "id": "annual_NHA_TRE_24_36T",
     "ageGroupId": "NHA_TRE_24_36T",
-    "updatedAt": "2026-11-24T14:12:32.221Z",
+    "updatedAt": "2026-11-25T10:27:39.922Z",
     "profile": {
       "ageGroupId": "NHA_TRE_24_36T",
       "schoolName": "TRƯỜNG MẦM NON HOÀNG GIA",
@@ -15,30 +15,35 @@
       "students": [
         {
           "id": "stu_NHA_TRE_24_36T_1",
+          "studentCode": "NT26001",
           "fullName": "Nguyễn Minh An",
           "gender": "Nam",
           "dob": "12/03/2024"
         },
         {
           "id": "stu_NHA_TRE_24_36T_2",
+          "studentCode": "NT26002",
           "fullName": "Trần Bảo Ngọc",
           "gender": "Nữ",
           "dob": "24/05/2024"
         },
         {
           "id": "stu_NHA_TRE_24_36T_3",
+          "studentCode": "NT26003",
           "fullName": "Lê Hoàng Khôi",
           "gender": "Nam",
           "dob": "08/01/2024"
         },
         {
           "id": "stu_NHA_TRE_24_36T_4",
+          "studentCode": "NT26004",
           "fullName": "Phạm Hà My",
           "gender": "Nữ",
           "dob": "19/07/2024"
         },
         {
           "id": "stu_NHA_TRE_24_36T_5",
+          "studentCode": "NT26005",
           "fullName": "Hoàng Gia Huy",
           "gender": "Nam",
           "dob": "03/09/2024",
@@ -46,30 +51,35 @@
         },
         {
           "id": "stu_NHA_TRE_24_36T_6",
+          "studentCode": "NT26006",
           "fullName": "Vũ Tuệ Nhi",
           "gender": "Nữ",
           "dob": "15/04/2024"
         },
         {
           "id": "stu_NHA_TRE_24_36T_7",
+          "studentCode": "NT26007",
           "fullName": "Đặng Quốc Bảo",
           "gender": "Nam",
           "dob": "28/10/2024"
         },
         {
           "id": "stu_NHA_TRE_24_36T_8",
+          "studentCode": "NT26008",
           "fullName": "Bùi Khánh Linh",
           "gender": "Nữ",
           "dob": "11/06/2024"
         },
         {
           "id": "stu_NHA_TRE_24_36T_9",
+          "studentCode": "NT26009",
           "fullName": "Đỗ Minh Khang",
           "gender": "Nam",
           "dob": "22/02/2024"
         },
         {
           "id": "stu_NHA_TRE_24_36T_10",
+          "studentCode": "NT26010",
           "fullName": "Ngô Thảo Vy",
           "gender": "Nữ",
           "dob": "30/08/2024",
@@ -77,36 +87,122 @@
         },
         {
           "id": "stu_NHA_TRE_24_36T_11",
+          "studentCode": "NT26011",
           "fullName": "Dương Tuấn Kiệt",
           "gender": "Nam",
           "dob": "14/11/2024"
         },
         {
           "id": "stu_NHA_TRE_24_36T_12",
+          "studentCode": "NT26012",
           "fullName": "Lý Ngọc Hân",
           "gender": "Nữ",
           "dob": "05/12/2024"
         },
         {
           "id": "stu_NHA_TRE_24_36T_13",
+          "studentCode": "NT26013",
           "fullName": "Phan Đức Phúc",
           "gender": "Nam",
           "dob": "17/05/2024"
         },
         {
           "id": "stu_NHA_TRE_24_36T_14",
+          "studentCode": "NT26014",
           "fullName": "Trương Bảo Châu",
           "gender": "Nữ",
           "dob": "09/03/2024"
         },
         {
           "id": "stu_NHA_TRE_24_36T_15",
+          "studentCode": "NT26015",
           "fullName": "Hồ Thiên Ân",
           "gender": "Nam",
           "dob": "26/09/2024"
         }
       ]
     },
+    "timetable": {
+      "oddWeek": [
+        [
+          "PTVĐ"
+        ],
+        [
+          "NBTN"
+        ],
+        [
+          "GDAN"
+        ],
+        [
+          "LQVH"
+        ],
+        [
+          "Tạo hình"
+        ]
+      ],
+      "evenWeek": [
+        [
+          "PTVĐ"
+        ],
+        [
+          "NBTN"
+        ],
+        [
+          "LQVH"
+        ],
+        [
+          "GDAN"
+        ],
+        [
+          "Tạo hình"
+        ]
+      ]
+    },
+    "endOfYearMtCodes": [
+      "MT1",
+      "MT2",
+      "MT3",
+      "MT4",
+      "MT5",
+      "MT6",
+      "MT7",
+      "MT8",
+      "MT9",
+      "MT10",
+      "MT11",
+      "MT12",
+      "MT13",
+      "MT14",
+      "MT15",
+      "MT16",
+      "MT17",
+      "MT18",
+      "MT19",
+      "MT20",
+      "MT21",
+      "MT22",
+      "MT23",
+      "MT24",
+      "MT25",
+      "MT26",
+      "MT27",
+      "MT28",
+      "MT29",
+      "MT30",
+      "MT31",
+      "MT32",
+      "MT33",
+      "MT34",
+      "MT35",
+      "MT36",
+      "MT37",
+      "MT38",
+      "MT39",
+      "MT40",
+      "MT41",
+      "MT42"
+    ],
+    "nonObjectiveActivitiesNote": "Đón trẻ đầu năm học, làm quen nề nếp sinh hoạt lớp, tổ chức Ngày hội đến trường, Vui Tết Trung thu, Chào mừng 20/11, Vui Xuân đón Tết và Tổng kết năm học.",
     "themes": [
       {
         "id": "ath_NHA_TRE_24_36T_m9",
@@ -114,12 +210,13 @@
         "monthNumber": 9,
         "monthLabel": "Tháng 9",
         "themeName": "LỚP NHÀ TRẺ VUI VẺ CỦA BÉ",
-        "totalWeeks": 3,
+        "totalWeeks": 4,
         "startDate": "2026-09-07",
         "subThemes": [
           "Ngày hội bé đến lớp",
           "Cô giáo và các bạn của bé",
-          "Bé vui Tết Trung thu"
+          "Bé vui Tết Trung thu",
+          "Làm quen nề nếp lớp học"
         ],
         "plannedMtCodes": [
           "MT11",
@@ -200,13 +297,14 @@
         "monthNumber": 12,
         "monthLabel": "Tháng 12",
         "themeName": "GIA ĐÌNH THÂN YÊU CỦA BÉ",
-        "totalWeeks": 4,
-        "startDate": "2026-12-07",
+        "totalWeeks": 5,
+        "startDate": "2026-11-30",
         "subThemes": [
           "Ông bà, bố mẹ của bé",
           "Ngôi nhà ấm áp của bé",
           "Đồ dùng trong gia đình",
-          "Bé ngoan lễ phép ở nhà"
+          "Bé ngoan lễ phép ở nhà",
+          "Chào đón năm mới vui tươi"
         ],
         "plannedMtCodes": [
           "MT13",
@@ -361,48 +459,12 @@
           "MT40"
         ]
       }
-    ],
-    "timetable": {
-      "oddWeek": [
-        [
-          "PTVĐ"
-        ],
-        [
-          "NBTN"
-        ],
-        [
-          "GDAN"
-        ],
-        [
-          "LQVH"
-        ],
-        [
-          "Tạo hình"
-        ]
-      ],
-      "evenWeek": [
-        [
-          "PTVĐ"
-        ],
-        [
-          "NBTN"
-        ],
-        [
-          "LQVH"
-        ],
-        [
-          "GDAN"
-        ],
-        [
-          "Tạo hình"
-        ]
-      ]
-    }
+    ]
   },
   "MAM_3_4T": {
     "id": "annual_MAM_3_4T",
     "ageGroupId": "MAM_3_4T",
-    "updatedAt": "2026-11-24T14:12:32.221Z",
+    "updatedAt": "2026-11-25T10:27:39.924Z",
     "profile": {
       "ageGroupId": "MAM_3_4T",
       "schoolName": "TRƯỜNG MẦM NON HOÀNG GIA",
@@ -415,30 +477,35 @@
       "students": [
         {
           "id": "stu_MAM_3_4T_1",
+          "studentCode": "M326001",
           "fullName": "Nguyễn Minh An",
           "gender": "Nam",
           "dob": "12/03/2023"
         },
         {
           "id": "stu_MAM_3_4T_2",
+          "studentCode": "M326002",
           "fullName": "Trần Bảo Ngọc",
           "gender": "Nữ",
           "dob": "24/05/2023"
         },
         {
           "id": "stu_MAM_3_4T_3",
+          "studentCode": "M326003",
           "fullName": "Lê Hoàng Khôi",
           "gender": "Nam",
           "dob": "08/01/2023"
         },
         {
           "id": "stu_MAM_3_4T_4",
+          "studentCode": "M326004",
           "fullName": "Phạm Hà My",
           "gender": "Nữ",
           "dob": "19/07/2023"
         },
         {
           "id": "stu_MAM_3_4T_5",
+          "studentCode": "M326005",
           "fullName": "Hoàng Gia Huy",
           "gender": "Nam",
           "dob": "03/09/2023",
@@ -446,30 +513,35 @@
         },
         {
           "id": "stu_MAM_3_4T_6",
+          "studentCode": "M326006",
           "fullName": "Vũ Tuệ Nhi",
           "gender": "Nữ",
           "dob": "15/04/2023"
         },
         {
           "id": "stu_MAM_3_4T_7",
+          "studentCode": "M326007",
           "fullName": "Đặng Quốc Bảo",
           "gender": "Nam",
           "dob": "28/10/2023"
         },
         {
           "id": "stu_MAM_3_4T_8",
+          "studentCode": "M326008",
           "fullName": "Bùi Khánh Linh",
           "gender": "Nữ",
           "dob": "11/06/2023"
         },
         {
           "id": "stu_MAM_3_4T_9",
+          "studentCode": "M326009",
           "fullName": "Đỗ Minh Khang",
           "gender": "Nam",
           "dob": "22/02/2023"
         },
         {
           "id": "stu_MAM_3_4T_10",
+          "studentCode": "M326010",
           "fullName": "Ngô Thảo Vy",
           "gender": "Nữ",
           "dob": "30/08/2023",
@@ -477,36 +549,169 @@
         },
         {
           "id": "stu_MAM_3_4T_11",
+          "studentCode": "M326011",
           "fullName": "Dương Tuấn Kiệt",
           "gender": "Nam",
           "dob": "14/11/2023"
         },
         {
           "id": "stu_MAM_3_4T_12",
+          "studentCode": "M326012",
           "fullName": "Lý Ngọc Hân",
           "gender": "Nữ",
           "dob": "05/12/2023"
         },
         {
           "id": "stu_MAM_3_4T_13",
+          "studentCode": "M326013",
           "fullName": "Phan Đức Phúc",
           "gender": "Nam",
           "dob": "17/05/2023"
         },
         {
           "id": "stu_MAM_3_4T_14",
+          "studentCode": "M326014",
           "fullName": "Trương Bảo Châu",
           "gender": "Nữ",
           "dob": "09/03/2023"
         },
         {
           "id": "stu_MAM_3_4T_15",
+          "studentCode": "M326015",
           "fullName": "Hồ Thiên Ân",
           "gender": "Nam",
           "dob": "26/09/2023"
         }
       ]
     },
+    "timetable": {
+      "oddWeek": [
+        [
+          "GDAN"
+        ],
+        [
+          "PTVĐ"
+        ],
+        [
+          "MTXQ"
+        ],
+        [
+          "LQVH"
+        ],
+        [
+          "KNS",
+          "Tạo hình"
+        ]
+      ],
+      "evenWeek": [
+        [
+          "PTVĐ"
+        ],
+        [
+          "MTXQ"
+        ],
+        [
+          "LQVT"
+        ],
+        [
+          "GDAN"
+        ],
+        [
+          "Tạo hình"
+        ]
+      ]
+    },
+    "endOfYearMtCodes": [
+      "MT1",
+      "MT2",
+      "MT3",
+      "MT4",
+      "MT5",
+      "MT6",
+      "MT7",
+      "MT8",
+      "MT9",
+      "MT10",
+      "MT11",
+      "MT12",
+      "MT13",
+      "MT14",
+      "MT15",
+      "MT16",
+      "MT17",
+      "MT18",
+      "MT19",
+      "MT20",
+      "MT21",
+      "MT22",
+      "MT23",
+      "MT24",
+      "MT25",
+      "MT26",
+      "MT27",
+      "MT28",
+      "MT29",
+      "MT30",
+      "MT31",
+      "MT32",
+      "MT33",
+      "MT34",
+      "MT35",
+      "MT36",
+      "MT37",
+      "MT38",
+      "MT39",
+      "MT40",
+      "MT41",
+      "MT42",
+      "MT43",
+      "MT44",
+      "MT45",
+      "MT46",
+      "MT47",
+      "MT48",
+      "MT49",
+      "MT50",
+      "MT51",
+      "MT52",
+      "MT53",
+      "MT54",
+      "MT55",
+      "MT56",
+      "MT57",
+      "MT58",
+      "MT59",
+      "MT60",
+      "MT61",
+      "MT62",
+      "MT63",
+      "MT64",
+      "MT65",
+      "MT66",
+      "MT67",
+      "MT68",
+      "MT69",
+      "MT70",
+      "MT71",
+      "MT72",
+      "MT73",
+      "MT74",
+      "MT75",
+      "MT76",
+      "MT77",
+      "MT78",
+      "MT79",
+      "MT80",
+      "MT81",
+      "MT82",
+      "MT83",
+      "MT84",
+      "MT85",
+      "MT86",
+      "MT87",
+      "MT88"
+    ],
+    "nonObjectiveActivitiesNote": "Đón trẻ đầu năm học, làm quen nề nếp sinh hoạt lớp, tổ chức Ngày hội đến trường, Vui Tết Trung thu, Chào mừng 20/11, Vui Xuân đón Tết và Tổng kết năm học.",
     "themes": [
       {
         "id": "ath_MAM_3_4T_m9",
@@ -514,12 +719,13 @@
         "monthNumber": 9,
         "monthLabel": "Tháng 9",
         "themeName": "TRƯỜNG MẦM NON CỦA BÉ",
-        "totalWeeks": 3,
+        "totalWeeks": 4,
         "startDate": "2026-09-07",
         "subThemes": [
           "Trường Mầm non thân yêu của bé",
           "Lớp học, cô giáo và bạn bè",
-          "Bé vui hội Trăng rằm Trung thu"
+          "Bé vui hội Trăng rằm Trung thu",
+          "Nề nếp bé ngoan ở lớp"
         ],
         "plannedMtCodes": [
           "MT2",
@@ -623,10 +829,11 @@
         "monthNumber": 12,
         "monthLabel": "Tháng 12",
         "themeName": "NGHỀ NGHIỆP & THẾ GIỚI ĐỘNG VẬT",
-        "totalWeeks": 4,
-        "startDate": "2026-12-07",
+        "totalWeeks": 5,
+        "startDate": "2026-11-30",
         "subThemes": [
           "Một số nghề phổ biến quanh bé",
+          "Nghề sản xuất và dịch vụ gần gũi",
           "Chú bộ đội kính yêu (22/12)",
           "Những con vật nuôi trong gia đình",
           "Động vật sống trong rừng & dưới nước"
@@ -810,49 +1017,12 @@
           "MT65"
         ]
       }
-    ],
-    "timetable": {
-      "oddWeek": [
-        [
-          "GDAN"
-        ],
-        [
-          "PTVĐ"
-        ],
-        [
-          "MTXQ"
-        ],
-        [
-          "LQVH"
-        ],
-        [
-          "KNS",
-          "Tạo hình"
-        ]
-      ],
-      "evenWeek": [
-        [
-          "PTVĐ"
-        ],
-        [
-          "MTXQ"
-        ],
-        [
-          "LQVT"
-        ],
-        [
-          "GDAN"
-        ],
-        [
-          "Tạo hình"
-        ]
-      ]
-    }
+    ]
   },
   "CHOI_4_5T": {
     "id": "annual_CHOI_4_5T",
     "ageGroupId": "CHOI_4_5T",
-    "updatedAt": "2026-11-24T17:59:56.627Z",
+    "updatedAt": "2026-11-25T10:27:39.924Z",
     "profile": {
       "ageGroupId": "CHOI_4_5T",
       "schoolName": "TRƯỜNG MẦM NON HOÀNG GIA",
@@ -865,30 +1035,35 @@
       "students": [
         {
           "id": "stu_CHOI_4_5T_1",
+          "studentCode": "C426001",
           "fullName": "Nguyễn Minh An",
           "gender": "Nam",
           "dob": "12/03/2022"
         },
         {
           "id": "stu_CHOI_4_5T_2",
+          "studentCode": "C426002",
           "fullName": "Trần Bảo Ngọc",
           "gender": "Nữ",
           "dob": "24/05/2022"
         },
         {
           "id": "stu_CHOI_4_5T_3",
+          "studentCode": "C426003",
           "fullName": "Lê Hoàng Khôi",
           "gender": "Nam",
           "dob": "08/01/2022"
         },
         {
           "id": "stu_CHOI_4_5T_4",
+          "studentCode": "C426004",
           "fullName": "Phạm Hà My",
           "gender": "Nữ",
           "dob": "19/07/2022"
         },
         {
           "id": "stu_CHOI_4_5T_5",
+          "studentCode": "C426005",
           "fullName": "Hoàng Gia Huy",
           "gender": "Nam",
           "dob": "03/09/2022",
@@ -896,30 +1071,35 @@
         },
         {
           "id": "stu_CHOI_4_5T_6",
+          "studentCode": "C426006",
           "fullName": "Vũ Tuệ Nhi",
           "gender": "Nữ",
           "dob": "15/04/2022"
         },
         {
           "id": "stu_CHOI_4_5T_7",
+          "studentCode": "C426007",
           "fullName": "Đặng Quốc Bảo",
           "gender": "Nam",
           "dob": "28/10/2022"
         },
         {
           "id": "stu_CHOI_4_5T_8",
+          "studentCode": "C426008",
           "fullName": "Bùi Khánh Linh",
           "gender": "Nữ",
           "dob": "11/06/2022"
         },
         {
           "id": "stu_CHOI_4_5T_9",
+          "studentCode": "C426009",
           "fullName": "Đỗ Minh Khang",
           "gender": "Nam",
           "dob": "22/02/2022"
         },
         {
           "id": "stu_CHOI_4_5T_10",
+          "studentCode": "C426010",
           "fullName": "Ngô Thảo Vy",
           "gender": "Nữ",
           "dob": "30/08/2022",
@@ -927,41 +1107,188 @@
         },
         {
           "id": "stu_CHOI_4_5T_11",
+          "studentCode": "C426011",
           "fullName": "Dương Tuấn Kiệt",
           "gender": "Nam",
           "dob": "14/11/2022"
         },
         {
           "id": "stu_CHOI_4_5T_12",
+          "studentCode": "C426012",
           "fullName": "Lý Ngọc Hân",
           "gender": "Nữ",
           "dob": "05/12/2022"
         },
         {
           "id": "stu_CHOI_4_5T_13",
+          "studentCode": "C426013",
           "fullName": "Phan Đức Phúc",
           "gender": "Nam",
           "dob": "17/05/2022"
         },
         {
           "id": "stu_CHOI_4_5T_14",
+          "studentCode": "C426014",
           "fullName": "Trương Bảo Châu",
           "gender": "Nữ",
           "dob": "09/03/2022"
         },
         {
           "id": "stu_CHOI_4_5T_15",
+          "studentCode": "C426015",
           "fullName": "Hồ Thiên Ân",
           "gender": "Nam",
           "dob": "26/09/2022"
-        },
-        {
-          "id": "stu_1795529642316",
-          "fullName": "Nguyễn Minh Khôi",
-          "gender": "Nam"
         }
       ]
     },
+    "timetable": {
+      "oddWeek": [
+        [
+          "GDAN",
+          "PTVĐ"
+        ],
+        [
+          "MTXQ"
+        ],
+        [
+          "Tạo hình"
+        ],
+        [
+          "KNS",
+          "LQVT"
+        ],
+        [
+          "LQVH"
+        ]
+      ],
+      "evenWeek": [
+        [
+          "PTVĐ"
+        ],
+        [
+          "MTXQ"
+        ],
+        [
+          "LQVH"
+        ],
+        [
+          "LQVT",
+          "GDAN"
+        ],
+        [
+          "Tạo hình",
+          "KNS"
+        ]
+      ]
+    },
+    "endOfYearMtCodes": [
+      "MT1",
+      "MT2",
+      "MT3",
+      "MT4",
+      "MT5",
+      "MT6",
+      "MT7",
+      "MT8",
+      "MT9",
+      "MT10",
+      "MT11",
+      "MT12",
+      "MT13",
+      "MT14",
+      "MT15",
+      "MT16",
+      "MT17",
+      "MT18",
+      "MT19",
+      "MT20",
+      "MT21",
+      "MT22",
+      "MT23",
+      "MT24",
+      "MT25",
+      "MT26",
+      "MT27",
+      "MT28",
+      "MT29",
+      "MT30",
+      "MT31",
+      "MT32",
+      "MT33",
+      "MT34",
+      "MT35",
+      "MT36",
+      "MT37",
+      "MT38",
+      "MT39",
+      "MT40",
+      "MT41",
+      "MT42",
+      "MT43",
+      "MT44",
+      "MT45",
+      "MT46",
+      "MT47",
+      "MT48",
+      "MT49",
+      "MT50",
+      "MT51",
+      "MT52",
+      "MT53",
+      "MT54",
+      "MT55",
+      "MT56",
+      "MT57",
+      "MT58",
+      "MT59",
+      "MT60",
+      "MT61",
+      "MT62",
+      "MT63",
+      "MT64",
+      "MT65",
+      "MT66",
+      "MT67",
+      "MT68",
+      "MT69",
+      "MT70",
+      "MT71",
+      "MT72",
+      "MT73",
+      "MT74",
+      "MT75",
+      "MT76",
+      "MT77",
+      "MT78",
+      "MT79",
+      "MT80",
+      "MT81",
+      "MT82",
+      "MT83",
+      "MT84",
+      "MT85",
+      "MT86",
+      "MT87",
+      "MT88",
+      "MT89",
+      "MT90",
+      "MT91",
+      "MT92",
+      "MT93",
+      "MT94",
+      "MT95",
+      "MT96",
+      "MT97",
+      "MT98",
+      "MT99",
+      "MT100",
+      "MT101",
+      "MT102",
+      "MT103",
+      "MT104"
+    ],
+    "nonObjectiveActivitiesNote": "Đón trẻ đầu năm học, làm quen nề nếp sinh hoạt lớp, tổ chức Ngày hội đến trường, Vui Tết Trung thu, Chào mừng 20/11, Vui Xuân đón Tết và Tổng kết năm học.",
     "themes": [
       {
         "id": "ath_CHOI_4_5T_m9",
@@ -969,12 +1296,13 @@
         "monthNumber": 9,
         "monthLabel": "Tháng 9",
         "themeName": "TRƯỜNG MẦM NON CỦA BÉ",
-        "totalWeeks": 3,
+        "totalWeeks": 4,
         "startDate": "2026-09-07",
         "subThemes": [
           "Trường Mầm non thân yêu của bé",
           "Lớp học, cô giáo và bạn bè",
-          "Bé vui hội Trăng rằm Trung thu"
+          "Bé vui hội Trăng rằm Trung thu",
+          "Nề nếp bé ngoan ở lớp"
         ],
         "plannedMtCodes": [
           "MT2",
@@ -999,8 +1327,7 @@
           "MT13",
           "MT30",
           "MT43",
-          "MT47",
-          "MT105"
+          "MT47"
         ]
       },
       {
@@ -1084,10 +1411,11 @@
         "monthNumber": 12,
         "monthLabel": "Tháng 12",
         "themeName": "NGHỀ NGHIỆP & THẾ GIỚI ĐỘNG VẬT",
-        "totalWeeks": 4,
-        "startDate": "2026-12-07",
+        "totalWeeks": 5,
+        "startDate": "2026-11-30",
         "subThemes": [
           "Một số nghề phổ biến quanh bé",
+          "Nghề sản xuất và dịch vụ gần gũi",
           "Chú bộ đội kính yêu (22/12)",
           "Những con vật nuôi trong gia đình",
           "Động vật sống trong rừng & dưới nước"
@@ -1284,46 +1612,6 @@
         ]
       }
     ],
-    "timetable": {
-      "oddWeek": [
-        [
-          "GDAN",
-          "PTVĐ"
-        ],
-        [
-          "MTXQ"
-        ],
-        [
-          "Tạo hình"
-        ],
-        [
-          "KNS",
-          "LQVT"
-        ],
-        [
-          "LQVH"
-        ]
-      ],
-      "evenWeek": [
-        [
-          "PTVĐ"
-        ],
-        [
-          "MTXQ"
-        ],
-        [
-          "LQVH"
-        ],
-        [
-          "LQVT",
-          "GDAN"
-        ],
-        [
-          "Tạo hình",
-          "KNS"
-        ]
-      ]
-    },
     "customObjectives": [
       {
         "id": "custom_CHOI_4_5T_1795543196414",
@@ -1344,7 +1632,7 @@
   "LA_5_6T": {
     "id": "annual_LA_5_6T",
     "ageGroupId": "LA_5_6T",
-    "updatedAt": "2026-11-25T00:50:04.323Z",
+    "updatedAt": "2026-11-25T10:27:39.924Z",
     "profile": {
       "ageGroupId": "LA_5_6T",
       "schoolName": "TRƯỜNG MẦM NON HOÀNG GIA",
@@ -1357,30 +1645,35 @@
       "students": [
         {
           "id": "stu_LA_5_6T_1",
+          "studentCode": "L526001",
           "fullName": "Nguyễn Minh An",
           "gender": "Nam",
           "dob": "12/03/2021"
         },
         {
           "id": "stu_LA_5_6T_2",
+          "studentCode": "L526002",
           "fullName": "Trần Bảo Ngọc",
           "gender": "Nữ",
           "dob": "24/05/2021"
         },
         {
           "id": "stu_LA_5_6T_3",
+          "studentCode": "L526003",
           "fullName": "Lê Hoàng Khôi",
           "gender": "Nam",
           "dob": "08/01/2021"
         },
         {
           "id": "stu_LA_5_6T_4",
+          "studentCode": "L526004",
           "fullName": "Phạm Hà My",
           "gender": "Nữ",
           "dob": "19/07/2021"
         },
         {
           "id": "stu_LA_5_6T_5",
+          "studentCode": "L526005",
           "fullName": "Hoàng Gia Huy",
           "gender": "Nam",
           "dob": "03/09/2021",
@@ -1388,30 +1681,35 @@
         },
         {
           "id": "stu_LA_5_6T_6",
+          "studentCode": "L526006",
           "fullName": "Vũ Tuệ Nhi",
           "gender": "Nữ",
           "dob": "15/04/2021"
         },
         {
           "id": "stu_LA_5_6T_7",
+          "studentCode": "L526007",
           "fullName": "Đặng Quốc Bảo",
           "gender": "Nam",
           "dob": "28/10/2021"
         },
         {
           "id": "stu_LA_5_6T_8",
+          "studentCode": "L526008",
           "fullName": "Bùi Khánh Linh",
           "gender": "Nữ",
           "dob": "11/06/2021"
         },
         {
           "id": "stu_LA_5_6T_9",
+          "studentCode": "L526009",
           "fullName": "Đỗ Minh Khang",
           "gender": "Nam",
           "dob": "22/02/2021"
         },
         {
           "id": "stu_LA_5_6T_10",
+          "studentCode": "L526010",
           "fullName": "Ngô Thảo Vy",
           "gender": "Nữ",
           "dob": "30/08/2021",
@@ -1419,36 +1717,197 @@
         },
         {
           "id": "stu_LA_5_6T_11",
+          "studentCode": "L526011",
           "fullName": "Dương Tuấn Kiệt",
           "gender": "Nam",
           "dob": "14/11/2021"
         },
         {
           "id": "stu_LA_5_6T_12",
+          "studentCode": "L526012",
           "fullName": "Lý Ngọc Hân",
           "gender": "Nữ",
           "dob": "05/12/2021"
         },
         {
           "id": "stu_LA_5_6T_13",
+          "studentCode": "L526013",
           "fullName": "Phan Đức Phúc",
           "gender": "Nam",
           "dob": "17/05/2021"
         },
         {
           "id": "stu_LA_5_6T_14",
+          "studentCode": "L526014",
           "fullName": "Trương Bảo Châu",
           "gender": "Nữ",
           "dob": "09/03/2021"
         },
         {
           "id": "stu_LA_5_6T_15",
+          "studentCode": "L526015",
           "fullName": "Hồ Thiên Ân",
           "gender": "Nam",
           "dob": "26/09/2021"
         }
       ]
     },
+    "timetable": {
+      "oddWeek": [
+        [
+          "GDAN",
+          "PTVĐ"
+        ],
+        [
+          "MTXQ",
+          "LQVH"
+        ],
+        [
+          "KNS",
+          "Tạo hình"
+        ],
+        [
+          "LQVT"
+        ],
+        [
+          "LQCC"
+        ]
+      ],
+      "evenWeek": [
+        [
+          "PTVĐ"
+        ],
+        [
+          "MTXQ"
+        ],
+        [
+          "LQVT",
+          "LQCC"
+        ],
+        [
+          "GDAN",
+          "LQVH"
+        ],
+        [
+          "Tạo hình",
+          "KNS"
+        ]
+      ]
+    },
+    "endOfYearMtCodes": [
+      "MT1",
+      "MT2",
+      "MT3",
+      "MT4",
+      "MT5",
+      "MT6",
+      "MT7",
+      "MT8",
+      "MT9",
+      "MT10",
+      "MT11",
+      "MT12",
+      "MT13",
+      "MT14",
+      "MT15",
+      "MT16",
+      "MT17",
+      "MT18",
+      "MT19",
+      "MT20",
+      "MT21",
+      "MT22",
+      "MT23",
+      "MT24",
+      "MT25",
+      "MT26",
+      "MT27",
+      "MT28",
+      "MT29",
+      "MT30",
+      "MT31",
+      "MT32",
+      "MT33",
+      "MT34",
+      "MT35",
+      "MT36",
+      "MT37",
+      "MT38",
+      "MT39",
+      "MT40",
+      "MT41",
+      "MT42",
+      "MT43",
+      "MT44",
+      "MT45",
+      "MT46",
+      "MT47",
+      "MT48",
+      "MT49",
+      "MT50",
+      "MT51",
+      "MT52",
+      "MT53",
+      "MT54",
+      "MT55",
+      "MT56",
+      "MT57",
+      "MT58",
+      "MT59",
+      "MT60",
+      "MT61",
+      "MT62",
+      "MT63",
+      "MT64",
+      "MT65",
+      "MT66",
+      "MT67",
+      "MT68",
+      "MT69",
+      "MT70",
+      "MT71",
+      "MT72",
+      "MT73",
+      "MT74",
+      "MT75",
+      "MT76",
+      "MT77",
+      "MT78",
+      "MT79",
+      "MT80",
+      "MT81",
+      "MT82",
+      "MT83",
+      "MT84",
+      "MT85",
+      "MT86",
+      "MT87",
+      "MT88",
+      "MT89",
+      "MT90",
+      "MT91",
+      "MT92",
+      "MT93",
+      "MT94",
+      "MT95",
+      "MT96",
+      "MT97",
+      "MT98",
+      "MT99",
+      "MT100",
+      "MT101",
+      "MT102",
+      "MT103",
+      "MT104",
+      "MT105",
+      "MT106",
+      "MT107",
+      "MT108",
+      "MT109",
+      "MT110",
+      "MT111"
+    ],
+    "nonObjectiveActivitiesNote": "Đón trẻ đầu năm học, làm quen nề nếp sinh hoạt lớp, tổ chức Ngày hội đến trường, Vui Tết Trung thu, Chào mừng 20/11, Vui Xuân đón Tết và Tổng kết năm học.",
     "themes": [
       {
         "id": "ath_LA_5_6T_m9",
@@ -1456,12 +1915,13 @@
         "monthNumber": 9,
         "monthLabel": "Tháng 9",
         "themeName": "TRƯỜNG MẦM NON CỦA BÉ",
-        "totalWeeks": 3,
+        "totalWeeks": 4,
         "startDate": "2026-09-07",
         "subThemes": [
           "Trường Mầm non thân yêu của bé",
           "Lớp học, cô giáo và bạn bè",
-          "Bé vui hội Trăng rằm Trung thu"
+          "Bé vui hội Trăng rằm Trung thu",
+          "Nề nếp bé ngoan ở lớp"
         ],
         "plannedMtCodes": [
           "MT6",
@@ -1476,40 +1936,15 @@
           "MT88",
           "MT106",
           "MT1",
-          "MT71",
-          "MT112"
+          "MT71"
         ],
         "assessmentMtCodes": [
           "MT6",
           "MT11",
           "MT31",
           "MT48",
-          "MT49",
-          "MT112"
-        ],
-        "weeklyMtAllocation": {
-          "0": [
-            "MT6",
-            "MT48",
-            "MT66",
-            "MT88",
-            "MT71",
-            "MT11"
-          ],
-          "1": [
-            "MT11",
-            "MT49",
-            "MT77",
-            "MT106",
-            "MT112"
-          ],
-          "2": [
-            "MT31",
-            "MT54",
-            "MT85",
-            "MT1"
-          ]
-        }
+          "MT49"
+        ]
       },
       {
         "id": "ath_LA_5_6T_m10",
@@ -1594,10 +2029,11 @@
         "monthNumber": 12,
         "monthLabel": "Tháng 12",
         "themeName": "NGHỀ NGHIỆP & THẾ GIỚI ĐỘNG VẬT",
-        "totalWeeks": 4,
-        "startDate": "2026-12-07",
+        "totalWeeks": 5,
+        "startDate": "2026-11-30",
         "subThemes": [
           "Một số nghề phổ biến quanh bé",
+          "Nghề sản xuất và dịch vụ gần gũi",
           "Chú bộ đội kính yêu (22/12)",
           "Những con vật nuôi trong gia đình",
           "Động vật sống trong rừng & dưới nước"
@@ -1801,48 +2237,6 @@
         ]
       }
     ],
-    "timetable": {
-      "oddWeek": [
-        [
-          "GDAN",
-          "PTVĐ"
-        ],
-        [
-          "MTXQ",
-          "LQVH"
-        ],
-        [
-          "KNS",
-          "Tạo hình"
-        ],
-        [
-          "LQVT"
-        ],
-        [
-          "LQCC"
-        ]
-      ],
-      "evenWeek": [
-        [
-          "PTVĐ"
-        ],
-        [
-          "MTXQ"
-        ],
-        [
-          "LQVT",
-          "LQCC"
-        ],
-        [
-          "GDAN",
-          "LQVH"
-        ],
-        [
-          "Tạo hình",
-          "KNS"
-        ]
-      ]
-    },
     "customObjectives": [
       {
         "id": "custom_LA_5_6T_1795567772079",

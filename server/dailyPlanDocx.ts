@@ -4,6 +4,7 @@ import {
   Document,
   Packer,
   PageBreak,
+  PageOrientation,
   Paragraph,
   ShadingType,
   Table,
@@ -13,6 +14,7 @@ import {
   VerticalAlign,
   WidthType,
 } from 'docx';
+import { parse as parseHtml } from 'node-html-parser';
 import type { DayPlan, WeeklyPlanDocument } from '../shared/types.js';
 import { packDocxBinary } from '../shared/binary.js';
 
@@ -85,9 +87,39 @@ function cell(
 export interface DailyExportOptions {
   fromDate: string;
   toDate: string;
+  orientation?: 'portrait' | 'landscape';
+  continuous?: boolean;
+  includeDailyChildEval?: boolean;
   includeGvEval?: boolean;
   includeBghComments?: boolean;
   includeSignature?: boolean;
+}
+
+function richHtmlToPlainParagraphs(richHtml: string): Paragraph[] {
+  try {
+    const root = parseHtml(richHtml);
+    const out: Paragraph[] = [];
+    for (const node of root.childNodes) {
+      const txt = node.text?.replace(/\s+/g, ' ').trim() || '';
+      if (!txt) continue;
+      const tag = (node as { rawTagName?: string }).rawTagName?.toLowerCase() || '';
+      if (tag === 'ul' || tag === 'ol') {
+        const lis = (node as unknown as { querySelectorAll: (s: string) => Array<{ text: string }> }).querySelectorAll('li');
+        if (lis?.length) {
+          lis.forEach((li) => {
+            const lt = li.text.replace(/\s+/g, ' ').trim();
+            if (lt) out.push(p(`  - ${lt}`, { size: 10.5 }));
+          });
+          continue;
+        }
+      }
+      const isHeading = tag === 'h1' || tag === 'h2' || tag === 'h3' || /^(I|II|III|IV|1|2|3|4)\.\s/.test(txt);
+      out.push(p(txt, { bold: isHeading, size: isHeading ? 11 : 10.5 }));
+    }
+    return out;
+  } catch {
+    return [];
+  }
 }
 
 /**
@@ -117,7 +149,11 @@ export async function generateDailyPlansDocx(
 
   matchedDays.forEach(({ plan, day }, idx) => {
     if (idx > 0) {
-      docChildren.push(new Paragraph({ children: [new PageBreak()] }));
+      if (opts.continuous) {
+        docChildren.push(p('────────────────────────────────────────', { align: AlignmentType.CENTER, color: '94A3B8', before: 140, after: 100 }));
+      } else {
+        docChildren.push(new Paragraph({ children: [new PageBreak()] }));
+      }
     }
 
     const dayBghComments = (plan.reviewComments || []).filter(
@@ -211,28 +247,42 @@ export async function generateDailyPlansDocx(
       );
     };
 
-    // 1. Đón trẻ – Trò chuyện – Thể dục sáng
-    addSlotRow('1. Đón trẻ, Trò chuyện & Thể dục sáng', [
-      ...plan.welcomeRoutineNotes.slice(0, 2).map((n) => p(`- Đón trẻ / Trò chuyện: ${n}`, { size: 11 })),
+    // 1. Đón trẻ – Thể dục sáng & 1b. Trò chuyện sáng
+    addSlotRow('1. Đón trẻ & Thể dục sáng', [
+      ...plan.welcomeRoutineNotes.slice(0, 2).map((n) => p(`- Đón trẻ: ${n}`, { size: 11 })),
       p(`- Thể dục sáng: Khởi động (${plan.morningExercise.warmup}). Trọng động: ${plan.morningExercise.moves.map((m) => m.name).join('; ')}.`, { size: 11 }),
     ]);
 
-    // 2. Hoạt động học có chủ đích
+    if (plan.morningTalkNotes?.length) {
+      addSlotRow(
+        '2. Trò chuyện sáng',
+        plan.morningTalkNotes.map((n) => p(`- ${n}`, { size: 11 }))
+      );
+    }
+
+    // 3. Hoạt động học có chủ đích (ưu tiên đọc les.richHtml đã soạn trên Word Studio!)
     const mainParas: Paragraph[] = [];
     day.mainLessons.forEach((les) => {
       const mtBadge = les.linkedMtCodes?.length ? ` (${les.linkedMtCodes.join(', ')})` : '';
       mainParas.push(
-        p(`[${les.subjectCode}] ${les.topicTitle}${mtBadge}`, { bold: true, size: 11.5, color: BRAND, before: 60 }),
-        p('• I. Mục đích – Yêu cầu:', { bold: true, size: 11 }),
-        ...les.aims.map((a) => p(`  - ${a}`, { size: 10.5 })),
-        p('• II. Chuẩn bị:', { bold: true, size: 11 }),
-        ...les.preparation.map((pr) => p(`  - ${pr}`, { size: 10.5 })),
-        p('• III. Tổ chức hoạt động:', { bold: true, size: 11 }),
-        ...les.steps.flatMap((st) => [
-          p(`  * ${st.title}`, { bold: true, italic: true, size: 10.5 }),
-          ...st.details.map((dt) => p(`    + ${dt}`, { size: 10.5 })),
-        ])
+        p(`[${les.subjectCode}] ${les.topicTitle}${mtBadge}`, { bold: true, size: 11.5, color: BRAND, before: 60 })
       );
+      const fromRich = les.richHtml && les.richHtml.trim().length > 20 ? richHtmlToPlainParagraphs(les.richHtml) : [];
+      if (fromRich.length > 0) {
+        mainParas.push(...fromRich);
+      } else {
+        mainParas.push(
+          p('• I. Mục đích – Yêu cầu:', { bold: true, size: 11 }),
+          ...les.aims.map((a) => p(`  - ${a}`, { size: 10.5 })),
+          p('• II. Chuẩn bị:', { bold: true, size: 11 }),
+          ...les.preparation.map((pr) => p(`  - ${pr}`, { size: 10.5 })),
+          p('• III. Tổ chức hoạt động:', { bold: true, size: 11 }),
+          ...les.steps.flatMap((st) => [
+            p(`  * ${st.title}`, { bold: true, italic: true, size: 10.5 }),
+            ...st.details.map((dt) => p(`    + ${dt}`, { size: 10.5 })),
+          ])
+        );
+      }
       if (les.mediaItems?.length) {
         mainParas.push(
           p(`• Học liệu Media đính kèm: ${les.mediaItems.map((m) => `${m.title} (${m.url})`).join('; ')}`, {
@@ -244,7 +294,7 @@ export async function generateDailyPlansDocx(
       }
     });
     addSlotRow(
-      '2. Hoạt động học',
+      plan.morningTalkNotes?.length ? '3. Hoạt động học' : '2. Hoạt động học',
       mainParas,
       dayBghComments.map((c) => `${c.authorName}: ${c.content}`).join('\n')
     );
@@ -282,13 +332,27 @@ export async function generateDailyPlansDocx(
     );
     addSlotRow('5. Ăn ngủ, Chiều & Trả trẻ', aftParas);
 
-    // 6. Nhận xét cuối ngày của Giáo viên
+    // 6. Nhận xét cuối ngày & Hướng chỉnh sửa kế hoạch của Giáo viên
     if (opts.includeGvEval !== false) {
-      addSlotRow('6. Đánh giá / Nhận xét cuối ngày của GV', [
+      const evalParas: Paragraph[] = [
         p(`- Sức khỏe: ${day.evalHealth || 'Trẻ khỏe mạnh, ăn hết suất, ngủ ngon giấc.'}`, { size: 10.5 }),
         p(`- Cảm xúc, hành vi: ${day.evalEmotionBehavior || 'Trẻ ngoan, tích cực tham gia hoạt động cùng cô và bạn.'}`, { size: 10.5 }),
         p(`- Kiến thức, kỹ năng: ${day.evalKnowledgeSkill || 'Đa số trẻ đạt yêu cầu bài học đề ra.'}`, { size: 10.5 }),
-      ]);
+      ];
+      if (day.evalAdjustment) {
+        evalParas.push(p(`- Chỉnh sửa / Lưu ý điều chỉnh kế hoạch: ${day.evalAdjustment}`, { bold: true, size: 10.5, color: BRAND }));
+      }
+      if (opts.includeDailyChildEval && day.dailyStudentNotes?.length) {
+        evalParas.push(
+          p(
+            `- Ghi nhận cá nhân trẻ cần lưu ý (${day.dailyStudentNotes.length} trẻ): ${day.dailyStudentNotes
+              .map((sn) => `${sn.studentId} (${[sn.health, sn.emotion, sn.skill, sn.adjustmentNote].filter(Boolean).join('; ')})`)
+              .join(' | ')}`,
+            { italic: true, size: 10 }
+          )
+        );
+      }
+      addSlotRow('6. Đánh giá / Nhận xét & Chỉnh sửa cuối ngày', evalParas);
     }
 
     docChildren.push(
@@ -341,12 +405,16 @@ export async function generateDailyPlansDocx(
     }
   });
 
+  const isLandscape = opts.orientation === 'landscape';
   const doc = new Document({
     sections: [
       {
         properties: {
           page: {
-            margin: { top: cm(1.8), bottom: cm(1.8), left: cm(2.5), right: cm(1.5) },
+            size: isLandscape ? { orientation: PageOrientation.LANDSCAPE } : undefined,
+            margin: isLandscape
+              ? { top: cm(1.5), bottom: cm(1.5), left: cm(1.8), right: cm(1.5) }
+              : { top: cm(1.8), bottom: cm(1.8), left: cm(2.5), right: cm(1.5) },
           },
         },
         children: docChildren,

@@ -116,27 +116,51 @@ export async function initStaticApiIfNeeded(): Promise<void> {
     return cachedSeedObjectives;
   };
 
+  const normalizeAnnualMap = (
+    map: Record<AgeGroupId, AnnualPlanDocument>,
+    seedObjectives: ObjectivesDataset['objectives']
+  ): Record<AgeGroupId, AnnualPlanDocument> => {
+    for (const ag of ALL_AGE_GROUPS) {
+      const defaults = buildDefaultAnnualPlan(ag, seedObjectives);
+      if (!map[ag]) {
+        map[ag] = defaults;
+        continue;
+      }
+      if (!map[ag].timetable) {
+        map[ag].timetable = buildDefaultTimetable(ag);
+      }
+      if (!map[ag].endOfYearMtCodes) {
+        map[ag].endOfYearMtCodes = defaults.endOfYearMtCodes;
+      }
+      if (map[ag].nonObjectiveActivitiesNote === undefined) {
+        map[ag].nonObjectiveActivitiesNote = defaults.nonObjectiveActivitiesNote;
+      }
+      if (map[ag].profile && Array.isArray(map[ag].profile.students)) {
+        map[ag].profile.students = map[ag].profile.students.map((st, idx) => ({
+          ...st,
+          studentCode: st.studentCode || `HS${String(idx + 1).padStart(2, '0')}`,
+        }));
+      }
+    }
+    return map;
+  };
+
   const getAnnualPlansMap = async (): Promise<Record<AgeGroupId, AnnualPlanDocument>> => {
+    const seedDs = await getSeedObjectives();
     const rawLs = localStorage.getItem(LS_KEYS.ANNUAL);
     if (rawLs) {
       try {
-        return JSON.parse(rawLs) as Record<AgeGroupId, AnnualPlanDocument>;
+        const parsed = JSON.parse(rawLs) as Record<AgeGroupId, AnnualPlanDocument>;
+        return normalizeAnnualMap(parsed, seedDs.objectives);
       } catch {
         // ignore invalid localStorage
       }
     }
-    const seedDs = await getSeedObjectives();
     const map = await fetchStaticJson<Record<AgeGroupId, AnnualPlanDocument>>(
       'annual_plans.json',
       {} as Record<AgeGroupId, AnnualPlanDocument>
     );
-    for (const ag of ALL_AGE_GROUPS) {
-      if (!map[ag]) {
-        map[ag] = buildDefaultAnnualPlan(ag, seedDs.objectives);
-      } else if (!map[ag].timetable) {
-        map[ag].timetable = buildDefaultTimetable(ag);
-      }
-    }
+    normalizeAnnualMap(map, seedDs.objectives);
     localStorage.setItem(LS_KEYS.ANNUAL, JSON.stringify(map));
     return map;
   };
@@ -615,7 +639,7 @@ export async function initStaticApiIfNeeded(): Promise<void> {
       if (apiPath === '/api/export/daily-plans-docx' && method === 'POST') {
         const { plans, options } = await parseJsonBody<{
           plans: WeeklyPlanDocument[];
-          options: { fromDate: string; toDate: string; ageGroupId?: AgeGroupId };
+          options: import('../../server/dailyPlanDocx').DailyExportOptions;
         }>();
         const { generateDailyPlansDocx } = await import('../../server/dailyPlanDocx');
         const bytes = await generateDailyPlansDocx(plans, options);
@@ -641,6 +665,26 @@ export async function initStaticApiIfNeeded(): Promise<void> {
         const ds = await getMergedObjectives();
         const { generateIndividualChildCardsDocx } = await import('../../server/themeAssessmentDocx');
         const bytes = await generateIndividualChildCardsDocx(assessment, students || [], ds.objectives);
+        return binaryResponse(bytes, 'application/vnd.openxmlformats-officedocument.wordprocessingml.document');
+      }
+
+      if (apiPath === '/api/export/annual-docx' && method === 'POST') {
+        const { annualPlan } = await parseJsonBody<{ annualPlan: AnnualPlanDocument }>();
+        const ds = await getMergedObjectives();
+        const { generateAnnualPlanDocx } = await import('../../server/annualAndMonthDocx');
+        const bytes = await generateAnnualPlanDocx(annualPlan, ds.objectives);
+        return binaryResponse(bytes, 'application/vnd.openxmlformats-officedocument.wordprocessingml.document');
+      }
+
+      if (apiPath === '/api/export/month-docx' && method === 'POST') {
+        const { theme, monthPlans, profile } = await parseJsonBody<{
+          theme: AnnualPlanDocument['themes'][number];
+          monthPlans: WeeklyPlanDocument[];
+          profile: AnnualPlanDocument['profile'];
+        }>();
+        const ds = await getMergedObjectives();
+        const { generateMonthlyPlanDocx } = await import('../../server/annualAndMonthDocx');
+        const bytes = await generateMonthlyPlanDocx(theme, monthPlans || [], ds.objectives, profile);
         return binaryResponse(bytes, 'application/vnd.openxmlformats-officedocument.wordprocessingml.document');
       }
 

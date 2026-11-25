@@ -251,11 +251,32 @@ export function buildInitialWordHtml(plan: WeeklyPlanDocument, objectives: Objec
     <ul>${plan.morningExercise.moves.map((m) => `<li><strong>${esc(formatTdsLine(m.group, m.name))}:</strong> ${esc(m.steps)}</li>`).join('')}</ul>
     <p>- <strong>Hồi tỉnh:</strong> ${esc(plan.morningExercise.cooldown)}</p>
 
-    <h3>II. Điểm danh &amp; Hoạt động Nêu gương</h3>
+    <h3>II. Trò chuyện sáng, Điểm danh &amp; Hoạt động Nêu gương</h3>
+    ${
+      (plan.morningTalkNotes || []).some((x) => x.trim())
+        ? `<p><strong>Trò chuyện sáng theo chủ đề nhánh:</strong></p><ul>${(plan.morningTalkNotes || [])
+            .filter((x) => x.trim())
+            .map((x) => `<li>${escClean(x)}</li>`)
+            .join('')}</ul>`
+        : ''
+    }
     <p><strong>3 Tiêu chuẩn bé ngoan tuần ${plan.weekNumber}:</strong></p>
     <ol>${plan.praiseStandards.filter((s) => s.trim()).map((s) => `<li>${escClean(s)}</li>`).join('')}</ol>
     <p>- Nêu gương cuối ngày (cắm cờ): Hát bài <em>“${esc(plan.praiseSongStart)}”</em>, tổ tự nhận xét và cô khen thưởng cắm cờ.</p>
     <p>- Nêu gương cuối tuần (phát phiếu bé ngoan): Đếm cờ đạt trong tuần (4–5 cờ), phát phiếu và hát <em>“${esc(plan.praiseSongWeekEnd)}”</em>.</p>
+    ${
+      (plan.laborHygieneNotes || []).some((x) => x.trim())
+        ? `<h3>IIb. Tổ chức Ăn – Ngủ – Vệ sinh – Lao động tự phục vụ</h3><ul>${(plan.laborHygieneNotes || [])
+            .filter((x) => x.trim())
+            .map((x) => `<li>${escClean(x)}</li>`)
+            .join('')}</ul>`
+        : ''
+    }
+    ${
+      plan.weeklyTeacherNote && plan.weeklyTeacherNote.trim()
+        ? `<p><strong>Ghi chú chuyên môn tuần:</strong> ${esc(plan.weeklyTeacherNote.trim())}</p>`
+        : ''
+    }
 
     <h3>III. Kế hoạch Hoạt động ngoài trời 1 tuần</h3>
     <table><tbody>
@@ -367,6 +388,7 @@ export function buildInitialWordHtml(plan: WeeklyPlanDocument, objectives: Objec
       <p><strong>1. Tình trạng sức khỏe của trẻ:</strong> ${esc(day.evalHealth.trim() || dots)}</p>
       <p><strong>2. Trạng thái cảm xúc, thái độ, hành vi của trẻ:</strong> ${esc(day.evalEmotionBehavior.trim() || dots)}</p>
       <p><strong>3. Kiến thức, kỹ năng của trẻ:</strong> ${esc(day.evalKnowledgeSkill.trim() || dots)}</p>
+      <p><strong>4. Lưu ý điều chỉnh kế hoạch tiếp theo:</strong> ${esc((day.evalAdjustment || '').trim() || dots)}</p>
     `);
   }
 

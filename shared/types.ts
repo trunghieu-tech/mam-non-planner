@@ -104,9 +104,19 @@ export interface LessonStep {
 
 export interface LessonMediaAttachment {
   id: string;
-  kind: 'VIDEO' | 'SLIDE' | 'IMAGE' | 'DOC';
+  kind: 'VIDEO' | 'SLIDE' | 'IMAGE' | 'AUDIO' | 'DOC';
   title: string;
   url: string;
+}
+
+export interface DailySpecialStudentNote {
+  id: string;
+  studentId: string;
+  studentName?: string;
+  health: string;
+  emotion: string;
+  skill: string;
+  adjustmentNote: string;
 }
 
 export interface LessonPlan {
@@ -139,8 +149,14 @@ export interface DayPlan {
   evalHealth: string;
   evalEmotionBehavior: string;
   evalKnowledgeSkill: string;
+  /** Hướng chỉnh sửa / điều chỉnh kế hoạch ngày kế tiếp (Vietec KHGD ngày) */
+  evalAdjustment?: string;
+  /** Nhận xét của Giáo viên theo từng giờ sinh hoạt trong ngày */
+  slotTeacherNotes?: Record<string, string>;
   /** Đánh giá trẻ hàng ngày theo Mã MT của ngày hôm đó (YC-052): dailyEvaluations[studentId][mtCode] */
   dailyEvaluations?: Record<string, Record<string, MtEvalLevel>>;
+  /** Sổ theo dõi cá nhân trẻ có biểu hiện đặc biệt trong ngày (Vietec sub-tab Đánh giá trẻ hằng ngày) */
+  dailyStudentNotes?: DailySpecialStudentNote[];
 }
 
 export interface ReviewComment {
@@ -203,8 +219,13 @@ export interface WeeklyPlanDocument {
 
   // Khối dùng chung cả tuần (tự đồng bộ xuống 5 ngày!)
   etiquetteNotes: string[];       // Lễ giáo
-  laborHygieneNotes: string[];    // Lao động vệ sinh
+  laborHygieneNotes: string[];    // Lao động vệ sinh & Ăn ngủ
   welcomeRoutineNotes: string[];  // Đón trẻ
+  morningTalkNotes?: string[];    // Trò chuyện sáng (tách riêng chuẩn KHGD tháng/tuần)
+  /** Mã MT thực hiện thông qua Đón trẻ, TDS, Trò chuyện, Ngoài trời, Góc chơi, Ăn ngủ vệ sinh */
+  routineMtCodes?: string[];
+  /** Đánh giá kết quả thực hiện cuối tuần của Giáo viên */
+  weeklyTeacherNote?: string;
   praiseStandards: string[];      // 3 Tiêu chuẩn bé ngoan
   praiseSongStart: string;        // Bài hát nêu gương
   praiseSongWeekEnd: string;      // Bài hát cuối tuần
@@ -222,6 +243,7 @@ export interface WeeklyPlanDocument {
 
 export interface StudentRosterItem {
   id: string;
+  studentCode?: string; // Mã định danh học sinh (VD: 2601001)
   fullName: string;
   dob?: string;
   gender?: 'Nam' | 'Nữ';
@@ -270,6 +292,12 @@ export interface AnnualPlanDocument {
   timetable?: WeeklyTimetableTemplate;
   /** Mục tiêu phát triển mở rộng riêng của lớp/trường ngoài 345 MT gốc (YC-044, hiển thị chữ đỏ) */
   customObjectives?: ObjectiveItem[];
+  /** Tùy chỉnh Nội dung - Hoạt động giáo dục theo từng Mã MT của lớp */
+  customEduContentByMt?: Record<string, string>;
+  /** Danh sách Mã MT chọn Đánh giá cuối độ tuổi / cuối năm học */
+  endOfYearMtCodes?: string[];
+  /** Các hoạt động giáo dục không phục vụ mục tiêu cụ thể (rèn nề nếp, lễ hội...) */
+  nonObjectiveActivitiesNote?: string;
   themes: ThemeMonthAllocation[];
 }
 
@@ -281,6 +309,8 @@ export interface SavedLessonTemplate {
   topicTitle: string;
   linkedMtCodes: string[];
   richHtml: string;
+  themeName?: string;
+  routineSlot?: string;
   createdBy: string;
   createdAt: string;
 }
@@ -288,7 +318,7 @@ export interface SavedLessonTemplate {
 /** Tài nguyên Kho Media & Học liệu điện tử chia sẻ (YC-053, YC-064) */
 export interface SharedMediaResource {
   id: string;
-  kind: 'VIDEO' | 'SLIDE' | 'IMAGE' | 'ELEARNING' | 'DOC';
+  kind: 'VIDEO' | 'SLIDE' | 'IMAGE' | 'ELEARNING' | 'AUDIO' | 'DOC';
   title: string;
   url: string;
   sourceUrl?: string;
@@ -299,6 +329,8 @@ export interface SharedMediaResource {
   ageGroupId: AgeGroupId | 'ALL';
   themeName: string;
   author: string;
+  shareScope?: 'PERSONAL' | 'SCHOOL' | 'PUBLIC';
+  description?: string;
   createdAt: string;
 }
 

@@ -18,7 +18,7 @@ import type {
   WeeklyPlanDocument,
 } from '../../shared/types';
 import { normalizePlainSuggestion } from '../utils/editorInsert';
-import { domainToKey, fmtDateVN, syncWeekDates } from '../utils/helpers';
+import { addDaysISO, domainToKey, fmtDateVN, syncWeekDates } from '../utils/helpers';
 import { detectSchoolHolidayOrEvent } from '../utils/holidaysVN';
 import { buildPedagogicalLessonPlan, lessonPlanToRichHtml, resolveSubjectMeta } from '../utils/subjectTemplates';
 import { DOMAIN_VISUALS, getSubjectVisual } from '../utils/visualMeta';
@@ -131,7 +131,8 @@ export const WeeklyBoardView: React.FC<Props> = ({
   const handleSyncMonthToCurrentWeek = () => {
     const codes = getWeekMtAllocation(currentMonthWeekIdx);
     const byDomain = new Map<DomainKey, Set<string>>();
-    plan.themeObjectives.forEach((b) => byDomain.set(b.domainKey, new Set(b.mtCodes)));
+    // Thay thế sạch theo đúng các Mã MT đã tick chọn cho tuần này ở KHGD Tháng (gỡ cả MT đã bỏ tick!)
+    plan.themeObjectives.forEach((b) => byDomain.set(b.domainKey, new Set()));
     codes.forEach((c) => {
       const obj = ageObjByCode.get(c);
       if (!obj) return;
@@ -146,9 +147,43 @@ export const WeeklyBoardView: React.FC<Props> = ({
     }));
     onUpdatePlan(
       { ...plan, themeObjectives: nextBlocks },
-      `Đã đồng bộ ${codes.length} mã MT của Nhánh tuần ${currentMonthWeekIdx + 1} từ KHGD Tháng sang KHGD Tuần!`
+      `Đã đồng bộ chính xác ${codes.length} mã MT của Nhánh tuần ${currentMonthWeekIdx + 1} từ KHGD Tháng sang KHGD Tuần!`
     );
     setBoardMode('week');
+  };
+
+  const handleExportCurrentMonthDocx = async () => {
+    if (!matchedAnnualTheme || !annualPlan) return;
+    const thEnd = addDaysISO(matchedAnnualTheme.startDate, matchedAnnualTheme.totalWeeks * 7 - 1);
+    const monthPlans = [
+      plan,
+      ...allPlans.filter(
+        (p) =>
+          p.id !== plan.id &&
+          p.ageGroupId === plan.ageGroupId &&
+          (p.annualThemeId === matchedAnnualTheme.id ||
+            (p.weekStartDate >= matchedAnnualTheme.startDate && p.weekStartDate <= thEnd))
+      ),
+    ];
+    const res = await fetch('/api/export/month-docx', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        theme: matchedAnnualTheme,
+        monthPlans,
+        profile: annualPlan.profile,
+      }),
+    });
+    if (!res.ok) return;
+    const blob = await res.blob();
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `KHGD_${matchedAnnualTheme.monthLabel.replace(/\s+/g, '')}_${plan.className.replace(/\s+/g, '')}.docx`;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
   };
 
   const otherSameGradePlans = useMemo(
@@ -584,6 +619,7 @@ export const WeeklyBoardView: React.FC<Props> = ({
                 ),
               ];
               themePlans.forEach((tp) => {
+                (tp.routineMtCodes || []).forEach((c) => taughtInThemePlans.add(c));
                 tp.days.forEach((d) => {
                   if (d.isHoliday) return;
                   d.mainLessons.forEach((l) => l.linkedMtCodes.forEach((c) => taughtInThemePlans.add(c)));
@@ -641,6 +677,13 @@ export const WeeklyBoardView: React.FC<Props> = ({
                     <strong>“Đồng bộ sang KHGD Tuần {plan.weekNumber}”</strong>.
                   </p>
                 </div>
+                <button
+                  type="button"
+                  onClick={handleExportCurrentMonthDocx}
+                  className="rounded-xl bg-[#1D4ED8] px-3.5 py-2 text-xs font-bold text-white hover:bg-[#1E40AF]"
+                >
+                  Xuất KH {matchedAnnualTheme.monthLabel} (.docx)
+                </button>
               </div>
 
               <div className="mt-4 overflow-x-auto rounded-xl border border-slate-200">
@@ -969,11 +1012,22 @@ export const WeeklyBoardView: React.FC<Props> = ({
             })}
           </div>
 
-          {/* Simple Next-Step Footer */}
-          <div className="flex justify-end pt-1">
+          {/* Đánh giá kết quả thực hiện cuối tuần của Giáo viên + Chuyển bước */}
+          <div className="flex flex-col gap-3 rounded-2xl border border-slate-200 bg-white p-4 sm:flex-row sm:items-center sm:justify-between">
+            <label className="flex-1 text-xs">
+              <span className="font-bold text-slate-700">
+                Đánh giá kết quả thực hiện cuối Tuần {plan.weekNumber} của Giáo viên:
+              </span>
+              <input
+                value={plan.weeklyTeacherNote || ''}
+                onChange={(e) => onUpdatePlan({ ...plan, weeklyTeacherNote: e.target.value })}
+                placeholder="Ghi nhận xét chung cuối tuần (mức độ hứng thú của trẻ, nội dung cần rèn tiếp sang tuần sau)..."
+                className="mt-1 w-full rounded-xl border border-slate-200 bg-slate-50/70 px-3 py-2 text-xs focus:border-[#1D4ED8] focus:bg-white focus:outline-none"
+              />
+            </label>
             <button
               onClick={() => onGoToStep('shared')}
-              className="rounded-xl bg-[#1D4ED8] px-5 py-2.5 text-xs font-semibold text-white hover:bg-[#1E40AF]"
+              className="shrink-0 rounded-xl bg-[#1D4ED8] px-5 py-2.5 text-xs font-semibold text-white hover:bg-[#1E40AF]"
             >
               Tiếp tục: Bước 3 – Hoạt động cả tuần →
             </button>

@@ -679,6 +679,74 @@ export default function App() {
     setStep('focus');
   };
 
+  const handleApplySavedTemplateFromLibrary = (tpl: {
+    subjectCode: string;
+    topicTitle: string;
+    linkedMtCodes: string[];
+    richHtml: string;
+  }) => {
+    if (!activePlan || !effectiveDataset) return;
+    let targetDayIdx = 0;
+    let minLen = 999;
+    activePlan.days.forEach((d, idx) => {
+      if (!d.isHoliday && d.mainLessons.length < minLen) {
+        minLen = d.mainLessons.length;
+        targetDayIdx = idx;
+      }
+    });
+    const obj = tpl.linkedMtCodes?.[0]
+      ? effectiveDataset.objectives.find(
+          (o) => o.ageGroupId === activePlan.ageGroupId && o.code === tpl.linkedMtCodes[0]
+        )
+      : undefined;
+    const baseLesson = buildPedagogicalLessonPlan({
+      topicTitle: tpl.topicTitle,
+      subjectCode: tpl.subjectCode,
+      ageGroupId: activePlan.ageGroupId,
+      slotType: 'MAIN',
+      mtCode: tpl.linkedMtCodes?.[0] || '',
+      obj,
+    });
+    const fullLesson = {
+      ...baseLesson,
+      linkedMtCodes: tpl.linkedMtCodes?.length ? tpl.linkedMtCodes : baseLesson.linkedMtCodes,
+      richHtml: tpl.richHtml || baseLesson.richHtml,
+    };
+    const nextDays = activePlan.days.map((d, idx) =>
+      idx === targetDayIdx ? { ...d, mainLessons: [...d.mainLessons, fullLesson] } : d
+    );
+    handleStructuredUpdate(
+      { ...activePlan, days: nextDays },
+      `Đã xếp nguyên văn Bài giảng mẫu "${tpl.topicTitle}" vào ${activePlan.days[targetDayIdx].dayLabel}!`
+    );
+    setFocusTarget({ dayIdx: targetDayIdx, kind: 'main', lessonId: fullLesson.id });
+    setStep('focus');
+  };
+
+  const triggerAnnualDocxDownload = async () => {
+    if (!activeAnnualPlan) return;
+    notify('Đang xuất Sổ Kế hoạch Giáo dục Năm học (.docx)...');
+    const res = await fetch('/api/export/annual-docx', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ annualPlan: activeAnnualPlan }),
+    });
+    if (!res.ok) {
+      notify('Lỗi khi xuất Sổ Năm học.');
+      return;
+    }
+    const blob = await res.blob();
+    const objUrl = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = objUrl;
+    a.download = `KHGD_NamHoc_${activeAnnualPlan.profile.className.replace(/\s+/g, '')}.docx`;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(objUrl);
+    notify('Đã tải Sổ Kế hoạch Giáo dục Năm học (.docx)!');
+  };
+
   if (!effectiveDataset || !activePlan) {
     return (
       <div className="flex min-h-screen items-center justify-center bg-[#F6F8F7] text-sm text-slate-500">
@@ -900,16 +968,20 @@ export default function App() {
           </button>
 
           <button
-            onClick={() =>
-              triggerDownload(
-                '/api/export/docx',
-                activePlan,
-                `KeHoach_Tuan${activePlan.weekNumber}_${activePlan.className.replace(/\s+/g, '')}.docx`
-              )
-            }
+            onClick={() => {
+              if (step === 'annual' && activeAnnualPlan) {
+                triggerAnnualDocxDownload();
+              } else {
+                triggerDownload(
+                  '/api/export/docx',
+                  activePlan,
+                  `KeHoach_Tuan${activePlan.weekNumber}_${activePlan.className.replace(/\s+/g, '')}.docx`
+                );
+              }
+            }}
             className="rounded-lg bg-[#1D4ED8] px-3.5 py-1.5 text-xs font-semibold text-white hover:bg-[#1E40AF]"
           >
-            Xuất Word
+            {step === 'annual' ? 'Xuất Sổ Năm' : 'Xuất Word'}
           </button>
         </div>
       </header>
@@ -1056,6 +1128,7 @@ export default function App() {
           onInsertExcelActivity={(obj: ObjectiveItem, act: SuggestedActivity) =>
             handleAddLessonFromModal(act.text, act.type, obj.code, obj)
           }
+          onApplySavedTemplate={(tpl) => handleApplySavedTemplateFromLibrary(tpl)}
           onInsertCrawledLesson={(les, mt, ag) => {
             const obj = effectiveDataset.objectives.find((o) => o.ageGroupId === ag && o.code === mt);
             handleAddLessonFromModal(les.topic, les.subject, mt, obj);

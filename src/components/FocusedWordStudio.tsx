@@ -77,10 +77,13 @@ export const FocusedWordStudio: React.FC<Props> = ({
   const [newMediaUrl, setNewMediaUrl] = useState('');
   const [newMediaKind, setNewMediaKind] = useState<LessonMediaAttachment['kind']>('VIDEO');
 
-  // Hộp thoại Xuất Sổ Kế hoạch Giáo dục Ngày theo khoảng ngày (YC-050)
+  // Hộp thoại Xuất Sổ Kế hoạch Giáo dục Ngày theo khoảng ngày (YC-050, nâng cấp chuẩn Vietec f_49m15s)
   const [showDailyExportModal, setShowDailyExportModal] = useState(false);
   const [exportFromDate, setExportFromDate] = useState(plan.weekStartDate);
   const [exportToDate, setExportToDate] = useState(plan.weekEndDate);
+  const [exportOrientation, setExportOrientation] = useState<'portrait' | 'landscape'>('portrait');
+  const [exportContinuous, setExportContinuous] = useState(false);
+  const [incChildDailyEval, setIncChildDailyEval] = useState(true);
   const [incGvEval, setIncGvEval] = useState(true);
   const [incBghCmt, setIncBghCmt] = useState(true);
   const [incSign, setIncSign] = useState(true);
@@ -298,7 +301,10 @@ export const FocusedWordStudio: React.FC<Props> = ({
     );
   };
 
-  const updateDayEval = (field: 'evalHealth' | 'evalEmotionBehavior' | 'evalKnowledgeSkill', value: string) => {
+  const updateDayEval = (
+    field: 'evalHealth' | 'evalEmotionBehavior' | 'evalKnowledgeSkill' | 'evalAdjustment',
+    value: string
+  ) => {
     const nextDays = plan.days.map((d, i) => (i === target.dayIdx ? { ...d, [field]: value } : d));
     onUpdatePlan({ ...plan, days: nextDays });
   };
@@ -348,6 +354,9 @@ export const FocusedWordStudio: React.FC<Props> = ({
           options: {
             fromDate: exportFromDate,
             toDate: exportToDate,
+            orientation: exportOrientation,
+            continuous: exportContinuous,
+            includeDailyChildEval: incChildDailyEval,
             includeGvEval: incGvEval,
             includeBghComments: incBghCmt,
             includeSignature: incSign,
@@ -545,7 +554,16 @@ export const FocusedWordStudio: React.FC<Props> = ({
                       </tr>
                       <tr>
                         <td className="border-r border-slate-200 bg-slate-50/70 px-3.5 py-3 font-bold text-[#1E3A8A]">
-                          2. Hoạt động học
+                          2. Trò chuyện sáng
+                        </td>
+                        <td className="border-r border-slate-200 px-3.5 py-3 text-slate-700">
+                          • {(plan.morningTalkNotes && plan.morningTalkNotes[0]) || `Trò chuyện cùng trẻ về nhánh chủ đề “${plan.subThemeName}”`}
+                        </td>
+                        <td className="px-3.5 py-3 text-slate-400 italic">Đàm thoại đầu giờ</td>
+                      </tr>
+                      <tr>
+                        <td className="border-r border-slate-200 bg-slate-50/70 px-3.5 py-3 font-bold text-[#1E3A8A]">
+                          3. Hoạt động học
                         </td>
                         <td className="border-r border-slate-200 px-3.5 py-3 space-y-2">
                           {activeDay.mainLessons.length === 0 ? (
@@ -570,9 +588,20 @@ export const FocusedWordStudio: React.FC<Props> = ({
                                     Mở soạn Word →
                                   </button>
                                 </div>
-                                {les.aims[0] && (
-                                  <div className="mt-1 text-[11px] text-slate-600">• {les.aims[0]}</div>
-                                )}
+                                <div className="mt-1.5 grid gap-2 border-t border-slate-200/70 pt-1.5 text-[11px] text-slate-600 md:grid-cols-3">
+                                  <div>
+                                    <strong className="text-slate-800">Mục đích:</strong>{' '}
+                                    {les.aims[0] || 'Theo mục tiêu bài dạy'}
+                                  </div>
+                                  <div>
+                                    <strong className="text-slate-800">Chuẩn bị:</strong>{' '}
+                                    {les.preparation[0] || 'Đồ dùng cô và trẻ'}
+                                  </div>
+                                  <div>
+                                    <strong className="text-slate-800">Cách tiến hành:</strong>{' '}
+                                    {les.steps.map((s) => s.title).join(' → ') || 'Ổn định → Trọng tâm → Kết thúc'}
+                                  </div>
+                                </div>
                                 {les.mediaItems && les.mediaItems.length > 0 && (
                                   <div className="mt-1 text-[11px] text-sky-700">
                                     • Học liệu Media: {les.mediaItems.map((m) => m.title).join(', ')}
@@ -596,7 +625,7 @@ export const FocusedWordStudio: React.FC<Props> = ({
                       </tr>
                       <tr>
                         <td className="border-r border-slate-200 bg-slate-50/70 px-3.5 py-3 font-bold text-[#1E3A8A]">
-                          3. Hoạt động ngoài trời
+                          4. Hoạt động ngoài trời
                         </td>
                         <td className="border-r border-slate-200 px-3.5 py-3 text-slate-700">
                           <div>• Quan sát: <strong>{activeDay.outdoorObservation}</strong></div>
@@ -606,27 +635,40 @@ export const FocusedWordStudio: React.FC<Props> = ({
                       </tr>
                       <tr>
                         <td className="border-r border-slate-200 bg-slate-50/70 px-3.5 py-3 font-bold text-[#1E3A8A]">
-                          4. Chơi góc &amp; Chiều
+                          5. Chơi góc &amp; Ăn ngủ vệ sinh
                         </td>
                         <td className="border-r border-slate-200 px-3.5 py-3 space-y-1 text-slate-700">
-                          <div>• Góc chơi: {plan.cornerTable.map((c) => c.cornerName).join(', ')}</div>
-                          {activeDay.afternoonLesson && (
-                            <div>
-                              • <strong>HĐ Chiều [{activeDay.afternoonLesson.subjectCode}]:</strong>{' '}
-                              {activeDay.afternoonLesson.topicTitle}
-                            </div>
-                          )}
+                          <div>• <strong>Góc chơi:</strong> {plan.cornerTable.map((c) => c.cornerName).join(', ')}</div>
+                          <div>• <strong>Ăn – Ngủ – Vệ sinh:</strong> {plan.laborHygieneNotes[0] || 'Rửa tay đúng quy trình trước khi ăn, ngủ đúng giờ.'}</div>
                         </td>
                         <td className="px-3.5 py-3 text-slate-400">—</td>
                       </tr>
                       <tr>
                         <td className="border-r border-slate-200 bg-slate-50/70 px-3.5 py-3 font-bold text-[#1E3A8A]">
-                          5. Nhận xét cuối ngày
+                          6. Hoạt động chiều &amp; Nêu gương trả trẻ
+                        </td>
+                        <td className="border-r border-slate-200 px-3.5 py-3 space-y-1 text-slate-700">
+                          {activeDay.afternoonLesson ? (
+                            <div>
+                              • <strong>HĐ Chiều [{activeDay.afternoonLesson.subjectCode}]:</strong>{' '}
+                              {activeDay.afternoonLesson.topicTitle}
+                            </div>
+                          ) : (
+                            <div>• Ôn luyện kỹ năng / Vui chơi nhẹ nhàng theo nhóm</div>
+                          )}
+                          <div>• <strong>Nêu gương – Trả trẻ:</strong> Bình xét Bé ngoan ({plan.praiseStandards[0] || 'Đi học ngoan, lễ phép'}).</div>
+                        </td>
+                        <td className="px-3.5 py-3 text-slate-400">—</td>
+                      </tr>
+                      <tr>
+                        <td className="border-r border-slate-200 bg-slate-50/70 px-3.5 py-3 font-bold text-[#1E3A8A]">
+                          7. Nhận xét &amp; Chỉnh sửa cuối ngày
                         </td>
                         <td className="border-r border-slate-200 px-3.5 py-3 space-y-1 text-slate-700" colSpan={2}>
                           <div>• <strong>Sức khỏe:</strong> {activeDay.evalHealth || '(Chưa ghi)'}</div>
                           <div>• <strong>Cảm xúc, hành vi:</strong> {activeDay.evalEmotionBehavior || '(Chưa ghi)'}</div>
                           <div>• <strong>Kiến thức, kỹ năng:</strong> {activeDay.evalKnowledgeSkill || '(Chưa ghi)'}</div>
+                          <div>• <strong>Chỉnh sửa / Điều chỉnh kế hoạch:</strong> {activeDay.evalAdjustment || '(Không có điều chỉnh)'}</div>
                           <button
                             type="button"
                             onClick={() => setTarget({ dayIdx: target.dayIdx, kind: 'eval' })}
@@ -731,6 +773,20 @@ export const FocusedWordStudio: React.FC<Props> = ({
                   value={activeDay.evalKnowledgeSkill}
                   onChange={(e) => updateDayEval('evalKnowledgeSkill', e.target.value)}
                   placeholder="Nhập nhận xét kiến thức, kỹ năng trẻ đạt được trong ngày..."
+                  className="w-full rounded-xl border border-slate-200 p-3 text-xs focus:border-[#1D4ED8] focus:outline-none"
+                />
+              </div>
+
+              {/* Criterion 4: Chỉnh sửa / Lưu ý điều chỉnh kế hoạch (chuẩn Vietec KHGD ngày) */}
+              <div className="space-y-1.5">
+                <label className="text-xs font-bold text-slate-800">
+                  4. Chỉnh sửa / Lưu ý điều chỉnh kế hoạch cho ngày tiếp theo
+                </label>
+                <textarea
+                  rows={2}
+                  value={activeDay.evalAdjustment || ''}
+                  onChange={(e) => updateDayEval('evalAdjustment', e.target.value)}
+                  placeholder="Ghi ngắn gọn nội dung cần điều chỉnh hoặc rèn bù vào hoạt động chiều / ngày kế tiếp..."
                   className="w-full rounded-xl border border-slate-200 p-3 text-xs focus:border-[#1D4ED8] focus:outline-none"
                 />
               </div>
@@ -879,6 +935,7 @@ export const FocusedWordStudio: React.FC<Props> = ({
                   >
                     <option value="VIDEO">Video / YouTube</option>
                     <option value="SLIDE">Slide PowerPoint</option>
+                    <option value="AUDIO">Audio / Nhạc</option>
                     <option value="IMAGE">Tranh ảnh</option>
                     <option value="DOC">Tài liệu</option>
                   </select>
@@ -1068,6 +1125,31 @@ export const FocusedWordStudio: React.FC<Props> = ({
                 </label>
               </div>
 
+              <div className="grid grid-cols-2 gap-3">
+                <label>
+                  <span className="font-semibold text-slate-600">Định dạng khổ giấy</span>
+                  <select
+                    value={exportOrientation}
+                    onChange={(e) => setExportOrientation(e.target.value as 'portrait' | 'landscape')}
+                    className="mt-1 w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-semibold"
+                  >
+                    <option value="portrait">Khổ dọc (A4 chuẩn)</option>
+                    <option value="landscape">Khổ ngang (A4 rộng)</option>
+                  </select>
+                </label>
+                <label>
+                  <span className="font-semibold text-slate-600">Chế độ nối trang</span>
+                  <select
+                    value={exportContinuous ? 'continuous' : 'pagebreak'}
+                    onChange={(e) => setExportContinuous(e.target.value === 'continuous')}
+                    className="mt-1 w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-semibold"
+                  >
+                    <option value="pagebreak">Ngắt trang từng ngày</option>
+                    <option value="continuous">In liên tiếp (tiết kiệm giấy)</option>
+                  </select>
+                </label>
+              </div>
+
               <div className="space-y-2 rounded-xl bg-slate-50 p-3">
                 <label className="flex items-center gap-2 font-medium text-slate-700">
                   <input
@@ -1076,7 +1158,16 @@ export const FocusedWordStudio: React.FC<Props> = ({
                     onChange={(e) => setIncGvEval(e.target.checked)}
                     className="h-4 w-4 accent-[#1D4ED8]"
                   />
-                  Lấy mục Đánh giá / Nhận xét cuối ngày của Giáo viên
+                  Lấy mục Đánh giá / Nhận xét &amp; Chỉnh sửa cuối ngày của Giáo viên
+                </label>
+                <label className="flex items-center gap-2 font-medium text-slate-700">
+                  <input
+                    type="checkbox"
+                    checked={incChildDailyEval}
+                    onChange={(e) => setIncChildDailyEval(e.target.checked)}
+                    className="h-4 w-4 accent-[#1D4ED8]"
+                  />
+                  Lấy thông tin đánh giá / lưu ý cá nhân trẻ hằng ngày
                 </label>
                 <label className="flex items-center gap-2 font-medium text-slate-700">
                   <input

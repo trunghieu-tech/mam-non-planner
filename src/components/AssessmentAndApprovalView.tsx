@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import type {
   AnnualPlanDocument,
+  DailySpecialStudentNote,
   MtEvalLevel,
   ObjectivesDataset,
   ReviewComment,
@@ -83,9 +84,14 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
   );
   const [commentSection, setCommentSection] = useState<string>('Thứ hai');
   const [commentText, setCommentText] = useState<string>('');
-  const [exportingDocx, setExportingDocx] = useState<'summary' | 'individual' | null>(null);
+  const [exportingDocx, setExportingDocx] = useState<'summary' | 'individual' | 'yearEnd' | null>(null);
   const [yearEndSyncedAt, setYearEndSyncedAt] = useState<string>('');
   const [bulkApproving, setBulkApproving] = useState(false);
+  const [specialStudentId, setSpecialStudentId] = useState<string>('');
+  const [specialHealth, setSpecialHealth] = useState<string>('');
+  const [specialEmotion, setSpecialEmotion] = useState<string>('');
+  const [specialSkill, setSpecialSkill] = useState<string>('');
+  const [specialAdjust, setSpecialAdjust] = useState<string>('');
 
   useEffect(() => {
     setSelectedThemeName(plan.themeName);
@@ -304,12 +310,18 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
       if (!map.has(code)) map.set(code, []);
       map.get(code)!.push(`[Chiều] ${activeDailyDay.afternoonLesson?.topicTitle || ''}`);
     });
+    (plan.routineMtCodes || []).forEach((code) => {
+      if (!map.has(code)) map.set(code, []);
+      const list = map.get(code)!;
+      const tag = '[Sinh hoạt cả tuần]';
+      if (!list.includes(tag)) list.push(tag);
+    });
     return Array.from(map.entries()).map(([code, topics]) => ({
       code,
       obj: objByCode.get(code),
       topics,
     }));
-  }, [activeDailyDay, objByCode]);
+  }, [activeDailyDay, objByCode, plan.routineMtCodes]);
 
   const toggleDailyCell = (studentId: string, mtCode: string) => {
     const cur = activeDailyDay.dailyEvaluations?.[studentId]?.[mtCode] || 'ACHIEVED';
@@ -335,7 +347,74 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
     onUpdatePlan({ ...plan, days: nextDays });
   };
 
-  // Đồng bộ toàn bộ kết quả Đánh giá trẻ hàng ngày trong Chủ đề sang Bảng Cuối Chủ đề / Tháng + gắn ngày đánh giá!
+  const handleAddDailySpecialNote = (e: React.FormEvent) => {
+    e.preventDefault();
+    const targetId = specialStudentId || students[0]?.id || '';
+    const targetSt = students.find((s) => s.id === targetId);
+    if (!targetSt) return;
+    if (
+      !specialHealth.trim() &&
+      !specialEmotion.trim() &&
+      !specialSkill.trim() &&
+      !specialAdjust.trim()
+    ) {
+      onNotify('Vui lòng nhập ít nhất 1 nội dung nhận xét cá nhân trẻ!');
+      return;
+    }
+    const item: DailySpecialStudentNote = {
+      id: `dsn_${Date.now()}`,
+      studentId: targetSt.id,
+      studentName: targetSt.fullName,
+      health: specialHealth.trim(),
+      emotion: specialEmotion.trim(),
+      skill: specialSkill.trim(),
+      adjustmentNote: specialAdjust.trim(),
+    };
+    const nextDays = plan.days.map((d, idx) => {
+      if (idx !== selectedDayIdx) return d;
+      return {
+        ...d,
+        dailyStudentNotes: [...(d.dailyStudentNotes || []), item],
+      };
+    });
+    setSpecialHealth('');
+    setSpecialEmotion('');
+    setSpecialSkill('');
+    setSpecialAdjust('');
+    onUpdatePlan(
+      { ...plan, days: nextDays },
+      `Đã lưu ghi nhận cá nhân cho bé ${targetSt.fullName}!`
+    );
+  };
+
+  const handleUpdateDailySpecialNote = (
+    noteId: string,
+    patch: Partial<DailySpecialStudentNote>
+  ) => {
+    const nextDays = plan.days.map((d, idx) => {
+      if (idx !== selectedDayIdx) return d;
+      return {
+        ...d,
+        dailyStudentNotes: (d.dailyStudentNotes || []).map((n) =>
+          n.id === noteId ? { ...n, ...patch } : n
+        ),
+      };
+    });
+    onUpdatePlan({ ...plan, days: nextDays });
+  };
+
+  const handleRemoveDailySpecialNote = (noteId: string) => {
+    const nextDays = plan.days.map((d, idx) => {
+      if (idx !== selectedDayIdx) return d;
+      return {
+        ...d,
+        dailyStudentNotes: (d.dailyStudentNotes || []).filter((n) => n.id !== noteId),
+      };
+    });
+    onUpdatePlan({ ...plan, days: nextDays }, 'Đã xóa dòng theo dõi cá nhân trẻ.');
+  };
+
+  // Đồng bộ toàn bộ kết quả Đánh giá trẻ hàng ngày trong Chủ đề sang Bảng Cuối Chủ đề / Tháng + giữ đúng ngày đạt riêng từng trẻ!
   const handleSyncFromDailyEvaluations = () => {
     const matchingWeeks = allPlans
       .filter(
@@ -343,7 +422,8 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
           p.ageGroupId === plan.ageGroupId &&
           p.themeName.trim().toLowerCase() === selectedThemeName.trim().toLowerCase()
       )
-      .map((p) => (p.id === plan.id ? plan : p));
+      .map((p) => (p.id === plan.id ? plan : p))
+      .sort((a, b) => a.weekNumber - b.weekNumber);
 
     const nextEvals: Record<string, Record<string, MtEvalLevel>> = JSON.parse(
       JSON.stringify(draftAssessment.evaluations || {})
@@ -352,12 +432,14 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
       JSON.stringify(draftAssessment.evalDates || {})
     );
     const extraMts = new Set<string>(draftAssessment.mtCodes);
+    const achievedDateLocked = new Set<string>();
     let syncedDaysCount = 0;
 
     matchingWeeks.forEach((wp) => {
+      const weekRoutineCodes = wp.routineMtCodes || [];
       wp.days.forEach((d) => {
         if (d.isHoliday) return;
-        const dayCodes = new Set<string>();
+        const dayCodes = new Set<string>(weekRoutineCodes);
         d.mainLessons.forEach((l) => l.linkedMtCodes.forEach((c) => dayCodes.add(c)));
         d.afternoonLesson?.linkedMtCodes.forEach((c) => dayCodes.add(c));
         if (dayCodes.size === 0) return;
@@ -370,8 +452,21 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
             if (!nextEvals[st.id]) nextEvals[st.id] = {};
             if (!nextDates[st.id]) nextDates[st.id] = {};
             const dayLv = d.dailyEvaluations?.[st.id]?.[code] || 'ACHIEVED';
-            nextEvals[st.id][code] = dayLv;
-            nextDates[st.id][code] = vnDate;
+            const lockKey = `${st.id}:${code}`;
+
+            if (dayLv === 'ACHIEVED') {
+              nextEvals[st.id][code] = 'ACHIEVED';
+              // Giữ ngày Đạt đầu tiên của riêng trẻ đó, không ghi đè thành ngày cuối chủ đề
+              if (!achievedDateLocked.has(lockKey)) {
+                nextDates[st.id][code] = vnDate;
+                achievedDateLocked.add(lockKey);
+              }
+            } else {
+              // Nếu trẻ chưa đạt hoặc vắng ở ngày sau thì cập nhật trạng thái và ngày theo dõi mới nhất
+              achievedDateLocked.delete(lockKey);
+              nextEvals[st.id][code] = dayLv;
+              nextDates[st.id][code] = vnDate;
+            }
           });
         });
       });
@@ -388,7 +483,7 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
     );
     setSubTab('assessment');
     onNotify(
-      `Đã đồng bộ đánh giá hàng ngày (${syncedDaysCount} ngày có MT) sang Bảng Cuối Chủ đề kèm ngày đánh giá!`
+      `Đã đồng bộ đánh giá hàng ngày (${syncedDaysCount} ngày có MT) sang Bảng Cuối Chủ đề, giữ nguyên ngày đạt riêng từng trẻ!`
     );
   };
 
@@ -524,6 +619,7 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
 
       return {
         student: st,
+        finalByMt,
         pass,
         evalTotal,
         pct: evalTotal > 0 ? Math.round((pass / evalTotal) * 100) : 100,
@@ -546,6 +642,52 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
     onNotify(
       `Đã đồng bộ đánh giá cuối độ tuổi từ ${gradeAssessments.length} chủ đề (${yearEndSummary.allMts.length} mã MT)!`
     );
+  };
+
+  const handleExportYearEndDocx = async () => {
+    setExportingDocx('yearEnd');
+    try {
+      await onSaveAssessment(draftAssessment, true);
+      const evaluations: Record<string, Record<string, MtEvalLevel>> = {};
+      const studentNotes: Record<string, string> = {};
+      yearEndSummary.rows.forEach((r) => {
+        evaluations[r.student.id] = r.finalByMt;
+        studentNotes[r.student.id] =
+          r.needSupportCodes.length === 0
+            ? `Đạt ${r.pass}/${r.evalTotal} MT (${r.pct}%)`
+            : `Đạt ${r.pass}/${r.evalTotal} MT (${r.pct}%) - Cần rèn: ${r.needSupportCodes.join(', ')}`;
+      });
+      const yearDoc: ThemeAssessmentDocument = {
+        ...draftAssessment,
+        id: `year_end_${plan.ageGroupId}`,
+        themeName: `TỔNG HỢP CUỐI ĐỘ TUỔI - NĂM HỌC ${plan.schoolYear}`,
+        mtCodes: yearEndSummary.allMts,
+        evaluations,
+        studentNotes,
+        executedObjectivesNote: `Tổng hợp đánh giá cuối độ tuổi từ ${gradeAssessments.length} chủ đề/tháng (${yearEndSummary.allMts.length} mục tiêu). Tỷ lệ đạt bình quân toàn lớp: ${yearEndSummary.avgYearPct}%.`,
+      };
+      const res = await fetch('/api/export/theme-assessment-docx', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ assessment: yearDoc, students }),
+      });
+      if (!res.ok) {
+        onNotify('Có lỗi khi tạo file Word đánh giá cuối độ tuổi (.docx)');
+        return;
+      }
+      const blob = await res.blob();
+      const objUrl = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = objUrl;
+      a.download = `DanhGiaCuoiDoTuoi_${plan.className.replace(/\s+/g, '')}_${plan.schoolYear.replace(/\s+/g, '')}.docx`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(objUrl);
+      onNotify('Đã xuất Báo cáo Tổng hợp Đánh giá Cuối độ tuổi (.docx)!');
+    } finally {
+      setExportingDocx(null);
+    }
   };
 
   // --- LUỒNG TRÌNH KÝ & PHÊ DUYỆT BGH ---
@@ -726,12 +868,21 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
               </button>
             </div>
           ) : subTab === 'yearEnd' ? (
-            <button
-              onClick={handleSyncYearEnd}
-              className="rounded-xl bg-[#1D4ED8] px-4 py-2 text-xs font-bold text-white hover:bg-[#1E40AF]"
-            >
-              Đồng bộ từ tất cả Chủ đề / Tháng
-            </button>
+            <div className="flex flex-wrap items-center gap-2">
+              <button
+                onClick={handleExportYearEndDocx}
+                disabled={exportingDocx !== null}
+                className="rounded-xl border border-blue-200 bg-[#EFF6FF] px-3.5 py-2 text-xs font-bold text-[#1D4ED8] transition hover:bg-[#DBEAFE] disabled:opacity-60"
+              >
+                {exportingDocx === 'yearEnd' ? 'Đang xuất...' : 'Xuất Cuối độ tuổi (.docx)'}
+              </button>
+              <button
+                onClick={handleSyncYearEnd}
+                className="rounded-xl bg-[#1D4ED8] px-4 py-2 text-xs font-bold text-white hover:bg-[#1E40AF]"
+              >
+                Đồng bộ từ tất cả Chủ đề / Tháng
+              </button>
+            </div>
           ) : (
             <div className="flex items-center gap-1.5 rounded-xl border border-slate-200 bg-slate-50 p-1 text-xs">
               <span className="px-2 font-medium text-slate-500">Góc nhìn:</span>
@@ -760,7 +911,7 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
         </div>
 
         {/* ================================================================= */}
-        {/* SUB-TAB 0: ĐÁNH GIÁ TRẺ HÀNG NGÀY (YC-052 — CHUẨN GOKIDS KHUNG #27) */}
+        {/* SUB-TAB 0: ĐÁNH GIÁ TRẺ HÀNG NGÀY + SỔ THEO DÕI CÁ NHÂN TRẺ      */}
         {/* ================================================================= */}
         {subTab === 'daily' && (
           <div className="space-y-4">
@@ -768,20 +919,22 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
               <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-4">
                 <div>
                   <div className="text-xs font-bold uppercase tracking-wide text-[#1D4ED8]">
-                    Đánh giá Trẻ Hàng ngày theo Tiết dạy có gắn Mã MT • Tuần {plan.weekNumber}
+                    I. Đánh giá Trẻ Hàng ngày theo Hoạt động gắn Mã MT • Tuần {plan.weekNumber}
                   </div>
                   <p className="mt-1 text-xs text-slate-500">
-                    Những ngày có dấu chấm xanh lá là ngày có tiết dạy gắn Mã MT. Sau khi đánh giá nhanh, bấm{' '}
-                    <strong>“Đồng bộ sang Cuối Chủ đề / Tháng”</strong> để tự kéo kết quả kèm ngày đánh giá.
+                    Những ngày có dấu chấm xanh dương là ngày có hoạt động gắn Mã MT. Sau khi đánh giá nhanh, bấm{' '}
+                    <strong>“Đồng bộ sang Cuối Chủ đề / Tháng”</strong> để kéo kết quả và giữ đúng ngày đạt riêng của từng trẻ.
                   </p>
                 </div>
               </div>
 
               <div className="mt-4 flex flex-wrap gap-2">
                 {plan.days.map((d, idx) => {
+                  const hasRoutineMt = (plan.routineMtCodes || []).length > 0;
                   const hasMt =
                     !d.isHoliday &&
-                    (d.mainLessons.some((l) => l.linkedMtCodes.length > 0) ||
+                    (hasRoutineMt ||
+                      d.mainLessons.some((l) => l.linkedMtCodes.length > 0) ||
                       (d.afternoonLesson?.linkedMtCodes.length || 0) > 0);
                   const active = idx === selectedDayIdx;
                   return (
@@ -810,7 +963,7 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
 
               {dayMtsWithTopics.length === 0 ? (
                 <div className="mt-4 rounded-xl border border-dashed border-slate-200 bg-slate-50 p-6 text-center text-xs text-slate-500">
-                  {activeDailyDay?.dayLabel} chưa có tiết dạy nào gắn Mã MT (hoặc là ngày nghỉ Lễ).
+                  {activeDailyDay?.dayLabel} chưa có hoạt động nào gắn Mã MT (hoặc là ngày nghỉ Lễ).
                 </div>
               ) : (
                 <div className="mt-4 overflow-x-auto rounded-xl border border-slate-200">
@@ -820,22 +973,41 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
                         <th className="w-10 border-r border-blue-700/50 px-2.5 py-2.5 text-center font-bold">
                           STT
                         </th>
+                        <th className="w-20 border-r border-blue-700/50 px-2.5 py-2.5 text-center font-bold">
+                          Mã HS
+                        </th>
                         <th className="min-w-[180px] border-r border-blue-700/50 px-3 py-2.5 font-bold">
                           Họ và tên trẻ
                         </th>
-                        {dayMtsWithTopics.map((m) => (
-                          <th
-                            key={m.code}
-                            className="border-r border-blue-700/50 px-3 py-2 text-center font-bold last:border-r-0"
-                          >
-                            <div>
-                              {m.code}: {m.obj?.description || ''}
-                            </div>
-                            <div className="mt-0.5 text-[10px] font-normal text-blue-100">
-                              {m.topics.join(' · ')}
-                            </div>
-                          </th>
-                        ))}
+                        {dayMtsWithTopics.map((m) => {
+                          let pass = 0;
+                          let evalTotal = 0;
+                          students.forEach((st) => {
+                            const lv =
+                              activeDailyDay.dailyEvaluations?.[st.id]?.[m.code] || 'ACHIEVED';
+                            if (lv !== 'NOT_EVALUATED') {
+                              evalTotal += 1;
+                              if (lv === 'ACHIEVED') pass += 1;
+                            }
+                          });
+                          const pct = evalTotal > 0 ? Math.round((pass / evalTotal) * 100) : 100;
+                          return (
+                            <th
+                              key={m.code}
+                              className="border-r border-blue-700/50 px-3 py-2 text-center font-bold last:border-r-0"
+                            >
+                              <div>
+                                {m.code}: {m.obj?.description || ''}
+                              </div>
+                              <div className="mt-0.5 text-[10px] font-normal text-blue-100">
+                                {m.topics.join(' · ')}
+                              </div>
+                              <div className="mt-1 inline-block rounded bg-blue-900/50 px-2 py-0.5 text-[10px] font-semibold text-white">
+                                Đạt: {pass}/{evalTotal} ({pct}%)
+                              </div>
+                            </th>
+                          );
+                        })}
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-slate-200 bg-white">
@@ -844,8 +1016,14 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
                           <td className="border-r border-slate-100 px-2.5 py-2 text-center text-slate-400">
                             {idx + 1}
                           </td>
+                          <td className="border-r border-slate-100 px-2.5 py-2 text-center font-mono text-[11px] text-slate-500">
+                            {st.studentCode || `HS${String(idx + 1).padStart(2, '0')}`}
+                          </td>
                           <td className="border-r border-slate-200 px-3 py-2 font-semibold text-slate-900">
-                            {st.fullName}
+                            <div>{st.fullName}</div>
+                            {st.dob && (
+                              <div className="text-[10px] font-normal text-slate-400">{st.dob}</div>
+                            )}
                           </td>
                           {dayMtsWithTopics.map((m) => {
                             const lv =
@@ -882,6 +1060,172 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
                 </div>
               )}
             </div>
+
+            {/* KHỐI II: SỔ THEO DÕI CÁ NHÂN TRẺ CẦN LƯU Ý TRONG NGÀY (CHUẨN KHUNG #42 VIDEO VIETEC) */}
+            {activeDailyDay && !activeDailyDay.isHoliday && (
+              <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-2xs">
+                <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-3">
+                  <div>
+                    <div className="text-xs font-bold uppercase tracking-wide text-[#1D4ED8]">
+                      II. Sổ theo dõi cá nhân trẻ cần lưu ý • {activeDailyDay.dayLabel} (
+                      {fmtDateVN(activeDailyDay.dateStr)})
+                    </div>
+                    <p className="mt-0.5 text-xs text-slate-500">
+                      Ghi nhận riêng những trẻ có biểu hiện đặc biệt về sức khỏe, cảm xúc hành vi, kiến thức kỹ năng và hướng điều chỉnh kế hoạch.
+                    </p>
+                  </div>
+                  <span className="rounded-full bg-[#EFF6FF] px-2.5 py-1 text-[11px] font-bold text-[#1D4ED8]">
+                    {(activeDailyDay.dailyStudentNotes || []).length} trẻ ghi nhận
+                  </span>
+                </div>
+
+                <form
+                  onSubmit={handleAddDailySpecialNote}
+                  className="mt-4 grid gap-2.5 rounded-xl border border-slate-200 bg-slate-50/70 p-3.5 md:grid-cols-12"
+                >
+                  <div className="md:col-span-3">
+                    <label className="block text-[11px] font-semibold text-slate-600">
+                      Chọn trẻ trong lớp
+                    </label>
+                    <select
+                      value={specialStudentId || students[0]?.id || ''}
+                      onChange={(e) => setSpecialStudentId(e.target.value)}
+                      className="mt-1 w-full rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-xs font-semibold text-slate-900 focus:border-[#1D4ED8] focus:outline-none"
+                    >
+                      {students.map((st, idx) => (
+                        <option key={st.id} value={st.id}>
+                          {st.studentCode || `HS${String(idx + 1).padStart(2, '0')}`} - {st.fullName}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  <div className="md:col-span-2">
+                    <label className="block text-[11px] font-semibold text-slate-600">
+                      Tình trạng sức khỏe
+                    </label>
+                    <input
+                      value={specialHealth}
+                      onChange={(e) => setSpecialHealth(e.target.value)}
+                      placeholder="VD: Hơi sổ mũi, ăn ít..."
+                      className="mt-1 w-full rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-xs text-slate-800 focus:border-[#1D4ED8] focus:outline-none"
+                    />
+                  </div>
+                  <div className="md:col-span-2">
+                    <label className="block text-[11px] font-semibold text-slate-600">
+                      Cảm xúc, hành vi
+                    </label>
+                    <input
+                      value={specialEmotion}
+                      onChange={(e) => setSpecialEmotion(e.target.value)}
+                      placeholder="VD: Còn rụt rè khi múa..."
+                      className="mt-1 w-full rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-xs text-slate-800 focus:border-[#1D4ED8] focus:outline-none"
+                    />
+                  </div>
+                  <div className="md:col-span-3">
+                    <label className="block text-[11px] font-semibold text-slate-600">
+                      Kiến thức, kỹ năng &amp; Lưu ý điều chỉnh
+                    </label>
+                    <input
+                      value={specialSkill}
+                      onChange={(e) => setSpecialSkill(e.target.value)}
+                      placeholder="VD: Rèn thêm cầm kéo ở giờ chiều..."
+                      className="mt-1 w-full rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-xs text-slate-800 focus:border-[#1D4ED8] focus:outline-none"
+                    />
+                  </div>
+                  <div className="flex items-end md:col-span-2">
+                    <button
+                      type="submit"
+                      className="w-full rounded-lg bg-[#1D4ED8] px-3 py-1.5 text-xs font-bold text-white hover:bg-[#1E40AF]"
+                    >
+                      + Thêm ghi nhận
+                    </button>
+                  </div>
+                </form>
+
+                {(activeDailyDay.dailyStudentNotes || []).length > 0 && (
+                  <div className="mt-3 overflow-x-auto rounded-xl border border-slate-200">
+                    <table className="w-full border-collapse text-left text-xs">
+                      <thead>
+                        <tr className="bg-slate-100 text-slate-700">
+                          <th className="px-3 py-2 font-bold">Họ và tên trẻ</th>
+                          <th className="px-3 py-2 font-bold">Sức khỏe</th>
+                          <th className="px-3 py-2 font-bold">Cảm xúc, hành vi</th>
+                          <th className="px-3 py-2 font-bold">Kiến thức, kỹ năng</th>
+                          <th className="px-3 py-2 font-bold">Hướng điều chỉnh</th>
+                          <th className="w-16 px-2 py-2 text-center font-bold">Thao tác</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-slate-200 bg-white">
+                        {(activeDailyDay.dailyStudentNotes || []).map((item) => (
+                          <tr key={item.id}>
+                            <td className="px-3 py-2 font-semibold text-slate-900">
+                              {item.studentName ||
+                                students.find((s) => s.id === item.studentId)?.fullName ||
+                                item.studentId}
+                            </td>
+                            <td className="p-1.5">
+                              <input
+                                value={item.health}
+                                onChange={(e) =>
+                                  handleUpdateDailySpecialNote(item.id, { health: e.target.value })
+                                }
+                                placeholder="Sức khỏe..."
+                                className="w-full rounded border border-slate-200 px-2 py-1 text-xs focus:border-[#1D4ED8] focus:outline-none"
+                              />
+                            </td>
+                            <td className="p-1.5">
+                              <input
+                                value={item.emotion}
+                                onChange={(e) =>
+                                  handleUpdateDailySpecialNote(item.id, {
+                                    emotion: e.target.value,
+                                  })
+                                }
+                                placeholder="Cảm xúc, hành vi..."
+                                className="w-full rounded border border-slate-200 px-2 py-1 text-xs focus:border-[#1D4ED8] focus:outline-none"
+                              />
+                            </td>
+                            <td className="p-1.5">
+                              <input
+                                value={item.skill}
+                                onChange={(e) =>
+                                  handleUpdateDailySpecialNote(item.id, {
+                                    skill: e.target.value,
+                                  })
+                                }
+                                placeholder="Kiến thức, kỹ năng..."
+                                className="w-full rounded border border-slate-200 px-2 py-1 text-xs focus:border-[#1D4ED8] focus:outline-none"
+                              />
+                            </td>
+                            <td className="p-1.5">
+                              <input
+                                value={item.adjustmentNote}
+                                onChange={(e) =>
+                                  handleUpdateDailySpecialNote(item.id, {
+                                    adjustmentNote: e.target.value,
+                                  })
+                                }
+                                placeholder="Điều chỉnh kế hoạch..."
+                                className="w-full rounded border border-slate-200 px-2 py-1 text-xs focus:border-[#1D4ED8] focus:outline-none"
+                              />
+                            </td>
+                            <td className="px-2 py-1.5 text-center">
+                              <button
+                                type="button"
+                                onClick={() => handleRemoveDailySpecialNote(item.id)}
+                                className="rounded px-2 py-1 text-[11px] font-semibold text-rose-600 hover:bg-rose-50"
+                              >
+                                Xóa
+                              </button>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                )}
+              </div>
+            )}
           </div>
         )}
 
@@ -1036,28 +1380,47 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
                         <th className="w-10 border-r border-blue-700/50 px-2 py-2.5 text-center font-bold">
                           STT
                         </th>
+                        <th className="w-18 border-r border-blue-700/50 px-2 py-2.5 text-center font-bold">
+                          Mã HS
+                        </th>
                         <th className="sticky left-0 z-10 min-w-[165px] border-r border-blue-700/50 bg-[#1D4ED8] px-3 py-2.5 font-bold">
                           Họ và tên trẻ
                         </th>
                         {draftAssessment.mtCodes.map((code) => {
                           const o = objByCode.get(code);
+                          let pass = 0;
+                          let evalTotal = 0;
+                          students.forEach((st) => {
+                            const lv = draftAssessment.evaluations?.[st.id]?.[code] || 'ACHIEVED';
+                            if (lv !== 'NOT_EVALUATED') {
+                              evalTotal += 1;
+                              if (lv === 'ACHIEVED') pass += 1;
+                            }
+                          });
+                          const pct = evalTotal > 0 ? Math.round((pass / evalTotal) * 100) : 100;
                           return (
                             <th
                               key={code}
                               title={o ? `${code} (${o.domain}): ${o.description}` : code}
-                              className="min-w-[74px] cursor-help border-r border-blue-700/50 px-2 py-2 text-center font-bold"
+                              className="min-w-[82px] cursor-help border-r border-blue-700/50 px-2 py-2 text-center font-bold"
                             >
                               <div>{code}</div>
                               {o && (
-                                <div className="mt-0.5 max-w-[82px] truncate text-[9px] font-normal text-blue-100">
+                                <div className="mt-0.5 max-w-[86px] truncate text-[9px] font-normal text-blue-100">
                                   {o.description}
                                 </div>
                               )}
+                              <div className="mt-1 rounded bg-blue-900/50 px-1.5 py-0.5 text-[9px] font-semibold text-white">
+                                {pass}/{evalTotal} ({pct}%)
+                              </div>
                             </th>
                           );
                         })}
-                        <th className="min-w-[72px] border-r border-blue-700/50 px-2 py-2.5 text-center font-bold">
-                          Tổng Đạt
+                        <th className="min-w-[64px] border-r border-blue-700/50 px-2 py-2.5 text-center font-bold">
+                          Đạt
+                        </th>
+                        <th className="min-w-[64px] border-r border-blue-700/50 px-2 py-2.5 text-center font-bold">
+                          Chưa đạt
                         </th>
                         <th className="min-w-[180px] px-3 py-2.5 font-bold">
                           Ghi chú riêng từng trẻ
@@ -1073,10 +1436,14 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
                           if (lv !== 'NOT_EVALUATED') evalCount += 1;
                           if (lv === 'ACHIEVED') passCount += 1;
                         });
+                        const failCount = evalCount - passCount;
                         return (
                           <tr key={st.id} className="hover:bg-slate-50/80">
                             <td className="border-r border-slate-100 px-2 py-2 text-center text-slate-400">
                               {idx + 1}
+                            </td>
+                            <td className="border-r border-slate-100 px-2 py-2 text-center font-mono text-[11px] text-slate-500">
+                              {st.studentCode || `HS${String(idx + 1).padStart(2, '0')}`}
                             </td>
                             <td className="sticky left-0 z-10 border-r border-slate-200 bg-white px-3 py-2 font-semibold text-slate-900">
                               <div>{st.fullName}</div>
@@ -1117,8 +1484,11 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
                                 </td>
                               );
                             })}
-                            <td className="border-r border-slate-100 px-2 py-2 text-center font-bold text-slate-700">
+                            <td className="border-r border-slate-100 px-2 py-2 text-center font-bold text-blue-700">
                               {passCount}/{evalCount}
+                            </td>
+                            <td className="border-r border-slate-100 px-2 py-2 text-center font-bold text-amber-700">
+                              {failCount > 0 ? failCount : '—'}
                             </td>
                             <td className="p-1.5">
                               <input

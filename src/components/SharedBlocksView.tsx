@@ -777,17 +777,63 @@ export const SharedBlocksView: React.FC<Props> = ({
                   <label className="block text-xs">
                     <span className="font-bold text-slate-800">3. Đón trẻ buổi sáng</span>
                     <textarea
-                      rows={3}
+                      rows={2}
                       value={plan.welcomeRoutineNotes.join('\n')}
                       onChange={(e) => onUpdatePlan({ ...plan, welcomeRoutineNotes: e.target.value.split('\n') })}
+                      className="mt-1 w-full rounded-xl border border-slate-200 p-2.5 text-xs"
+                    />
+                  </label>
+                  <label className="block text-xs">
+                    <span className="font-bold text-slate-800">4. Trò chuyện sáng theo chủ đề nhánh</span>
+                    <textarea
+                      rows={2}
+                      value={(plan.morningTalkNotes || [`Trò chuyện cùng trẻ về nhánh chủ đề “${plan.subThemeName}”`]).join('\n')}
+                      onChange={(e) => onUpdatePlan({ ...plan, morningTalkNotes: e.target.value.split('\n') })}
+                      placeholder="VD: Bé kể chuyện ngày Chủ nhật của bé; trò chuyện cảm xúc khi đến lớp..."
                       className="mt-1 w-full rounded-xl border border-slate-200 p-2.5 text-xs"
                     />
                   </label>
                 </div>
 
                 <div className="rounded-2xl border border-slate-200 bg-white p-4 space-y-3">
+                  <div className="space-y-1.5 rounded-xl border border-blue-200 bg-[#F5F9FF] p-3">
+                    <div className="text-xs font-bold text-[#1E3A8A]">
+                      Mã Mục tiêu (MT) lồng ghép qua Giờ sinh hoạt, TDS, Trò chuyện, Ngoài trời &amp; Góc chơi:
+                    </div>
+                    <p className="text-[11px] text-slate-500">
+                      Bấm chọn các mã MT rèn nề nếp, vận động, vệ sinh, giao tiếp thực hiện ngoài tiết học chính (giúp tính đủ độ phủ MT &amp; gỡ cảnh báo đỏ ★ MT):
+                    </p>
+                    <div className="flex flex-wrap gap-1.5 pt-1">
+                      {Array.from(attachedMtSet).map((code) => {
+                        const on = (plan.routineMtCodes || []).includes(code);
+                        const o = ageObjectives.find((x) => x.code === code);
+                        return (
+                          <button
+                            key={code}
+                            type="button"
+                            onClick={() => {
+                              const cur = plan.routineMtCodes || [];
+                              const next = on ? cur.filter((c) => c !== code) : [...cur, code];
+                              onUpdatePlan(
+                                { ...plan, routineMtCodes: next },
+                                on ? `Đã gỡ ${code} khỏi giờ sinh hoạt.` : `Đã gắn ${code} vào giờ sinh hoạt cả tuần!`
+                              );
+                            }}
+                            title={o?.description || code}
+                            className={`rounded-lg px-2.5 py-1 text-[11px] font-bold transition ${
+                              on
+                                ? 'bg-[#1D4ED8] text-white'
+                                : 'border border-slate-200 bg-white text-slate-600 hover:border-[#1D4ED8]'
+                            }`}
+                          >
+                            {on ? `✓ ${code}` : `+ ${code}`}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
                   <label className="block text-xs">
-                    <span className="font-bold text-slate-800">4. Ba Tiêu chuẩn Bé ngoan (TCBN)</span>
+                    <span className="font-bold text-slate-800">5. Ba Tiêu chuẩn Bé ngoan (TCBN)</span>
                     <textarea
                       rows={4}
                       value={plan.praiseStandards.join('\n')}

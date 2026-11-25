@@ -33,6 +33,7 @@ import {
 } from './themeAssessmentDocx.js';
 import { parseUploadedDocx } from './docxImport.js';
 import { generateWeeklyXlsx } from './xlsxExport.js';
+import { generateAnnualPlanDocx, generateMonthlyPlanDocx } from './annualAndMonthDocx.js';
 import type {
   AgeGroupId,
   AnnualPlanDocument,
@@ -373,6 +374,37 @@ async function startServer() {
     } catch (err) {
       console.error('Parent schedule DOCX export error:', err);
       return res.status(500).json({ error: 'Lỗi khi tạo tờ lịch tuần gửi phụ huynh' });
+    }
+  });
+
+  // Export Sổ Kế hoạch Giáo dục Năm học (.docx) & Kế hoạch Giáo dục Tháng (.docx)
+  app.post('/api/export/annual-docx', async (req, res) => {
+    try {
+      const { annualPlan } = req.body;
+      const dataset = getObjectivesDataset();
+      const buffer = await generateAnnualPlanDocx(annualPlan, dataset.objectives);
+      const safeName = encodeURIComponent(`KHGD_NamHoc_${(annualPlan?.profile?.className || 'Lop').replace(/\s+/g, '')}.docx`);
+      res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document');
+      res.setHeader('Content-Disposition', `attachment; filename*=UTF-8''${safeName}`);
+      return res.send(Buffer.from(buffer));
+    } catch (err) {
+      console.error('Annual DOCX export error:', err);
+      return res.status(500).json({ error: 'Lỗi khi tạo Sổ KHGD Năm học' });
+    }
+  });
+
+  app.post('/api/export/month-docx', async (req, res) => {
+    try {
+      const { theme, monthPlans, profile } = req.body;
+      const dataset = getObjectivesDataset();
+      const buffer = await generateMonthlyPlanDocx(theme, monthPlans || [], dataset.objectives, profile);
+      const safeName = encodeURIComponent(`KHGD_${(theme?.monthLabel || 'Thang').replace(/\s+/g, '')}_${(profile?.className || 'Lop').replace(/\s+/g, '')}.docx`);
+      res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document');
+      res.setHeader('Content-Disposition', `attachment; filename*=UTF-8''${safeName}`);
+      return res.send(Buffer.from(buffer));
+    } catch (err) {
+      console.error('Month DOCX export error:', err);
+      return res.status(500).json({ error: 'Lỗi khi tạo KHGD Tháng' });
     }
   });
 

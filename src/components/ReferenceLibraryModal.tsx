@@ -32,6 +32,7 @@ interface Props {
   onRefreshSummary: () => void;
   onAttachMt: (obj: ObjectiveItem) => void;
   onInsertExcelActivity: (obj: ObjectiveItem, act: SuggestedActivity) => void;
+  onApplySavedTemplate?: (tpl: SavedLessonTemplate) => void;
   onInsertCrawledLesson: (
     lesson: { subject: string; topic: string },
     mtCode: string,
@@ -44,6 +45,7 @@ const MEDIA_KIND_LABELS: Record<SharedMediaResource['kind'], string> = {
   VIDEO: 'Video / Clip',
   SLIDE: 'PowerPoint',
   ELEARNING: 'E-Learning',
+  AUDIO: 'Audio / Nhạc',
   IMAGE: 'Tranh ảnh',
   DOC: 'Tài liệu',
 };
@@ -52,6 +54,7 @@ const MEDIA_KIND_BADGE: Record<SharedMediaResource['kind'], string> = {
   VIDEO: 'bg-rose-50 text-rose-800 ring-1 ring-rose-200',
   SLIDE: 'bg-amber-50 text-amber-900 ring-1 ring-amber-200',
   ELEARNING: 'bg-violet-50 text-violet-800 ring-1 ring-violet-200',
+  AUDIO: 'bg-cyan-50 text-cyan-800 ring-1 ring-cyan-200',
   IMAGE: 'bg-sky-50 text-sky-800 ring-1 ring-sky-200',
   DOC: 'bg-blue-50 text-blue-800 ring-1 ring-blue-200',
 };
@@ -71,6 +74,7 @@ export const ReferenceLibraryModal: React.FC<Props> = ({
   onRefreshSummary,
   onAttachMt,
   onInsertExcelActivity,
+  onApplySavedTemplate,
   onInsertCrawledLesson,
   onClose,
 }) => {
@@ -89,6 +93,8 @@ export const ReferenceLibraryModal: React.FC<Props> = ({
   const [showAddMedia, setShowAddMedia] = useState(false);
   const [newMediaTitle, setNewMediaTitle] = useState('');
   const [newMediaUrl, setNewMediaUrl] = useState('');
+  const [newMediaAuthor, setNewMediaAuthor] = useState('');
+  const [newMediaTheme, setNewMediaTheme] = useState('');
   const [newMediaKind, setNewMediaKind] = useState<SharedMediaResource['kind']>('VIDEO');
   const [newMediaSubj, setNewMediaSubj] = useState('MTXQ');
 
@@ -132,6 +138,30 @@ export const ReferenceLibraryModal: React.FC<Props> = ({
     [allMediaPool, mediaKind]
   );
 
+  const handleLocalMediaFilePick = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    if (!newMediaTitle.trim()) {
+      setNewMediaTitle(file.name.replace(/\.[^.]+$/, ''));
+    }
+    const ext = file.name.split('.').pop()?.toLowerCase() || '';
+    if (ext === 'ppt' || ext === 'pptx') setNewMediaKind('SLIDE');
+    else if (ext === 'mp4' || ext === 'webm' || ext === 'mov') setNewMediaKind('VIDEO');
+    else if (ext === 'mp3' || ext === 'wav' || ext === 'm4a') setNewMediaKind('AUDIO');
+    else if (ext === 'jpg' || ext === 'jpeg' || ext === 'png' || ext === 'webp') setNewMediaKind('IMAGE');
+    else setNewMediaKind('DOC');
+
+    if (file.size <= 1.5 * 1024 * 1024 && /^(jpg|jpeg|png|webp|mp3)$/i.test(ext)) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        if (typeof reader.result === 'string') setNewMediaUrl(reader.result);
+      };
+      reader.readAsDataURL(file);
+    } else {
+      setNewMediaUrl(URL.createObjectURL(file));
+    }
+  };
+
   const handleCreateMedia = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!newMediaTitle.trim() || !newMediaUrl.trim()) return;
@@ -144,12 +174,14 @@ export const ReferenceLibraryModal: React.FC<Props> = ({
         url: newMediaUrl.trim(),
         subjectCode: newMediaSubj,
         ageGroupId: selectedAgeGroup,
-        themeName: 'Học liệu lớp tải lên',
-        author: 'Giáo viên lớp',
+        themeName: newMediaTheme.trim() || 'Học liệu lớp tải lên',
+        author: newMediaAuthor.trim() || 'Giáo viên lớp',
       }),
     });
     setNewMediaTitle('');
     setNewMediaUrl('');
+    setNewMediaAuthor('');
+    setNewMediaTheme('');
     setShowAddMedia(false);
     loadMediaAndTemplates();
   };
@@ -369,11 +401,15 @@ export const ReferenceLibraryModal: React.FC<Props> = ({
                         <div className="flex shrink-0 items-center gap-1.5">
                           <button
                             onClick={() => {
-                              onInsertCrawledLesson(
-                                { subject: tpl.subjectCode, topic: tpl.topicTitle },
-                                tpl.linkedMtCodes?.[0] || '',
-                                tpl.ageGroupId
-                              );
+                              if (onApplySavedTemplate) {
+                                onApplySavedTemplate(tpl);
+                              } else {
+                                onInsertCrawledLesson(
+                                  { subject: tpl.subjectCode, topic: tpl.topicTitle },
+                                  tpl.linkedMtCodes?.[0] || '',
+                                  tpl.ageGroupId
+                                );
+                              }
                               onClose();
                             }}
                             className="rounded-lg bg-[#1D4ED8] px-2.5 py-1.5 text-[11px] font-bold text-white hover:bg-[#1E40AF]"
@@ -415,48 +451,74 @@ export const ReferenceLibraryModal: React.FC<Props> = ({
                 {showAddMedia && (
                   <form
                     onSubmit={handleCreateMedia}
-                    className="mt-3 grid gap-2.5 rounded-xl border border-blue-200 bg-[#F5F9FF] p-3.5 md:grid-cols-12"
+                    className="mt-3 space-y-2.5 rounded-xl border border-blue-200 bg-[#F5F9FF] p-3.5 text-xs"
                   >
-                    <select
-                      value={newMediaKind}
-                      onChange={(e) => setNewMediaKind(e.target.value as SharedMediaResource['kind'])}
-                      className="rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-xs font-semibold md:col-span-2"
-                    >
-                      <option value="VIDEO">Video / YouTube</option>
-                      <option value="SLIDE">PowerPoint</option>
-                      <option value="ELEARNING">E-Learning</option>
-                      <option value="IMAGE">Tranh ảnh</option>
-                      <option value="DOC">Tài liệu / SKKN</option>
-                    </select>
-                    <select
-                      value={newMediaSubj}
-                      onChange={(e) => setNewMediaSubj(e.target.value)}
-                      className="rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-xs font-semibold md:col-span-2"
-                    >
-                      {SUBJECT_CATALOG.map((s) => (
-                        <option key={s.code} value={s.code}>
-                          {s.shortLabel}
-                        </option>
-                      ))}
-                    </select>
-                    <input
-                      value={newMediaTitle}
-                      onChange={(e) => setNewMediaTitle(e.target.value)}
-                      placeholder="Tên học liệu / video minh họa..."
-                      className="rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs md:col-span-4"
-                    />
-                    <input
-                      value={newMediaUrl}
-                      onChange={(e) => setNewMediaUrl(e.target.value)}
-                      placeholder="Đường dẫn URL (YouTube, Google Drive...)"
-                      className="rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs md:col-span-3"
-                    />
-                    <button
-                      type="submit"
-                      className="rounded-lg bg-[#1D4ED8] px-3 py-1.5 text-xs font-bold text-white hover:bg-[#1E40AF] md:col-span-1"
-                    >
-                      Lưu
-                    </button>
+                    <div className="grid gap-2.5 md:grid-cols-12">
+                      <select
+                        value={newMediaKind}
+                        onChange={(e) => setNewMediaKind(e.target.value as SharedMediaResource['kind'])}
+                        className="rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 font-semibold md:col-span-2"
+                      >
+                        <option value="VIDEO">Video / Clip</option>
+                        <option value="SLIDE">PowerPoint</option>
+                        <option value="ELEARNING">E-Learning</option>
+                        <option value="AUDIO">Audio / Nhạc</option>
+                        <option value="IMAGE">Tranh ảnh</option>
+                        <option value="DOC">Tài liệu / SKKN</option>
+                      </select>
+                      <select
+                        value={newMediaSubj}
+                        onChange={(e) => setNewMediaSubj(e.target.value)}
+                        className="rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 font-semibold md:col-span-2"
+                      >
+                        {SUBJECT_CATALOG.map((s) => (
+                          <option key={s.code} value={s.code}>
+                            {s.shortLabel}
+                          </option>
+                        ))}
+                      </select>
+                      <input
+                        value={newMediaTitle}
+                        onChange={(e) => setNewMediaTitle(e.target.value)}
+                        placeholder="Tiêu đề học liệu (*)"
+                        className="rounded-lg border border-slate-200 bg-white px-3 py-1.5 md:col-span-4"
+                      />
+                      <input
+                        value={newMediaTheme}
+                        onChange={(e) => setNewMediaTheme(e.target.value)}
+                        placeholder="Chủ đề (VD: Bản thân bé)"
+                        className="rounded-lg border border-slate-200 bg-white px-3 py-1.5 md:col-span-2"
+                      />
+                      <input
+                        value={newMediaAuthor}
+                        onChange={(e) => setNewMediaAuthor(e.target.value)}
+                        placeholder="Tác giả / Trường"
+                        className="rounded-lg border border-slate-200 bg-white px-3 py-1.5 md:col-span-2"
+                      />
+                    </div>
+                    <div className="flex flex-wrap items-center gap-2">
+                      <label className="cursor-pointer rounded-lg border border-[#1D4ED8] bg-white px-3 py-1.5 font-bold text-[#1D4ED8] hover:bg-[#DBEAFE]">
+                        Chọn tệp từ máy (.pptx, .mp4, .mp3, ảnh...)
+                        <input
+                          type="file"
+                          accept=".ppt,.pptx,.mp4,.webm,.mp3,.wav,.jpg,.jpeg,.png,.pdf,.docx,.zip"
+                          onChange={handleLocalMediaFilePick}
+                          className="hidden"
+                        />
+                      </label>
+                      <input
+                        value={newMediaUrl}
+                        onChange={(e) => setNewMediaUrl(e.target.value)}
+                        placeholder="Hoặc dán đường dẫn URL (YouTube, Google Drive, Canva...)"
+                        className="min-w-[240px] flex-1 rounded-lg border border-slate-200 bg-white px-3 py-1.5"
+                      />
+                      <button
+                        type="submit"
+                        className="rounded-lg bg-[#1D4ED8] px-4 py-1.5 font-bold text-white hover:bg-[#1E40AF]"
+                      >
+                        Lưu học liệu
+                      </button>
+                    </div>
                   </form>
                 )}
 
@@ -470,6 +532,7 @@ export const ReferenceLibraryModal: React.FC<Props> = ({
                           { id: 'SLIDE', label: 'PowerPoint' },
                           { id: 'VIDEO', label: 'Video / Clip' },
                           { id: 'IMAGE', label: 'Tranh ảnh' },
+                          { id: 'AUDIO', label: 'Audio' },
                           { id: 'ELEARNING', label: 'E-Learning' },
                           { id: 'DOC', label: 'Tài liệu' },
                         ] as const
