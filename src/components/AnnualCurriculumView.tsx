@@ -1,19 +1,26 @@
 import React, { useMemo, useState } from 'react';
 import {
   AlertTriangle,
+  ArrowRightLeft,
   CalendarDays,
   CalendarRange,
+  Check,
   CheckCircle2,
   ChevronDown,
   ChevronUp,
   ClipboardPaste,
   Copy,
+  Grid3X3,
   Plus,
+  RotateCcw,
+  Search,
+  Settings2,
   Sparkles,
   Star,
   Table2,
   Trash2,
   Users,
+  X,
 } from 'lucide-react';
 import type {
   AgeGroupId,
@@ -24,8 +31,8 @@ import type {
   WeeklyPlanDocument,
   WeeklyTimetableTemplate,
 } from '../../shared/types';
-import { buildDefaultTimetable } from '../../shared/annualCurriculum';
-import { addDaysISO, createBlankPlan, domainToKey, fmtDateVN } from '../utils/helpers';
+import { buildDefaultAnnualPlan, buildDefaultTimetable } from '../../shared/annualCurriculum';
+import { addDaysISO, createBlankPlan, domainToKey, fmtDateVN, normVN } from '../utils/helpers';
 import { detectSchoolHolidayOrEvent } from '../utils/holidaysVN';
 
 const DAY_HEADERS = ['Thứ 2', 'Thứ 3', 'Thứ 4', 'Thứ 5', 'Thứ 6'];
@@ -67,6 +74,12 @@ export const AnnualCurriculumView: React.FC<Props> = ({
   const [showProfilePanel, setShowProfilePanel] = useState(false);
   const [showTimetablePanel, setShowTimetablePanel] = useState(false);
   const [showYearOverview, setShowYearOverview] = useState(false);
+  const [showMtMatrix, setShowMtMatrix] = useState(false);
+  const [matrixDomainFilter, setMatrixDomainFilter] = useState<string>('ALL');
+  const [matrixSearch, setMatrixSearch] = useState('');
+  const [configThemeId, setConfigThemeId] = useState<string>('');
+  const [configDomainFilter, setConfigDomainFilter] = useState<string>('ALL');
+  const [configSearch, setConfigSearch] = useState('');
   const [showCustomMtForm, setShowCustomMtForm] = useState(false);
   const [customMtDesc, setCustomMtDesc] = useState('');
   const [customMtDomain, setCustomMtDomain] = useState('I. Giáo dục phát triển thể chất');
@@ -144,15 +157,139 @@ export const AnnualCurriculumView: React.FC<Props> = ({
     [customObjectives]
   );
 
-  const gradeObjectives = useMemo(
-    () => [
-      ...dataset.objectives.filter(
+  const standardGradeObjectives = useMemo(
+    () =>
+      dataset.objectives.filter(
         (o) => o.ageGroupId === annualPlan.ageGroupId && !customCodesSet.has(o.code)
       ),
-      ...customObjectives,
-    ],
-    [dataset.objectives, annualPlan.ageGroupId, customObjectives, customCodesSet]
+    [dataset.objectives, annualPlan.ageGroupId, customCodesSet]
   );
+
+  const gradeObjectives = useMemo(
+    () => [...standardGradeObjectives, ...customObjectives],
+    [standardGradeObjectives, customObjectives]
+  );
+
+  const availableDomains = useMemo(
+    () => Array.from(new Set(gradeObjectives.map((o) => o.domain).filter(Boolean))),
+    [gradeObjectives]
+  );
+
+  // Thêm hoặc gỡ 1 Mã MT trong 1 Tháng cụ thể (1 MT có thể dạy lặp lại ở nhiều tháng)
+  const toggleThemeMtAllocation = (themeId: string, code: string) => {
+    const target = annualPlan.themes.find((t) => t.id === themeId);
+    if (!target) return;
+    const exists = target.plannedMtCodes.includes(code);
+    onSaveAnnualPlan(
+      {
+        ...annualPlan,
+        themes: annualPlan.themes.map((t) => {
+          if (t.id !== themeId) return t;
+          return {
+            ...t,
+            plannedMtCodes: exists
+              ? t.plannedMtCodes.filter((c) => c !== code)
+              : [...t.plannedMtCodes, code],
+            assessmentMtCodes: exists
+              ? (t.assessmentMtCodes || []).filter((c) => c !== code)
+              : t.assessmentMtCodes || [],
+          };
+        }),
+      },
+      exists
+        ? `Đã gỡ ${code} khỏi ${target.monthLabel}`
+        : `Đã thêm ${code} vào ${target.monthLabel}`
+    );
+  };
+
+  // Chuyển hẳn 1 Mã MT từ các tháng khác về duy nhất Tháng đang chọn (dùng khi đảo thứ tự Chủ đề tháng)
+  const moveMtExclusivelyToTheme = (themeId: string, code: string) => {
+    const target = annualPlan.themes.find((t) => t.id === themeId);
+    if (!target) return;
+    onSaveAnnualPlan(
+      {
+        ...annualPlan,
+        themes: annualPlan.themes.map((t) => {
+          if (t.id === themeId) {
+            return {
+              ...t,
+              plannedMtCodes: t.plannedMtCodes.includes(code)
+                ? t.plannedMtCodes
+                : [...t.plannedMtCodes, code],
+            };
+          }
+          return {
+            ...t,
+            plannedMtCodes: t.plannedMtCodes.filter((c) => c !== code),
+            assessmentMtCodes: (t.assessmentMtCodes || []).filter((c) => c !== code),
+          };
+        }),
+      },
+      `Đã chuyển ${code} sang ${target.monthLabel}!`
+    );
+  };
+
+  // Xoay vòng 3 trạng thái trên Ma trận MT × 9 Tháng chuẩn GoKids: Trống -> ✓ Dạy -> ★ Đánh giá -> Trống
+  const cycleMatrixCell = (themeId: string, code: string) => {
+    onSaveAnnualPlan({
+      ...annualPlan,
+      themes: annualPlan.themes.map((t) => {
+        if (t.id !== themeId) return t;
+        const inPlan = t.plannedMtCodes.includes(code);
+        const inStar = (t.assessmentMtCodes || []).includes(code);
+        if (!inPlan) {
+          return { ...t, plannedMtCodes: [...t.plannedMtCodes, code] };
+        }
+        if (!inStar) {
+          return { ...t, assessmentMtCodes: [...(t.assessmentMtCodes || []), code] };
+        }
+        return {
+          ...t,
+          plannedMtCodes: t.plannedMtCodes.filter((c) => c !== code),
+          assessmentMtCodes: (t.assessmentMtCodes || []).filter((c) => c !== code),
+        };
+      }),
+    });
+  };
+
+  // Xóa hẳn 1 Mục tiêu mở rộng do lớp tự phát triển (VD: MT105 tạo thử nghiệm)
+  const handleDeleteCustomObjective = (code: string) => {
+    onSaveAnnualPlan(
+      {
+        ...annualPlan,
+        customObjectives: customObjectives.filter((o) => o.code !== code),
+        themes: annualPlan.themes.map((t) => ({
+          ...t,
+          plannedMtCodes: t.plannedMtCodes.filter((c) => c !== code),
+          assessmentMtCodes: (t.assessmentMtCodes || []).filter((c) => c !== code),
+        })),
+      },
+      `Đã xóa mục tiêu mở rộng ${code} khỏi Kế hoạch Năm học!`
+    );
+  };
+
+  // Khôi phục phân bổ MT 9 tháng về chuẩn gợi ý mặc định của Bộ GD&ĐT
+  const handleResetDefaultMtAllocation = () => {
+    const fresh = buildDefaultAnnualPlan(annualPlan.ageGroupId, standardGradeObjectives);
+    onSaveAnnualPlan(
+      {
+        ...annualPlan,
+        themes: annualPlan.themes.map((t, idx) => {
+          const defTheme = fresh.themes[idx];
+          if (!defTheme) return t;
+          const customInThisMonth = customObjectives
+            .filter((co) => co.month === t.monthLabel)
+            .map((co) => co.code);
+          return {
+            ...t,
+            plannedMtCodes: Array.from(new Set([...defTheme.plannedMtCodes, ...customInThisMonth])),
+            assessmentMtCodes: defTheme.assessmentMtCodes,
+          };
+        }),
+      },
+      'Đã khôi phục phân phối Mã MT 9 tháng về chuẩn gợi ý Bộ GD&ĐT!'
+    );
+  };
 
   const handleAddCustomObjective = (e: React.FormEvent) => {
     e.preventDefault();
@@ -233,6 +370,29 @@ export const AnnualCurriculumView: React.FC<Props> = ({
     const s = new Set<string>();
     annualPlan.themes.forEach((t) => t.plannedMtCodes.forEach((c) => s.add(c)));
     return s;
+  }, [annualPlan.themes]);
+
+  const plannedStandardCount = useMemo(
+    () => standardGradeObjectives.filter((o) => plannedMtSet.has(o.code)).length,
+    [standardGradeObjectives, plannedMtSet]
+  );
+
+  const unallocatedStandardMts = useMemo(
+    () => standardGradeObjectives.filter((o) => !plannedMtSet.has(o.code)),
+    [standardGradeObjectives, plannedMtSet]
+  );
+
+  // Bản đồ tra cứu nhanh mỗi Mã MT hiện đang nằm ở những tháng nào
+  const monthsByMtCode = useMemo(() => {
+    const m = new Map<string, string[]>();
+    annualPlan.themes.forEach((t) => {
+      t.plannedMtCodes.forEach((c) => {
+        const cur = m.get(c) || [];
+        cur.push(t.monthLabel);
+        m.set(c, cur);
+      });
+    });
+    return m;
   }, [annualPlan.themes]);
 
   const untaughtObjectives = useMemo(
@@ -450,6 +610,17 @@ export const AnnualCurriculumView: React.FC<Props> = ({
               </div>
 
               <button
+                onClick={() => setShowMtMatrix((v) => !v)}
+                className={`inline-flex items-center gap-1.5 rounded-xl border px-3 py-2 text-xs font-semibold transition ${
+                  showMtMatrix
+                    ? 'border-[#0B6E5C] bg-[#0B6E5C] text-white'
+                    : 'border-[#0B6E5C]/40 bg-[#E6F4F1] text-[#0B6E5C] hover:bg-emerald-100'
+                }`}
+              >
+                <Grid3X3 className="h-3.5 w-3.5" /> Ma trận MT × 9 Tháng
+              </button>
+
+              <button
                 onClick={() => setShowYearOverview((v) => !v)}
                 className={`inline-flex items-center gap-1.5 rounded-xl border px-3 py-2 text-xs font-semibold transition ${
                   showYearOverview
@@ -499,8 +670,19 @@ export const AnnualCurriculumView: React.FC<Props> = ({
           <div className="mt-4 grid grid-cols-1 gap-3 rounded-xl bg-slate-50 p-3.5 md:grid-cols-3">
             <div>
               <div className="text-[11px] font-semibold text-slate-500">Độ phủ phân phối khung năm học</div>
-              <div className="mt-0.5 text-sm font-bold text-slate-900">
-                {plannedMtSet.size} / {totalGradeMts} mã MT chuẩn BGD (100%)
+              <div className="mt-0.5 flex flex-wrap items-center gap-1.5 text-sm font-bold text-slate-900">
+                <span>
+                  {plannedStandardCount} / {standardGradeObjectives.length} mã MT chuẩn BGD (
+                  {standardGradeObjectives.length > 0
+                    ? Math.round((plannedStandardCount / standardGradeObjectives.length) * 100)
+                    : 100}
+                  %)
+                </span>
+                {customObjectives.length > 0 && (
+                  <span className="rounded-md bg-rose-50 px-2 py-0.5 text-[11px] font-bold text-rose-700 ring-1 ring-rose-200">
+                    +{customObjectives.length} MT mở rộng lớp
+                  </span>
+                )}
               </div>
             </div>
             <div>
@@ -530,6 +712,40 @@ export const AnnualCurriculumView: React.FC<Props> = ({
               </button>
             </div>
           </div>
+
+          {/* Cảnh báo nếu có Mã MT chuẩn BGD chưa được phân bổ vào bất kỳ tháng nào trong 9 tháng (YC-061) */}
+          {unallocatedStandardMts.length > 0 && (
+            <div className="mt-3 flex flex-wrap items-center justify-between gap-2 rounded-xl border border-rose-200 bg-rose-50 px-4 py-2 text-xs text-rose-900">
+              <div className="flex flex-wrap items-center gap-1.5">
+                <AlertTriangle className="h-4 w-4 shrink-0 text-rose-600" />
+                <span>
+                  <strong>Chưa phân bổ đủ 100% MT chuẩn BGD:</strong> Còn{' '}
+                  <strong>{unallocatedStandardMts.length}</strong> mã MT chưa gắn vào tháng nào (
+                  {unallocatedStandardMts
+                    .slice(0, 8)
+                    .map((o) => o.code)
+                    .join(', ')}
+                  {unallocatedStandardMts.length > 8 ? '...' : ''}).
+                </span>
+              </div>
+              <div className="flex items-center gap-3">
+                <button
+                  type="button"
+                  onClick={() => setShowMtMatrix(true)}
+                  className="font-bold text-rose-800 underline"
+                >
+                  Mở Ma trận 9 tháng →
+                </button>
+                <button
+                  type="button"
+                  onClick={handleResetDefaultMtAllocation}
+                  className="rounded-lg bg-white px-2.5 py-1 font-semibold text-slate-700 ring-1 ring-rose-200 hover:bg-rose-100"
+                >
+                  Khôi phục mặc định
+                </button>
+              </div>
+            </div>
+          )}
 
           {/* Cảnh báo Vàng khi có Tháng chưa chọn Ngôi sao Đánh giá ★ (YC-046) */}
           {monthsMissingStars.length > 0 && (
@@ -607,6 +823,140 @@ export const AnnualCurriculumView: React.FC<Props> = ({
                 </button>
               </div>
             </form>
+          )}
+
+          {/* MA TRẬN PHÂN PHỐI MỤC TIÊU × 9 THÁNG CHUẨN GOKIDS (YC-061) */}
+          {showMtMatrix && (
+            <div className="mt-4 space-y-3 rounded-xl border border-emerald-200 bg-[#F8FCFB] p-4">
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <div>
+                  <div className="text-xs font-bold uppercase text-[#0B6E5C]">
+                    Ma trận Phân phối Mục tiêu Giáo dục × 9 Tháng ({gradeObjectives.length} Mã MT)
+                  </div>
+                  <p className="mt-0.5 text-[11px] text-slate-600">
+                    Bấm vào từng ô tháng để xoay vòng 3 trạng thái: <strong>Trống</strong> →{' '}
+                    <strong className="text-[#0B6E5C]">✓ Dạy trong tháng</strong> →{' '}
+                    <strong className="text-amber-700">★ Dạy &amp; Đánh giá tháng</strong> → <strong>Bỏ chọn</strong>. (Một MT có thể dạy lặp lại ở nhiều tháng).
+                  </p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={handleResetDefaultMtAllocation}
+                    className="inline-flex items-center gap-1 rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-[11px] font-semibold text-slate-700 hover:border-[#0B6E5C] hover:text-[#0B6E5C]"
+                  >
+                    <RotateCcw className="h-3 w-3" /> Khôi phục phân phối chuẩn BGD
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setShowMtMatrix(false)}
+                    className="rounded-lg border border-slate-200 bg-white p-1.5 text-slate-500 hover:bg-slate-100"
+                  >
+                    <X className="h-3.5 w-3.5" />
+                  </button>
+                </div>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-2">
+                <select
+                  value={matrixDomainFilter}
+                  onChange={(e) => setMatrixDomainFilter(e.target.value)}
+                  className="rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700"
+                >
+                  <option value="ALL">Tất cả lĩnh vực ({gradeObjectives.length} MT)</option>
+                  {availableDomains.map((d) => (
+                    <option key={d} value={d}>
+                      {d}
+                    </option>
+                  ))}
+                </select>
+                <div className="relative min-w-[220px] flex-1">
+                  <Search className="pointer-events-none absolute top-2 left-2.5 h-3.5 w-3.5 text-slate-400" />
+                  <input
+                    value={matrixSearch}
+                    onChange={(e) => setMatrixSearch(e.target.value)}
+                    placeholder="Tìm nhanh theo mã MT (VD: MT47) hoặc từ khóa nội dung..."
+                    className="w-full rounded-lg border border-slate-200 bg-white py-1.5 pr-3 pl-8 text-xs focus:border-[#0B6E5C] focus:outline-none"
+                  />
+                </div>
+              </div>
+
+              <div className="max-h-[420px] overflow-auto rounded-xl border border-slate-200 bg-white">
+                <table className="w-full border-collapse text-left text-xs">
+                  <thead className="sticky top-0 z-10 bg-[#0B6E5C] text-white">
+                    <tr>
+                      <th className="w-20 border-r border-emerald-700/50 px-2.5 py-2 text-center font-bold">Mã MT</th>
+                      <th className="min-w-[260px] border-r border-emerald-700/50 px-3 py-2 font-bold">
+                        Nội dung Mục tiêu giáo dục
+                      </th>
+                      {annualPlan.themes.map((th) => (
+                        <th
+                          key={th.id}
+                          title={th.themeName}
+                          className="w-14 border-r border-emerald-700/50 px-1.5 py-2 text-center font-bold last:border-r-0"
+                        >
+                          T{th.monthNumber}
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-200">
+                    {gradeObjectives
+                      .filter((o) => {
+                        if (matrixDomainFilter !== 'ALL' && o.domain !== matrixDomainFilter) return false;
+                        if (matrixSearch.trim()) {
+                          const q = normVN(matrixSearch);
+                          if (!normVN(`${o.code} ${o.description} ${o.domain}`).includes(q)) return false;
+                        }
+                        return true;
+                      })
+                      .map((o) => {
+                        const isCustom = customCodesSet.has(o.code);
+                        const unallocated = !plannedMtSet.has(o.code);
+                        return (
+                          <tr key={o.id} className={unallocated ? 'bg-rose-50/40' : 'hover:bg-slate-50/80'}>
+                            <td className="border-r border-slate-100 px-2 py-2 text-center font-bold">
+                              <span className={isCustom ? 'text-rose-700' : 'text-[#0B6E5C]'}>{o.code}</span>
+                              {isCustom && (
+                                <div className="text-[9px] font-semibold text-rose-600">Mở rộng</div>
+                              )}
+                            </td>
+                            <td className="border-r border-slate-100 px-3 py-2">
+                              <div className="font-medium text-slate-900">{o.description}</div>
+                              <div className="text-[10px] text-slate-400">{o.domain}</div>
+                            </td>
+                            {annualPlan.themes.map((th) => {
+                              const inMonth = th.plannedMtCodes.includes(o.code);
+                              const isStar = (th.assessmentMtCodes || []).includes(o.code);
+                              return (
+                                <td
+                                  key={th.id}
+                                  className="border-r border-slate-100 p-1 text-center last:border-r-0"
+                                >
+                                  <button
+                                    type="button"
+                                    onClick={() => cycleMatrixCell(th.id, o.code)}
+                                    title={`${o.code} — ${th.monthLabel}: Bấm để đổi (Trống -> ✓ Dạy -> ★ Đánh giá)`}
+                                    className={`inline-flex h-7 w-9 items-center justify-center rounded-md border text-xs font-bold transition ${
+                                      isStar
+                                        ? 'border-amber-400 bg-amber-100 text-amber-800'
+                                        : inMonth
+                                        ? 'border-[#0B6E5C] bg-[#E6F4F1] text-[#0B6E5C]'
+                                        : 'border-slate-200 bg-white text-slate-300 hover:border-slate-400'
+                                    }`}
+                                  >
+                                    {isStar ? '★' : inMonth ? '✓' : '·'}
+                                  </button>
+                                </td>
+                              );
+                            })}
+                          </tr>
+                        );
+                      })}
+                  </tbody>
+                </table>
+              </div>
+            </div>
           )}
 
           {/* Bảng Tổng hợp Dự kiến Chủ đề & Sự kiện cả năm 9 tháng x Tuần 1..4 (YC-045) */}
@@ -1062,17 +1412,180 @@ export const AnnualCurriculumView: React.FC<Props> = ({
                       </label>
                     </div>
 
-                    {/* Planned MTs of this Month + Assessment Star Toggle (YC-037) */}
+                    {/* Planned MTs of this Month + Month MT Configurator + Assessment Star Toggle (YC-037, YC-061) */}
                     <div>
                       <div className="flex flex-wrap items-center justify-between gap-2">
-                        <div className="text-xs font-bold text-slate-700">
-                          Mục tiêu phân phối trong {theme.monthLabel} ({theme.plannedMtCodes.length} mã MT):
+                        <div className="flex flex-wrap items-center gap-2">
+                          <span className="text-xs font-bold text-slate-700">
+                            Mục tiêu phân phối trong {theme.monthLabel} ({theme.plannedMtCodes.length} mã MT):
+                          </span>
+                          <button
+                            type="button"
+                            onClick={() =>
+                              setConfigThemeId((cur) => (cur === theme.id ? '' : theme.id))
+                            }
+                            className={`inline-flex items-center gap-1 rounded-lg border px-2.5 py-1 text-[11px] font-bold transition ${
+                              configThemeId === theme.id
+                                ? 'border-[#0B6E5C] bg-[#0B6E5C] text-white'
+                                : 'border-[#0B6E5C]/40 bg-white text-[#0B6E5C] hover:bg-[#E6F4F1]'
+                            }`}
+                          >
+                            <Settings2 className="h-3 w-3" />
+                            {configThemeId === theme.id
+                              ? `Đóng cấu hình MT ${theme.monthLabel}`
+                              : `+ Cấu hình / Chọn lại MT cho ${theme.monthLabel}`}
+                          </button>
                         </div>
-                        <span className="text-[11px] text-amber-800">
-                          Bấm ngôi sao <strong>★</strong> trên từng mã MT để chọn/bỏ làm <strong>Mục tiêu Đánh giá tháng</strong>
-                        </span>
+
+                        {/* Chú giải màu minh bạch để không nhầm MT Mở rộng màu đỏ với báo lỗi */}
+                        <div className="flex flex-wrap items-center gap-2.5 text-[11px] text-slate-600">
+                          <span className="inline-flex items-center gap-1">
+                            <span className="h-2.5 w-2.5 rounded-xs bg-emerald-200 ring-1 ring-emerald-400" />
+                            Đã lên tuần
+                          </span>
+                          <span className="inline-flex items-center gap-1">
+                            <span className="h-2.5 w-2.5 rounded-xs bg-white ring-1 ring-slate-300" />
+                            Chưa lên tuần
+                          </span>
+                          <span className="inline-flex items-center gap-1 text-amber-800">
+                            <Star className="h-3 w-3 fill-amber-400 text-amber-500" />
+                            MT Đánh giá tháng
+                          </span>
+                          <span className="inline-flex items-center gap-1 text-rose-800">
+                            <span className="h-2.5 w-2.5 rounded-xs bg-rose-100 ring-1 ring-rose-400" />
+                            MT mở rộng của lớp
+                          </span>
+                        </div>
                       </div>
-                      <div className="mt-2 flex flex-wrap gap-1.5">
+
+                      {/* Bảng cấu hình thêm / bớt / chuyển Mã MT riêng cho Tháng đang mở (YC-061) */}
+                      {configThemeId === theme.id && (
+                        <div className="mt-2.5 space-y-2.5 rounded-xl border border-emerald-300 bg-white p-3.5 shadow-xs">
+                          <div className="flex flex-wrap items-center justify-between gap-2">
+                            <div className="text-xs font-bold text-[#074F42]">
+                              Chọn các Mã Mục tiêu áp dụng cho {theme.monthLabel} — Chủ đề: {theme.themeName}
+                            </div>
+                            <span className="text-[11px] text-slate-500">
+                              Có thể <strong>+ Thêm</strong> (dạy lặp lại ở nhiều tháng) hoặc <strong>⇄ Chuyển hẳn sang {theme.monthLabel}</strong>
+                            </span>
+                          </div>
+
+                          <div className="flex flex-wrap items-center gap-2">
+                            <select
+                              value={configDomainFilter}
+                              onChange={(e) => setConfigDomainFilter(e.target.value)}
+                              className="rounded-lg border border-slate-200 bg-slate-50 px-2.5 py-1.5 text-xs font-semibold text-slate-700"
+                            >
+                              <option value="ALL">Tất cả lĩnh vực ({gradeObjectives.length} MT)</option>
+                              {availableDomains.map((d) => (
+                                <option key={d} value={d}>
+                                  {d}
+                                </option>
+                              ))}
+                            </select>
+                            <div className="relative min-w-[220px] flex-1">
+                              <Search className="pointer-events-none absolute top-2 left-2.5 h-3.5 w-3.5 text-slate-400" />
+                              <input
+                                value={configSearch}
+                                onChange={(e) => setConfigSearch(e.target.value)}
+                                placeholder={`Tìm Mã MT hoặc nội dung để đưa vào ${theme.monthLabel}...`}
+                                className="w-full rounded-lg border border-slate-200 bg-slate-50 py-1.5 pr-3 pl-8 text-xs focus:border-[#0B6E5C] focus:bg-white focus:outline-none"
+                              />
+                            </div>
+                          </div>
+
+                          <div className="grid max-h-64 grid-cols-1 gap-2 overflow-y-auto pr-1 md:grid-cols-2">
+                            {gradeObjectives
+                              .filter((o) => {
+                                if (configDomainFilter !== 'ALL' && o.domain !== configDomainFilter) return false;
+                                if (configSearch.trim()) {
+                                  const q = normVN(configSearch);
+                                  if (!normVN(`${o.code} ${o.description} ${o.domain}`).includes(q)) return false;
+                                }
+                                return true;
+                              })
+                              .map((o) => {
+                                const inThisMonth = theme.plannedMtCodes.includes(o.code);
+                                const otherMonths = (monthsByMtCode.get(o.code) || []).filter(
+                                  (m) => m !== theme.monthLabel
+                                );
+                                const isCustom = customCodesSet.has(o.code);
+                                return (
+                                  <div
+                                    key={o.id}
+                                    className={`flex items-start justify-between gap-2 rounded-xl border p-2.5 text-xs transition ${
+                                      inThisMonth
+                                        ? 'border-emerald-300 bg-emerald-50/50'
+                                        : 'border-slate-200 bg-white hover:border-slate-300'
+                                    }`}
+                                  >
+                                    <div className="min-w-0 flex-1">
+                                      <div className="flex flex-wrap items-center gap-1.5">
+                                        <span
+                                          className={`rounded px-1.5 py-0.5 text-[10px] font-bold ${
+                                            isCustom
+                                              ? 'bg-rose-100 text-rose-800'
+                                              : inThisMonth
+                                              ? 'bg-[#0B6E5C] text-white'
+                                              : 'bg-slate-100 text-slate-700'
+                                          }`}
+                                        >
+                                          {o.code}
+                                        </span>
+                                        {isCustom && (
+                                          <span className="rounded bg-rose-50 px-1.5 py-0.5 text-[10px] font-bold text-rose-700 ring-1 ring-rose-200">
+                                            Mở rộng
+                                          </span>
+                                        )}
+                                        <span className="truncate text-[10px] text-slate-400">{o.domain}</span>
+                                        {otherMonths.length > 0 && (
+                                          <span className="rounded bg-amber-50 px-1.5 py-0.5 text-[10px] font-medium text-amber-800">
+                                            Đang có ở: {otherMonths.join(', ')}
+                                          </span>
+                                        )}
+                                      </div>
+                                      <p className="mt-1 line-clamp-2 text-slate-800">{o.description}</p>
+                                    </div>
+
+                                    <div className="flex shrink-0 flex-col items-end gap-1">
+                                      <button
+                                        type="button"
+                                        onClick={() => toggleThemeMtAllocation(theme.id, o.code)}
+                                        className={`inline-flex items-center gap-1 rounded-lg px-2.5 py-1 text-[11px] font-bold transition ${
+                                          inThisMonth
+                                            ? 'bg-emerald-600 text-white hover:bg-rose-600'
+                                            : 'border border-[#0B6E5C] bg-white text-[#0B6E5C] hover:bg-[#0B6E5C] hover:text-white'
+                                        }`}
+                                      >
+                                        {inThisMonth ? (
+                                          <>
+                                            <Check className="h-3 w-3" /> Đã chọn
+                                          </>
+                                        ) : (
+                                          <>
+                                            <Plus className="h-3 w-3" /> Thêm
+                                          </>
+                                        )}
+                                      </button>
+                                      {!inThisMonth && otherMonths.length > 0 && (
+                                        <button
+                                          type="button"
+                                          onClick={() => moveMtExclusivelyToTheme(theme.id, o.code)}
+                                          title={`Rút ${o.code} khỏi ${otherMonths.join(', ')} và chuyển hẳn sang ${theme.monthLabel}`}
+                                          className="inline-flex items-center gap-0.5 rounded px-1.5 py-0.5 text-[10px] font-semibold text-slate-500 hover:bg-slate-100 hover:text-[#0B6E5C]"
+                                        >
+                                          <ArrowRightLeft className="h-2.5 w-2.5" /> Chuyển sang đây
+                                        </button>
+                                      )}
+                                    </div>
+                                  </div>
+                                );
+                              })}
+                          </div>
+                        </div>
+                      )}
+
+                      <div className="mt-2.5 flex flex-wrap gap-1.5">
                         {theme.plannedMtCodes.map((code) => {
                           const obj = objByCode.get(code);
                           const done = taughtMtCodes.has(code);
@@ -1081,8 +1594,12 @@ export const AnnualCurriculumView: React.FC<Props> = ({
                           return (
                             <span
                               key={code}
-                              title={obj ? `${code}: ${obj.description}` : code}
-                              className={`inline-flex items-center gap-1 rounded-lg px-2.5 py-1 text-xs font-semibold ${
+                              title={
+                                obj
+                                  ? `${code}${isCustom ? ' [Mục tiêu mở rộng của lớp]' : ''}: ${obj.description}`
+                                  : code
+                              }
+                              className={`group inline-flex items-center gap-1 rounded-lg px-2.5 py-1 text-xs font-semibold ${
                                 isCustom
                                   ? 'bg-rose-50 text-rose-800 ring-1 ring-rose-300'
                                   : done
@@ -1114,12 +1631,36 @@ export const AnnualCurriculumView: React.FC<Props> = ({
                                 />
                               </button>
                               {done && <CheckCircle2 className="h-3 w-3 text-emerald-700" />}
-                              {code}
+                              <span>{code}</span>
+                              {isCustom && (
+                                <span className="rounded bg-rose-200/70 px-1 py-0.2 text-[9px] font-extrabold uppercase text-rose-900">
+                                  Mở rộng
+                                </span>
+                              )}
                               {obj && (
-                                <span className="max-w-[180px] truncate font-normal text-slate-500">
+                                <span className="max-w-[175px] truncate font-normal text-slate-500">
                                   · {obj.description}
                                 </span>
                               )}
+                              <button
+                                type="button"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  if (isCustom) {
+                                    handleDeleteCustomObjective(code);
+                                  } else {
+                                    toggleThemeMtAllocation(theme.id, code);
+                                  }
+                                }}
+                                title={
+                                  isCustom
+                                    ? `Xóa mục tiêu mở rộng ${code} khỏi lớp`
+                                    : `Gỡ ${code} khỏi ${theme.monthLabel}`
+                                }
+                                className="ml-0.5 rounded p-0.5 text-slate-400 opacity-60 transition hover:bg-rose-100 hover:text-rose-700 group-hover:opacity-100"
+                              >
+                                <X className="h-3 w-3" />
+                              </button>
                             </span>
                           );
                         })}
