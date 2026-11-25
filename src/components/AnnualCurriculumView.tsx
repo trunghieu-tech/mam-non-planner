@@ -11,6 +11,7 @@ import {
   ClipboardPaste,
   Copy,
   Grid3X3,
+  Pencil,
   Plus,
   RotateCcw,
   Search,
@@ -81,6 +82,7 @@ export const AnnualCurriculumView: React.FC<Props> = ({
   const [configDomainFilter, setConfigDomainFilter] = useState<string>('ALL');
   const [configSearch, setConfigSearch] = useState('');
   const [showCustomMtForm, setShowCustomMtForm] = useState(false);
+  const [editingCustomCode, setEditingCustomCode] = useState<string | null>(null);
   const [customMtDesc, setCustomMtDesc] = useState('');
   const [customMtDomain, setCustomMtDomain] = useState('I. Giáo dục phát triển thể chất');
   const [customMtMonthId, setCustomMtMonthId] = useState<string>(annualPlan.themes[0]?.id || '');
@@ -254,6 +256,10 @@ export const AnnualCurriculumView: React.FC<Props> = ({
 
   // Xóa hẳn 1 Mục tiêu mở rộng do lớp tự phát triển (VD: MT105 tạo thử nghiệm)
   const handleDeleteCustomObjective = (code: string) => {
+    if (editingCustomCode === code) {
+      setEditingCustomCode(null);
+      setCustomMtDesc('');
+    }
     onSaveAnnualPlan(
       {
         ...annualPlan,
@@ -266,6 +272,24 @@ export const AnnualCurriculumView: React.FC<Props> = ({
       },
       `Đã xóa mục tiêu mở rộng ${code} khỏi Kế hoạch Năm học!`
     );
+  };
+
+  // Mở chế độ Sửa trực tiếp 1 Mục tiêu phát triển mở rộng (YC-062)
+  const startEditCustomObjective = (obj: ObjectiveItem) => {
+    const matchedTheme =
+      annualPlan.themes.find((t) => t.plannedMtCodes.includes(obj.code)) ||
+      annualPlan.themes.find((t) => t.monthLabel === obj.month) ||
+      annualPlan.themes[0];
+    setEditingCustomCode(obj.code);
+    setCustomMtDomain(obj.domain);
+    setCustomMtMonthId(matchedTheme?.id || '');
+    setCustomMtDesc(obj.description);
+    setShowCustomMtForm(true);
+  };
+
+  const cancelEditCustomObjective = () => {
+    setEditingCustomCode(null);
+    setCustomMtDesc('');
   };
 
   // Khôi phục phân bổ MT 9 tháng về chuẩn gợi ý mặc định của Bộ GD&ĐT
@@ -295,13 +319,60 @@ export const AnnualCurriculumView: React.FC<Props> = ({
     e.preventDefault();
     const desc = customMtDesc.trim();
     if (!desc) return;
+    const targetTheme =
+      annualPlan.themes.find((t) => t.id === customMtMonthId) || annualPlan.themes[0];
+
+    // Chế độ SỬA Mục tiêu phát triển mở rộng đã có (YC-062)
+    if (editingCustomCode) {
+      const updatedCustom = customObjectives.map((o) =>
+        o.code === editingCustomCode
+          ? {
+              ...o,
+              domain: customMtDomain,
+              description: desc,
+              eduContent: desc,
+              month: targetTheme?.monthLabel || o.month,
+              theme: targetTheme?.themeName || o.theme,
+            }
+          : o
+      );
+      onSaveAnnualPlan(
+        {
+          ...annualPlan,
+          customObjectives: updatedCustom,
+          themes: annualPlan.themes.map((t) => {
+            if (t.id === targetTheme?.id) {
+              return {
+                ...t,
+                plannedMtCodes: t.plannedMtCodes.includes(editingCustomCode)
+                  ? t.plannedMtCodes
+                  : [...t.plannedMtCodes, editingCustomCode],
+              };
+            }
+            // Nếu giáo viên đổi tháng chính của MT mở rộng này khi sửa, rút khỏi tháng cũ (trừ khi đã dạy nhiều tháng)
+            const prevObj = customObjectives.find((x) => x.code === editingCustomCode);
+            if (prevObj && t.monthLabel === prevObj.month && t.id !== targetTheme?.id) {
+              return {
+                ...t,
+                plannedMtCodes: t.plannedMtCodes.filter((c) => c !== editingCustomCode),
+                assessmentMtCodes: (t.assessmentMtCodes || []).filter((c) => c !== editingCustomCode),
+              };
+            }
+            return t;
+          }),
+        },
+        `Đã cập nhật mục tiêu mở rộng ${editingCustomCode}!`
+      );
+      setEditingCustomCode(null);
+      setCustomMtDesc('');
+      return;
+    }
+
     const maxNum = gradeObjectives.reduce((mx, o) => {
       const n = parseInt(o.code.replace(/\D/g, ''), 10) || 0;
       return n > mx ? n : mx;
     }, 0);
     const nextCode = `MT${maxNum + 1}`;
-    const targetTheme =
-      annualPlan.themes.find((t) => t.id === customMtMonthId) || annualPlan.themes[0];
     const newObj: ObjectiveItem = {
       id: `custom_${annualPlan.ageGroupId}_${Date.now()}`,
       ageGroupId: annualPlan.ageGroupId,
@@ -334,7 +405,6 @@ export const AnnualCurriculumView: React.FC<Props> = ({
       `Đã phát triển thêm ${nextCode} vào ${targetTheme?.monthLabel}!`
     );
     setCustomMtDesc('');
-    setShowCustomMtForm(false);
   };
 
   // Các tháng chưa chọn bất kỳ Ngôi sao Đánh giá ★ nào (Cảnh báo vàng YC-046)
@@ -639,7 +709,10 @@ export const AnnualCurriculumView: React.FC<Props> = ({
                     : 'border-slate-200 bg-white text-slate-700 hover:bg-slate-50'
                 }`}
               >
-                <Sparkles className="h-3.5 w-3.5 text-rose-600" /> + Phát triển MT
+                <Sparkles className="h-3.5 w-3.5 text-rose-600" />
+                {customObjectives.length > 0
+                  ? `MT Phát triển (${customObjectives.length})`
+                  : '+ Phát triển MT'}
               </button>
 
               <button
@@ -679,9 +752,14 @@ export const AnnualCurriculumView: React.FC<Props> = ({
                   %)
                 </span>
                 {customObjectives.length > 0 && (
-                  <span className="rounded-md bg-rose-50 px-2 py-0.5 text-[11px] font-bold text-rose-700 ring-1 ring-rose-200">
-                    +{customObjectives.length} MT mở rộng lớp
-                  </span>
+                  <button
+                    type="button"
+                    onClick={() => setShowCustomMtForm(true)}
+                    title="Bấm để mở danh sách Thêm / Sửa / Xóa Mục tiêu mở rộng của lớp"
+                    className="inline-flex items-center gap-1 rounded-md bg-rose-50 px-2 py-0.5 text-[11px] font-bold text-rose-700 ring-1 ring-rose-200 transition hover:bg-rose-100"
+                  >
+                    +{customObjectives.length} MT mở rộng lớp · Quản lý
+                  </button>
                 )}
               </div>
             </div>
@@ -767,22 +845,37 @@ export const AnnualCurriculumView: React.FC<Props> = ({
             </div>
           )}
 
-          {/* Biểu mẫu Phát triển Mục tiêu mở rộng của lớp (YC-044, hiển thị chữ đỏ chuẩn GoKids) */}
+          {/* Khu vực Quản lý Mục tiêu phát triển mở rộng của Lớp: Thêm – Sửa – Xóa (YC-044, YC-062) */}
           {showCustomMtForm && (
-            <form
-              onSubmit={handleAddCustomObjective}
-              className="mt-4 space-y-2.5 rounded-xl border border-rose-200 bg-rose-50/40 p-4"
-            >
-              <div className="flex items-center justify-between">
-                <div className="text-xs font-bold text-rose-900">
-                  Phát triển thêm Mục tiêu giáo dục mở rộng riêng của Lớp (hiển thị nhãn đỏ phân biệt với MT gốc BGD)
+            <div className="mt-4 space-y-3 rounded-xl border border-rose-200 bg-rose-50/40 p-4">
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <div>
+                  <div className="text-xs font-bold text-rose-900">
+                    {editingCustomCode
+                      ? `Đang chỉnh sửa Mục tiêu mở rộng: ${editingCustomCode}`
+                      : `Quản lý Mục tiêu phát triển mở rộng của Lớp (${customObjectives.length} mục tiêu)`}
+                  </div>
+                  <p className="mt-0.5 text-[11px] text-slate-600">
+                    Thêm mới, sửa nội dung / lĩnh vực / tháng áp dụng hoặc xóa các mục tiêu nâng cao riêng của lớp (hiển thị nhãn đỏ phân biệt với MT gốc Bộ GD&amp;ĐT).
+                  </p>
                 </div>
+                <button
+                  type="button"
+                  onClick={() => {
+                    cancelEditCustomObjective();
+                    setShowCustomMtForm(false);
+                  }}
+                  className="rounded-lg border border-rose-200 bg-white p-1.5 text-slate-500 hover:bg-rose-100"
+                >
+                  <X className="h-3.5 w-3.5" />
+                </button>
               </div>
-              <div className="grid gap-2.5 md:grid-cols-12">
+
+              <form onSubmit={handleAddCustomObjective} className="grid gap-2.5 md:grid-cols-12">
                 <select
                   value={customMtDomain}
                   onChange={(e) => setCustomMtDomain(e.target.value)}
-                  className="rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-xs font-semibold md:col-span-4"
+                  className="rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-xs font-semibold md:col-span-3"
                 >
                   <option value="I. Giáo dục phát triển thể chất">I. Phát triển thể chất</option>
                   <option value="II. Giáo dục phát triển nhận thức">II. Phát triển nhận thức</option>
@@ -813,16 +906,86 @@ export const AnnualCurriculumView: React.FC<Props> = ({
                   value={customMtDesc}
                   onChange={(e) => setCustomMtDesc(e.target.value)}
                   placeholder="Nhập nội dung mục tiêu mở rộng (VD: Trẻ nhận biết khu vực nguy hiểm quanh trường)..."
-                  className="rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs md:col-span-5"
+                  className="rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs focus:border-rose-500 focus:outline-none md:col-span-5"
                 />
-                <button
-                  type="submit"
-                  className="rounded-lg bg-rose-700 px-3 py-1.5 text-xs font-bold text-white hover:bg-rose-800 md:col-span-1"
-                >
-                  + Thêm
-                </button>
-              </div>
-            </form>
+                <div className="flex items-center gap-1.5 md:col-span-2">
+                  <button
+                    type="submit"
+                    className="flex-1 rounded-lg bg-rose-700 px-3 py-1.5 text-xs font-bold text-white hover:bg-rose-800"
+                  >
+                    {editingCustomCode ? 'Lưu sửa' : '+ Thêm mới'}
+                  </button>
+                  {editingCustomCode && (
+                    <button
+                      type="button"
+                      onClick={cancelEditCustomObjective}
+                      className="rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-xs font-semibold text-slate-600 hover:bg-slate-100"
+                    >
+                      Hủy
+                    </button>
+                  )}
+                </div>
+              </form>
+
+              {/* Danh sách các Mục tiêu phát triển đã tạo — có nút Sửa & Xóa rõ ràng */}
+              {customObjectives.length === 0 ? (
+                <div className="rounded-lg border border-dashed border-rose-200 bg-white/70 px-3.5 py-2.5 text-xs text-slate-500">
+                  Lớp hiện chưa có Mục tiêu phát triển mở rộng nào. Cô nhập nội dung bên trên và bấm <strong>+ Thêm mới</strong> khi cần bổ sung mục tiêu nâng cao.
+                </div>
+              ) : (
+                <div className="space-y-2 pt-1">
+                  <div className="text-[11px] font-bold uppercase tracking-wide text-rose-800">
+                    Danh sách Mục tiêu phát triển đã tạo ({customObjectives.length}):
+                  </div>
+                  <div className="divide-y divide-rose-100 overflow-hidden rounded-xl border border-rose-200 bg-white">
+                    {customObjectives.map((co) => {
+                      const assignedMonths = monthsByMtCode.get(co.code) || [co.month];
+                      const isEditingThis = editingCustomCode === co.code;
+                      return (
+                        <div
+                          key={co.id}
+                          className={`flex flex-wrap items-center justify-between gap-3 px-3.5 py-2.5 text-xs ${
+                            isEditingThis ? 'bg-amber-50/70' : 'hover:bg-slate-50/70'
+                          }`}
+                        >
+                          <div className="min-w-0 flex-1">
+                            <div className="flex flex-wrap items-center gap-1.5">
+                              <span className="rounded bg-rose-100 px-2 py-0.5 text-[11px] font-extrabold text-rose-800">
+                                {co.code}
+                              </span>
+                              <span className="rounded bg-slate-100 px-2 py-0.5 text-[10px] font-semibold text-slate-600">
+                                {co.domain}
+                              </span>
+                              <span className="rounded bg-emerald-50 px-2 py-0.5 text-[10px] font-semibold text-[#0B6E5C]">
+                                Tháng: {assignedMonths.join(', ')}
+                              </span>
+                            </div>
+                            <p className="mt-1 font-medium text-slate-900">{co.description}</p>
+                          </div>
+
+                          <div className="flex shrink-0 items-center gap-1.5">
+                            <button
+                              type="button"
+                              onClick={() => startEditCustomObjective(co)}
+                              className="inline-flex items-center gap-1 rounded-lg border border-slate-200 bg-white px-2.5 py-1 text-[11px] font-bold text-slate-700 transition hover:border-[#0B6E5C] hover:text-[#0B6E5C]"
+                            >
+                              <Pencil className="h-3 w-3" /> Sửa
+                            </button>
+                            <button
+                              type="button"
+                              onClick={() => handleDeleteCustomObjective(co.code)}
+                              className="inline-flex items-center gap-1 rounded-lg border border-rose-200 bg-rose-50 px-2.5 py-1 text-[11px] font-bold text-rose-700 transition hover:bg-rose-600 hover:text-white"
+                            >
+                              <Trash2 className="h-3 w-3" /> Xóa
+                            </button>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+            </div>
           )}
 
           {/* MA TRẬN PHÂN PHỐI MỤC TIÊU × 9 THÁNG CHUẨN GOKIDS (YC-061) */}
@@ -1642,6 +1805,19 @@ export const AnnualCurriculumView: React.FC<Props> = ({
                                   · {obj.description}
                                 </span>
                               )}
+                              {isCustom && obj && (
+                                <button
+                                  type="button"
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    startEditCustomObjective(obj);
+                                  }}
+                                  title={`Sửa nội dung / tháng áp dụng của ${code}`}
+                                  className="ml-0.5 rounded p-0.5 text-rose-700 opacity-75 transition hover:bg-rose-200/70 hover:opacity-100"
+                                >
+                                  <Pencil className="h-3 w-3" />
+                                </button>
+                              )}
                               <button
                                 type="button"
                                 onClick={(e) => {
@@ -1657,9 +1833,9 @@ export const AnnualCurriculumView: React.FC<Props> = ({
                                     ? `Xóa mục tiêu mở rộng ${code} khỏi lớp`
                                     : `Gỡ ${code} khỏi ${theme.monthLabel}`
                                 }
-                                className="ml-0.5 rounded p-0.5 text-slate-400 opacity-60 transition hover:bg-rose-100 hover:text-rose-700 group-hover:opacity-100"
+                                className="ml-0.5 rounded p-0.5 text-slate-400 opacity-70 transition hover:bg-rose-100 hover:text-rose-700 group-hover:opacity-100"
                               >
-                                <X className="h-3 w-3" />
+                                {isCustom ? <Trash2 className="h-3 w-3 text-rose-600" /> : <X className="h-3 w-3" />}
                               </button>
                             </span>
                           );

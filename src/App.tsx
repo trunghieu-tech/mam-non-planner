@@ -317,6 +317,64 @@ export default function App() {
   };
 
   const handleSaveAnnualPlan = async (next: AnnualPlanDocument, msg?: string) => {
+    const prevCustomCodes = new Set(
+      (annualPlans?.[next.ageGroupId]?.customObjectives || []).map((o) => o.code)
+    );
+    const nextCustomCodes = new Set((next.customObjectives || []).map((o) => o.code));
+    const removedCodes = Array.from(prevCustomCodes).filter((c) => !nextCustomCodes.has(c));
+
+    // Nếu giáo viên xóa 1 Mục tiêu mở rộng (VD: MT105), tự động gỡ sạch mã đó khỏi các tuần liên quan
+    if (removedCodes.length > 0) {
+      const rmSet = new Set(removedCodes);
+      const affectedPlans: WeeklyPlanDocument[] = [];
+      setPlans((prev) =>
+        prev.map((p) => {
+          if (p.ageGroupId !== next.ageGroupId) return p;
+          const hadAny =
+            p.themeObjectives.some((b) => b.mtCodes.some((c) => rmSet.has(c))) ||
+            p.days.some(
+              (d) =>
+                d.mainLessons.some((l) => l.linkedMtCodes.some((c) => rmSet.has(c))) ||
+                d.afternoonLesson?.linkedMtCodes.some((c) => rmSet.has(c))
+            );
+          if (!hadAny) return p;
+          const cleaned: WeeklyPlanDocument = {
+            ...p,
+            editorHtml: p.hasManualFullDocEdits ? p.editorHtml : undefined,
+            themeObjectives: p.themeObjectives.map((b) => ({
+              ...b,
+              mtCodes: b.mtCodes.filter((c) => !rmSet.has(c)),
+            })),
+            days: p.days.map((d) => ({
+              ...d,
+              mainLessons: d.mainLessons.map((l) => ({
+                ...l,
+                linkedMtCodes: l.linkedMtCodes.filter((c) => !rmSet.has(c)),
+              })),
+              afternoonLesson: d.afternoonLesson
+                ? {
+                    ...d.afternoonLesson,
+                    linkedMtCodes: d.afternoonLesson.linkedMtCodes.filter((c) => !rmSet.has(c)),
+                  }
+                : null,
+            })),
+          };
+          affectedPlans.push(cleaned);
+          return cleaned;
+        })
+      );
+      if (affectedPlans.length > 0) {
+        setStructuredRevision((r) => r + 1);
+        affectedPlans.forEach((cp) => {
+          fetch(`/api/plans/${cp.id}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(cp),
+          }).catch(() => {});
+        });
+      }
+    }
+
     setAnnualPlans((prev) => (prev ? { ...prev, [next.ageGroupId]: next } : prev));
     try {
       const res = await fetch(`/api/annual-plans/${next.ageGroupId}`, {
