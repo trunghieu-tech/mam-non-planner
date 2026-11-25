@@ -1,15 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import {
-  ChevronDown,
-  ChevronUp,
-  Database,
-  ExternalLink,
-  FilePlus2,
-  FileText,
-  Layers,
-  RefreshCw,
-  Search,
-} from 'lucide-react';
 import type { AgeGroupId, ObjectivesDataset } from '../../shared/types';
 import { FIVE_CORNERS, getSubjectVisual } from '../utils/visualMeta';
 
@@ -130,8 +119,8 @@ export const CrawledLibraryView: React.FC<Props> = ({
       <div className="rounded-2xl border border-emerald-200 bg-white p-5 shadow-xs">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
-            <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase text-[#0B6E5C]">
-              <Database className="h-4 w-4" /> Kho tài liệu thực tế đã cào & Convert JSON + Map 345 MT
+            <div className="text-xs font-bold uppercase text-[#0B6E5C]">
+              Kho tài liệu thực tế đã cào &amp; Convert JSON + Map 345 MT
             </div>
             <h2 className="mt-1 text-base font-bold text-slate-900">
               {summary.available
@@ -144,19 +133,19 @@ export const CrawledLibraryView: React.FC<Props> = ({
             <div className="inline-flex rounded-xl border border-slate-200 bg-slate-100 p-1 text-xs font-semibold">
               <button
                 onClick={() => setViewMode('lessons')}
-                className={`inline-flex items-center gap-1 rounded-lg px-3 py-1 transition ${
+                className={`rounded-lg px-3 py-1 transition ${
                   viewMode === 'lessons' ? 'bg-[#0B6E5C] text-white shadow-2xs' : 'text-slate-600'
                 }`}
               >
-                <Layers className="h-3.5 w-3.5" /> Theo Tiết học
+                Theo Tiết học
               </button>
               <button
                 onClick={() => setViewMode('docs')}
-                className={`inline-flex items-center gap-1 rounded-lg px-3 py-1 transition ${
+                className={`rounded-lg px-3 py-1 transition ${
                   viewMode === 'docs' ? 'bg-[#0B6E5C] text-white shadow-2xs' : 'text-slate-600'
                 }`}
               >
-                <FileText className="h-3.5 w-3.5" /> Theo Tài liệu gốc
+                Theo Tài liệu gốc
               </button>
             </div>
 
@@ -165,9 +154,9 @@ export const CrawledLibraryView: React.FC<Props> = ({
                 onRefreshSummary();
                 loadData();
               }}
-              className="inline-flex items-center gap-1.5 rounded-xl border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-semibold text-slate-700 hover:bg-slate-100"
+              className="rounded-xl border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-semibold text-slate-700 hover:bg-slate-100"
             >
-              <RefreshCw className="h-3.5 w-3.5" /> Làm mới
+              Làm mới
             </button>
           </div>
         </div>
@@ -203,13 +192,12 @@ export const CrawledLibraryView: React.FC<Props> = ({
           }}
           className="mt-4 grid grid-cols-1 gap-2.5 md:grid-cols-12"
         >
-          <div className="relative md:col-span-6">
-            <Search className="pointer-events-none absolute top-2.5 left-3 h-4 w-4 text-slate-400" />
+          <div className="md:col-span-6">
             <input
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Tìm đề tài, tên bài hát, bài thơ, trò chơi, tên trường..."
-              className="w-full rounded-xl border border-slate-200 bg-slate-50 py-2 pr-3 pl-9 text-sm focus:border-[#0B6E5C] focus:bg-white focus:outline-none"
+              className="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm focus:border-[#0B6E5C] focus:bg-white focus:outline-none"
             />
           </div>
           <input
@@ -363,9 +351,9 @@ export const CrawledLibraryView: React.FC<Props> = ({
                           href={les.postUrl}
                           target="_blank"
                           rel="noreferrer"
-                          className="text-slate-400 hover:text-[#0B6E5C]"
+                          className="text-xs font-semibold text-slate-400 hover:text-[#0B6E5C] hover:underline"
                         >
-                          <ExternalLink className="h-3.5 w-3.5" />
+                          Nguồn ↗
                         </a>
                       )}
                     </div>
@@ -388,9 +376,8 @@ export const CrawledLibraryView: React.FC<Props> = ({
                     {les.snippet ? (
                       <button
                         onClick={() => toggleSnip(les.id)}
-                        className="inline-flex items-center gap-1 text-xs font-semibold text-[#0B6E5C] hover:underline"
+                        className="text-xs font-semibold text-[#0B6E5C] hover:underline"
                       >
-                        {isOpen ? <ChevronUp className="h-3.5 w-3.5" /> : <ChevronDown className="h-3.5 w-3.5" />}
                         {isOpen ? 'Ẩn trích đoạn gốc' : 'Xem trích đoạn gốc'}
                       </button>
                     ) : (
@@ -398,9 +385,9 @@ export const CrawledLibraryView: React.FC<Props> = ({
                     )}
                     <button
                       onClick={() => onInsertCrawledLesson(les, les.mtCode, les.ageGroupId)}
-                      className="inline-flex items-center gap-1.5 rounded-lg bg-[#0B6E5C] px-3 py-1.5 text-xs font-semibold text-white hover:bg-[#085A4B]"
+                      className="inline-flex items-center rounded-lg bg-[#0B6E5C] px-3 py-1.5 text-xs font-semibold text-white hover:bg-[#085A4B]"
                     >
-                      <FilePlus2 className="h-3.5 w-3.5" /> Chèn khung tiết vào Word
+                      + Chèn khung tiết vào Word
                     </button>
                   </div>
                 </div>
@@ -444,9 +431,9 @@ export const CrawledLibraryView: React.FC<Props> = ({
                       href={doc.postUrl}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-1 text-xs font-semibold text-[#0B6E5C] hover:underline"
+                      className="text-xs font-semibold text-[#0B6E5C] hover:underline"
                     >
-                      Nguồn gốc <ExternalLink className="h-3 w-3" />
+                      Nguồn gốc ↗
                     </a>
                   )}
                 </div>
@@ -472,9 +459,8 @@ export const CrawledLibraryView: React.FC<Props> = ({
                   <div className="mt-2">
                     <button
                       onClick={() => toggleSnip(snipKey)}
-                      className="inline-flex items-center gap-1 text-xs font-semibold text-[#0B6E5C] hover:underline"
+                      className="text-xs font-semibold text-[#0B6E5C] hover:underline"
                     >
-                      {isOpen ? <ChevronUp className="h-3.5 w-3.5" /> : <ChevronDown className="h-3.5 w-3.5" />}
                       {isOpen ? 'Ẩn trích đoạn văn bản gốc' : 'Xem trích đoạn văn bản gốc'}
                     </button>
                     {isOpen && (
@@ -487,8 +473,8 @@ export const CrawledLibraryView: React.FC<Props> = ({
 
                 {cleanLessons.length > 0 && (
                   <div className="mt-3 space-y-2 border-t border-slate-100 pt-2.5">
-                    <div className="flex items-center gap-1 text-xs font-semibold text-slate-600">
-                      <FileText className="h-3.5 w-3.5 text-[#0B6E5C]" /> Bài dạy trích xuất ({cleanLessons.length}):
+                    <div className="text-xs font-semibold text-slate-600">
+                      Bài dạy trích xuất ({cleanLessons.length}):
                     </div>
                     <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
                       {cleanLessons.slice(0, 6).map((les, idx) => {
@@ -507,9 +493,9 @@ export const CrawledLibraryView: React.FC<Props> = ({
                             <div className="flex justify-end">
                               <button
                                 onClick={() => onInsertCrawledLesson(les, les.mtCode || topMt, doc.ageGroupId)}
-                                className="inline-flex items-center gap-1 rounded-lg bg-[#0B6E5C] px-2.5 py-1 text-[11px] font-semibold text-white hover:bg-[#085A4B]"
+                                className="inline-flex items-center rounded-lg bg-[#0B6E5C] px-2.5 py-1 text-[11px] font-semibold text-white hover:bg-[#085A4B]"
                               >
-                                <FilePlus2 className="h-3 w-3" /> Chèn tiết
+                                + Chèn tiết
                               </button>
                             </div>
                           </div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { HelpCircle, X } from 'lucide-react';
+import { X } from 'lucide-react';
 
 interface Props {
   storageKey: string;
@@ -29,8 +29,7 @@ export const StepHintBanner: React.FC<Props> = ({ storageKey, text, onOpenGuide 
 
   return (
     <div className="flex items-center justify-between gap-3 rounded-xl border border-emerald-200/80 bg-[#F2F9F7] px-3.5 py-2 text-xs text-[#074F42]">
-      <div className="flex items-center gap-2 min-w-0">
-        <HelpCircle className="h-4 w-4 shrink-0 text-[#0B6E5C]" />
+      <div className="min-w-0">
         <span className="leading-snug">{text}</span>
       </div>
       <div className="flex shrink-0 items-center gap-2">

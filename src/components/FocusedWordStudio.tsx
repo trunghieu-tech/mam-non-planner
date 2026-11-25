@@ -1,23 +1,11 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { Editor } from '@tiptap/react';
 import {
-  BookmarkPlus,
-  BookOpenCheck,
-  Check,
-  CheckCircle2,
   ChevronLeft,
   ChevronRight,
-  ClipboardCheck,
-  ExternalLink,
-  FileDown,
-  Film,
   Maximize2,
   Minimize2,
-  Moon,
-  PanelRight,
   Plus,
-  RotateCcw,
-  Sparkles,
   Trash2,
   X,
 } from 'lucide-react';
@@ -442,13 +430,12 @@ export const FocusedWordStudio: React.FC<Props> = ({
               {day.afternoonLesson && (
                 <button
                   onClick={() => setTarget({ dayIdx: dIdx, kind: 'afternoon' })}
-                  className={`flex w-full items-center gap-2 rounded-xl border px-2.5 py-1.5 text-left transition ${
+                  className={`flex w-full items-center rounded-xl border px-2.5 py-1.5 text-left transition ${
                     target.dayIdx === dIdx && target.kind === 'afternoon'
                       ? 'border-indigo-500 bg-indigo-50'
                       : 'border-transparent bg-indigo-50/40 hover:bg-indigo-50'
                   }`}
                 >
-                  <Moon className="h-3 w-3 shrink-0 text-indigo-600" />
                   <span className="truncate text-[11px] font-medium text-indigo-900">
                     Chiều: {day.afternoonLesson.topicTitle}
                   </span>
@@ -458,13 +445,13 @@ export const FocusedWordStudio: React.FC<Props> = ({
               <div className="flex items-center gap-1">
                 <button
                   onClick={() => setTarget({ dayIdx: dIdx, kind: 'dayBook' })}
-                  className={`flex flex-1 items-center gap-1 rounded-lg px-2 py-1 text-left text-[10px] font-semibold transition ${
+                  className={`flex-1 rounded-lg px-2 py-1 text-left text-[10px] font-semibold transition ${
                     target.dayIdx === dIdx && target.kind === 'dayBook'
                       ? 'bg-[#E6F4F1] text-[#0B6E5C]'
                       : 'text-slate-500 hover:bg-slate-100'
                   }`}
                 >
-                  <BookOpenCheck className="h-3 w-3" /> Sổ trọn ngày
+                  Sổ trọn ngày
                 </button>
                 <button
                   onClick={() => setTarget({ dayIdx: dIdx, kind: 'eval' })}
@@ -474,11 +461,9 @@ export const FocusedWordStudio: React.FC<Props> = ({
                       : 'text-slate-500 hover:bg-slate-100'
                   }`}
                 >
-                  <span className="inline-flex items-center gap-1">
-                    <ClipboardCheck className="h-3 w-3" /> Nhận xét
-                  </span>
+                  <span>Nhận xét</span>
                   {(day.evalHealth || day.evalEmotionBehavior || day.evalKnowledgeSkill) && (
-                    <CheckCircle2 className="h-3 w-3 text-emerald-600" />
+                    <span className="h-2 w-2 rounded-full bg-emerald-500" />
                   )}
                 </button>
               </div>
@@ -489,9 +474,9 @@ export const FocusedWordStudio: React.FC<Props> = ({
         <div className="space-y-1.5 border-t border-slate-100 p-3">
           <button
             onClick={() => setShowDailyExportModal(true)}
-            className="inline-flex w-full items-center justify-center gap-1.5 rounded-xl border border-emerald-200 bg-[#F2F9F7] py-2 text-xs font-bold text-[#0B6E5C] hover:bg-[#E6F4F1]"
+            className="w-full rounded-xl border border-emerald-200 bg-[#F2F9F7] py-2 text-xs font-bold text-[#0B6E5C] hover:bg-[#E6F4F1]"
           >
-            <FileDown className="h-3.5 w-3.5" /> Xuất Sổ Ngày (.docx)
+            Xuất Sổ Ngày (.docx)
           </button>
           <button
             onClick={onGoToPreview}
@@ -521,9 +506,9 @@ export const FocusedWordStudio: React.FC<Props> = ({
                 <button
                   type="button"
                   onClick={() => setShowDailyExportModal(true)}
-                  className="inline-flex items-center gap-1.5 rounded-xl bg-[#0B6E5C] px-4 py-2 text-xs font-bold text-white hover:bg-[#085A4B]"
+                  className="rounded-xl bg-[#0B6E5C] px-4 py-2 text-xs font-bold text-white hover:bg-[#085A4B]"
                 >
-                  <FileDown className="h-4 w-4" /> Xuất Sổ Giáo án Ngày (.docx)
+                  Xuất Sổ Giáo án Ngày (.docx)
                 </button>
               </div>
 
@@ -816,28 +801,28 @@ export const FocusedWordStudio: React.FC<Props> = ({
                 <button
                   onClick={() => setShowMediaBar((v) => !v)}
                   title="Đính kèm link Video YouTube / Slide PowerPoint / Tranh ảnh vào tiết học này"
-                  className={`inline-flex items-center gap-1 rounded-lg border px-2.5 py-1 text-[11px] font-semibold transition ${
+                  className={`rounded-lg border px-2.5 py-1 text-[11px] font-semibold transition ${
                     showMediaBar || (activeLesson.mediaItems?.length || 0) > 0
                       ? 'border-sky-300 bg-sky-50 text-sky-900'
                       : 'border-slate-200 bg-white text-slate-700 hover:bg-slate-50'
                   }`}
                 >
-                  <Film className="h-3 w-3" /> Media ({activeLesson.mediaItems?.length || 0})
+                  Media ({activeLesson.mediaItems?.length || 0})
                 </button>
                 <button
                   onClick={handleSaveAsLessonTemplate}
                   disabled={savingTpl}
                   title="Lưu bài soạn hiện tại vào Thư viện Bài giảng mẫu cá nhân để dùng lại cho lớp khác / năm sau"
-                  className="inline-flex items-center gap-1 rounded-lg border border-amber-200 bg-amber-50/70 px-2.5 py-1 text-[11px] font-semibold text-amber-900 hover:bg-amber-100 disabled:opacity-60"
+                  className="rounded-lg border border-amber-200 bg-amber-50/70 px-2.5 py-1 text-[11px] font-semibold text-amber-900 hover:bg-amber-100 disabled:opacity-60"
                 >
-                  <BookmarkPlus className="h-3 w-3" /> {savingTpl ? 'Đang lưu...' : 'Lưu bài mẫu'}
+                  {savingTpl ? 'Đang lưu...' : 'Lưu bài mẫu'}
                 </button>
                 <button
                   onClick={handleRegeneratePedagogy}
                   title="Tạo lại toàn bộ bố cục I / II / III theo đúng khung sư phạm chuẩn của môn này"
-                  className="inline-flex items-center gap-1 rounded-lg border border-emerald-200 bg-white px-2.5 py-1 text-[11px] font-semibold text-[#0B6E5C] hover:bg-[#E6F4F1]"
+                  className="rounded-lg border border-emerald-200 bg-white px-2.5 py-1 text-[11px] font-semibold text-[#0B6E5C] hover:bg-[#E6F4F1]"
                 >
-                  <RotateCcw className="h-3 w-3" /> Khung chuẩn {resolveSubjectMeta(activeLesson.subjectCode).code}
+                  Khung chuẩn {resolveSubjectMeta(activeLesson.subjectCode).code}
                 </button>
                 <button
                   onClick={() => setZenMode((v) => !v)}
@@ -852,15 +837,13 @@ export const FocusedWordStudio: React.FC<Props> = ({
                 </button>
                 <button
                   onClick={() => setShowAssistant((v) => !v)}
-                  className={`inline-flex items-center gap-1 rounded-lg border px-2.5 py-1 text-[11px] font-semibold ${
+                  className={`rounded-lg border px-2.5 py-1 text-[11px] font-semibold ${
                     showAssistant && !zenMode
                       ? 'border-[#0B6E5C]/30 bg-[#E6F4F1] text-[#0B6E5C]'
                       : 'border-slate-200 bg-white text-slate-600'
                   }`}
                 >
-                  <Sparkles className="h-3 w-3" />
                   Gợi ý môn
-                  <PanelRight className="h-3.5 w-3.5" />
                 </button>
               </div>
             </div>
@@ -875,8 +858,8 @@ export const FocusedWordStudio: React.FC<Props> = ({
                       key={m.id}
                       className="inline-flex items-center gap-1.5 rounded-lg border border-sky-200 bg-white px-2.5 py-1 text-[11px] font-semibold text-sky-900"
                     >
-                      <a href={m.url} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 hover:underline">
-                        {m.title} <ExternalLink className="h-3 w-3" />
+                      <a href={m.url} target="_blank" rel="noreferrer" className="hover:underline">
+                        {m.title} ↗
                       </a>
                       <button
                         type="button"
@@ -959,9 +942,9 @@ export const FocusedWordStudio: React.FC<Props> = ({
                 <button
                   type="button"
                   onClick={handleMarkDayCommentsFixed}
-                  className="inline-flex shrink-0 items-center gap-1 rounded-lg bg-emerald-700 px-3 py-1 text-[11px] font-bold text-white hover:bg-emerald-800"
+                  className="shrink-0 rounded-lg bg-emerald-700 px-3 py-1 text-[11px] font-bold text-white hover:bg-emerald-800"
                 >
-                  <Check className="h-3 w-3" /> Đã sửa xong – Báo BGH
+                  Đã sửa xong – Báo BGH
                 </button>
               </div>
             )}
@@ -983,9 +966,9 @@ export const FocusedWordStudio: React.FC<Props> = ({
             </p>
             <button
               onClick={() => setPickerDay({ dayIdx: target.dayIdx, slotType: 'MAIN' })}
-              className="mt-3 inline-flex items-center gap-1.5 rounded-xl bg-[#0B6E5C] px-4 py-2 text-xs font-semibold text-white hover:bg-[#085A4B]"
+              className="mt-3 rounded-xl bg-[#0B6E5C] px-4 py-2 text-xs font-semibold text-white hover:bg-[#085A4B]"
             >
-              <Plus className="h-4 w-4" /> Thêm tiết chính cho {activeDay.dayLabel}
+              + Thêm tiết chính cho {activeDay.dayLabel}
             </button>
           </div>
         )}
@@ -1116,10 +1099,9 @@ export const FocusedWordStudio: React.FC<Props> = ({
                   type="button"
                   disabled={exportingDaily}
                   onClick={handleExportDailyRangeDocx}
-                  className="inline-flex items-center gap-1.5 rounded-xl bg-[#0B6E5C] px-4 py-2 font-bold text-white hover:bg-[#085A4B] disabled:opacity-60"
+                  className="rounded-xl bg-[#0B6E5C] px-4 py-2 font-bold text-white hover:bg-[#085A4B] disabled:opacity-60"
                 >
-                  <FileDown className="h-4 w-4" />
-                  <span>{exportingDaily ? 'Đang tạo file...' : 'Tải Sổ Ngày (.docx)'}</span>
+                  {exportingDaily ? 'Đang tạo file...' : 'Tải Sổ Ngày (.docx)'}
                 </button>
               </div>
             </div>

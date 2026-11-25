@@ -1,26 +1,8 @@
 import React, { useMemo, useState } from 'react';
 import {
-  AlertTriangle,
-  ArrowRightLeft,
-  CalendarDays,
-  CalendarRange,
-  Check,
-  CheckCircle2,
   ChevronDown,
   ChevronUp,
-  ClipboardPaste,
-  Copy,
-  Grid3X3,
-  Pencil,
-  Plus,
-  RotateCcw,
-  Search,
-  Settings2,
-  Sparkles,
   Star,
-  Table2,
-  Trash2,
-  Users,
   X,
 } from 'lucide-react';
 import type {
@@ -681,35 +663,34 @@ export const AnnualCurriculumView: React.FC<Props> = ({
 
               <button
                 onClick={() => setShowMtMatrix((v) => !v)}
-                className={`inline-flex items-center gap-1.5 rounded-xl border px-3 py-2 text-xs font-semibold transition ${
+                className={`rounded-xl border px-3 py-2 text-xs font-semibold transition ${
                   showMtMatrix
                     ? 'border-[#0B6E5C] bg-[#0B6E5C] text-white'
                     : 'border-[#0B6E5C]/40 bg-[#E6F4F1] text-[#0B6E5C] hover:bg-emerald-100'
                 }`}
               >
-                <Grid3X3 className="h-3.5 w-3.5" /> Ma trận MT × 9 Tháng
+                Ma trận MT × 9 Tháng
               </button>
 
               <button
                 onClick={() => setShowYearOverview((v) => !v)}
-                className={`inline-flex items-center gap-1.5 rounded-xl border px-3 py-2 text-xs font-semibold transition ${
+                className={`rounded-xl border px-3 py-2 text-xs font-semibold transition ${
                   showYearOverview
                     ? 'border-[#0B6E5C] bg-[#E6F4F1] text-[#0B6E5C]'
                     : 'border-slate-200 bg-white text-slate-700 hover:bg-slate-50'
                 }`}
               >
-                <Table2 className="h-3.5 w-3.5" /> Dự kiến Chủ đề năm
+                Dự kiến Chủ đề năm
               </button>
 
               <button
                 onClick={() => setShowCustomMtForm((v) => !v)}
-                className={`inline-flex items-center gap-1.5 rounded-xl border px-3 py-2 text-xs font-semibold transition ${
+                className={`rounded-xl border px-3 py-2 text-xs font-semibold transition ${
                   showCustomMtForm
                     ? 'border-rose-400 bg-rose-50 text-rose-800'
                     : 'border-slate-200 bg-white text-slate-700 hover:bg-slate-50'
                 }`}
               >
-                <Sparkles className="h-3.5 w-3.5 text-rose-600" />
                 {customObjectives.length > 0
                   ? `MT Phát triển (${customObjectives.length})`
                   : '+ Phát triển MT'}
@@ -717,24 +698,24 @@ export const AnnualCurriculumView: React.FC<Props> = ({
 
               <button
                 onClick={() => setShowTimetablePanel((v) => !v)}
-                className={`inline-flex items-center gap-1.5 rounded-xl border px-3.5 py-2 text-xs font-semibold transition ${
+                className={`rounded-xl border px-3.5 py-2 text-xs font-semibold transition ${
                   showTimetablePanel
                     ? 'border-[#0B6E5C] bg-[#E6F4F1] text-[#0B6E5C]'
                     : 'border-slate-200 bg-white text-slate-700 hover:bg-slate-50'
                 }`}
               >
-                <CalendarDays className="h-3.5 w-3.5" /> Thời khóa biểu (Lẻ / Chẵn)
+                Thời khóa biểu (Lẻ / Chẵn)
               </button>
 
               <button
                 onClick={() => setShowProfilePanel((v) => !v)}
-                className={`inline-flex items-center gap-1.5 rounded-xl border px-3.5 py-2 text-xs font-semibold transition ${
+                className={`rounded-xl border px-3.5 py-2 text-xs font-semibold transition ${
                   showProfilePanel
                     ? 'border-[#0B6E5C] bg-[#E6F4F1] text-[#0B6E5C]'
                     : 'border-slate-200 bg-white text-slate-700 hover:bg-slate-50'
                 }`}
               >
-                <Users className="h-3.5 w-3.5" /> Hồ sơ Lớp &amp; DS Trẻ ({annualPlan.profile.students.length} bé)
+                Hồ sơ Lớp &amp; DS Trẻ ({annualPlan.profile.students.length} bé)
               </button>
             </div>
           </div>
@@ -794,18 +775,15 @@ export const AnnualCurriculumView: React.FC<Props> = ({
           {/* Cảnh báo nếu có Mã MT chuẩn BGD chưa được phân bổ vào bất kỳ tháng nào trong 9 tháng (YC-061) */}
           {unallocatedStandardMts.length > 0 && (
             <div className="mt-3 flex flex-wrap items-center justify-between gap-2 rounded-xl border border-rose-200 bg-rose-50 px-4 py-2 text-xs text-rose-900">
-              <div className="flex flex-wrap items-center gap-1.5">
-                <AlertTriangle className="h-4 w-4 shrink-0 text-rose-600" />
-                <span>
-                  <strong>Chưa phân bổ đủ 100% MT chuẩn BGD:</strong> Còn{' '}
-                  <strong>{unallocatedStandardMts.length}</strong> mã MT chưa gắn vào tháng nào (
-                  {unallocatedStandardMts
-                    .slice(0, 8)
-                    .map((o) => o.code)
-                    .join(', ')}
-                  {unallocatedStandardMts.length > 8 ? '...' : ''}).
-                </span>
-              </div>
+              <span>
+                <strong>Chưa phân bổ đủ 100% MT chuẩn BGD:</strong> Còn{' '}
+                <strong>{unallocatedStandardMts.length}</strong> mã MT chưa gắn vào tháng nào (
+                {unallocatedStandardMts
+                  .slice(0, 8)
+                  .map((o) => o.code)
+                  .join(', ')}
+                {unallocatedStandardMts.length > 8 ? '...' : ''}).
+              </span>
               <div className="flex items-center gap-3">
                 <button
                   type="button"
@@ -828,13 +806,10 @@ export const AnnualCurriculumView: React.FC<Props> = ({
           {/* Cảnh báo Vàng khi có Tháng chưa chọn Ngôi sao Đánh giá ★ (YC-046) */}
           {monthsMissingStars.length > 0 && (
             <div className="mt-3 flex flex-wrap items-center justify-between gap-2 rounded-xl border border-amber-300 bg-amber-50 px-4 py-2 text-xs text-amber-950">
-              <div className="flex items-center gap-2">
-                <AlertTriangle className="h-4 w-4 shrink-0 text-amber-600" />
-                <span>
-                  <strong>Cảnh báo phân phối đánh giá:</strong> Chưa chọn Mã MT đánh giá (★) cho{' '}
-                  {monthsMissingStars.map((m) => m.monthLabel).join(', ')}. Cô bấm vào tháng đó và tích ngôi sao ★ cho ít nhất 1 mục tiêu nhé!
-                </span>
-              </div>
+              <span>
+                <strong>Cảnh báo phân phối đánh giá:</strong> Chưa chọn Mã MT đánh giá (★) cho{' '}
+                {monthsMissingStars.map((m) => m.monthLabel).join(', ')}. Cô bấm vào tháng đó và tích ngôi sao ★ cho ít nhất 1 mục tiêu nhé!
+              </span>
               <button
                 type="button"
                 onClick={() => setExpandedThemeId(monthsMissingStars[0].id)}
@@ -967,16 +942,16 @@ export const AnnualCurriculumView: React.FC<Props> = ({
                             <button
                               type="button"
                               onClick={() => startEditCustomObjective(co)}
-                              className="inline-flex items-center gap-1 rounded-lg border border-slate-200 bg-white px-2.5 py-1 text-[11px] font-bold text-slate-700 transition hover:border-[#0B6E5C] hover:text-[#0B6E5C]"
+                              className="rounded-lg border border-slate-200 bg-white px-2.5 py-1 text-[11px] font-bold text-slate-700 transition hover:border-[#0B6E5C] hover:text-[#0B6E5C]"
                             >
-                              <Pencil className="h-3 w-3" /> Sửa
+                              Sửa
                             </button>
                             <button
                               type="button"
                               onClick={() => handleDeleteCustomObjective(co.code)}
-                              className="inline-flex items-center gap-1 rounded-lg border border-rose-200 bg-rose-50 px-2.5 py-1 text-[11px] font-bold text-rose-700 transition hover:bg-rose-600 hover:text-white"
+                              className="rounded-lg border border-rose-200 bg-rose-50 px-2.5 py-1 text-[11px] font-bold text-rose-700 transition hover:bg-rose-600 hover:text-white"
                             >
-                              <Trash2 className="h-3 w-3" /> Xóa
+                              Xóa
                             </button>
                           </div>
                         </div>
@@ -1006,9 +981,9 @@ export const AnnualCurriculumView: React.FC<Props> = ({
                   <button
                     type="button"
                     onClick={handleResetDefaultMtAllocation}
-                    className="inline-flex items-center gap-1 rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-[11px] font-semibold text-slate-700 hover:border-[#0B6E5C] hover:text-[#0B6E5C]"
+                    className="rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-[11px] font-semibold text-slate-700 hover:border-[#0B6E5C] hover:text-[#0B6E5C]"
                   >
-                    <RotateCcw className="h-3 w-3" /> Khôi phục phân phối chuẩn BGD
+                    Khôi phục phân phối chuẩn BGD
                   </button>
                   <button
                     type="button"
@@ -1033,13 +1008,12 @@ export const AnnualCurriculumView: React.FC<Props> = ({
                     </option>
                   ))}
                 </select>
-                <div className="relative min-w-[220px] flex-1">
-                  <Search className="pointer-events-none absolute top-2 left-2.5 h-3.5 w-3.5 text-slate-400" />
+                <div className="min-w-[220px] flex-1">
                   <input
                     value={matrixSearch}
                     onChange={(e) => setMatrixSearch(e.target.value)}
                     placeholder="Tìm nhanh theo mã MT (VD: MT47) hoặc từ khóa nội dung..."
-                    className="w-full rounded-lg border border-slate-200 bg-white py-1.5 pr-3 pl-8 text-xs focus:border-[#0B6E5C] focus:outline-none"
+                    className="w-full rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs focus:border-[#0B6E5C] focus:outline-none"
                   />
                 </div>
               </div>
@@ -1240,9 +1214,9 @@ export const AnnualCurriculumView: React.FC<Props> = ({
                         'Đã sao chép khung Tuần lẻ sang Tuần chẵn!'
                       )
                     }
-                    className="inline-flex items-center gap-1 rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-[11px] font-semibold text-slate-700 hover:border-[#0B6E5C] hover:text-[#0B6E5C]"
+                    className="rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-[11px] font-semibold text-slate-700 hover:border-[#0B6E5C] hover:text-[#0B6E5C]"
                   >
-                    <Copy className="h-3 w-3" /> Copy Tuần lẻ → Tuần chẵn
+                    Copy Tuần lẻ → Tuần chẵn
                   </button>
                   <button
                     onClick={() =>
@@ -1385,9 +1359,9 @@ export const AnnualCurriculumView: React.FC<Props> = ({
                   <button
                     type="button"
                     onClick={() => setShowBulkPaste((v) => !v)}
-                    className="inline-flex items-center gap-1 rounded-lg border border-emerald-200 bg-white px-2.5 py-1 text-[11px] font-semibold text-[#0B6E5C] hover:bg-[#E6F4F1]"
+                    className="rounded-lg border border-emerald-200 bg-white px-2.5 py-1 text-[11px] font-semibold text-[#0B6E5C] hover:bg-[#E6F4F1]"
                   >
-                    <ClipboardPaste className="h-3 w-3" /> {showBulkPaste ? 'Đóng dán nhanh' : 'Dán nhanh từ Excel'}
+                    {showBulkPaste ? 'Đóng dán nhanh' : 'Dán nhanh từ Excel'}
                   </button>
                 </div>
 
@@ -1444,9 +1418,9 @@ export const AnnualCurriculumView: React.FC<Props> = ({
                   </select>
                   <button
                     onClick={handleAddStudent}
-                    className="inline-flex items-center gap-1 rounded-lg bg-[#0B6E5C] px-3 py-1.5 text-xs font-semibold text-white hover:bg-[#085A4B]"
+                    className="rounded-lg bg-[#0B6E5C] px-3 py-1.5 text-xs font-semibold text-white hover:bg-[#085A4B]"
                   >
-                    <Plus className="h-3.5 w-3.5" /> Thêm bé
+                    + Thêm bé
                   </button>
                 </div>
                 <div className="max-h-40 space-y-1 overflow-y-auto rounded-lg border border-slate-200 bg-white p-2">
@@ -1469,10 +1443,10 @@ export const AnnualCurriculumView: React.FC<Props> = ({
                       </span>
                       <button
                         onClick={() => handleRemoveStudent(st.id)}
-                        className="text-slate-300 hover:text-rose-600"
+                        className="rounded px-1.5 py-0.5 text-[11px] text-slate-400 hover:bg-rose-50 hover:text-rose-600"
                         title="Xóa khỏi danh sách"
                       >
-                        <Trash2 className="h-3.5 w-3.5" />
+                        Xóa
                       </button>
                     </div>
                   ))}
@@ -1499,8 +1473,8 @@ export const AnnualCurriculumView: React.FC<Props> = ({
                   className="flex cursor-pointer flex-wrap items-center justify-between gap-3 px-5 py-4 hover:bg-slate-50/70"
                 >
                   <div className="flex flex-wrap items-center gap-3">
-                    <span className="inline-flex items-center gap-1 rounded-xl bg-[#0B6E5C] px-3 py-1.5 text-xs font-bold text-white">
-                      <CalendarRange className="h-3.5 w-3.5" /> {theme.monthLabel}
+                    <span className="rounded-xl bg-[#0B6E5C] px-3 py-1.5 text-xs font-bold text-white">
+                      {theme.monthLabel}
                     </span>
                     <div>
                       <div className="text-sm font-bold text-slate-900">
@@ -1587,13 +1561,12 @@ export const AnnualCurriculumView: React.FC<Props> = ({
                             onClick={() =>
                               setConfigThemeId((cur) => (cur === theme.id ? '' : theme.id))
                             }
-                            className={`inline-flex items-center gap-1 rounded-lg border px-2.5 py-1 text-[11px] font-bold transition ${
+                            className={`rounded-lg border px-2.5 py-1 text-[11px] font-bold transition ${
                               configThemeId === theme.id
                                 ? 'border-[#0B6E5C] bg-[#0B6E5C] text-white'
                                 : 'border-[#0B6E5C]/40 bg-white text-[#0B6E5C] hover:bg-[#E6F4F1]'
                             }`}
                           >
-                            <Settings2 className="h-3 w-3" />
                             {configThemeId === theme.id
                               ? `Đóng cấu hình MT ${theme.monthLabel}`
                               : `+ Cấu hình / Chọn lại MT cho ${theme.monthLabel}`}
@@ -1646,13 +1619,12 @@ export const AnnualCurriculumView: React.FC<Props> = ({
                                 </option>
                               ))}
                             </select>
-                            <div className="relative min-w-[220px] flex-1">
-                              <Search className="pointer-events-none absolute top-2 left-2.5 h-3.5 w-3.5 text-slate-400" />
+                            <div className="min-w-[220px] flex-1">
                               <input
                                 value={configSearch}
                                 onChange={(e) => setConfigSearch(e.target.value)}
                                 placeholder={`Tìm Mã MT hoặc nội dung để đưa vào ${theme.monthLabel}...`}
-                                className="w-full rounded-lg border border-slate-200 bg-slate-50 py-1.5 pr-3 pl-8 text-xs focus:border-[#0B6E5C] focus:bg-white focus:outline-none"
+                                className="w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs focus:border-[#0B6E5C] focus:bg-white focus:outline-none"
                               />
                             </div>
                           </div>
@@ -1714,30 +1686,22 @@ export const AnnualCurriculumView: React.FC<Props> = ({
                                       <button
                                         type="button"
                                         onClick={() => toggleThemeMtAllocation(theme.id, o.code)}
-                                        className={`inline-flex items-center gap-1 rounded-lg px-2.5 py-1 text-[11px] font-bold transition ${
+                                        className={`rounded-lg px-2.5 py-1 text-[11px] font-bold transition ${
                                           inThisMonth
                                             ? 'bg-emerald-600 text-white hover:bg-rose-600'
                                             : 'border border-[#0B6E5C] bg-white text-[#0B6E5C] hover:bg-[#0B6E5C] hover:text-white'
                                         }`}
                                       >
-                                        {inThisMonth ? (
-                                          <>
-                                            <Check className="h-3 w-3" /> Đã chọn
-                                          </>
-                                        ) : (
-                                          <>
-                                            <Plus className="h-3 w-3" /> Thêm
-                                          </>
-                                        )}
+                                        {inThisMonth ? 'Đã chọn' : '+ Thêm'}
                                       </button>
                                       {!inThisMonth && otherMonths.length > 0 && (
                                         <button
                                           type="button"
                                           onClick={() => moveMtExclusivelyToTheme(theme.id, o.code)}
                                           title={`Rút ${o.code} khỏi ${otherMonths.join(', ')} và chuyển hẳn sang ${theme.monthLabel}`}
-                                          className="inline-flex items-center gap-0.5 rounded px-1.5 py-0.5 text-[10px] font-semibold text-slate-500 hover:bg-slate-100 hover:text-[#0B6E5C]"
+                                          className="rounded px-1.5 py-0.5 text-[10px] font-semibold text-slate-500 hover:bg-slate-100 hover:text-[#0B6E5C]"
                                         >
-                                          <ArrowRightLeft className="h-2.5 w-2.5" /> Chuyển sang đây
+                                          Chuyển sang đây
                                         </button>
                                       )}
                                     </div>
@@ -1793,7 +1757,6 @@ export const AnnualCurriculumView: React.FC<Props> = ({
                                   }`}
                                 />
                               </button>
-                              {done && <CheckCircle2 className="h-3 w-3 text-emerald-700" />}
                               <span>{code}</span>
                               {isCustom && (
                                 <span className="rounded bg-rose-200/70 px-1 py-0.2 text-[9px] font-extrabold uppercase text-rose-900">
@@ -1813,9 +1776,9 @@ export const AnnualCurriculumView: React.FC<Props> = ({
                                     startEditCustomObjective(obj);
                                   }}
                                   title={`Sửa nội dung / tháng áp dụng của ${code}`}
-                                  className="ml-0.5 rounded p-0.5 text-rose-700 opacity-75 transition hover:bg-rose-200/70 hover:opacity-100"
+                                  className="ml-0.5 rounded px-1.5 py-0.2 text-[10px] font-bold text-rose-800 hover:bg-rose-200/80"
                                 >
-                                  <Pencil className="h-3 w-3" />
+                                  Sửa
                                 </button>
                               )}
                               <button
@@ -1835,7 +1798,7 @@ export const AnnualCurriculumView: React.FC<Props> = ({
                                 }
                                 className="ml-0.5 rounded p-0.5 text-slate-400 opacity-70 transition hover:bg-rose-100 hover:text-rose-700 group-hover:opacity-100"
                               >
-                                {isCustom ? <Trash2 className="h-3 w-3 text-rose-600" /> : <X className="h-3 w-3" />}
+                                <X className="h-3 w-3" />
                               </button>
                             </span>
                           );

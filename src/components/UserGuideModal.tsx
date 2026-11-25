@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowRight, BookOpen, CheckCircle2, Clock, HelpCircle, Sparkles, X } from 'lucide-react';
+import { X } from 'lucide-react';
 import { DAILY_ROUTINES_BANK } from '../utils/dailyRoutinesBank';
 
 type WorkspaceStep = 'annual' | 'board' | 'shared' | 'focus' | 'preview' | 'closing';
@@ -113,16 +113,11 @@ export const UserGuideModal: React.FC<Props> = ({ onClose, onGoToStep }) => {
       <div className="flex max-h-[88vh] w-full max-w-3xl flex-col overflow-hidden rounded-2xl bg-white shadow-2xl">
         {/* Clean Header */}
         <div className="flex items-center justify-between border-b border-slate-200 px-6 py-4">
-          <div className="flex items-center gap-2.5">
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#E6F4F1] text-[#0B6E5C]">
-              <HelpCircle className="h-5 w-5" />
-            </div>
-            <div>
-              <h2 className="text-base font-bold text-slate-900">Hướng dẫn sử dụng nhanh</h2>
-              <p className="text-xs text-slate-500">
-                Quy trình 6 bước khép kín giúp giáo viên mầm non lập KHGD Năm – Tháng – Tuần – Ngày chuẩn Bộ GD&amp;ĐT
-              </p>
-            </div>
+          <div>
+            <h2 className="text-base font-bold text-slate-900">Hướng dẫn sử dụng nhanh</h2>
+            <p className="text-xs text-slate-500">
+              Quy trình 6 bước khép kín giúp giáo viên mầm non lập KHGD Năm – Tháng – Tuần – Ngày chuẩn Bộ GD&amp;ĐT
+            </p>
           </div>
           <button
             onClick={onClose}
@@ -136,33 +131,33 @@ export const UserGuideModal: React.FC<Props> = ({ onClose, onGoToStep }) => {
         <div className="flex flex-wrap gap-2 border-b border-slate-100 bg-slate-50/70 px-6 py-2.5">
           <button
             onClick={() => setTab('flow')}
-            className={`inline-flex items-center gap-1.5 rounded-lg px-3.5 py-1.5 text-xs font-semibold transition ${
+            className={`rounded-lg px-3.5 py-1.5 text-xs font-semibold transition ${
               tab === 'flow'
                 ? 'bg-[#0B6E5C] text-white'
                 : 'bg-white text-slate-600 ring-1 ring-slate-200 hover:text-slate-900'
             }`}
           >
-            <BookOpen className="h-3.5 w-3.5" /> Quy trình 6 bước KHGD
+            Quy trình 6 bước KHGD
           </button>
           <button
             onClick={() => setTab('daily')}
-            className={`inline-flex items-center gap-1.5 rounded-lg px-3.5 py-1.5 text-xs font-semibold transition ${
+            className={`rounded-lg px-3.5 py-1.5 text-xs font-semibold transition ${
               tab === 'daily'
                 ? 'bg-[#0B6E5C] text-white'
                 : 'bg-white text-slate-600 ring-1 ring-slate-200 hover:text-slate-900'
             }`}
           >
-            <Clock className="h-3.5 w-3.5" /> Hoạt động hằng ngày (7h–17h)
+            Hoạt động hằng ngày (7h–17h)
           </button>
           <button
             onClick={() => setTab('tips')}
-            className={`inline-flex items-center gap-1.5 rounded-lg px-3.5 py-1.5 text-xs font-semibold transition ${
+            className={`rounded-lg px-3.5 py-1.5 text-xs font-semibold transition ${
               tab === 'tips'
                 ? 'bg-[#0B6E5C] text-white'
                 : 'bg-white text-slate-600 ring-1 ring-slate-200 hover:text-slate-900'
             }`}
           >
-            <Sparkles className="h-3.5 w-3.5" /> Mẹo dùng nhanh &amp; Hỏi đáp
+            Mẹo dùng nhanh &amp; Hỏi đáp
           </button>
         </div>
 
@@ -192,16 +187,16 @@ export const UserGuideModal: React.FC<Props> = ({ onClose, onGoToStep }) => {
                         onGoToStep(item.step);
                         onClose();
                       }}
-                      className="inline-flex items-center gap-1 rounded-lg bg-[#E6F4F1] px-3 py-1.5 text-xs font-semibold text-[#0B6E5C] hover:bg-[#0B6E5C] hover:text-white"
+                      className="rounded-lg bg-[#E6F4F1] px-3 py-1.5 text-xs font-semibold text-[#0B6E5C] hover:bg-[#0B6E5C] hover:text-white"
                     >
-                      Mở Bước {item.num} <ArrowRight className="h-3.5 w-3.5" />
+                      Mở Bước {item.num} →
                     </button>
                   </div>
                   <p className="mt-2.5 text-xs leading-relaxed text-slate-600">{item.summary}</p>
                   <ul className="mt-2.5 space-y-1.5 text-xs text-slate-700">
                     {item.actions.map((act, i) => (
                       <li key={i} className="flex items-start gap-2">
-                        <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#0B6E5C]" />
+                        <span className="font-bold text-[#0B6E5C]">•</span>
                         <span>{act}</span>
                       </li>
                     ))}

@@ -1,16 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { Editor } from '@tiptap/react';
-import {
-  AlertCircle,
-  CalendarDays,
-  CheckCircle2,
-  FileSpreadsheet,
-  FileText,
-  RefreshCw,
-  ShieldCheck,
-  Sparkles,
-  X,
-} from 'lucide-react';
+import { X } from 'lucide-react';
 import type { ObjectivesDataset, WeeklyPlanDocument } from '../../shared/types';
 import { smartInsertIntoEditor, type SmartInsertOptions } from '../utils/editorInsert';
 import { runQualityChecks } from '../utils/helpers';
@@ -146,9 +136,9 @@ export const FullPreviewAuditView: React.FC<Props> = ({
         <div className="border-t border-slate-100 p-3">
           <button
             onClick={handleResyncNow}
-            className="inline-flex w-full items-center justify-center gap-1.5 rounded-xl border border-emerald-200 bg-[#F2F9F7] px-3 py-2 text-[11px] font-semibold text-[#0B6E5C] hover:bg-[#E6F4F1]"
+            className="w-full rounded-xl border border-emerald-200 bg-[#F2F9F7] px-3 py-2 text-[11px] font-semibold text-[#0B6E5C] hover:bg-[#E6F4F1]"
           >
-            <RefreshCw className="h-3.5 w-3.5" /> Đồng bộ lại từ Bước 1–3
+            Đồng bộ lại từ Bước 1–3
           </button>
         </div>
       </aside>
@@ -171,15 +161,15 @@ export const FullPreviewAuditView: React.FC<Props> = ({
           <div className="flex items-center gap-1.5">
             <button
               onClick={onExportParentDocx}
-              className="inline-flex items-center gap-1 rounded-lg border border-amber-200 bg-amber-50 px-2.5 py-1 text-xs font-semibold text-amber-900 hover:bg-amber-100"
+              className="rounded-lg border border-amber-200 bg-amber-50 px-2.5 py-1 text-xs font-semibold text-amber-900 hover:bg-amber-100"
             >
-              <CalendarDays className="h-3.5 w-3.5" /> Lịch Phụ huynh (.docx)
+              Lịch Phụ huynh (.docx)
             </button>
             <button
               onClick={() => setMobileRightOpen(true)}
-              className="inline-flex items-center gap-1 rounded-lg bg-[#0B6E5C] px-3 py-1 text-xs font-semibold text-white hover:bg-[#085A4B]"
+              className="rounded-lg bg-[#0B6E5C] px-3 py-1 text-xs font-semibold text-white hover:bg-[#085A4B]"
             >
-              <ShieldCheck className="h-3.5 w-3.5" /> Kiểm duyệt &amp; Xuất
+              Kiểm duyệt &amp; Xuất
             </button>
           </div>
         </div>
@@ -192,9 +182,9 @@ export const FullPreviewAuditView: React.FC<Props> = ({
             <button
               type="button"
               onClick={handleResyncNow}
-              className="inline-flex items-center gap-1 rounded-lg border border-amber-300 bg-white px-2.5 py-1 text-[11px] font-bold text-amber-900 hover:bg-amber-100"
+              className="rounded-lg border border-amber-300 bg-white px-2.5 py-1 text-[11px] font-bold text-amber-900 hover:bg-amber-100"
             >
-              <RefreshCw className="h-3 w-3" /> Đồng bộ mới lại từ Bước 1–3
+              Đồng bộ mới lại từ Bước 1–3
             </button>
           </div>
         )}
@@ -225,19 +215,19 @@ export const FullPreviewAuditView: React.FC<Props> = ({
           <div className="grid flex-1 grid-cols-2 gap-1 rounded-xl bg-slate-100 p-1 text-xs font-semibold">
             <button
               onClick={() => setRightMode('audit')}
-              className={`inline-flex items-center justify-center gap-1 rounded-lg py-1.5 transition ${
+              className={`rounded-lg py-1.5 transition ${
                 rightMode === 'audit' ? 'bg-white text-[#0B6E5C] shadow-2xs' : 'text-slate-600'
               }`}
             >
-              <ShieldCheck className="h-3.5 w-3.5" /> Kiểm duyệt ({passCount}/{checks.length})
+              Kiểm duyệt ({passCount}/{checks.length})
             </button>
             <button
               onClick={() => setRightMode('assistant')}
-              className={`inline-flex items-center justify-center gap-1 rounded-lg py-1.5 transition ${
+              className={`rounded-lg py-1.5 transition ${
                 rightMode === 'assistant' ? 'bg-white text-[#0B6E5C] shadow-2xs' : 'text-slate-600'
               }`}
             >
-              <Sparkles className="h-3.5 w-3.5" /> Chèn gợi ý
+              Chèn gợi ý
             </button>
           </div>
           {mobileRightOpen && (
@@ -262,39 +252,29 @@ export const FullPreviewAuditView: React.FC<Props> = ({
                 onClick={() =>
                   onExportFullDocx(editorRef.current ? editorRef.current.getHTML() : compiledHtml)
                 }
-                className="flex w-full items-center gap-3 rounded-2xl bg-[#0B6E5C] p-3.5 text-left text-white shadow-sm transition hover:bg-[#085A4B]"
+                className="block w-full rounded-2xl bg-[#0B6E5C] p-3.5 text-left text-white shadow-sm transition hover:bg-[#085A4B]"
               >
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white/15">
-                  <FileText className="h-5 w-5" />
-                </div>
-                <div className="min-w-0">
-                  <div className="text-xs font-bold">Xuất Giáo án đầy đủ (.docx chuẩn BGD)</div>
-                  <div className="mt-0.5 text-[11px] text-emerald-100">
-                    Đủ 7 phần • Khổ A4 NĐ 30/2020 • Nộp Tổ trưởng &amp; BGH
-                  </div>
+                <div className="text-xs font-bold">Xuất Giáo án đầy đủ (.docx chuẩn BGD)</div>
+                <div className="mt-0.5 text-[11px] text-emerald-100">
+                  Đủ 7 phần • Khổ A4 NĐ 30/2020 • Nộp Tổ trưởng &amp; BGH
                 </div>
               </button>
 
               <button
                 onClick={onExportParentDocx}
-                className="flex w-full items-center gap-3 rounded-2xl border border-amber-200 bg-amber-50/80 p-3.5 text-left text-amber-950 transition hover:bg-amber-100/80"
+                className="block w-full rounded-2xl border border-amber-200 bg-amber-50/80 p-3.5 text-left text-amber-950 transition hover:bg-amber-100/80"
               >
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-amber-200/70 text-amber-900">
-                  <CalendarDays className="h-5 w-5" />
-                </div>
-                <div className="min-w-0">
-                  <div className="text-xs font-bold">Xuất Tờ Lịch Tuần 1 trang (.docx)</div>
-                  <div className="mt-0.5 text-[11px] text-amber-800">
-                    Gọn 1 trang A4 ngang • Dán bảng tin lớp / gửi Zalo Phụ huynh
-                  </div>
+                <div className="text-xs font-bold">Xuất Tờ Lịch Tuần 1 trang (.docx)</div>
+                <div className="mt-0.5 text-[11px] text-amber-800">
+                  Gọn 1 trang A4 ngang • Dán bảng tin lớp / gửi Zalo Phụ huynh
                 </div>
               </button>
 
               <button
                 onClick={onExportXlsx}
-                className="inline-flex w-full items-center justify-center gap-1.5 rounded-xl border border-slate-200 bg-slate-50 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-100"
+                className="w-full rounded-xl border border-slate-200 bg-slate-50 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-100"
               >
-                <FileSpreadsheet className="h-4 w-4 text-emerald-700" /> Xuất thêm bảng tổng hợp Excel (.xlsx)
+                Xuất thêm bảng tổng hợp Excel (.xlsx)
               </button>
             </div>
 
@@ -318,21 +298,23 @@ export const FullPreviewAuditView: React.FC<Props> = ({
               {checks.map((c, idx) => (
                 <div
                   key={idx}
-                  className={`flex items-start gap-2.5 rounded-xl border p-2.5 text-xs ${
+                  className={`rounded-xl border p-2.5 text-xs ${
                     c.ok
                       ? 'border-emerald-200/70 bg-emerald-50/40'
                       : 'border-amber-200 bg-amber-50/60'
                   }`}
                 >
-                  {c.ok ? (
-                    <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" />
-                  ) : (
-                    <AlertCircle className="mt-0.5 h-4 w-4 shrink-0 text-amber-600" />
-                  )}
-                  <div className="min-w-0">
-                    <div className="font-bold text-slate-800">{c.label}</div>
-                    <div className="mt-0.5 text-[11px] text-slate-600">{c.detail}</div>
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="font-bold text-slate-800">{c.label}</span>
+                    <span
+                      className={`shrink-0 rounded px-1.5 py-0.5 text-[10px] font-bold ${
+                        c.ok ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-200 text-amber-950'
+                      }`}
+                    >
+                      {c.ok ? 'Đạt' : 'Cần bổ sung'}
+                    </span>
                   </div>
+                  <div className="mt-1 text-[11px] text-slate-600">{c.detail}</div>
                 </div>
               ))}
             </div>

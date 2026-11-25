@@ -1,16 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import {
-  Bookmark,
-  BookOpen,
-  Database,
-  ExternalLink,
-  Feather,
-  Film,
-  Plus,
-  Search,
-  Trash2,
-  X,
-} from 'lucide-react';
+import { Trash2, X } from 'lucide-react';
 import type {
   AgeGroupId,
   ObjectiveItem,
@@ -154,35 +143,35 @@ export const ReferenceLibraryModal: React.FC<Props> = ({
             <div className="ml-1 flex flex-wrap gap-1 rounded-xl bg-slate-100 p-1 text-xs font-semibold">
               <button
                 onClick={() => setTab('bank')}
-                className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-1 transition ${
+                className={`rounded-lg px-3 py-1 transition ${
                   tab === 'bank' ? 'bg-white text-[#0B6E5C] shadow-2xs' : 'text-slate-600'
                 }`}
               >
-                <BookOpen className="h-3.5 w-3.5" /> 345 Mục tiêu ({dataset.totalActivities} HĐ)
+                345 Mục tiêu ({dataset.totalActivities} HĐ)
               </button>
               <button
                 onClick={() => setTab('works')}
-                className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-1 transition ${
+                className={`rounded-lg px-3 py-1 transition ${
                   tab === 'works' ? 'bg-white text-[#0B6E5C] shadow-2xs' : 'text-slate-600'
                 }`}
               >
-                <Feather className="h-3.5 w-3.5" /> Kho Ngữ liệu &amp; 29 Chữ cái
+                Kho Ngữ liệu &amp; 29 Chữ cái
               </button>
               <button
                 onClick={() => setTab('media')}
-                className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-1 transition ${
+                className={`rounded-lg px-3 py-1 transition ${
                   tab === 'media' ? 'bg-white text-[#0B6E5C] shadow-2xs' : 'text-slate-600'
                 }`}
               >
-                <Film className="h-3.5 w-3.5" /> Bài mẫu &amp; Kho Media
+                Bài mẫu &amp; Kho Media
               </button>
               <button
                 onClick={() => setTab('crawled')}
-                className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-1 transition ${
+                className={`rounded-lg px-3 py-1 transition ${
                   tab === 'crawled' ? 'bg-white text-[#0B6E5C] shadow-2xs' : 'text-slate-600'
                 }`}
               >
-                <Database className="h-3.5 w-3.5" /> Giáo án thực tế ({crawledSummary.totalDocs})
+                Giáo án thực tế ({crawledSummary.totalDocs})
               </button>
             </div>
           </div>
@@ -249,13 +238,12 @@ export const ReferenceLibraryModal: React.FC<Props> = ({
                     </button>
                   ))}
 
-                  <div className="relative">
-                    <Search className="pointer-events-none absolute top-2 left-2.5 h-3.5 w-3.5 text-slate-400" />
+                  <div>
                     <input
                       value={workQuery}
                       onChange={(e) => setWorkQuery(e.target.value)}
                       placeholder="Tìm tên bài thơ, bài hát, chữ cái..."
-                      className="w-56 rounded-xl border border-slate-200 bg-slate-50 py-1.5 pr-3 pl-8 text-xs focus:border-[#0B6E5C] focus:bg-white focus:outline-none"
+                      className="w-56 rounded-xl border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs focus:border-[#0B6E5C] focus:bg-white focus:outline-none"
                     />
                   </div>
                 </div>
@@ -308,9 +296,9 @@ export const ReferenceLibraryModal: React.FC<Props> = ({
                           onInsertCrawledLesson({ subject: subj, topic: topicPrefix }, '', selectedAgeGroup);
                           onClose();
                         }}
-                        className="mt-3 inline-flex w-full items-center justify-center gap-1.5 rounded-xl bg-[#0B6E5C] px-3 py-2 text-xs font-bold text-white hover:bg-[#085A4B]"
+                        className="mt-3 w-full rounded-xl bg-[#0B6E5C] px-3 py-2 text-xs font-bold text-white hover:bg-[#085A4B]"
                       >
-                        <Plus className="h-3.5 w-3.5" /> Đưa tác phẩm này thành 1 tiết trong tuần
+                        + Đưa tác phẩm này thành 1 tiết trong tuần
                       </button>
                     </div>
                   );
@@ -322,9 +310,8 @@ export const ReferenceLibraryModal: React.FC<Props> = ({
               {/* Khối 1: Bài giảng mẫu cá nhân đã lưu từ Bước 4 */}
               <div className="rounded-2xl border border-slate-200 bg-white p-4">
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2 text-sm font-bold text-slate-900">
-                    <Bookmark className="h-4 w-4 text-amber-600" />
-                    <span>Bài giảng mẫu cá nhân đã lưu ({savedTemplates.length})</span>
+                  <div className="text-sm font-bold text-slate-900">
+                    Bài giảng mẫu cá nhân đã lưu ({savedTemplates.length})
                   </div>
                   <span className="text-xs text-slate-400">
                     Bấm “Lưu bài mẫu” khi soạn ở mục Giáo án Ngày để cất vào đây
@@ -389,9 +376,9 @@ export const ReferenceLibraryModal: React.FC<Props> = ({
                   </div>
                   <button
                     onClick={() => setShowAddMedia((v) => !v)}
-                    className="inline-flex items-center gap-1.5 rounded-xl bg-[#0B6E5C] px-3.5 py-2 text-xs font-bold text-white hover:bg-[#085A4B]"
+                    className="rounded-xl bg-[#0B6E5C] px-3.5 py-2 text-xs font-bold text-white hover:bg-[#085A4B]"
                   >
-                    <Plus className="h-3.5 w-3.5" /> {showAddMedia ? 'Đóng biểu mẫu' : 'Thêm Video / Học liệu mới'}
+                    {showAddMedia ? 'Đóng biểu mẫu' : '+ Thêm Video / Học liệu mới'}
                   </button>
                 </div>
 
@@ -499,10 +486,9 @@ export const ReferenceLibraryModal: React.FC<Props> = ({
                           href={m.url}
                           target="_blank"
                           rel="noreferrer"
-                          title="Mở xem học liệu"
-                          className="rounded-lg border border-slate-200 bg-white p-1.5 text-slate-600 hover:text-[#0B6E5C]"
+                          className="rounded-lg border border-slate-200 bg-white px-2.5 py-1 text-xs font-semibold text-slate-700 hover:border-[#0B6E5C] hover:text-[#0B6E5C]"
                         >
-                          <ExternalLink className="h-3.5 w-3.5" />
+                          Mở xem
                         </a>
                         {m.id.startsWith('med_17') && (
                           <button

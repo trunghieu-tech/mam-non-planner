@@ -1,18 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import {
-  Check,
-  CheckCircle2,
-  Dumbbell,
-  HeartHandshake,
-  Network,
-  Plus,
-  Puzzle,
-  Search,
-  Sparkles,
-  Sun,
-  Target,
-  Trash2,
-} from 'lucide-react';
+import { Check, Trash2 } from 'lucide-react';
 import type { DomainKey, ObjectivesDataset, WeeklyPlanDocument } from '../../shared/types';
 import { normalizePlainSuggestion } from '../utils/editorInsert';
 import { domainToKey, normVN } from '../utils/helpers';
@@ -155,13 +142,13 @@ export const SharedBlocksView: React.FC<Props> = ({
     });
   }, [ageObjectives, mtDomainFilter, mtSearch, isNhaTre]);
 
-  const TABS: Array<{ id: BlockTab; label: string; icon: React.ReactNode; badge: string }> = [
-    { id: 'mt', label: 'Mục tiêu & Mã MT', icon: <Target className="h-4 w-4" />, badge: `${attachedMtSet.size} MT` },
-    { id: 'tds', label: 'Thể dục sáng', icon: <Dumbbell className="h-4 w-4" />, badge: `${plan.morningExercise.moves.length} ĐT` },
-    { id: 'corners', label: 'Bảng 5 Góc chơi', icon: <Puzzle className="h-4 w-4" />, badge: `${plan.cornerTable.length} góc` },
-    { id: 'outdoor', label: 'HĐ Ngoài trời', icon: <Sun className="h-4 w-4" />, badge: `${plan.outdoorTable.length} mục` },
-    { id: 'routines', label: 'Lễ giáo & Nêu gương', icon: <HeartHandshake className="h-4 w-4" />, badge: '3 TCBN' },
-    { id: 'network', label: 'Mạng Chủ đề (T1)', icon: <Network className="h-4 w-4" />, badge: plan.includeThemeSection ? 'Bật' : 'Ẩn' },
+  const TABS: Array<{ id: BlockTab; label: string; badge: string }> = [
+    { id: 'mt', label: 'Mục tiêu & Mã MT', badge: `${attachedMtSet.size} MT` },
+    { id: 'tds', label: 'Thể dục sáng', badge: `${plan.morningExercise.moves.length} ĐT` },
+    { id: 'corners', label: 'Bảng 5 Góc chơi', badge: `${plan.cornerTable.length} góc` },
+    { id: 'outdoor', label: 'HĐ Ngoài trời', badge: `${plan.outdoorTable.length} mục` },
+    { id: 'routines', label: 'Lễ giáo & Nêu gương', badge: '3 TCBN' },
+    { id: 'network', label: 'Mạng Chủ đề (T1)', badge: plan.includeThemeSection ? 'Bật' : 'Ẩn' },
   ];
 
   return (
@@ -294,13 +281,12 @@ export const SharedBlocksView: React.FC<Props> = ({
                 <div className="text-xs font-bold text-slate-900">
                   Tick chọn nhanh Mục tiêu — {DOMAIN_VISUALS.find((d) => d.key === mtDomainFilter)?.label}
                 </div>
-                <div className="relative w-full sm:w-64">
-                  <Search className="pointer-events-none absolute top-2 left-2.5 h-3.5 w-3.5 text-slate-400" />
+                <div className="w-full sm:w-64">
                   <input
                     value={mtSearch}
                     onChange={(e) => setMtSearch(e.target.value)}
                     placeholder="Tìm mã MT, từ khóa..."
-                    className="w-full rounded-lg border border-slate-200 bg-slate-50 py-1.5 pr-3 pl-8 text-xs focus:border-[#0B6E5C] focus:bg-white focus:outline-none"
+                    className="w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs focus:border-[#0B6E5C] focus:bg-white focus:outline-none"
                   />
                 </div>
               </div>
@@ -559,8 +545,8 @@ export const SharedBlocksView: React.FC<Props> = ({
 
             {/* Right: Live Corner Ideas grouped cleanly by each of the 5 corners */}
             <div className="rounded-2xl border border-teal-200 bg-white p-4 shadow-2xs lg:col-span-4">
-              <div className="flex items-center gap-1.5 text-xs font-bold text-[#0B6E5C]">
-                <Sparkles className="h-3.5 w-3.5" /> Ý tưởng chia riêng theo từng Góc chơi
+              <div className="text-xs font-bold text-[#0B6E5C]">
+                Ý tưởng chia riêng theo từng Góc chơi
               </div>
               <p className="mt-0.5 text-[11px] text-slate-500">
                 Chọn góc muốn tham khảo → bấm để thêm thẳng vào đúng góc bên trái.
@@ -924,9 +910,9 @@ export const SharedBlocksView: React.FC<Props> = ({
                     ],
                   })
                 }
-                className="inline-flex items-center gap-1 rounded-lg bg-[#E6F4F1] px-3 py-1.5 text-xs font-semibold text-[#0B6E5C] hover:bg-emerald-100"
+                className="rounded-lg bg-[#E6F4F1] px-3 py-1.5 text-xs font-semibold text-[#0B6E5C] hover:bg-emerald-100"
               >
-                <Plus className="h-3.5 w-3.5" /> Thêm nhánh tuần
+                + Thêm nhánh tuần
               </button>
             </div>
 

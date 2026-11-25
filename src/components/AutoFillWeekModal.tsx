@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { Check, RefreshCw, Sparkles, Wand2, X } from 'lucide-react';
+import { X } from 'lucide-react';
 import type {
   AgeGroupId,
   DomainKey,
@@ -295,9 +295,7 @@ export const AutoFillWeekModal: React.FC<Props> = ({
         <div className="flex items-center justify-between border-b border-slate-200 bg-[#F2F9F7] px-5 py-4">
           <div>
             <div className="flex flex-wrap items-center gap-2 text-xs font-bold uppercase text-[#0B6E5C]">
-              <span className="inline-flex items-center gap-1.5">
-                <Wand2 className="h-4 w-4" /> Tự động xếp lịch tuần thông minh (1 chạm)
-              </span>
+              <span>Tự động xếp lịch tuần thông minh (1 chạm)</span>
               {usingCustomTimetable && (
                 <span className="rounded-full bg-white px-2 py-0.5 text-[10px] font-bold normal-case text-[#0B6E5C] ring-1 ring-emerald-200">
                   Theo Thời khóa biểu {isOddWeek ? 'Tuần lẻ' : 'Tuần chẵn'}
@@ -352,9 +350,9 @@ export const AutoFillWeekModal: React.FC<Props> = ({
                     {sl.candidates.length > 1 && (
                       <button
                         onClick={() => cycleCandidate(idx)}
-                        className="shrink-0 inline-flex items-center gap-1 rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-[11px] font-semibold text-slate-700 hover:border-[#0B6E5C] hover:text-[#0B6E5C]"
+                        className="shrink-0 rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-[11px] font-semibold text-slate-700 hover:border-[#0B6E5C] hover:text-[#0B6E5C]"
                       >
-                        <RefreshCw className="h-3 w-3" /> Đổi bài ({sl.chosenIdx + 1}/{sl.candidates.length})
+                        Đổi bài ({sl.chosenIdx + 1}/{sl.candidates.length})
                       </button>
                     )}
                   </div>
@@ -365,8 +363,8 @@ export const AutoFillWeekModal: React.FC<Props> = ({
         </div>
 
         <div className="flex items-center justify-between border-t border-slate-200 bg-slate-50 px-5 py-3.5">
-          <span className="inline-flex items-center gap-1 text-[11px] text-slate-500">
-            <Sparkles className="h-3.5 w-3.5 text-[#0B6E5C]" /> Có thể hoàn tác (Undo) ngay sau khi áp dụng nếu muốn quay lại.
+          <span className="text-[11px] text-slate-500">
+            Có thể hoàn tác (Undo) ngay sau khi áp dụng nếu muốn quay lại.
           </span>
           <div className="flex gap-2">
             <button
@@ -378,9 +376,9 @@ export const AutoFillWeekModal: React.FC<Props> = ({
             <button
               disabled={loading || slots.length === 0}
               onClick={handleConfirmApply}
-              className="inline-flex items-center gap-1.5 rounded-xl bg-[#0B6E5C] px-4 py-2 text-xs font-semibold text-white hover:bg-[#085A4B] disabled:opacity-40"
+              className="rounded-xl bg-[#0B6E5C] px-4 py-2 text-xs font-semibold text-white hover:bg-[#085A4B] disabled:opacity-40"
             >
-              <Check className="h-4 w-4" /> Áp dụng lịch 5 ngày này
+              Áp dụng lịch 5 ngày này
             </button>
           </div>
         </div>

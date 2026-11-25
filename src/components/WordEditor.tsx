@@ -21,20 +21,16 @@ import {
   AlignRight,
   Bold,
   ChevronDown,
-  FilePlus2,
   Highlighter,
   ImagePlus,
   Italic,
   List,
   ListOrdered,
-  Minus,
   Palette,
   Printer,
   Redo2,
-  RemoveFormatting,
   Replace,
   Strikethrough,
-  Table as TableIcon,
   Underline as UnderlineIcon,
   Undo2,
   X,
@@ -466,9 +462,9 @@ export const WordEditor: React.FC<Props> = ({
           <button
             onClick={() => editor.chain().focus().insertTable({ rows: 3, cols: 4, withHeaderRow: true }).run()}
             title="Chèn bảng mới (3 hàng × 4 cột)"
-            className="inline-flex h-7 items-center gap-1 rounded-md px-2 text-xs font-medium text-slate-700 hover:bg-slate-100"
+            className="inline-flex h-7 items-center rounded-md px-2 text-xs font-medium text-slate-700 hover:bg-slate-100"
           >
-            <TableIcon className="h-3.5 w-3.5" /> Bảng
+            Bảng
           </button>
 
           <button
@@ -483,9 +479,9 @@ export const WordEditor: React.FC<Props> = ({
           <button
             onClick={() => editor.chain().focus().setHorizontalRule().run()}
             title="Chèn ngắt trang (Page Break)"
-            className="inline-flex h-7 items-center gap-1 rounded-md px-2 text-xs font-medium text-slate-700 hover:bg-slate-100"
+            className="inline-flex h-7 items-center rounded-md px-2 text-xs font-medium text-slate-700 hover:bg-slate-100"
           >
-            <Minus className="h-3.5 w-3.5" /> Ngắt trang
+            Ngắt trang
           </button>
 
           {/* 1-Click Preschool Word Templates Dropdown */}
@@ -498,7 +494,7 @@ export const WordEditor: React.FC<Props> = ({
               }}
               className="inline-flex h-7 items-center gap-1 rounded-md bg-[#E6F4F1] px-2.5 text-xs font-semibold text-[#0B6E5C] hover:bg-emerald-100"
             >
-              <FilePlus2 className="h-3.5 w-3.5" /> Chèn mẫu Mầm non <ChevronDown className="h-3 w-3" />
+              Chèn mẫu Mầm non <ChevronDown className="h-3 w-3" />
             </button>
             {showSnippetMenu && (
               <div className="absolute top-8 left-0 z-40 w-72 rounded-xl border border-slate-200 bg-white p-1.5 shadow-xl">
@@ -524,9 +520,9 @@ export const WordEditor: React.FC<Props> = ({
           <button
             onClick={() => normalizeWholeEditorDocument(editor)}
             title="Chuẩn hóa toàn trang về đúng phông Times New Roman 13pt, xóa định dạng lỗi & gạch đầu dòng thừa"
-            className="inline-flex h-7 items-center gap-1 rounded-md px-2 text-xs font-medium text-slate-700 hover:bg-[#E6F4F1] hover:text-[#0B6E5C]"
+            className="inline-flex h-7 items-center rounded-md px-2 text-xs font-medium text-slate-700 hover:bg-[#E6F4F1] hover:text-[#0B6E5C]"
           >
-            <RemoveFormatting className="h-3.5 w-3.5" /> Chuẩn hóa
+            Chuẩn hóa
           </button>
           <button
             onClick={() => setShowFindBar((v) => !v)}

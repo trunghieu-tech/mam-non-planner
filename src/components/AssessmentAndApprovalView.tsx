@@ -1,19 +1,4 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import {
-  Award,
-  CalendarCheck,
-  Check,
-  CheckCircle2,
-  ClipboardCheck,
-  FileDown,
-  MessageSquarePlus,
-  RefreshCw,
-  RotateCcw,
-  Send,
-  ShieldCheck,
-  UserCheck,
-  Users,
-} from 'lucide-react';
 import type {
   AnnualPlanDocument,
   MtEvalLevel,
@@ -666,36 +651,33 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
           <div className="flex flex-wrap items-center gap-1 rounded-xl bg-slate-100 p-1">
             <button
               onClick={() => setSubTab('daily')}
-              className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-2 text-xs font-bold transition ${
+              className={`rounded-lg px-3 py-2 text-xs font-bold transition ${
                 subTab === 'daily'
                   ? 'bg-[#0B6E5C] text-white shadow-2xs'
                   : 'text-slate-600 hover:bg-white hover:text-slate-900'
               }`}
             >
-              <CalendarCheck className="h-4 w-4" />
-              <span>1. Đánh giá Hàng ngày</span>
+              1. Đánh giá Hàng ngày
             </button>
             <button
               onClick={() => setSubTab('assessment')}
-              className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-2 text-xs font-bold transition ${
+              className={`rounded-lg px-3 py-2 text-xs font-bold transition ${
                 subTab === 'assessment'
                   ? 'bg-[#0B6E5C] text-white shadow-2xs'
                   : 'text-slate-600 hover:bg-white hover:text-slate-900'
               }`}
             >
-              <ClipboardCheck className="h-4 w-4" />
-              <span>2. Cuối Chủ đề / Tháng</span>
+              2. Cuối Chủ đề / Tháng
             </button>
             <button
               onClick={() => setSubTab('yearEnd')}
-              className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-2 text-xs font-bold transition ${
+              className={`rounded-lg px-3 py-2 text-xs font-bold transition ${
                 subTab === 'yearEnd'
                   ? 'bg-[#0B6E5C] text-white shadow-2xs'
                   : 'text-slate-600 hover:bg-white hover:text-slate-900'
               }`}
             >
-              <Award className="h-4 w-4" />
-              <span>3. Cuối Độ tuổi (Năm)</span>
+              3. Cuối Độ tuổi (Năm)
             </button>
             <button
               onClick={() => setSubTab('approval')}
@@ -705,7 +687,6 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
                   : 'text-slate-600 hover:bg-white hover:text-slate-900'
               }`}
             >
-              <ShieldCheck className="h-4 w-4" />
               <span>4. Trình ký &amp; Duyệt BGH</span>
               {unresolvedCount > 0 && (
                 <span className="rounded-full bg-rose-500 px-1.5 py-0.5 text-[10px] font-bold text-white">
@@ -714,7 +695,7 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
               )}
               {plan.status === 'APPROVED' && (
                 <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-[10px] font-bold text-emerald-800">
-                  Đã ký ✓
+                  Đã ký
                 </span>
               )}
             </button>
@@ -723,41 +704,33 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
           {subTab === 'daily' ? (
             <button
               onClick={handleSyncFromDailyEvaluations}
-              className="inline-flex items-center gap-1.5 rounded-xl bg-[#0B6E5C] px-4 py-2 text-xs font-bold text-white hover:bg-[#085A4B]"
+              className="rounded-xl bg-[#0B6E5C] px-4 py-2 text-xs font-bold text-white hover:bg-[#085A4B]"
             >
-              <RefreshCw className="h-4 w-4" />
-              <span>Đồng bộ sang Cuối Chủ đề / Tháng →</span>
+              Đồng bộ sang Cuối Chủ đề / Tháng →
             </button>
           ) : subTab === 'assessment' ? (
             <div className="flex flex-wrap items-center gap-2">
               <button
                 onClick={() => handleExportDocx('individual')}
                 disabled={exportingDocx !== null}
-                className="inline-flex items-center gap-1.5 rounded-xl border border-emerald-200 bg-[#F2F9F7] px-3.5 py-2 text-xs font-bold text-[#0B6E5C] transition hover:bg-[#E6F4F1] disabled:opacity-60"
+                className="rounded-xl border border-emerald-200 bg-[#F2F9F7] px-3.5 py-2 text-xs font-bold text-[#0B6E5C] transition hover:bg-[#E6F4F1] disabled:opacity-60"
               >
-                <UserCheck className="h-4 w-4" />
-                <span>
-                  {exportingDocx === 'individual' ? 'Đang xuất...' : 'Xuất Phiếu từng trẻ (.docx)'}
-                </span>
+                {exportingDocx === 'individual' ? 'Đang xuất...' : 'Xuất Phiếu từng trẻ (.docx)'}
               </button>
               <button
                 onClick={() => handleExportDocx('summary')}
                 disabled={exportingDocx !== null}
-                className="inline-flex items-center gap-1.5 rounded-xl bg-[#0B6E5C] px-3.5 py-2 text-xs font-bold text-white shadow-2xs transition hover:bg-[#085A4B] disabled:opacity-60"
+                className="rounded-xl bg-[#0B6E5C] px-3.5 py-2 text-xs font-bold text-white shadow-2xs transition hover:bg-[#085A4B] disabled:opacity-60"
               >
-                <FileDown className="h-4 w-4" />
-                <span>
-                  {exportingDocx === 'summary' ? 'Đang xuất...' : 'Xuất Tổng hợp Chủ đề (.docx)'}
-                </span>
+                {exportingDocx === 'summary' ? 'Đang xuất...' : 'Xuất Tổng hợp Chủ đề (.docx)'}
               </button>
             </div>
           ) : subTab === 'yearEnd' ? (
             <button
               onClick={handleSyncYearEnd}
-              className="inline-flex items-center gap-2 rounded-xl bg-[#0B6E5C] px-4 py-2 text-xs font-bold text-white hover:bg-[#085A4B]"
+              className="rounded-xl bg-[#0B6E5C] px-4 py-2 text-xs font-bold text-white hover:bg-[#085A4B]"
             >
-              <RefreshCw className="h-4 w-4" />
-              <span>Đồng bộ từ tất cả Chủ đề / Tháng</span>
+              Đồng bộ từ tất cả Chủ đề / Tháng
             </button>
           ) : (
             <div className="flex items-center gap-1.5 rounded-xl border border-slate-200 bg-slate-50 p-1 text-xs">
@@ -942,24 +915,21 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
                 <div className="flex flex-wrap items-center gap-2">
                   <button
                     onClick={onGoToAnnualRoster}
-                    className="inline-flex items-center gap-1.5 rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-xs font-semibold text-slate-700 hover:border-[#0B6E5C] hover:bg-white hover:text-[#0B6E5C]"
+                    className="rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-xs font-semibold text-slate-700 hover:border-[#0B6E5C] hover:bg-white hover:text-[#0B6E5C]"
                   >
-                    <Users className="h-3.5 w-3.5" />
-                    <span>Danh sách trẻ ({students.length} bé)</span>
+                    Danh sách trẻ ({students.length} bé)
                   </button>
                   <button
                     onClick={handleSyncFromDailyEvaluations}
-                    className="inline-flex items-center gap-1.5 rounded-xl border border-amber-200 bg-amber-50 px-3 py-2 text-xs font-bold text-amber-900 hover:bg-amber-100"
+                    className="rounded-xl border border-amber-200 bg-amber-50 px-3 py-2 text-xs font-bold text-amber-900 hover:bg-amber-100"
                   >
-                    <RefreshCw className="h-3.5 w-3.5" />
-                    <span>Đồng bộ từ đánh giá ngày</span>
+                    Đồng bộ từ đánh giá ngày
                   </button>
                   <button
                     onClick={markAllAchieved}
-                    className="inline-flex items-center gap-1.5 rounded-xl border border-emerald-200 bg-emerald-50 px-3 py-2 text-xs font-bold text-emerald-800 hover:bg-emerald-100"
+                    className="rounded-xl border border-emerald-200 bg-emerald-50 px-3 py-2 text-xs font-bold text-emerald-800 hover:bg-emerald-100"
                   >
-                    <CheckCircle2 className="h-3.5 w-3.5" />
-                    <span>Đánh dấu tất cả Đạt ✓</span>
+                    Đánh dấu tất cả Đạt ✓
                   </button>
                 </div>
               </div>
@@ -1366,23 +1336,19 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
                       <button
                         type="button"
                         onClick={handleSubmitForReview}
-                        className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#0B6E5C] px-4 py-2.5 text-xs font-bold text-white shadow-2xs hover:bg-[#085A4B]"
+                        className="w-full rounded-xl bg-[#0B6E5C] px-4 py-2.5 text-xs font-bold text-white shadow-2xs hover:bg-[#085A4B]"
                       >
-                        <Send className="h-4 w-4" />
-                        <span>
-                          {plan.status === 'PENDING_REVIEW'
-                            ? 'Cập nhật & Gửi lại bản mới cho BGH'
-                            : 'Nộp Kế hoạch tuần lên Tổ trưởng / BGH duyệt'}
-                        </span>
+                        {plan.status === 'PENDING_REVIEW'
+                          ? 'Cập nhật & Gửi lại bản mới cho BGH'
+                          : 'Nộp Kế hoạch tuần lên Tổ trưởng / BGH duyệt'}
                       </button>
                     ) : (
                       <button
                         type="button"
                         onClick={handleRevokeApproval}
-                        className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50"
+                        className="w-full rounded-xl border border-slate-200 bg-white px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50"
                       >
-                        <RotateCcw className="h-3.5 w-3.5" />
-                        <span>Mở khóa bản nháp để điều chỉnh bổ sung</span>
+                        Mở khóa bản nháp để điều chỉnh bổ sung
                       </button>
                     )}
                   </div>
@@ -1405,17 +1371,16 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
                       <button
                         type="button"
                         onClick={handleApproveOnline}
-                        className="inline-flex items-center justify-center gap-1.5 rounded-xl bg-emerald-700 px-3 py-2.5 text-xs font-bold text-white hover:bg-emerald-800"
+                        className="rounded-xl bg-emerald-700 px-3 py-2.5 text-xs font-bold text-white hover:bg-emerald-800"
                       >
-                        <ShieldCheck className="h-4 w-4" />
-                        <span>Phê duyệt &amp; Ký số</span>
+                        Phê duyệt &amp; Ký số
                       </button>
                       <button
                         type="button"
                         onClick={handleRequestRevision}
-                        className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-rose-300 bg-white px-3 py-2.5 text-xs font-bold text-rose-700 hover:bg-rose-50"
+                        className="rounded-xl border border-rose-300 bg-white px-3 py-2.5 text-xs font-bold text-rose-700 hover:bg-rose-50"
                       >
-                        <span>Yêu cầu chỉnh sửa</span>
+                        Yêu cầu chỉnh sửa
                       </button>
                     </div>
 
@@ -1428,14 +1393,11 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
                           type="button"
                           disabled={bulkApproving}
                           onClick={handleBulkApproveAll}
-                          className="mt-2 inline-flex w-full items-center justify-center gap-1.5 rounded-xl border border-emerald-600 bg-white px-3 py-2 text-xs font-bold text-emerald-800 hover:bg-emerald-50 disabled:opacity-60"
+                          className="mt-2 w-full rounded-xl border border-emerald-600 bg-white px-3 py-2 text-xs font-bold text-emerald-800 hover:bg-emerald-50 disabled:opacity-60"
                         >
-                          <CheckCircle2 className="h-4 w-4" />
-                          <span>
-                            {bulkApproving
-                              ? 'Đang ký duyệt hàng loạt...'
-                              : `Ký duyệt hàng loạt tất cả (${unapprovedGradePlans.length} tuần)`}
-                          </span>
+                          {bulkApproving
+                            ? 'Đang ký duyệt hàng loạt...'
+                            : `Ký duyệt hàng loạt tất cả (${unapprovedGradePlans.length} tuần)`}
                         </button>
                       </div>
                     )}
@@ -1499,10 +1461,9 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
                     />
                     <button
                       type="submit"
-                      className="inline-flex shrink-0 items-center gap-1.5 rounded-xl bg-[#0B6E5C] px-4 py-2 text-xs font-bold text-white hover:bg-[#085A4B]"
+                      className="shrink-0 rounded-xl bg-[#0B6E5C] px-4 py-2 text-xs font-bold text-white hover:bg-[#085A4B]"
                     >
-                      <MessageSquarePlus className="h-4 w-4" />
-                      <span>Gửi góp ý</span>
+                      Gửi góp ý
                     </button>
                   </div>
                 </form>
@@ -1556,14 +1517,13 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
                           <button
                             type="button"
                             onClick={() => toggleResolveComment(cmt.id)}
-                            className={`inline-flex items-center gap-1 rounded-lg px-2.5 py-1 text-[11px] font-bold transition ${
+                            className={`rounded-lg px-2.5 py-1 text-[11px] font-bold transition ${
                               cmt.resolved
                                 ? 'bg-emerald-100 text-emerald-800'
                                 : 'bg-white text-slate-600 ring-1 ring-slate-200 hover:bg-emerald-50 hover:text-emerald-800'
                             }`}
                           >
-                            <Check className="h-3 w-3" />
-                            <span>{cmt.resolved ? 'Đã xử lý xong' : 'Đánh dấu đã xử lý'}</span>
+                            {cmt.resolved ? 'Đã xử lý xong' : 'Đánh dấu đã xử lý'}
                           </button>
                         </div>
                       </div>

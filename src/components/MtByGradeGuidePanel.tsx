@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { Check, ChevronDown, ChevronUp, Search, X } from 'lucide-react';
+import { ChevronDown, ChevronUp, X } from 'lucide-react';
 import type {
   AgeGroupId,
   DomainKey,
@@ -238,13 +238,12 @@ export const MtByGradeGuidePanel: React.FC<Props> = ({
         </div>
 
         <div className="flex gap-2">
-          <div className="relative flex-1">
-            <Search className="pointer-events-none absolute top-2.5 left-3 h-4 w-4 text-slate-400" />
+          <div className="flex-1">
             <input
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Tìm mã MT, bài hát, thơ..."
-              className="w-full rounded-xl border border-slate-200 bg-slate-50 py-2 pr-3 pl-9 text-xs focus:border-[#0B6E5C] focus:bg-white focus:outline-none"
+              className="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-xs focus:border-[#0B6E5C] focus:bg-white focus:outline-none"
             />
           </div>
           <select
@@ -378,19 +377,13 @@ export const MtByGradeGuidePanel: React.FC<Props> = ({
                         e.stopPropagation();
                         onToggleMt(dk, obj.code);
                       }}
-                      className={`inline-flex items-center gap-1 rounded-lg px-2.5 py-1 text-xs font-semibold ${
+                      className={`rounded-lg px-2.5 py-1 text-xs font-semibold ${
                         isAttached
                           ? 'bg-[#E6F4F1] text-[#0B6E5C]'
                           : 'bg-slate-100 text-slate-600 hover:bg-[#0B6E5C] hover:text-white'
                       }`}
                     >
-                      {isAttached ? (
-                        <>
-                          <Check className="h-3 w-3" /> Đã gắn
-                        </>
-                      ) : (
-                        'Gắn MT'
-                      )}
+                      {isAttached ? 'Đã gắn' : 'Gắn MT'}
                     </button>
                     {isOpen ? (
                       <ChevronUp className="h-4 w-4 text-slate-400" />

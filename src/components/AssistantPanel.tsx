@@ -1,22 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import {
-  BookOpen,
-  CheckCircle2,
-  ChevronDown,
-  ChevronUp,
-  Database,
-  ExternalLink,
-  Eye,
-  FilePlus2,
-  FileText,
-  Layers,
-  MapPin,
-  Plus,
-  Search,
-  Sparkles,
-  Table2,
-  X,
-} from 'lucide-react';
+import { X } from 'lucide-react';
 import type {
   ObjectiveItem,
   ObjectivesDataset,
@@ -350,17 +333,17 @@ export const AssistantPanel: React.FC<Props> = ({
               {obj.month}
             </span>
             {isUsed && (
-              <span className="inline-flex items-center gap-0.5 rounded-full bg-emerald-100 px-2 py-0.5 text-[10px] font-semibold text-emerald-800">
-                <CheckCircle2 className="h-2.5 w-2.5" /> Đã có
+              <span className="inline-flex items-center rounded-full bg-emerald-100 px-2 py-0.5 text-[10px] font-semibold text-emerald-800">
+                Đã có
               </span>
             )}
           </div>
           <button
             onClick={() => onInsertMtLine(obj)}
             title={`Chèn dòng mục tiêu ${obj.code} vào vị trí con trỏ`}
-            className="inline-flex items-center gap-0.5 rounded-md bg-slate-100 px-2 py-0.5 text-[10px] font-semibold text-[#0B6E5C] transition hover:bg-[#0B6E5C] hover:text-white"
+            className="inline-flex items-center rounded-md bg-slate-100 px-2 py-0.5 text-[10px] font-semibold text-[#0B6E5C] transition hover:bg-[#0B6E5C] hover:text-white"
           >
-            <Plus className="h-3 w-3" /> Chèn MT
+            + Chèn MT
           </button>
         </div>
 
@@ -412,9 +395,9 @@ export const AssistantPanel: React.FC<Props> = ({
                   <button
                     onClick={() => openActivityPreview(obj, act)}
                     title="Xem trước bố cục Word trước khi chèn"
-                    className="inline-flex items-center gap-0.5 rounded px-1.5 py-0.5 text-[10px] font-medium text-slate-500 hover:bg-white hover:text-[#0B6E5C]"
+                    className="inline-flex items-center rounded px-1.5 py-0.5 text-[10px] font-medium text-slate-500 hover:bg-white hover:text-[#0B6E5C]"
                   >
-                    <Eye className="h-3 w-3" /> Xem trước
+                    Xem trước
                   </button>
                 </div>
                 <p className="mt-1.5 leading-relaxed text-slate-800">{act.text}</p>
@@ -423,30 +406,30 @@ export const AssistantPanel: React.FC<Props> = ({
                     <>
                       <button
                         onClick={() => onInsertActivityLine(obj, act)}
-                        className="inline-flex items-center gap-1 rounded-md bg-[#0B6E5C] px-2.5 py-1 text-[10px] font-semibold text-white hover:bg-[#085A4B]"
+                        className="inline-flex items-center rounded-md bg-[#0B6E5C] px-2.5 py-1 text-[10px] font-semibold text-white hover:bg-[#085A4B]"
                       >
-                        <Plus className="h-3 w-3" /> Chèn vào ô bảng
+                        + Chèn vào ô bảng
                       </button>
                       <button
                         onClick={() => onInsertLessonFrame(act.text, act.type, obj.code, obj)}
-                        className="inline-flex items-center gap-1 rounded-md bg-white px-2 py-1 text-[10px] font-semibold text-[#0B6E5C] ring-1 ring-slate-200 hover:bg-[#E6F4F1]"
+                        className="inline-flex items-center rounded-md bg-white px-2 py-1 text-[10px] font-semibold text-[#0B6E5C] ring-1 ring-slate-200 hover:bg-[#E6F4F1]"
                       >
-                        <FilePlus2 className="h-3 w-3" /> Khung tiết đầy đủ
+                        Khung tiết đầy đủ
                       </button>
                     </>
                   ) : (
                     <>
                       <button
                         onClick={() => onInsertLessonFrame(act.text, act.type, obj.code, obj)}
-                        className="inline-flex items-center gap-1 rounded-md bg-[#0B6E5C] px-2.5 py-1 text-[10px] font-semibold text-white hover:bg-[#085A4B]"
+                        className="inline-flex items-center rounded-md bg-[#0B6E5C] px-2.5 py-1 text-[10px] font-semibold text-white hover:bg-[#085A4B]"
                       >
-                        <FilePlus2 className="h-3 w-3" /> Chèn khung tiết học
+                        + Chèn khung tiết học
                       </button>
                       <button
                         onClick={() => onInsertActivityLine(obj, act)}
-                        className="inline-flex items-center gap-1 rounded-md bg-white px-2 py-1 text-[10px] font-medium text-slate-700 ring-1 ring-slate-200 hover:bg-slate-100"
+                        className="inline-flex items-center rounded-md bg-white px-2 py-1 text-[10px] font-medium text-slate-700 ring-1 ring-slate-200 hover:bg-slate-100"
                       >
-                        <Plus className="h-3 w-3" /> Chèn dòng ngắn
+                        + Chèn dòng ngắn
                       </button>
                     </>
                   )}
@@ -480,23 +463,23 @@ export const AssistantPanel: React.FC<Props> = ({
                     <div className="mt-1.5 flex flex-wrap items-center gap-1.5">
                       <button
                         onClick={() => onInsertLessonFrame(l.topic, l.subject, obj.code, obj)}
-                        className="inline-flex items-center gap-1 rounded bg-amber-600 px-2 py-0.5 text-[10px] font-semibold text-white hover:bg-amber-700"
+                        className="inline-flex items-center rounded bg-amber-600 px-2 py-0.5 text-[10px] font-semibold text-white hover:bg-amber-700"
                       >
-                        <FilePlus2 className="h-3 w-3" /> Chèn tiết
+                        + Chèn tiết
                       </button>
                       <button
                         onClick={() => onInsertShortLessonLine(l.topic, l.subject, obj.code)}
-                        className="inline-flex items-center gap-0.5 rounded bg-slate-50 px-2 py-0.5 text-[10px] font-medium text-slate-700 ring-1 ring-slate-200 hover:bg-slate-100"
+                        className="inline-flex items-center rounded bg-slate-50 px-2 py-0.5 text-[10px] font-medium text-slate-700 ring-1 ring-slate-200 hover:bg-slate-100"
                       >
-                        <Plus className="h-3 w-3" /> Dòng
+                        + Dòng
                       </button>
                       <button
                         onClick={() =>
                           openCrawledLessonPreview(l.topic, l.subject, obj.code, l.school, obj)
                         }
-                        className="ml-auto inline-flex items-center gap-0.5 text-[10px] font-medium text-slate-500 hover:text-[#0B6E5C]"
+                        className="ml-auto text-[10px] font-medium text-slate-500 hover:text-[#0B6E5C]"
                       >
-                        <Eye className="h-3 w-3" /> Xem
+                        Xem trước
                       </button>
                     </div>
                   </div>
@@ -510,20 +493,13 @@ export const AssistantPanel: React.FC<Props> = ({
         {(hiddenCount > 0 || obj.eduContent) && (
           <button
             onClick={() => toggleExpandMt(obj.id)}
-            className="mt-2 flex w-full items-center justify-center gap-1 rounded-lg bg-slate-50 py-1 text-[10px] font-semibold text-slate-600 transition hover:bg-slate-100 hover:text-[#0B6E5C]"
+            className="mt-2 flex w-full items-center justify-center rounded-lg bg-slate-50 py-1 text-[10px] font-semibold text-slate-600 transition hover:bg-slate-100 hover:text-[#0B6E5C]"
           >
-            {isExpanded ? (
-              <>
-                <ChevronUp className="h-3.5 w-3.5" /> Thu gọn chi tiết
-              </>
-            ) : (
-              <>
-                <ChevronDown className="h-3.5 w-3.5" />
-                {hiddenCount > 0
-                  ? `Xem thêm ${hiddenCount} hoạt động & Nội dung GD chuẩn BGD`
-                  : 'Xem Nội dung GD chuẩn BGD'}
-              </>
-            )}
+            {isExpanded
+              ? 'Thu gọn chi tiết'
+              : hiddenCount > 0
+              ? `Xem thêm ${hiddenCount} hoạt động & Nội dung GD chuẩn BGD`
+              : 'Xem Nội dung GD chuẩn BGD'}
           </button>
         )}
       </div>
@@ -535,9 +511,8 @@ export const AssistantPanel: React.FC<Props> = ({
       {/* Header */}
       <div className="flex items-center justify-between border-b border-slate-200 bg-white px-4 py-2.5">
         <div className="min-w-0">
-          <div className="flex items-center gap-1.5 text-xs font-bold text-[#0B6E5C]">
-            <Sparkles className="h-3.5 w-3.5 shrink-0" />
-            <span>Trợ lý gợi ý & Kho tham khảo</span>
+          <div className="text-xs font-bold text-[#0B6E5C]">
+            Trợ lý gợi ý &amp; Kho tham khảo
           </div>
           <div className="mt-0.5 flex items-center gap-1.5 text-[10px] text-slate-500">
             <span className="font-semibold text-slate-700">
@@ -558,20 +533,17 @@ export const AssistantPanel: React.FC<Props> = ({
 
       {/* Live Word Cursor Context Strip */}
       <div className="border-b border-slate-200 bg-[#F2F9F7] px-3.5 py-2">
-        <div className="flex items-center gap-1.5 text-[11px] font-semibold text-[#074F42]">
-          <MapPin className="h-3.5 w-3.5 shrink-0 text-[#0B6E5C]" />
-          <span className="truncate" title={cursorContext.sectionHeading}>
-            Con trỏ: {cursorContext.sectionHeading}
-          </span>
+        <div className="truncate text-[11px] font-semibold text-[#074F42]" title={cursorContext.sectionHeading}>
+          Con trỏ: {cursorContext.sectionHeading}
         </div>
         <div className="mt-1 flex items-center justify-between text-[10px]">
           {cursorContext.inTable ? (
-            <span className="inline-flex items-center gap-1 rounded-full bg-amber-100 px-2 py-0.5 font-semibold text-amber-900">
-              <Table2 className="h-3 w-3" /> Đang trong ô bảng → Ưu tiên chèn dòng ngắn
+            <span className="inline-flex items-center rounded-full bg-amber-100 px-2 py-0.5 font-semibold text-amber-900">
+              Đang trong ô bảng → Ưu tiên chèn dòng ngắn
             </span>
           ) : (
-            <span className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-2 py-0.5 font-semibold text-emerald-900">
-              <FileText className="h-3 w-3" /> Đang trên trang soạn → Chèn khung tiết đầy đủ
+            <span className="inline-flex items-center rounded-full bg-emerald-100 px-2 py-0.5 font-semibold text-emerald-900">
+              Đang trên trang soạn → Chèn khung tiết đầy đủ
             </span>
           )}
         </div>
@@ -588,7 +560,7 @@ export const AssistantPanel: React.FC<Props> = ({
                 : 'text-slate-500 hover:text-slate-700'
             }`}
           >
-            <Sparkles className="mr-0.5 inline h-3 w-3" /> Tuần này
+            Tuần này
           </button>
           <button
             onClick={() => setActiveTab('mt')}
@@ -598,7 +570,7 @@ export const AssistantPanel: React.FC<Props> = ({
                 : 'text-slate-500 hover:text-slate-700'
             }`}
           >
-            <BookOpen className="mr-0.5 inline h-3 w-3" /> 345 MT
+            345 MT
           </button>
           <button
             onClick={() => setActiveTab('crawled')}
@@ -608,13 +580,12 @@ export const AssistantPanel: React.FC<Props> = ({
                 : 'text-slate-500 hover:text-slate-700'
             }`}
           >
-            <Database className="mr-0.5 inline h-3 w-3" /> Kho ({crawledTotalDocs})
+            Kho ({crawledTotalDocs})
           </button>
         </div>
 
         {/* Search box */}
         <div className="relative">
-          <Search className="pointer-events-none absolute top-2 left-2.5 h-3.5 w-3.5 text-slate-400" />
           <input
             value={search}
             onChange={(e) => setSearch(e.target.value)}
@@ -623,7 +594,7 @@ export const AssistantPanel: React.FC<Props> = ({
                 ? 'Tìm đề tài, bài hát, thơ, trò chơi, trường...'
                 : 'Tìm mã MT (VD: MT100), chủ đề, bài hát, toán...'
             }
-            className="w-full rounded-lg border border-slate-200 bg-slate-50 py-1.5 pr-7 pl-8 text-xs focus:border-[#0B6E5C] focus:bg-white focus:outline-none"
+            className="w-full rounded-lg border border-slate-200 bg-slate-50 py-1.5 pr-7 pl-3 text-xs focus:border-[#0B6E5C] focus:bg-white focus:outline-none"
           />
           {search && (
             <button
@@ -704,7 +675,7 @@ export const AssistantPanel: React.FC<Props> = ({
                       : 'text-slate-600 hover:text-slate-900'
                   }`}
                 >
-                  <Layers className="mr-1 inline h-3 w-3" /> Theo tiết học ({lessonTotal})
+                  Theo tiết học ({lessonTotal})
                 </button>
                 <button
                   onClick={() => setCrawledViewMode('docs')}
@@ -714,7 +685,7 @@ export const AssistantPanel: React.FC<Props> = ({
                       : 'text-slate-600 hover:text-slate-900'
                   }`}
                 >
-                  <FileText className="mr-1 inline h-3 w-3" /> Theo file trường
+                  Theo file trường
                 </button>
               </div>
             </div>
@@ -755,8 +726,8 @@ export const AssistantPanel: React.FC<Props> = ({
         <div className="border-b-2 border-[#0B6E5C] bg-white p-3 shadow-md">
           <div className="flex items-start justify-between gap-2">
             <div className="min-w-0">
-              <div className="flex items-center gap-1 text-[10px] font-bold uppercase tracking-wide text-[#0B6E5C]">
-                <Eye className="h-3 w-3" /> Xem trước định dạng sẽ chèn vào Word
+              <div className="text-[10px] font-bold uppercase tracking-wide text-[#0B6E5C]">
+                Xem trước định dạng sẽ chèn vào Word
               </div>
               <div className="mt-0.5 text-xs font-bold text-slate-900">{previewTarget.title}</div>
               <div className="text-[10px] text-slate-500">{previewTarget.subtitle}</div>
@@ -776,15 +747,15 @@ export const AssistantPanel: React.FC<Props> = ({
           <div className="mt-2.5 flex gap-2">
             <button
               onClick={previewTarget.onInsertFull}
-              className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-lg bg-[#0B6E5C] px-3 py-1.5 text-[11px] font-semibold text-white hover:bg-[#085A4B]"
+              className="flex-1 inline-flex items-center justify-center rounded-lg bg-[#0B6E5C] px-3 py-1.5 text-[11px] font-semibold text-white hover:bg-[#085A4B]"
             >
-              <FilePlus2 className="h-3.5 w-3.5" /> Chèn khung tiết đầy đủ
+              + Chèn khung tiết đầy đủ
             </button>
             <button
               onClick={previewTarget.onInsertShort}
-              className="inline-flex items-center justify-center gap-1 rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-[11px] font-semibold text-slate-700 hover:bg-slate-50"
+              className="inline-flex items-center justify-center rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-[11px] font-semibold text-slate-700 hover:bg-slate-50"
             >
-              <Plus className="h-3.5 w-3.5" /> Dòng ngắn
+              + Dòng ngắn
             </button>
           </div>
         </div>
@@ -866,9 +837,9 @@ export const AssistantPanel: React.FC<Props> = ({
                             target="_blank"
                             rel="noreferrer"
                             title="Mở bài viết gốc của trường"
-                            className="text-slate-400 hover:text-[#0B6E5C]"
+                            className="text-[10px] font-semibold text-slate-400 hover:text-[#0B6E5C] hover:underline"
                           >
-                            <ExternalLink className="h-3.5 w-3.5" />
+                            Nguồn ↗
                           </a>
                         )}
                       </div>
@@ -898,30 +869,30 @@ export const AssistantPanel: React.FC<Props> = ({
                           <>
                             <button
                               onClick={() => onInsertShortLessonLine(les.topic, les.subject, les.mtCode)}
-                              className="inline-flex items-center gap-1 rounded-md bg-[#0B6E5C] px-2.5 py-1 text-[10px] font-semibold text-white hover:bg-[#085A4B]"
+                              className="inline-flex items-center rounded-md bg-[#0B6E5C] px-2.5 py-1 text-[10px] font-semibold text-white hover:bg-[#085A4B]"
                             >
-                              <Plus className="h-3 w-3" /> Chèn vào bảng
+                              + Chèn vào bảng
                             </button>
                             <button
                               onClick={() => onInsertLessonFrame(les.topic, les.subject, les.mtCode, linkedObj)}
-                              className="inline-flex items-center gap-1 rounded-md bg-white px-2 py-1 text-[10px] font-semibold text-[#0B6E5C] ring-1 ring-slate-200 hover:bg-[#E6F4F1]"
+                              className="inline-flex items-center rounded-md bg-white px-2 py-1 text-[10px] font-semibold text-[#0B6E5C] ring-1 ring-slate-200 hover:bg-[#E6F4F1]"
                             >
-                              <FilePlus2 className="h-3 w-3" /> Khung tiết
+                              Khung tiết
                             </button>
                           </>
                         ) : (
                           <>
                             <button
                               onClick={() => onInsertLessonFrame(les.topic, les.subject, les.mtCode, linkedObj)}
-                              className="inline-flex items-center gap-1 rounded-md bg-[#0B6E5C] px-2.5 py-1 text-[10px] font-semibold text-white hover:bg-[#085A4B]"
+                              className="inline-flex items-center rounded-md bg-[#0B6E5C] px-2.5 py-1 text-[10px] font-semibold text-white hover:bg-[#085A4B]"
                             >
-                              <FilePlus2 className="h-3 w-3" /> Chèn khung tiết
+                              + Chèn khung tiết
                             </button>
                             <button
                               onClick={() => onInsertShortLessonLine(les.topic, les.subject, les.mtCode)}
-                              className="inline-flex items-center gap-1 rounded-md bg-white px-2 py-1 text-[10px] font-medium text-slate-700 ring-1 ring-slate-200 hover:bg-slate-100"
+                              className="inline-flex items-center rounded-md bg-white px-2 py-1 text-[10px] font-medium text-slate-700 ring-1 ring-slate-200 hover:bg-slate-100"
                             >
-                              <Plus className="h-3 w-3" /> Dòng ngắn
+                              + Dòng ngắn
                             </button>
                           </>
                         )}
@@ -930,15 +901,15 @@ export const AssistantPanel: React.FC<Props> = ({
                           onClick={() =>
                             openCrawledLessonPreview(les.topic, les.subject, les.mtCode, les.schoolName, linkedObj)
                           }
-                          className="inline-flex items-center gap-0.5 rounded px-1.5 py-1 text-[10px] font-medium text-slate-500 hover:bg-slate-100 hover:text-[#0B6E5C]"
+                          className="rounded px-1.5 py-1 text-[10px] font-medium text-slate-500 hover:bg-slate-100 hover:text-[#0B6E5C]"
                         >
-                          <Eye className="h-3 w-3" /> Xem
+                          Xem trước
                         </button>
 
                         {les.snippet && (
                           <button
                             onClick={() => toggleExpandSnippet(les.id)}
-                            className="ml-auto inline-flex items-center gap-0.5 text-[10px] font-semibold text-[#0B6E5C] hover:underline"
+                            className="ml-auto text-[10px] font-semibold text-[#0B6E5C] hover:underline"
                           >
                             {snipOpen ? 'Ẩn trích đoạn' : 'Trích đoạn gốc'}
                           </button>
@@ -987,9 +958,9 @@ export const AssistantPanel: React.FC<Props> = ({
                           href={doc.postUrl}
                           target="_blank"
                           rel="noreferrer"
-                          className="shrink-0 text-slate-400 hover:text-[#0B6E5C]"
+                          className="shrink-0 text-[10px] font-semibold text-slate-400 hover:text-[#0B6E5C] hover:underline"
                         >
-                          <ExternalLink className="h-3.5 w-3.5" />
+                          Nguồn ↗
                         </a>
                       )}
                     </div>
@@ -998,9 +969,8 @@ export const AssistantPanel: React.FC<Props> = ({
                       <div className="mt-2">
                         <button
                           onClick={() => toggleExpandSnippet(snipKey)}
-                          className="inline-flex items-center gap-1 text-[10px] font-semibold text-[#0B6E5C] hover:underline"
+                          className="text-[10px] font-semibold text-[#0B6E5C] hover:underline"
                         >
-                          {snipOpen ? <ChevronUp className="h-3 w-3" /> : <ChevronDown className="h-3 w-3" />}
                           {snipOpen ? 'Ẩn trích đoạn văn bản gốc' : 'Xem trích đoạn văn bản gốc'}
                         </button>
                         {snipOpen && (
@@ -1028,15 +998,15 @@ export const AssistantPanel: React.FC<Props> = ({
                               <div className="mt-1.5 flex gap-1.5">
                                 <button
                                   onClick={() => onInsertLessonFrame(les.topic, les.subject, mt, obj)}
-                                  className="inline-flex items-center gap-1 rounded bg-[#0B6E5C] px-2 py-0.5 text-[10px] font-semibold text-white hover:bg-[#085A4B]"
+                                  className="inline-flex items-center rounded bg-[#0B6E5C] px-2 py-0.5 text-[10px] font-semibold text-white hover:bg-[#085A4B]"
                                 >
-                                  <FilePlus2 className="h-3 w-3" /> Chèn tiết
+                                  + Chèn tiết
                                 </button>
                                 <button
                                   onClick={() => onInsertShortLessonLine(les.topic, les.subject, mt)}
-                                  className="inline-flex items-center gap-0.5 rounded bg-white px-2 py-0.5 text-[10px] font-medium text-slate-700 ring-1 ring-slate-200 hover:bg-slate-100"
+                                  className="inline-flex items-center rounded bg-white px-2 py-0.5 text-[10px] font-medium text-slate-700 ring-1 ring-slate-200 hover:bg-slate-100"
                                 >
-                                  <Plus className="h-3 w-3" /> Dòng ngắn
+                                  + Dòng ngắn
                                 </button>
                               </div>
                             </div>

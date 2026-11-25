@@ -1,15 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import {
-  Bookmark,
-  Check,
-  ChevronDown,
-  ChevronUp,
-  ExternalLink,
-  Plus,
-  Search,
-  Trash2,
-  X,
-} from 'lucide-react';
+import { Trash2, X } from 'lucide-react';
 import type {
   ObjectiveItem,
   ObjectivesDataset,
@@ -210,13 +200,12 @@ export const FocusedAssistant: React.FC<Props> = ({
         </div>
 
         {tab !== 'blocks' && (
-          <div className="relative mt-2.5">
-            <Search className="pointer-events-none absolute top-2.5 left-3 h-3.5 w-3.5 text-slate-400" />
+          <div className="mt-2.5">
             <input
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder={`Tìm trong ${subjectMeta.shortLabel}...`}
-              className="w-full rounded-xl border border-slate-200 bg-slate-50 py-2 pr-3 pl-8 text-xs focus:border-[#0B6E5C] focus:bg-white focus:outline-none"
+              className="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-xs focus:border-[#0B6E5C] focus:bg-white focus:outline-none"
             />
           </div>
         )}
@@ -228,9 +217,8 @@ export const FocusedAssistant: React.FC<Props> = ({
           <>
             {savedTemplates.length > 0 && (
               <div className="space-y-2 rounded-xl border border-amber-200 bg-amber-50/50 p-3">
-                <div className="flex items-center gap-1.5 text-[11px] font-bold text-amber-950">
-                  <Bookmark className="h-3.5 w-3.5 text-amber-600" />
-                  <span>Bài giảng mẫu của tôi ({savedTemplates.length})</span>
+                <div className="text-[11px] font-bold text-amber-950">
+                  Bài giảng mẫu của tôi ({savedTemplates.length})
                 </div>
                 {savedTemplates.map((tpl) => (
                   <div
@@ -298,9 +286,9 @@ export const FocusedAssistant: React.FC<Props> = ({
                 />
                 <button
                   onClick={() => onInsertHtml(blk.html, blk.label, { mode: 'block' })}
-                  className="mt-2 inline-flex w-full items-center justify-center gap-1 rounded-lg bg-[#0B6E5C] py-1.5 text-[11px] font-semibold text-white hover:bg-[#085A4B]"
+                  className="mt-2 inline-flex w-full items-center justify-center rounded-lg bg-[#0B6E5C] py-1.5 text-[11px] font-semibold text-white hover:bg-[#085A4B]"
                 >
-                  <Plus className="h-3.5 w-3.5" /> Chèn vào vị trí con trỏ
+                  + Chèn vào vị trí con trỏ
                 </button>
               </div>
             ))}
@@ -380,9 +368,9 @@ export const FocusedAssistant: React.FC<Props> = ({
                         { mode: 'block' }
                       )
                     }
-                    className="mt-2 inline-flex w-full items-center justify-center gap-1 rounded-lg bg-[#0B6E5C] py-1.5 text-[11px] font-semibold text-white hover:bg-[#085A4B]"
+                    className="mt-2 inline-flex w-full items-center justify-center rounded-lg bg-[#0B6E5C] py-1.5 text-[11px] font-semibold text-white hover:bg-[#085A4B]"
                   >
-                    <Plus className="h-3.5 w-3.5" /> Chèn toàn văn &amp; Câu hỏi đàm thoại
+                    + Chèn toàn văn &amp; Câu hỏi đàm thoại
                   </button>
                 </div>
               ))
@@ -416,8 +404,13 @@ export const FocusedAssistant: React.FC<Props> = ({
                         )}
                       </div>
                       {les.postUrl && (
-                        <a href={les.postUrl} target="_blank" rel="noreferrer" className="text-slate-400 hover:text-[#0B6E5C]">
-                          <ExternalLink className="h-3.5 w-3.5" />
+                        <a
+                          href={les.postUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="text-[10px] font-semibold text-slate-400 hover:text-[#0B6E5C] hover:underline"
+                        >
+                          Nguồn ↗
                         </a>
                       )}
                     </div>
@@ -439,9 +432,9 @@ export const FocusedAssistant: React.FC<Props> = ({
                             { mode: 'line' }
                           )
                         }
-                        className="inline-flex items-center gap-1 rounded-md bg-[#0B6E5C] px-2 py-1 text-[10px] font-semibold text-white hover:bg-[#085A4B]"
+                        className="inline-flex items-center rounded-md bg-[#0B6E5C] px-2 py-1 text-[10px] font-semibold text-white hover:bg-[#085A4B]"
                       >
-                        <Plus className="h-3 w-3" /> Chèn dòng
+                        + Chèn dòng
                       </button>
                       <button
                         onClick={() =>
@@ -458,10 +451,9 @@ export const FocusedAssistant: React.FC<Props> = ({
                       {les.snippet && (
                         <button
                           onClick={() => setOpenSnips((p) => ({ ...p, [les.id]: !p[les.id] }))}
-                          className="ml-auto inline-flex items-center gap-0.5 text-[10px] font-semibold text-[#0B6E5C]"
+                          className="ml-auto text-[10px] font-semibold text-[#0B6E5C] hover:underline"
                         >
-                          {isOpen ? <ChevronUp className="h-3 w-3" /> : <ChevronDown className="h-3 w-3" />}
-                          {isOpen ? 'Ẩn trích đoạn' : 'Trích đoạn'}
+                          {isOpen ? 'Ẩn trích đoạn' : 'Xem trích đoạn'}
                         </button>
                       )}
                     </div>
@@ -498,19 +490,13 @@ export const FocusedAssistant: React.FC<Props> = ({
                     </div>
                     <button
                       onClick={() => onToggleLessonMt(obj.code)}
-                      className={`inline-flex items-center gap-1 rounded-md px-2 py-0.5 text-[10px] font-semibold transition ${
+                      className={`inline-flex items-center rounded-md px-2 py-0.5 text-[10px] font-semibold transition ${
                         attached
                           ? 'bg-emerald-100 text-emerald-800'
                           : 'bg-slate-100 text-slate-600 hover:bg-[#0B6E5C] hover:text-white'
                       }`}
                     >
-                      {attached ? (
-                        <>
-                          <Check className="h-3 w-3" /> Đã gắn tiết này
-                        </>
-                      ) : (
-                        '+ Gắn vào tiết'
-                      )}
+                      {attached ? 'Đã gắn tiết này' : '+ Gắn vào tiết'}
                     </button>
                   </div>
                   <p className="mt-1.5 font-semibold text-slate-900">{obj.description}</p>

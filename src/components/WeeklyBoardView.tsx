@@ -1,13 +1,9 @@
 import React, { useMemo, useState } from 'react';
 import {
-  AlertTriangle,
   ArrowLeft,
   ArrowRight,
   Check,
-  Copy,
   Eye,
-  Plus,
-  RefreshCw,
   Trash2,
   X,
 } from 'lucide-react';
@@ -421,9 +417,9 @@ export const WeeklyBoardView: React.FC<Props> = ({
                   <button
                     type="button"
                     onClick={handleSyncMonthToCurrentWeek}
-                    className="inline-flex items-center gap-1.5 rounded-xl bg-[#0B6E5C] px-4 py-2 text-xs font-bold text-white hover:bg-[#085A4B]"
+                    className="rounded-xl bg-[#0B6E5C] px-4 py-2 text-xs font-bold text-white hover:bg-[#085A4B]"
                   >
-                    <RefreshCw className="h-3.5 w-3.5" /> Đồng bộ sang KHGD Tuần {plan.weekNumber}
+                    Đồng bộ sang KHGD Tuần {plan.weekNumber}
                   </button>
                 ) : (
                   <>
@@ -448,9 +444,9 @@ export const WeeklyBoardView: React.FC<Props> = ({
                         <button
                           type="button"
                           onClick={() => setShowCopyMenu((v) => !v)}
-                          className="inline-flex items-center gap-1 rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50"
+                          className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50"
                         >
-                          <Copy className="h-3.5 w-3.5 text-slate-400" /> Copy từ tuần khác
+                          Copy từ tuần khác
                         </button>
                         {showCopyMenu && (
                           <div className="absolute right-0 top-10 z-40 w-64 rounded-xl border border-slate-200 bg-white p-2 shadow-xl">
@@ -559,8 +555,8 @@ export const WeeklyBoardView: React.FC<Props> = ({
               </div>
 
               {domainAnalysis.warnings.length > 0 && (
-                <span className="inline-flex items-center gap-1 text-amber-700 font-medium">
-                  <AlertTriangle className="h-3.5 w-3.5" /> {domainAnalysis.warnings[0]}
+                <span className="font-medium text-amber-700">
+                  Lưu ý: {domainAnalysis.warnings[0]}
                 </span>
               )}
             </div>
@@ -913,9 +909,9 @@ export const WeeklyBoardView: React.FC<Props> = ({
 
                     <button
                       onClick={() => setPickerTarget({ dayIdx, slotType: 'MAIN' })}
-                      className="flex w-full items-center justify-center gap-1 rounded-xl border border-dashed border-slate-300 py-2 text-xs font-semibold text-slate-500 transition hover:border-[#0B6E5C] hover:bg-[#F2F9F7] hover:text-[#0B6E5C]"
+                      className="w-full rounded-xl border border-dashed border-slate-300 py-2 text-xs font-semibold text-slate-500 transition hover:border-[#0B6E5C] hover:bg-[#F2F9F7] hover:text-[#0B6E5C]"
                     >
-                      <Plus className="h-3.5 w-3.5" /> Thêm tiết
+                      + Thêm tiết
                     </button>
                   </div>
 

@@ -1,5 +1,4 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { BookOpen, Database, FilePlus2, Plus, Search, Sparkles } from 'lucide-react';
 import type { AgeGroupId, ObjectiveItem, ObjectivesDataset, SuggestedActivity } from '../../shared/types';
 import { domainToKey, normVN } from '../utils/helpers';
 import { DOMAIN_VISUALS, getDomainVisual, getSubjectVisual } from '../utils/visualMeta';
@@ -186,13 +185,12 @@ export const ObjectiveBankView: React.FC<Props> = ({
 
         {/* Search + Month bar */}
         <div className="mt-3 grid grid-cols-1 gap-3 md:grid-cols-12">
-          <div className="relative md:col-span-9">
-            <Search className="pointer-events-none absolute top-2.5 left-3 h-4 w-4 text-slate-400" />
+          <div className="md:col-span-9">
             <input
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Tìm mã MT (VD: MT15), từ khóa bài thơ, trò chơi, toán, vận động..."
-              className="w-full rounded-xl border border-slate-200 bg-slate-50 py-2 pr-3 pl-9 text-sm focus:border-[#0B6E5C] focus:bg-white focus:outline-none"
+              className="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm focus:border-[#0B6E5C] focus:bg-white focus:outline-none"
             />
           </div>
           <select
@@ -238,16 +236,16 @@ export const ObjectiveBankView: React.FC<Props> = ({
                     {obj.month} • {obj.theme}
                   </span>
                   {kbEntry && kbEntry.docCount > 0 && (
-                    <span className="inline-flex items-center gap-1 rounded-full border border-amber-200 bg-amber-50 px-2.5 py-0.5 text-xs font-semibold text-amber-800">
-                      <Database className="h-3 w-3" /> {kbEntry.docCount} tài liệu thực tế ({kbEntry.lessonCount} tiết)
+                    <span className="inline-flex items-center rounded-full border border-amber-200 bg-amber-50 px-2.5 py-0.5 text-xs font-semibold text-amber-800">
+                      {kbEntry.docCount} tài liệu thực tế ({kbEntry.lessonCount} tiết)
                     </span>
                   )}
                 </div>
                 <button
                   onClick={() => onAttachMtToPlan(obj)}
-                  className="inline-flex items-center gap-1 rounded-lg border border-[#0B6E5C] px-2.5 py-1 text-xs font-semibold text-[#0B6E5C] hover:bg-[#E6F4F1]"
+                  className="inline-flex items-center rounded-lg border border-[#0B6E5C] px-2.5 py-1 text-xs font-semibold text-[#0B6E5C] hover:bg-[#E6F4F1]"
                 >
-                  <Plus className="h-3.5 w-3.5" /> Chèn dòng {obj.code}
+                  + Chèn dòng {obj.code}
                 </button>
               </div>
 
@@ -258,8 +256,8 @@ export const ObjectiveBankView: React.FC<Props> = ({
 
               {/* Suggested Activities Grid */}
               <div className="mt-3 space-y-2 border-t border-slate-100 pt-3">
-                <div className="flex items-center gap-1 text-xs font-bold text-slate-700">
-                  <Sparkles className="h-3.5 w-3.5 text-[#0B6E5C]" /> Hoạt động đề xuất chuẩn ({obj.activities.length}):
+                <div className="text-xs font-bold text-slate-700">
+                  Hoạt động đề xuất chuẩn ({obj.activities.length}):
                 </div>
                 <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
                   {obj.activities.map((act) => {
@@ -278,9 +276,9 @@ export const ObjectiveBankView: React.FC<Props> = ({
                         <div className="flex justify-end">
                           <button
                             onClick={() => onInsertActivityToPlan(obj, act)}
-                            className="inline-flex items-center gap-1 rounded-lg bg-[#0B6E5C] px-2.5 py-1 text-[11px] font-semibold text-white hover:bg-[#085A4B]"
+                            className="inline-flex items-center rounded-lg bg-[#0B6E5C] px-2.5 py-1 text-[11px] font-semibold text-white hover:bg-[#085A4B]"
                           >
-                            <FilePlus2 className="h-3.5 w-3.5" /> Chèn khung tiết vào Word
+                            + Chèn khung tiết vào Word
                           </button>
                         </div>
                       </div>
@@ -293,8 +291,8 @@ export const ObjectiveBankView: React.FC<Props> = ({
               {kbEntry && (kbEntry.distilled || cleanLessons.length > 0) && (
                 <div className="mt-3 rounded-xl border border-amber-200/80 bg-amber-50/40 p-3 space-y-2.5">
                   <div className="flex items-center justify-between gap-2">
-                    <div className="flex items-center gap-1 text-xs font-bold text-amber-900">
-                      <BookOpen className="h-3.5 w-3.5" /> Nội dung chiết lọc từ {kbEntry.docCount} tài liệu thực tế khớp {obj.code}:
+                    <div className="text-xs font-bold text-amber-900">
+                      Nội dung chiết lọc từ {kbEntry.docCount} tài liệu thực tế khớp {obj.code}:
                     </div>
                   </div>
                   <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
@@ -343,9 +341,9 @@ export const ObjectiveBankView: React.FC<Props> = ({
                                     theme: obj.theme,
                                   })
                                 }
-                                className="inline-flex items-center gap-1 rounded bg-amber-600 px-2 py-0.5 text-[10px] font-semibold text-white hover:bg-amber-700"
+                                className="inline-flex items-center rounded bg-amber-600 px-2 py-0.5 text-[10px] font-semibold text-white hover:bg-amber-700"
                               >
-                                <FilePlus2 className="h-3 w-3" /> Xếp vào lịch tuần
+                                + Xếp vào lịch tuần
                               </button>
                             </div>
                           </div>

@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { BookOpen, Check, Database, Plus, Search, Sparkles, X } from 'lucide-react';
+import { X } from 'lucide-react';
 import type { AgeGroupId, LessonPlan, ObjectiveItem, ObjectivesDataset } from '../../shared/types';
 import { domainToKey, normVN } from '../utils/helpers';
 import { buildPedagogicalLessonPlan, getSubjectsForAgeGroup, resolveSubjectMeta } from '../utils/subjectTemplates';
@@ -207,8 +207,7 @@ export const QuickLessonPickerModal: React.FC<Props> = ({
         {/* Header */}
         <div className="flex items-center justify-between border-b border-slate-200 bg-[#F2F9F7] px-5 py-3.5">
           <div>
-            <div className="flex items-center gap-1.5 text-xs font-bold uppercase text-[#0B6E5C]">
-              <Sparkles className="h-3.5 w-3.5" />
+            <div className="text-xs font-bold uppercase text-[#0B6E5C]">
               {slotType === 'MAIN' ? `Thêm Tiết học có chủ đích — ${dayLabel}` : `Thêm Hoạt động chiều — ${dayLabel}`}
             </div>
             <p className="mt-0.5 text-xs text-slate-600">
@@ -277,9 +276,9 @@ export const QuickLessonPickerModal: React.FC<Props> = ({
               <button
                 disabled={!customTopic.trim()}
                 onClick={() => handlePickLesson(customTopic)}
-                className="inline-flex items-center gap-1 rounded-lg bg-[#0B6E5C] px-4 py-2 text-xs font-semibold text-white hover:bg-[#085A4B] disabled:opacity-40"
+                className="rounded-lg bg-[#0B6E5C] px-4 py-2 text-xs font-semibold text-white hover:bg-[#085A4B] disabled:opacity-40"
               >
-                <Plus className="h-3.5 w-3.5" /> Thêm ngay
+                + Thêm ngay
               </button>
             </div>
           </div>
@@ -290,28 +289,27 @@ export const QuickLessonPickerModal: React.FC<Props> = ({
               <div className="inline-flex rounded-xl bg-slate-100 p-1 text-xs font-semibold">
                 <button
                   onClick={() => setSourceTab('crawled')}
-                  className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-1 transition ${
+                  className={`rounded-lg px-3 py-1 transition ${
                     sourceTab === 'crawled' ? 'bg-white text-[#0B6E5C] shadow-2xs' : 'text-slate-600'
                   }`}
                 >
-                  <Database className="h-3.5 w-3.5" /> Đề tài thực tế môn {selectedSubject} ({crawledLessons.length})
+                  Đề tài thực tế môn {selectedSubject} ({crawledLessons.length})
                 </button>
                 <button
                   onClick={() => setSourceTab('mt')}
-                  className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-1 transition ${
+                  className={`rounded-lg px-3 py-1 transition ${
                     sourceTab === 'mt' ? 'bg-white text-[#0B6E5C] shadow-2xs' : 'text-slate-600'
                   }`}
                 >
-                  <BookOpen className="h-3.5 w-3.5" /> Gợi ý chuẩn theo 345 MT ({matchingObjectives.length})
+                  Gợi ý chuẩn theo 345 MT ({matchingObjectives.length})
                 </button>
               </div>
-              <div className="relative w-full sm:w-60">
-                <Search className="pointer-events-none absolute top-2 left-2.5 h-3.5 w-3.5 text-slate-400" />
+              <div className="w-full sm:w-60">
                 <input
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
                   placeholder="Lọc nhanh tên bài..."
-                  className="w-full rounded-lg border border-slate-200 bg-slate-50 py-1.5 pr-3 pl-8 text-xs focus:border-[#0B6E5C] focus:bg-white focus:outline-none"
+                  className="w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs focus:border-[#0B6E5C] focus:bg-white focus:outline-none"
                 />
               </div>
             </div>
@@ -364,9 +362,9 @@ export const QuickLessonPickerModal: React.FC<Props> = ({
                       </div>
                       <button
                         onClick={() => handlePickLesson(les.topic, les.mtCode, objByCode.get(les.mtCode))}
-                        className="shrink-0 inline-flex items-center gap-1 rounded-lg bg-[#0B6E5C] px-3 py-1.5 text-xs font-semibold text-white hover:bg-[#085A4B]"
+                        className="shrink-0 rounded-lg bg-[#0B6E5C] px-3 py-1.5 text-xs font-semibold text-white hover:bg-[#085A4B]"
                       >
-                        <Check className="h-3.5 w-3.5" /> Chọn bài này
+                        Chọn bài này
                       </button>
                     </div>
                   ))
