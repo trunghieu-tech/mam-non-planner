@@ -1,0 +1,733 @@
+[
+  {
+    "id": "poem_co_va_me",
+    "kind": "POEM",
+    "title": "Cô và mẹ",
+    "author": "Trần Quốc Toàn",
+    "ageGroups": [
+      "NHA_TRE_24_36T",
+      "MAM_3_4T",
+      "CHOI_4_5T",
+      "LA_5_6T"
+    ],
+    "themes": [
+      "Trường mầm non",
+      "Gia đình",
+      "20/11"
+    ],
+    "contentText": "Buổi sáng bé chào mẹ\nChạy tới ôm cổ cô\nBuổi chiều bé chào cô\nRồi sà vào lòng mẹ.\n\nMặt trời mọc rồi lặn\nTrên đôi chân lon ton\nHai chân trời của con\nLà mẹ và cô giáo.",
+    "dialogueQuestions": [
+      "Cô vừa đọc cho các con nghe bài thơ gì, của tác giả nào?",
+      "Buổi sáng khi đến lớp, bé đã làm gì với mẹ và cô giáo?",
+      "Buổi chiều tan học về, bé chào ai và sà vào lòng ai?",
+      "Hai câu thơ cuối ví mẹ và cô giáo đẹp như hình ảnh gì?",
+      "Con sẽ làm gì để mẹ và cô giáo luôn vui lòng?"
+    ],
+    "educationalNote": "Giáo dục trẻ biết lễ phép chào hỏi mẹ và cô giáo khi đến lớp, ra về; yêu quý kính trọng mẹ và cô."
+  },
+  {
+    "id": "poem_ban_moi",
+    "kind": "POEM",
+    "title": "Bạn mới",
+    "author": "Nguyệt Mai",
+    "ageGroups": [
+      "MAM_3_4T",
+      "CHOI_4_5T"
+    ],
+    "themes": [
+      "Trường mầm non"
+    ],
+    "contentText": "Bạn mới đến trường\nHãy còn nhút nhát\nEm dạy bạn hát\nRủ bạn cùng chơi\nCô thấy cô cười\nCô khen đoàn kết.",
+    "dialogueQuestions": [
+      "Bài thơ “Bạn mới” nói về ai khi mới đến trường?",
+      "Khi thấy bạn mới còn nhút nhát, bạn nhỏ trong bài đã làm gì?",
+      "Thấy các bạn rủ nhau hát và chơi vui vẻ, cô giáo đã khen điều gì?",
+      "Khi lớp mình có bạn mới hoặc bạn đang buồn, con sẽ làm gì cùng bạn?"
+    ],
+    "educationalNote": "Giáo dục trẻ biết quan tâm, nhường nhịn, rủ bạn mới cùng chơi đoàn kết ở lớp."
+  },
+  {
+    "id": "poem_doi_mat_cua_em",
+    "kind": "POEM",
+    "title": "Đôi mắt của em",
+    "author": "Lê Thị Mỹ Phương",
+    "ageGroups": [
+      "NHA_TRE_24_36T",
+      "MAM_3_4T",
+      "CHOI_4_5T"
+    ],
+    "themes": [
+      "Bản thân"
+    ],
+    "contentText": "Đôi mắt xinh xinh\nĐôi mắt tròn tròn\nGiúp em nhìn thấy\nMọi vật xung quanh.\n\nEm yêu em quý\nĐôi mắt xinh xinh\nGiữ cho đôi mắt\nNgày càng sáng hơn.",
+    "dialogueQuestions": [
+      "Bài thơ nói về bộ phận nào trên khuôn mặt của bé?",
+      "Đôi mắt của bé trông như thế nào và giúp bé làm được việc gì?",
+      "Muốn giữ cho đôi mắt ngày càng sáng đẹp, hằng ngày con cần làm gì (không dụi tay bẩn, ngồi đủ ánh sáng, rửa mặt sạch)?"
+    ],
+    "educationalNote": "Giáo dục trẻ biết yêu quý và giữ gìn vệ sinh đôi mắt (không lấy tay bẩn dụi mắt, không xem điện thoại/tivi quá gần)."
+  },
+  {
+    "id": "poem_tay_ngoan",
+    "kind": "POEM",
+    "title": "Tay ngoan",
+    "author": "Võ Quảng",
+    "ageGroups": [
+      "NHA_TRE_24_36T",
+      "MAM_3_4T"
+    ],
+    "themes": [
+      "Bản thân"
+    ],
+    "contentText": "Tay thò tay thụt\nTay múa tay co\nTay thơm tay ngoan\nGiơ ra cho cô xem!\nHai bàn tay sạch đẹp\nĐáng được khen trăm lần!",
+    "dialogueQuestions": [
+      "Trong bài thơ “Tay ngoan”, đôi bàn tay của bé biết làm những động tác vui nào?",
+      "Vì sao đôi bàn tay của bé lại được khen trăm lần?",
+      "Để hai bàn tay luôn sạch thơm, con nhớ rửa tay bằng xà phòng vào những lúc nào?"
+    ],
+    "educationalNote": "Rèn thói quen giữ đôi bàn tay sạch sẽ, cắt móng tay gọn gàng và rửa tay bằng xà phòng hằng ngày."
+  },
+  {
+    "id": "poem_tam_su_cai_mui",
+    "kind": "POEM",
+    "title": "Tâm sự của cái mũi",
+    "author": "Phạm Hổ",
+    "ageGroups": [
+      "MAM_3_4T",
+      "CHOI_4_5T",
+      "LA_5_6T"
+    ],
+    "themes": [
+      "Bản thân"
+    ],
+    "contentText": "Tôi là cái mũi\nGiúp bé biết ngửi\nHương hoa thơm ngát\nMùi thức ăn ngon.\nCho bé thở thông\nĐừng nhét vật lạ\nLau sạch hằng ngày\nMũi khỏe bé vui!",
+    "dialogueQuestions": [
+      "Cái mũi đã tâm sự mình giúp bé làm được những việc gì quan trọng?",
+      "Cái mũi dặn bé tuyệt đối không được làm điều gì nguy hiểm?",
+      "Khi bị sổ mũi hoặc bụi bẩn, con dùng khăn giấy lau mũi như thế nào cho sạch?"
+    ],
+    "educationalNote": "Giáo dục trẻ bảo vệ mũi và đường hô hấp, tuyệt đối không nhét hạt hay đồ chơi nhỏ vào lỗ mũi."
+  },
+  {
+    "id": "poem_yeu_me",
+    "kind": "POEM",
+    "title": "Yêu mẹ",
+    "author": "Nguyễn Bao",
+    "ageGroups": [
+      "NHA_TRE_24_36T",
+      "MAM_3_4T",
+      "CHOI_4_5T"
+    ],
+    "themes": [
+      "Gia đình",
+      "8/3",
+      "20/10"
+    ],
+    "contentText": "Mẹ đi làm\nTừ sáng sớm\nDậy thổi cơm\nMua thịt cá\nEm kề má\nĐược mẹ yêu\nƠi mẹ ơi!\nYêu mẹ lắm!",
+    "dialogueQuestions": [
+      "Bài thơ “Yêu mẹ” do ai sáng tác?",
+      "Từ sáng sớm mẹ đã dậy làm những công việc gì chăm lo cho cả nhà?",
+      "Bạn nhỏ đã thể hiện tình yêu thương với mẹ qua cử chỉ và lời nói nào?",
+      "Ở nhà con đã biết làm việc nhỏ gì để giúp đỡ mẹ?"
+    ],
+    "educationalNote": "Bồi dưỡng tình cảm yêu thương, biết ơn công lao vất vả của mẹ và vâng lời ông bà, cha mẹ."
+  },
+  {
+    "id": "poem_em_yeu_nha_em",
+    "kind": "POEM",
+    "title": "Em yêu nhà em",
+    "author": "Đoàn Thị Lam Luyến",
+    "ageGroups": [
+      "CHOI_4_5T",
+      "LA_5_6T"
+    ],
+    "themes": [
+      "Gia đình",
+      "Quê hương"
+    ],
+    "contentText": "Chẳng đâu bằng chính nhà em\nCó đàn chim sẻ bên thềm líu lo\nCó nàng gà mái hoa mơ\nCục ta cục tác khi vừa đẻ xong\nCó bà chuối mật lưng ong\nCó ông ngô bắp râu hồng như tơ...",
+    "dialogueQuestions": [
+      "Ngôi nhà của bạn nhỏ trong bài thơ có những con vật và cây cối quen thuộc nào?",
+      "Tiếng chim sẻ và nàng gà mái hoa mơ được miêu tả sinh động ra sao?",
+      "Câu thơ mở đầu “Chẳng đâu bằng chính nhà em” nói lên tình cảm gì của bạn nhỏ?",
+      "Con yêu nhất góc nào trong ngôi nhà của gia đình mình?"
+    ],
+    "educationalNote": "Giáo dục trẻ yêu quý ngôi nhà ấm áp, giữ gìn nhà cửa gọn gàng sạch đẹp."
+  },
+  {
+    "id": "poem_dan_ga_con",
+    "kind": "POEM",
+    "title": "Đàn gà con",
+    "author": "Phạm Hổ",
+    "ageGroups": [
+      "NHA_TRE_24_36T",
+      "MAM_3_4T",
+      "CHOI_4_5T"
+    ],
+    "themes": [
+      "Động vật"
+    ],
+    "contentText": "Mười quả trứng tròn\nMẹ gà ấp ủ\nMười chú gà con\nHôm nay ra đủ.\nLòng trắng, lòng đỏ\nThành mỏ, thành chân\nCái mỏ tí hon\nCái chân bé xíu\nLông vàng mát dịu\nMắt đen sáng ngời\nƠi chú gà ơi!\nTa yêu chú lắm!",
+    "dialogueQuestions": [
+      "Từ mười quả trứng tròn mẹ gà ấp ủ đã nở ra bao nhiêu chú gà con?",
+      "Mỏ, chân, bộ lông và đôi mắt của chú gà con đẹp như thế nào?",
+      "Tình cảm của gà mẹ và của bạn nhỏ dành cho đàn gà con ra sao?",
+      "Ở nhà hoặc quanh xóm con từng thấy những con vật nuôi nào khác, con chăm sóc chúng thế nào?"
+    ],
+    "educationalNote": "Giáo dục trẻ yêu quý, bảo vệ và biết cho vật nuôi ăn cùng người lớn."
+  },
+  {
+    "id": "poem_cay_bap_cai",
+    "kind": "POEM",
+    "title": "Cây bắp cải",
+    "author": "Phạm Hổ",
+    "ageGroups": [
+      "NHA_TRE_24_36T",
+      "MAM_3_4T"
+    ],
+    "themes": [
+      "Thực vật"
+    ],
+    "contentText": "Bắp cải xanh\nXanh man mát\nLá cải sắp\nSắp vòng tròn\nBúp cải non\nNằm ngủ giữa.",
+    "dialogueQuestions": [
+      "Cây bắp cải trong bài thơ có màu gì?",
+      "Những chiếc lá bắp cải sắp xếp với nhau theo hình gì?",
+      "Búp cải non nằm ở đâu?",
+      "Ăn rau bắp cải và các loại rau xanh giúp cơ thể bé như thế nào?"
+    ],
+    "educationalNote": "Khuyến khích trẻ ăn hết suất rau xanh trong bữa ăn để cơ thể khỏe mạnh, cao lớn."
+  },
+  {
+    "id": "poem_hoa_ket_trai",
+    "kind": "POEM",
+    "title": "Hoa kết trái",
+    "author": "Thu Hà",
+    "ageGroups": [
+      "CHOI_4_5T",
+      "LA_5_6T"
+    ],
+    "themes": [
+      "Thực vật",
+      "Mùa xuân"
+    ],
+    "contentText": "Hoa cà tim tím\nHoa mướp vàng vàng\nHoa lựu chói chang\nĐỏ như đốm lửa\nHoa vừng nho nhỏ\nHoa đỗ xinh xinh\nHoa mận trắng tinh\nRung rinh trong gió.\nNày các bạn nhỏ\nĐừng hái hoa tươi\nHoa yêu mọi người\nNên hoa kết trái.",
+    "dialogueQuestions": [
+      "Trong bài thơ có nhắc đến những loài hoa nào và màu sắc đặc trưng của từng loài hoa là gì?",
+      "Vì sao tác giả dặn các bạn nhỏ “Đừng hái hoa tươi”?",
+      "Khi đi dạo ở sân trường và công viên, con sẽ làm gì để bảo vệ cây hoa?"
+    ],
+    "educationalNote": "Giáo dục trẻ yêu thiên nhiên, chăm sóc cây hoa và không tự ý ngắt lá, bẻ cành, hái hoa nơi công cộng."
+  },
+  {
+    "id": "poem_den_giao_thong",
+    "kind": "POEM",
+    "title": "Đèn giao thông",
+    "author": "Mỹ Trang",
+    "ageGroups": [
+      "MAM_3_4T",
+      "CHOI_4_5T",
+      "LA_5_6T"
+    ],
+    "themes": [
+      "Giao thông"
+    ],
+    "contentText": "Đèn xanh, đèn đỏ, đèn vàng\nBa đèn tín hiệu an toàn giao thông\nĐi đường bé nhớ nghe không\nĐèn xanh tín hiệu đã thông đường rồi\nĐèn vàng chậm lại dừng thôi\nĐèn đỏ dừng lại kẻo rồi tông nhau\nBé ngoan bé giỏi thuộc làu\nXanh đi, đỏ đứng, mau mau đúng đường.",
+    "dialogueQuestions": [
+      "Cột đèn tín hiệu giao thông gồm có mấy màu đèn, đó là những màu nào?",
+      "Khi gặp đèn xanh, đèn vàng và đèn đỏ thì các phương tiện phải đi như thế nào?",
+      "Khi ngồi trên xe máy cùng ba mẹ, con cần đội gì và ngồi như thế nào để an toàn?"
+    ],
+    "educationalNote": "Hình thành ý thức chấp hành tín hiệu đèn giao thông và đội mũ bảo hiểm an toàn khi đi đường."
+  },
+  {
+    "id": "poem_anh_bac",
+    "kind": "POEM",
+    "title": "Ảnh Bác",
+    "author": "Trần Đăng Khoa",
+    "ageGroups": [
+      "CHOI_4_5T",
+      "LA_5_6T"
+    ],
+    "themes": [
+      "Quê hương",
+      "Bác Hồ"
+    ],
+    "contentText": "Nhà em treo ảnh Bác Hồ\nBên trên là một lá cờ đỏ tươi\nNgày ngày Bác mỉm miệng cười\nBác nhìn chúng cháu vui chơi trong nhà\nNgoài sân có mấy con gà\nNgoài vườn có mấy quả na chín rồi\nEm nghe như Bác dạy lời\nCháu ơi đừng có chơi bời đâu xa\nTrồng rau, quét bếp, đuổi gà\nThấy tàu bay Mỹ nhớ ra hầm ngồi.",
+    "dialogueQuestions": [
+      "Trong nhà bạn nhỏ treo ảnh của ai, bên trên ảnh Bác có gì?",
+      "Ánh mắt và nụ cười của Bác Hồ nhìn các cháu trìu mến như thế nào?",
+      "Bạn nhỏ cảm nhận như Bác Hồ đang căn dặn những công việc vừa sức nào?",
+      "Để xứng đáng là Cháu ngoan Bác Hồ, ở lớp và ở nhà con sẽ cố gắng làm gì?"
+    ],
+    "educationalNote": "Bồi dưỡng lòng kính yêu Bác Hồ và ý thức chăm ngoan, vâng lời người lớn."
+  },
+  {
+    "id": "story_nho_cu_cai",
+    "kind": "STORY",
+    "title": "Nhổ củ cải",
+    "author": "Truyện cổ dân gian Nga",
+    "ageGroups": [
+      "NHA_TRE_24_36T",
+      "MAM_3_4T",
+      "CHOI_4_5T"
+    ],
+    "themes": [
+      "Gia đình",
+      "Thực vật"
+    ],
+    "contentText": "Ông lão trồng một cây củ cải ngoài vườn, củ cải lớn nhanh to khổng lồ. Một mình ông nhổ mãi không lên. Ông gọi bà lão, bà gọi cháu gái, cháu gái gọi chó con, chó con gọi mèo con, mèo con gọi chuột nhắt cùng nắm áo nối đuôi nhau kéo: “Một, hai, ba… Ái chà, lên rồi!”. Nhờ cả nhà đoàn kết góp sức, cây củ cải khổng lồ đã được nhổ lên trong niềm vui chung.",
+    "dialogueQuestions": [
+      "Trong câu chuyện “Nhổ củ cải” có những nhân vật nào xuất hiện theo thứ tự từ đầu đến cuối?",
+      "Vì sao lúc đầu một mình ông lão nhổ mãi mà cây củ cải không nhúc nhích?",
+      "Đến khi thêm bạn chuột nhắt cùng hợp sức kéo thì điều kỳ diệu gì đã xảy ra?",
+      "Qua câu chuyện này, con học được bài học gì khi làm việc cùng gia đình và các bạn?"
+    ],
+    "educationalNote": "Giáo dục trẻ tinh thần đoàn kết, biết hợp tác và giúp đỡ lẫn nhau trong gia đình cũng như ở lớp học."
+  },
+  {
+    "id": "story_tho_con_khong_vang_loi",
+    "kind": "STORY",
+    "title": "Thỏ con không vâng lời",
+    "author": "Truyện thiếu nhi",
+    "ageGroups": [
+      "NHA_TRE_24_36T",
+      "MAM_3_4T",
+      "CHOI_4_5T"
+    ],
+    "themes": [
+      "Gia đình",
+      "Động vật",
+      "Bản thân"
+    ],
+    "contentText": "Trước khi đi chợ, Thỏ mẹ dặn Thỏ con ở nhà học bài, chớ đi chơi xa. Bươm Bướm bay qua rủ Thỏ con ra rừng hái hoa, Thỏ con mải đuổi bướm quên lời mẹ dặn nên bị lạc đường và khóc hu hu. Bác Gấu đi ngang qua ân cần dắt Thỏ con về tận nhà. Thỏ con ân hận khoanh tay xin lỗi mẹ và hứa từ nay luôn nghe lời mẹ.",
+    "dialogueQuestions": [
+      "Trước khi đi chợ, Thỏ mẹ đã dặn Thỏ con điều gì?",
+      "Vì sao Thỏ con lại bị lạc đường trong rừng và bật khóc?",
+      "Ai đã giúp đỡ đưa Thỏ con về nhà an toàn?",
+      "Khi về gặp mẹ, Thỏ con đã nói lời gì? Nếu là con, con có tự ý đi chơi xa không?"
+    ],
+    "educationalNote": "Giáo dục trẻ biết vâng lời ông bà, bố mẹ, không tự ý đi chơi xa hoặc đi theo người lạ, biết nói lời xin lỗi khi mắc lỗi."
+  },
+  {
+    "id": "story_ba_co_gai",
+    "kind": "STORY",
+    "title": "Ba cô gái",
+    "author": "Truyện cổ dân gian",
+    "ageGroups": [
+      "CHOI_4_5T",
+      "LA_5_6T"
+    ],
+    "themes": [
+      "Gia đình",
+      "8/3",
+      "20/10"
+    ],
+    "contentText": "Bà mẹ sinh được ba cô con gái và hết lòng chăm sóc cho các con khôn lớn đi lấy chồng xa. Khi bà bị ốm nặng, bà nhờ Sóc con mang thư báo tin cho ba cô. Cô cả và cô hai còn bận cọ chậu, se chỉ chưa về ngay nên bị biến thành rùa và nhện; riêng cô út nghe tin mẹ ốm liền tất tả bỏ hết công việc chạy ngay về chăm sóc mẹ và được sống hạnh phúc ấm no.",
+    "dialogueQuestions": [
+      "Khi bà mẹ bị ốm nặng, bà đã nhờ ai đi đưa thư cho ba cô con gái?",
+      "Thái độ của cô cả và cô hai khác với cô út như thế nào khi nghe tin mẹ ốm?",
+      "Con yêu quý nhân vật nào nhất trong truyện? Vì sao?",
+      "Khi ông bà, bố mẹ mệt hoặc ốm, con có thể làm những việc gì để bày tỏ lòng hiếu thảo?"
+    ],
+    "educationalNote": "Giáo dục lòng hiếu thảo, yêu thương chăm sóc ông bà, cha mẹ từ những việc làm nhỏ hằng ngày."
+  },
+  {
+    "id": "story_qua_duong",
+    "kind": "STORY",
+    "title": "Qua đường",
+    "author": "Truyện giáo dục ATGT",
+    "ageGroups": [
+      "MAM_3_4T",
+      "CHOI_4_5T",
+      "LA_5_6T"
+    ],
+    "themes": [
+      "Giao thông"
+    ],
+    "contentText": "Hai chị em Thỏ Trắng và Thỏ Nâu xin phép mẹ ra phố chơi. Thấy vườn hoa bên kia đường đẹp quá, Thỏ Nâu vội buông tay chị chạy băng qua đường đúng lúc đèn đỏ cho người đi bộ. Chú Cảnh sát giao thông Hươu Sao kịp thời giữ lại và nhẹ nhàng chỉ cho hai chị em vạch kẻ trắng dành cho người đi bộ cùng tín hiệu đèn hình người màu xanh. Hai chị em cảm ơn chú và ghi nhớ bài học an toàn.",
+    "dialogueQuestions": [
+      "Vì sao hành động vội chạy băng qua đường của Thỏ Nâu lại rất nguy hiểm?",
+      "Chú Cảnh sát giao thông Hươu Sao đã hướng dẫn hai chị em cách qua đường đúng luật như thế nào?",
+      "Trẻ nhỏ khi muốn sang đường bắt buộc phải đi cùng ai và đi trên vạch kẻ nào?"
+    ],
+    "educationalNote": "Giáo dục trẻ tuyệt đối không tự ý chạy qua đường, chỉ sang đường tại vạch kẻ trắng khi đèn người đi bộ bật xanh và nắm chặt tay người lớn."
+  },
+  {
+    "id": "story_cao_tho_va_ga_trong",
+    "kind": "STORY",
+    "title": "Cáo, Thỏ và Gà trống",
+    "author": "Truyện cổ dân gian",
+    "ageGroups": [
+      "CHOI_4_5T",
+      "LA_5_6T"
+    ],
+    "themes": [
+      "Động vật"
+    ],
+    "contentText": "Cáo có ngôi nhà bằng băng, Thỏ có ngôi nhà bằng gỗ. Mùa xuân đến nhà Cáo tan chảy thành nước, Cáo xin sang sưởi nhờ rồi đuổi luôn Thỏ ra ngoài. Đàn Chó và bác Gấu tìm cách giúp Thỏ nhưng đều sợ Cáo dọa. Chỉ có chú Gà trống vác hái trên vai, dũng cảm cất tiếng hát vang khiến Cáo hoảng sợ bỏ chạy vào rừng sâu, trả lại ngôi nhà gỗ ấm áp cho Thỏ.",
+    "dialogueQuestions": [
+      "Ngôi nhà của Cáo và ngôi nhà của Thỏ làm bằng gì, vì sao mùa xuân đến Cáo lại sang nhà Thỏ?",
+      "Vì sao đàn Chó và bác Gấu chưa đuổi được Cáo đi?",
+      "Nhờ đâu mà bạn Gà trống lại giúp được Thỏ lấy lại ngôi nhà của mình?",
+      "Con học được đức tính tốt đẹp gì từ bạn Gà trống?"
+    ],
+    "educationalNote": "Giáo dục trẻ lòng dũng cảm, biết bênh vực và giúp đỡ bạn bè khi gặp khó khăn."
+  },
+  {
+    "id": "song_truong_chung_chau",
+    "kind": "SONG",
+    "title": "Trường chúng cháu là trường mầm non",
+    "author": "Phạm Tuyên",
+    "ageGroups": [
+      "MAM_3_4T",
+      "CHOI_4_5T",
+      "LA_5_6T"
+    ],
+    "themes": [
+      "Trường mầm non"
+    ],
+    "contentText": "Ai hỏi cháu cháu học trường nào đấy?\nBé nào ngoan lại múa hát thật hay?\nCô là mẹ và các cháu là con\nTrường của cháu đây là trường Mầm non!",
+    "dialogueQuestions": [
+      "Bài hát vui tươi này có tên là gì, do nhạc sĩ nào sáng tác?",
+      "Trong bài hát, cô giáo và các bạn nhỏ thân thương như những ai trong gia đình?",
+      "Giai điệu bài hát nhanh vui hay trầm buồn? Khi hát kết hợp vỗ tay theo nhịp con thấy thế nào?"
+    ],
+    "educationalNote": "Tạo tâm thế vui tươi phấn khởi khi đến trường mầm non mỗi ngày. Gợi ý Nghe hát: “Ngày đầu tiên đi học”; TCAN: “Tai ai thính”."
+  },
+  {
+    "id": "song_em_di_mau_giao",
+    "kind": "SONG",
+    "title": "Em đi mẫu giáo",
+    "author": "Dương Minh Viên",
+    "ageGroups": [
+      "MAM_3_4T",
+      "CHOI_4_5T",
+      "LA_5_6T"
+    ],
+    "themes": [
+      "Trường mầm non"
+    ],
+    "contentText": "Nắng vừa lên em đi mẫu giáo\nChim sẻ reo ca dưới ánh mặt trời\nĐến lớp gặp cô, gặp bạn vui cười\nEm ngoan lễ phép cả ngày thật vui.",
+    "dialogueQuestions": [
+      "Buổi sáng đến trường mẫu giáo của bạn nhỏ rộn ràng những hình ảnh gì?",
+      "Giai điệu bài hát “Em đi mẫu giáo” của nhạc sĩ Dương Minh Viên mang sắc thái như thế nào?"
+    ],
+    "educationalNote": "Giáo dục trẻ đi học đều, đúng giờ và vui vẻ hòa đồng cùng cô, bạn. Gợi ý Nghe hát: “Cô giáo miền xuôi”; TCAN: “Ai nhanh nhất”."
+  },
+  {
+    "id": "song_ca_nha_thuong_nhau",
+    "kind": "SONG",
+    "title": "Cả nhà thương nhau",
+    "author": "Phan Văn Minh",
+    "ageGroups": [
+      "NHA_TRE_24_36T",
+      "MAM_3_4T",
+      "CHOI_4_5T",
+      "LA_5_6T"
+    ],
+    "themes": [
+      "Gia đình"
+    ],
+    "contentText": "Ba thương con vì con giống mẹ\nMẹ thương con vì con giống ba\nCả nhà ta cùng thương yêu nhau\nXa là nhớ, gần nhau là cười.",
+    "dialogueQuestions": [
+      "Bài hát nhắc đến những thành viên thân yêu nào trong gia đình?",
+      "Câu hát “Xa là nhớ, gần nhau là cười” nói lên điều gì đẹp đẽ trong gia đình mình?"
+    ],
+    "educationalNote": "Vun đắp tình yêu thương gắn bó giữa ba, mẹ và con cái. Gợi ý Nghe hát: “Ba ngọn nến lung linh” / “Cho con”; TCAN: “Đoán tên bạn hát”."
+  },
+  {
+    "id": "song_chau_yeu_ba",
+    "kind": "SONG",
+    "title": "Cháu yêu bà",
+    "author": "Xuân Giao",
+    "ageGroups": [
+      "NHA_TRE_24_36T",
+      "MAM_3_4T",
+      "CHOI_4_5T"
+    ],
+    "themes": [
+      "Gia đình",
+      "8/3",
+      "20/10"
+    ],
+    "contentText": "Bà ơi bà, cháu yêu bà lắm!\nTóc bà trắng màu trắng như mây\nCháu yêu bà, cháu nắm bàn tay\nKhi cháu vâng lời cháu biết bà vui!",
+    "dialogueQuestions": [
+      "Mái tóc của bà trong bài hát được ví đẹp như hình ảnh gì?",
+      "Làm thế nào để bà luôn nở nụ cười vui vẻ mỗi ngày?"
+    ],
+    "educationalNote": "Giáo dục trẻ kính yêu, lễ phép và vâng lời ông bà. Gợi ý Nghe hát: “Bàn tay mẹ”; TCAN: “Nghe tiếng hát tìm đồ vật”."
+  },
+  {
+    "id": "song_nga_tu_duong_pho",
+    "kind": "SONG",
+    "title": "Em đi qua ngã tư đường phố",
+    "author": "Hoàng Văn Yến",
+    "ageGroups": [
+      "MAM_3_4T",
+      "CHOI_4_5T",
+      "LA_5_6T"
+    ],
+    "themes": [
+      "Giao thông"
+    ],
+    "contentText": "Trên sân trường chúng em chơi giao thông\nĐi vòng quanh qua ngã tư đường phố\nĐèn bật lên màu đỏ thì em dừng lại\nĐèn bật lên màu xanh em nhanh qua đường!",
+    "dialogueQuestions": [
+      "Các bạn nhỏ đang chơi trò chơi gì trên sân trường?",
+      "Trong lời bài hát, khi đèn màu đỏ và đèn màu xanh bật lên thì bạn nhỏ đi như thế nào?"
+    ],
+    "educationalNote": "Củng cố quy tắc đèn đỏ dừng lại – đèn xanh mới đi một cách hào hứng qua âm nhạc. Gợi ý TCAN: “Tín hiệu đèn màu”."
+  },
+  {
+    "id": "song_sap_den_tet_roi",
+    "kind": "SONG",
+    "title": "Sắp đến Tết rồi",
+    "author": "Hoàng Vân",
+    "ageGroups": [
+      "NHA_TRE_24_36T",
+      "MAM_3_4T",
+      "CHOI_4_5T",
+      "LA_5_6T"
+    ],
+    "themes": [
+      "Tết",
+      "Mùa xuân"
+    ],
+    "contentText": "Sắp đến Tết rồi! Đến trường rất vui\nSắp đến Tết rồi! Về nhà rất vui\nMẹ đang may áo mới nhé, ai cũng vui mừng ghê\nMùa xuân nay em đã lớn, biết đi thăm ông bà!",
+    "dialogueQuestions": [
+      "Khi Tết và mùa xuân sắp về, niềm vui của bạn nhỏ được thể hiện qua những việc gì?",
+      "Ngày Tết được mặc áo mới đi chúc Tết ông bà, con sẽ chúc ông bà những lời tốt đẹp nào?"
+    ],
+    "educationalNote": "Giáo dục nét đẹp lễ nghĩa chúc Tết ông bà, người lớn dịp Xuân về. Gợi ý Nghe hát: “Mùa xuân ơi”."
+  },
+  {
+    "id": "lqcc_o_o_o",
+    "kind": "LQCC",
+    "title": "Làm quen nhóm chữ cái o, ô, ơ",
+    "author": "Chương trình GDMN 5–6 tuổi",
+    "ageGroups": [
+      "LA_5_6T"
+    ],
+    "themes": [
+      "Trường mầm non",
+      "Bản thân"
+    ],
+    "contentText": "• Chữ o: gồm 1 nét cong tròn khép kín.\n• Chữ ô: gồm 1 nét cong tròn khép kín và dấu mũ (hai nét xiên ngắn gặp nhau ở đỉnh) ngay phía trên.\n• Chữ ơ: gồm 1 nét cong tròn khép kín và 1 nét móc nhỏ phía trên bên phải.",
+    "dialogueQuestions": [
+      "Ba chữ cái o, ô, ơ có điểm gì giống nhau về nét cơ bản?",
+      "Điểm khác nhau giúp con phân biệt rõ chữ o, chữ ô và chữ ơ là gì?",
+      "Con hãy tìm nhanh chữ o, ô, ơ trong các từ dưới tranh: “cô giáo”, “bóng tròn”, “lá cờ”!"
+    ],
+    "educationalNote": "Trò chơi gợi ý: “Gà gáy (ò), Cô giáo (ô), Lá cờ (ơ)” & Xếp hột hạt nét cong tròn."
+  },
+  {
+    "id": "lqcc_a_aw_aa",
+    "kind": "LQCC",
+    "title": "Làm quen nhóm chữ cái a, ă, â",
+    "author": "Chương trình GDMN 5–6 tuổi",
+    "ageGroups": [
+      "LA_5_6T"
+    ],
+    "themes": [
+      "Bản thân",
+      "Gia đình"
+    ],
+    "contentText": "• Chữ a (in thường): gồm 1 nét cong tròn khép kín bên trái và 1 nét sổ thẳng ngắn sát bên phải.\n• Chữ ă: giống chữ a nhưng có thêm dấu á (nét cong ngửa nhỏ) ở phía trên.\n• Chữ â: giống chữ a nhưng có thêm dấu mũ xuôi ở phía trên.",
+    "dialogueQuestions": [
+      "Chữ a, ă, â giống nhau ở những nét cấu tạo nào?",
+      "Dấu phụ trên đầu chữ ă và chữ â khác nhau ra sao?",
+      "Tìm chữ a, ă, â trong các từ “bàn tay”, “khăn mặt”, “đôi chân”."
+    ],
+    "educationalNote": "Rèn phát âm rõ độ mở miệng của a – ă – â và tư thế ngồi tô chữ chuẩn."
+  },
+  {
+    "id": "lqcc_e_ee",
+    "kind": "LQCC",
+    "title": "Làm quen nhóm chữ cái e, ê",
+    "author": "Chương trình GDMN 5–6 tuổi",
+    "ageGroups": [
+      "LA_5_6T"
+    ],
+    "themes": [
+      "Gia đình"
+    ],
+    "contentText": "• Chữ e: gồm 1 nét nằm ngang nối liền với 1 nét cong hở phải.\n• Chữ ê: cấu tạo giống chữ e và có thêm dấu mũ ở phía trên.",
+    "dialogueQuestions": [
+      "Chữ e và chữ ê giống và khác nhau ở điểm nào?",
+      "Con hãy tìm chữ e, ê trong từ “em bé”, “búp bê”, “ghế gỗ”."
+    ],
+    "educationalNote": "Luyện phát âm chuẩn e – ê, chơi trò chơi “Tìm đúng nhà chữ e – ê”."
+  },
+  {
+    "id": "lqcc_u_uw",
+    "kind": "LQCC",
+    "title": "Làm quen nhóm chữ cái u, ư",
+    "author": "Chương trình GDMN 5–6 tuổi",
+    "ageGroups": [
+      "LA_5_6T"
+    ],
+    "themes": [
+      "Nghề nghiệp",
+      "Gia đình"
+    ],
+    "contentText": "• Chữ u: gồm 1 nét móc ngược bên trái và 1 nét sổ thẳng sát bên phải.\n• Chữ ư: gồm các nét giống chữ u và có thêm 1 dấu móc nhỏ phía trên đầu nét sổ thẳng bên phải.",
+    "dialogueQuestions": [
+      "Chữ u gồm mấy nét, đó là những nét gì?",
+      "Chữ ư có thêm nét đặc biệt nào khác với chữ u?",
+      "Tìm chữ u, ư trong từ “cái mũ”, “lá thư”, “chú bộ đội”."
+    ],
+    "educationalNote": "Kết hợp trò chơi ghép nét rời tạo chữ u, ư và tô trùng khít nét chấm mờ."
+  },
+  {
+    "id": "lqcc_i_t_c",
+    "kind": "LQCC",
+    "title": "Làm quen nhóm chữ cái i, t, c",
+    "author": "Chương trình GDMN 5–6 tuổi",
+    "ageGroups": [
+      "LA_5_6T"
+    ],
+    "themes": [
+      "Động vật",
+      "Nghề nghiệp"
+    ],
+    "contentText": "• Chữ i: gồm 1 nét sổ thẳng ngắn và 1 dấu chấm nhỏ ngay phía trên.\n• Chữ t: gồm 1 nét sổ thẳng dài hơn và 1 nét gạch ngang ngắn cắt ngang phía trên.\n• Chữ c: gồm 1 nét cong hở phải.",
+    "dialogueQuestions": [
+      "So sánh chữ i và chữ t: điểm giống nhau và điểm khác nhau là gì?",
+      "Chữ c có nét cong hở về phía bên nào?",
+      "Tìm chữ i, t, c trong từ “con chim”, “con thỏ”, “con cá”."
+    ],
+    "educationalNote": "Giúp trẻ phân biệt chính xác dấu chấm (i) và nét gạch ngang (t)."
+  },
+  {
+    "id": "lqcc_b_d_dd",
+    "kind": "LQCC",
+    "title": "Làm quen nhóm chữ cái b, d, đ",
+    "author": "Chương trình GDMN 5–6 tuổi",
+    "ageGroups": [
+      "LA_5_6T"
+    ],
+    "themes": [
+      "Động vật",
+      "Thực vật"
+    ],
+    "contentText": "• Chữ b: gồm 1 nét sổ thẳng dài bên trái và 1 nét cong tròn khép kín phía dưới bên phải.\n• Chữ d: gồm 1 nét cong tròn khép kín bên trái và 1 nét sổ thẳng dài bên phải.\n• Chữ đ: giống chữ d nhưng có thêm 1 nét gạch ngang ngắn phía trên nét sổ thẳng.",
+    "dialogueQuestions": [
+      "Làm thế nào để con không bị nhầm lẫn vị trí nét cong tròn của chữ b (bụng phía trước/phải) và chữ d (lưng phía trái)?",
+      "Chữ d và chữ đ khác nhau ở nét nào?",
+      "Tìm chữ b, d, đ trong từ “bươm bướm”, “con dê”, “hoa đào”."
+    ],
+    "educationalNote": "Nhấn mạnh mẹo nhớ vị trí nét sổ thẳng – nét cong tròn để tránh nhầm b và d khi lên lớp 1."
+  },
+  {
+    "id": "lqcc_l_m_n",
+    "kind": "LQCC",
+    "title": "Làm quen nhóm chữ cái l, m, n",
+    "author": "Chương trình GDMN 5–6 tuổi",
+    "ageGroups": [
+      "LA_5_6T"
+    ],
+    "themes": [
+      "Thực vật",
+      "Tết & Mùa xuân"
+    ],
+    "contentText": "• Chữ l: gồm 1 nét sổ thẳng cao.\n• Chữ n: gồm 1 nét sổ thẳng ngắn bên trái và 1 nét móc xuôi bên phải.\n• Chữ m: gồm 1 nét sổ thẳng ngắn và 2 nét móc xuôi nối tiếp nhau.",
+    "dialogueQuestions": [
+      "Chữ n và chữ m giống nhau ở điểm nào, chữ m nhiều hơn chữ n mấy nét móc xuôi?",
+      "Khi phát âm chữ l (cong đầu lưỡi) và chữ n (thẳng lưỡi), miệng con đặt như thế nào?",
+      "Tìm chữ l, m, n trong từ “hoa lan”, “hoa mai”, “bánh chưng”."
+    ],
+    "educationalNote": "Chú trọng luyện phát âm chuẩn l – n, sửa ngọng nhẹ nhàng qua đồng dao."
+  },
+  {
+    "id": "lqcc_h_k",
+    "kind": "LQCC",
+    "title": "Làm quen nhóm chữ cái h, k",
+    "author": "Chương trình GDMN 5–6 tuổi",
+    "ageGroups": [
+      "LA_5_6T"
+    ],
+    "themes": [
+      "Thực vật",
+      "Mùa xuân"
+    ],
+    "contentText": "• Chữ h: gồm 1 nét sổ thẳng cao bên trái và 1 nét móc xuôi bên phải.\n• Chữ k: gồm 1 nét sổ thẳng cao bên trái và 2 nét xiên ngắn chụm vào giữa nét sổ thẳng.",
+    "dialogueQuestions": [
+      "Điểm giống nhau và khác nhau giữa chữ h và chữ k là gì?",
+      "Tìm chữ h, k trong các từ “hoa hồng”, “quả khế”, “kẹo ngọt”."
+    ],
+    "educationalNote": "Tổ chức trò chơi ghép nét gỗ / que tính tạo chữ h, k."
+  },
+  {
+    "id": "lqcc_p_q",
+    "kind": "LQCC",
+    "title": "Làm quen nhóm chữ cái p, q",
+    "author": "Chương trình GDMN 5–6 tuổi",
+    "ageGroups": [
+      "LA_5_6T"
+    ],
+    "themes": [
+      "Giao thông"
+    ],
+    "contentText": "• Chữ p: gồm 1 nét sổ thẳng kéo xuống dưới bên trái và 1 nét cong tròn khép kín phía trên bên phải.\n• Chữ q: gồm 1 nét cong tròn khép kín phía trên bên trái và 1 nét sổ thẳng kéo xuống dưới bên phải.",
+    "dialogueQuestions": [
+      "Chữ p và chữ q có nét cong tròn nằm ở phía bên trái hay bên phải nét sổ thẳng?",
+      "Tìm chữ p, q trong các từ “đèn pha”, “qua đường”, “xe đạp”."
+    ],
+    "educationalNote": "Giúp trẻ phân biệt hướng trái – phải của nét cong tròn ở cặp chữ đối xứng p – q."
+  },
+  {
+    "id": "lqcc_g_y",
+    "kind": "LQCC",
+    "title": "Làm quen nhóm chữ cái g, y",
+    "author": "Chương trình GDMN 5–6 tuổi",
+    "ageGroups": [
+      "LA_5_6T"
+    ],
+    "themes": [
+      "Giao thông",
+      "Hiện tượng tự nhiên"
+    ],
+    "contentText": "• Chữ g (in thường): gồm 1 nét cong tròn khép kín phía trên và 1 nét móc dưới bên phải.\n• Chữ y (in thường): gồm 1 nét xiên ngắn bên trái và 1 nét xiên dài từ phải xuống dưới trái.",
+    "dialogueQuestions": [
+      "Quan sát chữ g và chữ y xem mỗi chữ có những nét gì đặc trưng?",
+      "Tìm chữ g, y trong các từ “nhà ga”, “máy bay”, “đám mây”."
+    ],
+    "educationalNote": "Giới thiệu song song chữ g, y in thường và chữ viết thường trong vở tập tô."
+  },
+  {
+    "id": "lqcc_s_x",
+    "kind": "LQCC",
+    "title": "Làm quen nhóm chữ cái s, x",
+    "author": "Chương trình GDMN 5–6 tuổi",
+    "ageGroups": [
+      "LA_5_6T"
+    ],
+    "themes": [
+      "Nước & Hiện tượng tự nhiên"
+    ],
+    "contentText": "• Chữ s: gồm 1 nét cong uốn lượn (cong hở phải phía trên nối liền cong hở trái phía dưới).\n• Chữ x: gồm 2 nét xiên (xiên trái và xiên phải) cắt chéo nhau ở chính giữa.",
+    "dialogueQuestions": [
+      "Nét của chữ s uốn cong như hình gì, còn chữ x gồm hai nét gì bắt chéo nhau?",
+      "Cùng phát âm rõ chữ s (uốn lưỡi) và chữ x (nhẹ hơi) qua từ “dòng sông”, “mùa xuân”, “xe đạp”."
+    ],
+    "educationalNote": "Rèn phân biệt phát âm s – x và trò chơi tạo dáng cơ thể thành chữ x."
+  },
+  {
+    "id": "lqcc_v_r",
+    "kind": "LQCC",
+    "title": "Làm quen nhóm chữ cái v, r",
+    "author": "Chương trình GDMN 5–6 tuổi",
+    "ageGroups": [
+      "LA_5_6T"
+    ],
+    "themes": [
+      "Quê hương",
+      "Trường Tiểu học"
+    ],
+    "contentText": "• Chữ v: gồm 2 nét xiên ngắn (xiên phải và xiên trái) gặp nhau ở điểm dưới cùng.\n• Chữ r: gồm 1 nét sổ thẳng ngắn bên trái và 1 nét móc trên nhỏ ở đầu phía bên phải.",
+    "dialogueQuestions": [
+      "Chữ v và chữ r có cấu tạo các nét khác nhau như thế nào?",
+      "Tìm chữ v, r trong các từ “quyển vở”, “rạng rỡ”, “Việt Nam”."
+    ],
+    "educationalNote": "Tổng kết bảng 29 chữ cái tiếng Việt giúp trẻ tự tin bước vào Lớp 1."
+  }
+]

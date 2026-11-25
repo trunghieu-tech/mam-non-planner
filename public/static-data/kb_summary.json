@@ -1,0 +1,15 @@
+{
+  "totalDocs": 1050,
+  "totalLessons": 4053,
+  "totalSchools": 21,
+  "mtCoveredCount": 304,
+  "mtDistilledCount": 336,
+  "totalMtCount": 345,
+  "byAgeGroup": {
+    "CHOI_4_5T": 427,
+    "MAM_3_4T": 217,
+    "NHA_TRE_24_36T": 211,
+    "LA_5_6T": 195
+  },
+  "updatedAt": "2026-11-24T00:35:08"
+}

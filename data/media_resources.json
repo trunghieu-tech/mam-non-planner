@@ -1,0 +1,90 @@
+[
+  {
+    "id": "med_1",
+    "kind": "IMAGE",
+    "title": "Bộ tranh Quy trình 6 bước rửa tay bằng xà phòng chuẩn Bộ Y tế & Bộ GD&ĐT",
+    "url": "https://moet.gov.vn",
+    "subjectCode": "KNS",
+    "ageGroupId": "ALL",
+    "themeName": "BẢN THÂN BÉ",
+    "author": "Kho Học liệu GDMN",
+    "createdAt": "2026-09-01T08:00:00.000Z"
+  },
+  {
+    "id": "med_2",
+    "kind": "SLIDE",
+    "title": "Slide tương tác: Nhận biết 29 chữ cái tiếng Việt qua trò chơi vòng quay kỳ diệu",
+    "url": "https://igiaoduc.vn",
+    "subjectCode": "LQCC",
+    "ageGroupId": "LA_5_6T",
+    "themeName": "TRƯỜNG MẦM NON CỦA BÉ",
+    "author": "Kho Học liệu Số BGD",
+    "createdAt": "2026-09-02T08:00:00.000Z"
+  },
+  {
+    "id": "med_3",
+    "kind": "VIDEO",
+    "title": "Video minh họa: Kỹ năng phòng tránh nguồn điện, ổ cắm và vật sắc nhọn trong nhà",
+    "url": "https://igiaoduc.vn",
+    "subjectCode": "KNS",
+    "ageGroupId": "CHOI_4_5T",
+    "themeName": "GIA ĐÌNH & NGÀY NHÀ GIÁO 20/11",
+    "author": "Kho Học liệu Số BGD",
+    "createdAt": "2026-09-03T08:00:00.000Z"
+  },
+  {
+    "id": "med_4",
+    "kind": "ELEARNING",
+    "title": "Bài giảng E-Learning: Khám phá vòng tuần hoàn của nước (Mưa từ đâu đến?)",
+    "url": "https://igiaoduc.vn",
+    "subjectCode": "MTXQ",
+    "ageGroupId": "LA_5_6T",
+    "themeName": "NƯỚC & CÁC HIỆN TƯỢNG TỰ NHIÊN",
+    "author": "Kho Học liệu Số BGD",
+    "createdAt": "2026-09-04T08:00:00.000Z"
+  },
+  {
+    "id": "med_5",
+    "kind": "SLIDE",
+    "title": "Bộ thẻ trực quan Đếm đến 5 & Tách gộp trong phạm vi 5 bằng đồ vật quen thuộc",
+    "url": "https://igiaoduc.vn",
+    "subjectCode": "LQVT",
+    "ageGroupId": "CHOI_4_5T",
+    "themeName": "THẾ GIỚI THỰC VẬT & TẾT MÙA XUÂN",
+    "author": "Kho Học liệu GDMN",
+    "createdAt": "2026-09-05T08:00:00.000Z"
+  },
+  {
+    "id": "med_6",
+    "kind": "VIDEO",
+    "title": "Nhạc nền vận động Thể dục sáng mầm non theo chủ đề năm học",
+    "url": "https://igiaoduc.vn",
+    "subjectCode": "GDAN",
+    "ageGroupId": "ALL",
+    "themeName": "TRƯỜNG MẦM NON CỦA BÉ",
+    "author": "Kho Học liệu GDMN",
+    "createdAt": "2026-09-06T08:00:00.000Z"
+  },
+  {
+    "id": "med_7",
+    "kind": "IMAGE",
+    "title": "Bộ tranh rối dẹt kể chuyện “Nhổ củ cải” & “Tích Chu” dành cho trẻ 24–36 tháng và 3–4 tuổi",
+    "url": "https://igiaoduc.vn",
+    "subjectCode": "LQVH",
+    "ageGroupId": "NHA_TRE_24_36T",
+    "themeName": "GIA ĐÌNH THÂN YÊU CỦA BÉ",
+    "author": "Kho Học liệu GDMN",
+    "createdAt": "2026-09-07T08:00:00.000Z"
+  },
+  {
+    "id": "med_8",
+    "kind": "DOC",
+    "title": "Văn bản hợp nhất 01/VBHN-BGDĐT Chương trình Giáo dục Mầm non hiện hành",
+    "url": "https://vbpl.vn/bogiaoducdaotao",
+    "subjectCode": "ALL",
+    "ageGroupId": "ALL",
+    "themeName": "TÀI LIỆU CHUYÊN MÔN",
+    "author": "Bộ Giáo dục và Đào tạo",
+    "createdAt": "2026-09-08T08:00:00.000Z"
+  }
+]

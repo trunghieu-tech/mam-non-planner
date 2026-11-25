@@ -1,0 +1,1863 @@
+{
+  "NHA_TRE_24_36T": {
+    "id": "annual_NHA_TRE_24_36T",
+    "ageGroupId": "NHA_TRE_24_36T",
+    "updatedAt": "2026-11-24T14:12:32.221Z",
+    "profile": {
+      "ageGroupId": "NHA_TRE_24_36T",
+      "schoolName": "TRƯỜNG MẦM NON HOÀNG GIA",
+      "governingBody": "UBND PHƯỜNG THUẬN AN – TP. HỒ CHÍ MINH",
+      "schoolYear": "2026 – 2027",
+      "className": "Nhà trẻ 1 (24–36T)",
+      "teacherName": "Nguyễn Thị Bé Diệu",
+      "coTeacherName": "Trần Thị Minh Thư",
+      "principalName": "Nguyễn Thị Thủy",
+      "students": [
+        {
+          "id": "stu_NHA_TRE_24_36T_1",
+          "fullName": "Nguyễn Minh An",
+          "gender": "Nam",
+          "dob": "12/03/2024"
+        },
+        {
+          "id": "stu_NHA_TRE_24_36T_2",
+          "fullName": "Trần Bảo Ngọc",
+          "gender": "Nữ",
+          "dob": "24/05/2024"
+        },
+        {
+          "id": "stu_NHA_TRE_24_36T_3",
+          "fullName": "Lê Hoàng Khôi",
+          "gender": "Nam",
+          "dob": "08/01/2024"
+        },
+        {
+          "id": "stu_NHA_TRE_24_36T_4",
+          "fullName": "Phạm Hà My",
+          "gender": "Nữ",
+          "dob": "19/07/2024"
+        },
+        {
+          "id": "stu_NHA_TRE_24_36T_5",
+          "fullName": "Hoàng Gia Huy",
+          "gender": "Nam",
+          "dob": "03/09/2024",
+          "note": "Cần khích lệ mạnh dạn phát biểu"
+        },
+        {
+          "id": "stu_NHA_TRE_24_36T_6",
+          "fullName": "Vũ Tuệ Nhi",
+          "gender": "Nữ",
+          "dob": "15/04/2024"
+        },
+        {
+          "id": "stu_NHA_TRE_24_36T_7",
+          "fullName": "Đặng Quốc Bảo",
+          "gender": "Nam",
+          "dob": "28/10/2024"
+        },
+        {
+          "id": "stu_NHA_TRE_24_36T_8",
+          "fullName": "Bùi Khánh Linh",
+          "gender": "Nữ",
+          "dob": "11/06/2024"
+        },
+        {
+          "id": "stu_NHA_TRE_24_36T_9",
+          "fullName": "Đỗ Minh Khang",
+          "gender": "Nam",
+          "dob": "22/02/2024"
+        },
+        {
+          "id": "stu_NHA_TRE_24_36T_10",
+          "fullName": "Ngô Thảo Vy",
+          "gender": "Nữ",
+          "dob": "30/08/2024",
+          "note": "Cần rèn thêm kỹ năng cầm bút / tự xúc ăn"
+        },
+        {
+          "id": "stu_NHA_TRE_24_36T_11",
+          "fullName": "Dương Tuấn Kiệt",
+          "gender": "Nam",
+          "dob": "14/11/2024"
+        },
+        {
+          "id": "stu_NHA_TRE_24_36T_12",
+          "fullName": "Lý Ngọc Hân",
+          "gender": "Nữ",
+          "dob": "05/12/2024"
+        },
+        {
+          "id": "stu_NHA_TRE_24_36T_13",
+          "fullName": "Phan Đức Phúc",
+          "gender": "Nam",
+          "dob": "17/05/2024"
+        },
+        {
+          "id": "stu_NHA_TRE_24_36T_14",
+          "fullName": "Trương Bảo Châu",
+          "gender": "Nữ",
+          "dob": "09/03/2024"
+        },
+        {
+          "id": "stu_NHA_TRE_24_36T_15",
+          "fullName": "Hồ Thiên Ân",
+          "gender": "Nam",
+          "dob": "26/09/2024"
+        }
+      ]
+    },
+    "themes": [
+      {
+        "id": "ath_NHA_TRE_24_36T_m9",
+        "order": 1,
+        "monthNumber": 9,
+        "monthLabel": "Tháng 9",
+        "themeName": "LỚP NHÀ TRẺ VUI VẺ CỦA BÉ",
+        "totalWeeks": 3,
+        "startDate": "2026-09-07",
+        "subThemes": [
+          "Ngày hội bé đến lớp",
+          "Cô giáo và các bạn của bé",
+          "Bé vui Tết Trung thu"
+        ],
+        "plannedMtCodes": [
+          "MT11",
+          "MT32",
+          "MT33",
+          "MT37",
+          "MT1"
+        ],
+        "assessmentMtCodes": [
+          "MT11",
+          "MT32",
+          "MT33",
+          "MT37",
+          "MT1"
+        ]
+      },
+      {
+        "id": "ath_NHA_TRE_24_36T_m10",
+        "order": 2,
+        "monthNumber": 10,
+        "monthLabel": "Tháng 10",
+        "themeName": "BẢN THÂN ĐÁNG YÊU CỦA BÉ",
+        "totalWeeks": 4,
+        "startDate": "2026-10-05",
+        "subThemes": [
+          "Tên gọi và khuôn mặt đáng yêu",
+          "Đôi bàn tay – bàn chân xinh",
+          "Bé ăn ngoan – ngủ giỏi",
+          "Tập giữ cơ thể sạch sẽ"
+        ],
+        "plannedMtCodes": [
+          "MT12",
+          "MT18",
+          "MT30",
+          "MT31",
+          "MT8"
+        ],
+        "assessmentMtCodes": [
+          "MT12",
+          "MT18",
+          "MT30",
+          "MT31",
+          "MT8"
+        ]
+      },
+      {
+        "id": "ath_NHA_TRE_24_36T_m11",
+        "order": 3,
+        "monthNumber": 11,
+        "monthLabel": "Tháng 11",
+        "themeName": "ĐỒ DÙNG – ĐỒ CHƠI CỦA BÉ",
+        "totalWeeks": 4,
+        "startDate": "2026-11-02",
+        "subThemes": [
+          "Đồ dùng ăn uống quen thuộc",
+          "Đồ chơi bé thích ở lớp",
+          "Bông hoa tặng cô giáo 20/11",
+          "Cất giữ đồ chơi gọn gàng"
+        ],
+        "plannedMtCodes": [
+          "MT3",
+          "MT16",
+          "MT21",
+          "MT39",
+          "MT9"
+        ],
+        "assessmentMtCodes": [
+          "MT3",
+          "MT16",
+          "MT21",
+          "MT39",
+          "MT9"
+        ]
+      },
+      {
+        "id": "ath_NHA_TRE_24_36T_m12",
+        "order": 4,
+        "monthNumber": 12,
+        "monthLabel": "Tháng 12",
+        "themeName": "GIA ĐÌNH THÂN YÊU CỦA BÉ",
+        "totalWeeks": 4,
+        "startDate": "2026-12-07",
+        "subThemes": [
+          "Ông bà, bố mẹ của bé",
+          "Ngôi nhà ấm áp của bé",
+          "Đồ dùng trong gia đình",
+          "Bé ngoan lễ phép ở nhà"
+        ],
+        "plannedMtCodes": [
+          "MT13",
+          "MT17",
+          "MT38",
+          "MT10"
+        ],
+        "assessmentMtCodes": [
+          "MT13",
+          "MT17",
+          "MT38",
+          "MT10"
+        ]
+      },
+      {
+        "id": "ath_NHA_TRE_24_36T_m1",
+        "order": 5,
+        "monthNumber": 1,
+        "monthLabel": "Tháng 1",
+        "themeName": "CÂY XANH – HOA QUẢ & MÙA XUÂN",
+        "totalWeeks": 4,
+        "startDate": "2027-01-04",
+        "subThemes": [
+          "Cây xanh sân trường",
+          "Các loại hoa đẹp mùa xuân",
+          "Quả ngọt bé thích ăn",
+          "Bé vui đón Tết Nguyên đán"
+        ],
+        "plannedMtCodes": [
+          "MT4",
+          "MT19",
+          "MT23",
+          "MT35",
+          "MT14"
+        ],
+        "assessmentMtCodes": [
+          "MT4",
+          "MT19",
+          "MT23",
+          "MT35",
+          "MT14"
+        ]
+      },
+      {
+        "id": "ath_NHA_TRE_24_36T_m2",
+        "order": 6,
+        "monthNumber": 2,
+        "monthLabel": "Tháng 2",
+        "themeName": "NHỮNG CON VẬT ĐÁNG YÊU",
+        "totalWeeks": 3,
+        "startDate": "2027-02-15",
+        "subThemes": [
+          "Con gà, con vịt quanh nhà",
+          "Chó con, mèo con đáng yêu",
+          "Con cá bơi dưới nước"
+        ],
+        "plannedMtCodes": [
+          "MT6",
+          "MT25",
+          "MT26",
+          "MT41",
+          "MT28"
+        ],
+        "assessmentMtCodes": [
+          "MT6",
+          "MT25",
+          "MT26",
+          "MT41",
+          "MT28"
+        ]
+      },
+      {
+        "id": "ath_NHA_TRE_24_36T_m3",
+        "order": 7,
+        "monthNumber": 3,
+        "monthLabel": "Tháng 3",
+        "themeName": "PHƯƠNG TIỆN GIAO THÔNG QUEN THUỘC",
+        "totalWeeks": 4,
+        "startDate": "2027-03-08",
+        "subThemes": [
+          "Quà nhỏ tặng bà và mẹ 8/3",
+          "Xe đạp, xe máy, ô tô quen thuộc",
+          "Đoàn tàu và máy bay",
+          "Ngồi xe an toàn cùng bố mẹ"
+        ],
+        "plannedMtCodes": [
+          "MT7",
+          "MT15",
+          "MT24",
+          "MT42",
+          "MT29"
+        ],
+        "assessmentMtCodes": [
+          "MT7",
+          "MT15",
+          "MT24",
+          "MT42",
+          "MT29"
+        ]
+      },
+      {
+        "id": "ath_NHA_TRE_24_36T_m4",
+        "order": 8,
+        "monthNumber": 4,
+        "monthLabel": "Tháng 4",
+        "themeName": "NƯỚC & HIỆN TƯỢNG TỰ NHIÊN",
+        "totalWeeks": 4,
+        "startDate": "2027-04-05",
+        "subThemes": [
+          "Nước sạch cần cho bé",
+          "Trời nắng – trời mưa",
+          "Ngày và đêm",
+          "Trang phục mùa hè mát mẻ"
+        ],
+        "plannedMtCodes": [
+          "MT2",
+          "MT20",
+          "MT27",
+          "MT36"
+        ],
+        "assessmentMtCodes": [
+          "MT2",
+          "MT20",
+          "MT27",
+          "MT36"
+        ]
+      },
+      {
+        "id": "ath_NHA_TRE_24_36T_m5",
+        "order": 9,
+        "monthNumber": 5,
+        "monthLabel": "Tháng 5",
+        "themeName": "MÙA HÈ & BÉ LÊN LỚP MẪU GIÁO",
+        "totalWeeks": 4,
+        "startDate": "2027-05-03",
+        "subThemes": [
+          "Mùa hè vui khỏe của bé",
+          "Bé nhớ Bác Hồ kính yêu",
+          "Ôn luyện thói quen bé ngoan",
+          "Tạm biệt lớp Nhà trẻ – Lên lớp Mầm"
+        ],
+        "plannedMtCodes": [
+          "MT5",
+          "MT22",
+          "MT34",
+          "MT40"
+        ],
+        "assessmentMtCodes": [
+          "MT5",
+          "MT22",
+          "MT34",
+          "MT40"
+        ]
+      }
+    ],
+    "timetable": {
+      "oddWeek": [
+        [
+          "PTVĐ"
+        ],
+        [
+          "NBTN"
+        ],
+        [
+          "GDAN"
+        ],
+        [
+          "LQVH"
+        ],
+        [
+          "Tạo hình"
+        ]
+      ],
+      "evenWeek": [
+        [
+          "PTVĐ"
+        ],
+        [
+          "NBTN"
+        ],
+        [
+          "LQVH"
+        ],
+        [
+          "GDAN"
+        ],
+        [
+          "Tạo hình"
+        ]
+      ]
+    }
+  },
+  "MAM_3_4T": {
+    "id": "annual_MAM_3_4T",
+    "ageGroupId": "MAM_3_4T",
+    "updatedAt": "2026-11-24T14:12:32.221Z",
+    "profile": {
+      "ageGroupId": "MAM_3_4T",
+      "schoolName": "TRƯỜNG MẦM NON HOÀNG GIA",
+      "governingBody": "UBND PHƯỜNG THUẬN AN – TP. HỒ CHÍ MINH",
+      "schoolYear": "2026 – 2027",
+      "className": "Mầm 1 (3–4T)",
+      "teacherName": "Nguyễn Thị Bé Diệu",
+      "coTeacherName": "Trần Thị Minh Thư",
+      "principalName": "Nguyễn Thị Thủy",
+      "students": [
+        {
+          "id": "stu_MAM_3_4T_1",
+          "fullName": "Nguyễn Minh An",
+          "gender": "Nam",
+          "dob": "12/03/2023"
+        },
+        {
+          "id": "stu_MAM_3_4T_2",
+          "fullName": "Trần Bảo Ngọc",
+          "gender": "Nữ",
+          "dob": "24/05/2023"
+        },
+        {
+          "id": "stu_MAM_3_4T_3",
+          "fullName": "Lê Hoàng Khôi",
+          "gender": "Nam",
+          "dob": "08/01/2023"
+        },
+        {
+          "id": "stu_MAM_3_4T_4",
+          "fullName": "Phạm Hà My",
+          "gender": "Nữ",
+          "dob": "19/07/2023"
+        },
+        {
+          "id": "stu_MAM_3_4T_5",
+          "fullName": "Hoàng Gia Huy",
+          "gender": "Nam",
+          "dob": "03/09/2023",
+          "note": "Cần khích lệ mạnh dạn phát biểu"
+        },
+        {
+          "id": "stu_MAM_3_4T_6",
+          "fullName": "Vũ Tuệ Nhi",
+          "gender": "Nữ",
+          "dob": "15/04/2023"
+        },
+        {
+          "id": "stu_MAM_3_4T_7",
+          "fullName": "Đặng Quốc Bảo",
+          "gender": "Nam",
+          "dob": "28/10/2023"
+        },
+        {
+          "id": "stu_MAM_3_4T_8",
+          "fullName": "Bùi Khánh Linh",
+          "gender": "Nữ",
+          "dob": "11/06/2023"
+        },
+        {
+          "id": "stu_MAM_3_4T_9",
+          "fullName": "Đỗ Minh Khang",
+          "gender": "Nam",
+          "dob": "22/02/2023"
+        },
+        {
+          "id": "stu_MAM_3_4T_10",
+          "fullName": "Ngô Thảo Vy",
+          "gender": "Nữ",
+          "dob": "30/08/2023",
+          "note": "Cần rèn thêm kỹ năng cầm bút / tự xúc ăn"
+        },
+        {
+          "id": "stu_MAM_3_4T_11",
+          "fullName": "Dương Tuấn Kiệt",
+          "gender": "Nam",
+          "dob": "14/11/2023"
+        },
+        {
+          "id": "stu_MAM_3_4T_12",
+          "fullName": "Lý Ngọc Hân",
+          "gender": "Nữ",
+          "dob": "05/12/2023"
+        },
+        {
+          "id": "stu_MAM_3_4T_13",
+          "fullName": "Phan Đức Phúc",
+          "gender": "Nam",
+          "dob": "17/05/2023"
+        },
+        {
+          "id": "stu_MAM_3_4T_14",
+          "fullName": "Trương Bảo Châu",
+          "gender": "Nữ",
+          "dob": "09/03/2023"
+        },
+        {
+          "id": "stu_MAM_3_4T_15",
+          "fullName": "Hồ Thiên Ân",
+          "gender": "Nam",
+          "dob": "26/09/2023"
+        }
+      ]
+    },
+    "themes": [
+      {
+        "id": "ath_MAM_3_4T_m9",
+        "order": 1,
+        "monthNumber": 9,
+        "monthLabel": "Tháng 9",
+        "themeName": "TRƯỜNG MẦM NON CỦA BÉ",
+        "totalWeeks": 3,
+        "startDate": "2026-09-07",
+        "subThemes": [
+          "Trường Mầm non thân yêu của bé",
+          "Lớp học, cô giáo và bạn bè",
+          "Bé vui hội Trăng rằm Trung thu"
+        ],
+        "plannedMtCodes": [
+          "MT2",
+          "MT12",
+          "MT13",
+          "MT28",
+          "MT40",
+          "MT42",
+          "MT44",
+          "MT56",
+          "MT61",
+          "MT70",
+          "MT78",
+          "MT1",
+          "MT54"
+        ],
+        "assessmentMtCodes": [
+          "MT2",
+          "MT12",
+          "MT13",
+          "MT28",
+          "MT40"
+        ]
+      },
+      {
+        "id": "ath_MAM_3_4T_m10",
+        "order": 2,
+        "monthNumber": 10,
+        "monthLabel": "Tháng 10",
+        "themeName": "BẢN THÂN BÉ",
+        "totalWeeks": 4,
+        "startDate": "2026-10-05",
+        "subThemes": [
+          "Tôi là ai – Cơ thể kỳ diệu của bé",
+          "Năm giác quan đáng quý của bé",
+          "Thực phẩm giúp bé lớn khỏe",
+          "Bé tự phục vụ và giữ an toàn"
+        ],
+        "plannedMtCodes": [
+          "MT4",
+          "MT6",
+          "MT21",
+          "MT36",
+          "MT37",
+          "MT47",
+          "MT59",
+          "MT60",
+          "MT63",
+          "MT87",
+          "MT9",
+          "MT55"
+        ],
+        "assessmentMtCodes": [
+          "MT4",
+          "MT6",
+          "MT21",
+          "MT36",
+          "MT37"
+        ]
+      },
+      {
+        "id": "ath_MAM_3_4T_m11",
+        "order": 3,
+        "monthNumber": 11,
+        "monthLabel": "Tháng 11",
+        "themeName": "GIA ĐÌNH & NGÀY NHÀ GIÁO 20/11",
+        "totalWeeks": 4,
+        "startDate": "2026-11-02",
+        "subThemes": [
+          "Gia đình thân yêu của bé",
+          "Ngôi nhà và đồ dùng gia đình",
+          "Tri ân cô giáo ngày 20/11",
+          "Nhu cầu và niềm vui gia đình"
+        ],
+        "plannedMtCodes": [
+          "MT7",
+          "MT8",
+          "MT16",
+          "MT34",
+          "MT38",
+          "MT39",
+          "MT45",
+          "MT52",
+          "MT62",
+          "MT64",
+          "MT86",
+          "MT10",
+          "MT67"
+        ],
+        "assessmentMtCodes": [
+          "MT7",
+          "MT8",
+          "MT16",
+          "MT34",
+          "MT38"
+        ]
+      },
+      {
+        "id": "ath_MAM_3_4T_m12",
+        "order": 4,
+        "monthNumber": 12,
+        "monthLabel": "Tháng 12",
+        "themeName": "NGHỀ NGHIỆP & THẾ GIỚI ĐỘNG VẬT",
+        "totalWeeks": 4,
+        "startDate": "2026-12-07",
+        "subThemes": [
+          "Một số nghề phổ biến quanh bé",
+          "Chú bộ đội kính yêu (22/12)",
+          "Những con vật nuôi trong gia đình",
+          "Động vật sống trong rừng & dưới nước"
+        ],
+        "plannedMtCodes": [
+          "MT35",
+          "MT41",
+          "MT49",
+          "MT58",
+          "MT80",
+          "MT11",
+          "MT68"
+        ],
+        "assessmentMtCodes": [
+          "MT35",
+          "MT41",
+          "MT49",
+          "MT58",
+          "MT80"
+        ]
+      },
+      {
+        "id": "ath_MAM_3_4T_m1",
+        "order": 5,
+        "monthNumber": 1,
+        "monthLabel": "Tháng 1",
+        "themeName": "THẾ GIỚI THỰC VẬT & TẾT MÙA XUÂN",
+        "totalWeeks": 4,
+        "startDate": "2027-01-04",
+        "subThemes": [
+          "Cây xanh và môi trường sống",
+          "Các loại rau, củ, quả bổ dưỡng",
+          "Các loài hoa khoe sắc mùa xuân",
+          "Bé vui đón Tết cổ truyền dân tộc"
+        ],
+        "plannedMtCodes": [
+          "MT5",
+          "MT23",
+          "MT29",
+          "MT48",
+          "MT53",
+          "MT79",
+          "MT14",
+          "MT69"
+        ],
+        "assessmentMtCodes": [
+          "MT5",
+          "MT23",
+          "MT29",
+          "MT48",
+          "MT53"
+        ]
+      },
+      {
+        "id": "ath_MAM_3_4T_m2",
+        "order": 6,
+        "monthNumber": 2,
+        "monthLabel": "Tháng 2",
+        "themeName": "MÙA XUÂN & LỄ HỘI QUÊ HƯƠNG",
+        "totalWeeks": 3,
+        "startDate": "2027-02-15",
+        "subThemes": [
+          "Không khí mùa xuân tươi đẹp",
+          "Côn trùng và chim chóc mùa xuân",
+          "Giữ gìn cây xanh vườn trường"
+        ],
+        "plannedMtCodes": [
+          "MT27",
+          "MT30",
+          "MT33",
+          "MT50",
+          "MT71",
+          "MT77",
+          "MT83",
+          "MT15",
+          "MT74"
+        ],
+        "assessmentMtCodes": [
+          "MT27",
+          "MT30",
+          "MT33",
+          "MT50",
+          "MT71"
+        ]
+      },
+      {
+        "id": "ath_MAM_3_4T_m3",
+        "order": 7,
+        "monthNumber": 3,
+        "monthLabel": "Tháng 3",
+        "themeName": "PHƯƠNG TIỆN VÀ LUẬT LỆ GIAO THÔNG",
+        "totalWeeks": 4,
+        "startDate": "2027-03-08",
+        "subThemes": [
+          "Yêu thương bà, mẹ và cô ngày 8/3",
+          "Phương tiện giao thông đường bộ",
+          "Giao thông đường thủy – hàng không",
+          "Bé chấp hành tín hiệu & luật giao thông"
+        ],
+        "plannedMtCodes": [
+          "MT20",
+          "MT24",
+          "MT31",
+          "MT51",
+          "MT73",
+          "MT82",
+          "MT18",
+          "MT76"
+        ],
+        "assessmentMtCodes": [
+          "MT20",
+          "MT24",
+          "MT31",
+          "MT51",
+          "MT73"
+        ]
+      },
+      {
+        "id": "ath_MAM_3_4T_m4",
+        "order": 8,
+        "monthNumber": 4,
+        "monthLabel": "Tháng 4",
+        "themeName": "NƯỚC & CÁC HIỆN TƯỢNG TỰ NHIÊN",
+        "totalWeeks": 4,
+        "startDate": "2027-04-05",
+        "subThemes": [
+          "Nguồn nước sạch và ích lợi của nước",
+          "Nắng, mưa, gió, mây và cầu vồng",
+          "Sự thay đổi ngày – đêm và các mùa",
+          "Bảo vệ môi trường – Tiết kiệm điện nước"
+        ],
+        "plannedMtCodes": [
+          "MT3",
+          "MT26",
+          "MT32",
+          "MT57",
+          "MT72",
+          "MT84",
+          "MT19",
+          "MT85"
+        ],
+        "assessmentMtCodes": [
+          "MT3",
+          "MT26",
+          "MT32",
+          "MT57",
+          "MT72"
+        ]
+      },
+      {
+        "id": "ath_MAM_3_4T_m5",
+        "order": 9,
+        "monthNumber": 5,
+        "monthLabel": "Tháng 5",
+        "themeName": "QUÊ HƯƠNG – ĐẤT NƯỚC – BÁC HỒ & TRƯỜNG TIỂU HỌC",
+        "totalWeeks": 4,
+        "startDate": "2027-05-03",
+        "subThemes": [
+          "Quê hương, Thủ đô Hà Nội & đất nước Việt Nam",
+          "Bác Hồ kính yêu với các cháu thiếu nhi (19/5)",
+          "Mùa hè sôi động và an toàn phòng đuối nước",
+          "Tạm biệt trường Mầm non – Sẵn sàng lên lớp trên"
+        ],
+        "plannedMtCodes": [
+          "MT17",
+          "MT22",
+          "MT25",
+          "MT43",
+          "MT65",
+          "MT66",
+          "MT75",
+          "MT81",
+          "MT46",
+          "MT88"
+        ],
+        "assessmentMtCodes": [
+          "MT17",
+          "MT22",
+          "MT25",
+          "MT43",
+          "MT65"
+        ]
+      }
+    ],
+    "timetable": {
+      "oddWeek": [
+        [
+          "GDAN"
+        ],
+        [
+          "PTVĐ"
+        ],
+        [
+          "MTXQ"
+        ],
+        [
+          "LQVH"
+        ],
+        [
+          "KNS",
+          "Tạo hình"
+        ]
+      ],
+      "evenWeek": [
+        [
+          "PTVĐ"
+        ],
+        [
+          "MTXQ"
+        ],
+        [
+          "LQVT"
+        ],
+        [
+          "GDAN"
+        ],
+        [
+          "Tạo hình"
+        ]
+      ]
+    }
+  },
+  "CHOI_4_5T": {
+    "id": "annual_CHOI_4_5T",
+    "ageGroupId": "CHOI_4_5T",
+    "updatedAt": "2026-11-24T17:59:56.627Z",
+    "profile": {
+      "ageGroupId": "CHOI_4_5T",
+      "schoolName": "TRƯỜNG MẦM NON HOÀNG GIA",
+      "governingBody": "UBND PHƯỜNG THUẬN AN – TP. HỒ CHÍ MINH",
+      "schoolYear": "2026 – 2027",
+      "className": "Chồi 1 (4–5T)",
+      "teacherName": "Nguyễn Thị Bé Diệu",
+      "coTeacherName": "Trần Thị Minh Thư",
+      "principalName": "Nguyễn Thị Thủy",
+      "students": [
+        {
+          "id": "stu_CHOI_4_5T_1",
+          "fullName": "Nguyễn Minh An",
+          "gender": "Nam",
+          "dob": "12/03/2022"
+        },
+        {
+          "id": "stu_CHOI_4_5T_2",
+          "fullName": "Trần Bảo Ngọc",
+          "gender": "Nữ",
+          "dob": "24/05/2022"
+        },
+        {
+          "id": "stu_CHOI_4_5T_3",
+          "fullName": "Lê Hoàng Khôi",
+          "gender": "Nam",
+          "dob": "08/01/2022"
+        },
+        {
+          "id": "stu_CHOI_4_5T_4",
+          "fullName": "Phạm Hà My",
+          "gender": "Nữ",
+          "dob": "19/07/2022"
+        },
+        {
+          "id": "stu_CHOI_4_5T_5",
+          "fullName": "Hoàng Gia Huy",
+          "gender": "Nam",
+          "dob": "03/09/2022",
+          "note": "Cần khích lệ mạnh dạn phát biểu"
+        },
+        {
+          "id": "stu_CHOI_4_5T_6",
+          "fullName": "Vũ Tuệ Nhi",
+          "gender": "Nữ",
+          "dob": "15/04/2022"
+        },
+        {
+          "id": "stu_CHOI_4_5T_7",
+          "fullName": "Đặng Quốc Bảo",
+          "gender": "Nam",
+          "dob": "28/10/2022"
+        },
+        {
+          "id": "stu_CHOI_4_5T_8",
+          "fullName": "Bùi Khánh Linh",
+          "gender": "Nữ",
+          "dob": "11/06/2022"
+        },
+        {
+          "id": "stu_CHOI_4_5T_9",
+          "fullName": "Đỗ Minh Khang",
+          "gender": "Nam",
+          "dob": "22/02/2022"
+        },
+        {
+          "id": "stu_CHOI_4_5T_10",
+          "fullName": "Ngô Thảo Vy",
+          "gender": "Nữ",
+          "dob": "30/08/2022",
+          "note": "Cần rèn thêm kỹ năng cầm bút / tự xúc ăn"
+        },
+        {
+          "id": "stu_CHOI_4_5T_11",
+          "fullName": "Dương Tuấn Kiệt",
+          "gender": "Nam",
+          "dob": "14/11/2022"
+        },
+        {
+          "id": "stu_CHOI_4_5T_12",
+          "fullName": "Lý Ngọc Hân",
+          "gender": "Nữ",
+          "dob": "05/12/2022"
+        },
+        {
+          "id": "stu_CHOI_4_5T_13",
+          "fullName": "Phan Đức Phúc",
+          "gender": "Nam",
+          "dob": "17/05/2022"
+        },
+        {
+          "id": "stu_CHOI_4_5T_14",
+          "fullName": "Trương Bảo Châu",
+          "gender": "Nữ",
+          "dob": "09/03/2022"
+        },
+        {
+          "id": "stu_CHOI_4_5T_15",
+          "fullName": "Hồ Thiên Ân",
+          "gender": "Nam",
+          "dob": "26/09/2022"
+        },
+        {
+          "id": "stu_1795529642316",
+          "fullName": "Nguyễn Minh Khôi",
+          "gender": "Nam"
+        }
+      ]
+    },
+    "themes": [
+      {
+        "id": "ath_CHOI_4_5T_m9",
+        "order": 1,
+        "monthNumber": 9,
+        "monthLabel": "Tháng 9",
+        "themeName": "TRƯỜNG MẦM NON CỦA BÉ",
+        "totalWeeks": 3,
+        "startDate": "2026-09-07",
+        "subThemes": [
+          "Trường Mầm non thân yêu của bé",
+          "Lớp học, cô giáo và bạn bè",
+          "Bé vui hội Trăng rằm Trung thu"
+        ],
+        "plannedMtCodes": [
+          "MT2",
+          "MT13",
+          "MT30",
+          "MT43",
+          "MT47",
+          "MT48",
+          "MT49",
+          "MT53",
+          "MT64",
+          "MT67",
+          "MT72",
+          "MT81",
+          "MT95",
+          "MT1",
+          "MT80",
+          "MT105"
+        ],
+        "assessmentMtCodes": [
+          "MT2",
+          "MT13",
+          "MT30",
+          "MT43",
+          "MT47",
+          "MT105"
+        ]
+      },
+      {
+        "id": "ath_CHOI_4_5T_m10",
+        "order": 2,
+        "monthNumber": 10,
+        "monthLabel": "Tháng 10",
+        "themeName": "BẢN THÂN BÉ",
+        "totalWeeks": 4,
+        "startDate": "2026-10-05",
+        "subThemes": [
+          "Tôi là ai – Cơ thể kỳ diệu của bé",
+          "Năm giác quan đáng quý của bé",
+          "Thực phẩm giúp bé lớn khỏe",
+          "Bé tự phục vụ và giữ an toàn"
+        ],
+        "plannedMtCodes": [
+          "MT6",
+          "MT8",
+          "MT11",
+          "MT22",
+          "MT42",
+          "MT44",
+          "MT65",
+          "MT70",
+          "MT71",
+          "MT74",
+          "MT75",
+          "MT12",
+          "MT84"
+        ],
+        "assessmentMtCodes": [
+          "MT6",
+          "MT8",
+          "MT11",
+          "MT22",
+          "MT42"
+        ]
+      },
+      {
+        "id": "ath_CHOI_4_5T_m11",
+        "order": 3,
+        "monthNumber": 11,
+        "monthLabel": "Tháng 11",
+        "themeName": "GIA ĐÌNH & NGÀY NHÀ GIÁO 20/11",
+        "totalWeeks": 4,
+        "startDate": "2026-11-02",
+        "subThemes": [
+          "Gia đình thân yêu của bé",
+          "Ngôi nhà và đồ dùng gia đình",
+          "Tri ân cô giáo ngày 20/11",
+          "Nhu cầu và niềm vui gia đình"
+        ],
+        "plannedMtCodes": [
+          "MT7",
+          "MT9",
+          "MT16",
+          "MT35",
+          "MT40",
+          "MT45",
+          "MT46",
+          "MT62",
+          "MT69",
+          "MT79",
+          "MT85",
+          "MT96",
+          "MT14",
+          "MT87"
+        ],
+        "assessmentMtCodes": [
+          "MT7",
+          "MT9",
+          "MT16",
+          "MT35",
+          "MT40"
+        ]
+      },
+      {
+        "id": "ath_CHOI_4_5T_m12",
+        "order": 4,
+        "monthNumber": 12,
+        "monthLabel": "Tháng 12",
+        "themeName": "NGHỀ NGHIỆP & THẾ GIỚI ĐỘNG VẬT",
+        "totalWeeks": 4,
+        "startDate": "2026-12-07",
+        "subThemes": [
+          "Một số nghề phổ biến quanh bé",
+          "Chú bộ đội kính yêu (22/12)",
+          "Những con vật nuôi trong gia đình",
+          "Động vật sống trong rừng & dưới nước"
+        ],
+        "plannedMtCodes": [
+          "MT4",
+          "MT19",
+          "MT33",
+          "MT50",
+          "MT58",
+          "MT73",
+          "MT83",
+          "MT100",
+          "MT15",
+          "MT91"
+        ],
+        "assessmentMtCodes": [
+          "MT4",
+          "MT19",
+          "MT33",
+          "MT50",
+          "MT58"
+        ]
+      },
+      {
+        "id": "ath_CHOI_4_5T_m1",
+        "order": 5,
+        "monthNumber": 1,
+        "monthLabel": "Tháng 1",
+        "themeName": "THẾ GIỚI THỰC VẬT & TẾT MÙA XUÂN",
+        "totalWeeks": 4,
+        "startDate": "2027-01-04",
+        "subThemes": [
+          "Cây xanh và môi trường sống",
+          "Các loại rau, củ, quả bổ dưỡng",
+          "Các loài hoa khoe sắc mùa xuân",
+          "Bé vui đón Tết cổ truyền dân tộc"
+        ],
+        "plannedMtCodes": [
+          "MT5",
+          "MT24",
+          "MT25",
+          "MT31",
+          "MT54",
+          "MT61",
+          "MT86",
+          "MT101",
+          "MT20",
+          "MT93"
+        ],
+        "assessmentMtCodes": [
+          "MT5",
+          "MT24",
+          "MT25",
+          "MT31",
+          "MT54"
+        ]
+      },
+      {
+        "id": "ath_CHOI_4_5T_m2",
+        "order": 6,
+        "monthNumber": 2,
+        "monthLabel": "Tháng 2",
+        "themeName": "MÙA XUÂN & LỄ HỘI QUÊ HƯƠNG",
+        "totalWeeks": 3,
+        "startDate": "2027-02-15",
+        "subThemes": [
+          "Không khí mùa xuân tươi đẹp",
+          "Côn trùng và chim chóc mùa xuân",
+          "Giữ gìn cây xanh vườn trường"
+        ],
+        "plannedMtCodes": [
+          "MT10",
+          "MT29",
+          "MT34",
+          "MT37",
+          "MT51",
+          "MT59",
+          "MT90",
+          "MT94",
+          "MT98",
+          "MT55"
+        ],
+        "assessmentMtCodes": [
+          "MT10",
+          "MT29",
+          "MT34",
+          "MT37",
+          "MT51"
+        ]
+      },
+      {
+        "id": "ath_CHOI_4_5T_m3",
+        "order": 7,
+        "monthNumber": 3,
+        "monthLabel": "Tháng 3",
+        "themeName": "PHƯƠNG TIỆN VÀ LUẬT LỆ GIAO THÔNG",
+        "totalWeeks": 4,
+        "startDate": "2027-03-08",
+        "subThemes": [
+          "Yêu thương bà, mẹ và cô ngày 8/3",
+          "Phương tiện giao thông đường bộ",
+          "Giao thông đường thủy – hàng không",
+          "Bé chấp hành tín hiệu & luật giao thông"
+        ],
+        "plannedMtCodes": [
+          "MT18",
+          "MT21",
+          "MT28",
+          "MT32",
+          "MT39",
+          "MT57",
+          "MT88",
+          "MT92",
+          "MT97",
+          "MT56"
+        ],
+        "assessmentMtCodes": [
+          "MT18",
+          "MT21",
+          "MT28",
+          "MT32",
+          "MT39"
+        ]
+      },
+      {
+        "id": "ath_CHOI_4_5T_m4",
+        "order": 8,
+        "monthNumber": 4,
+        "monthLabel": "Tháng 4",
+        "themeName": "NƯỚC & CÁC HIỆN TƯỢNG TỰ NHIÊN",
+        "totalWeeks": 4,
+        "startDate": "2027-04-05",
+        "subThemes": [
+          "Nguồn nước sạch và ích lợi của nước",
+          "Nắng, mưa, gió, mây và cầu vồng",
+          "Sự thay đổi ngày – đêm và các mùa",
+          "Bảo vệ môi trường – Tiết kiệm điện nước"
+        ],
+        "plannedMtCodes": [
+          "MT3",
+          "MT27",
+          "MT36",
+          "MT41",
+          "MT66",
+          "MT68",
+          "MT82",
+          "MT99",
+          "MT102",
+          "MT60"
+        ],
+        "assessmentMtCodes": [
+          "MT3",
+          "MT27",
+          "MT36",
+          "MT41",
+          "MT66"
+        ]
+      },
+      {
+        "id": "ath_CHOI_4_5T_m5",
+        "order": 9,
+        "monthNumber": 5,
+        "monthLabel": "Tháng 5",
+        "themeName": "QUÊ HƯƠNG – ĐẤT NƯỚC – BÁC HỒ & TRƯỜNG TIỂU HỌC",
+        "totalWeeks": 4,
+        "startDate": "2027-05-03",
+        "subThemes": [
+          "Quê hương, Thủ đô Hà Nội & đất nước Việt Nam",
+          "Bác Hồ kính yêu với các cháu thiếu nhi (19/5)",
+          "Mùa hè sôi động và an toàn phòng đuối nước",
+          "Tạm biệt trường Mầm non – Sẵn sàng lên lớp trên"
+        ],
+        "plannedMtCodes": [
+          "MT17",
+          "MT23",
+          "MT26",
+          "MT38",
+          "MT52",
+          "MT76",
+          "MT77",
+          "MT78",
+          "MT89",
+          "MT103",
+          "MT104",
+          "MT63"
+        ],
+        "assessmentMtCodes": [
+          "MT17",
+          "MT23",
+          "MT26",
+          "MT38",
+          "MT52"
+        ]
+      }
+    ],
+    "timetable": {
+      "oddWeek": [
+        [
+          "GDAN",
+          "PTVĐ"
+        ],
+        [
+          "MTXQ"
+        ],
+        [
+          "Tạo hình"
+        ],
+        [
+          "KNS",
+          "LQVT"
+        ],
+        [
+          "LQVH"
+        ]
+      ],
+      "evenWeek": [
+        [
+          "PTVĐ"
+        ],
+        [
+          "MTXQ"
+        ],
+        [
+          "LQVH"
+        ],
+        [
+          "LQVT",
+          "GDAN"
+        ],
+        [
+          "Tạo hình",
+          "KNS"
+        ]
+      ]
+    },
+    "customObjectives": [
+      {
+        "id": "custom_CHOI_4_5T_1795543196414",
+        "ageGroupId": "CHOI_4_5T",
+        "ageGroupName": "Chồi (4–5 tuổi)",
+        "code": "MT105",
+        "domain": "I. Giáo dục phát triển thể chất",
+        "subGroup": "Mục tiêu phát triển mở rộng của lớp",
+        "description": "Trẻ biết giữ an toàn khi chơi khu vận động ngoài sân",
+        "month": "Tháng 9",
+        "theme": "TRƯỜNG MẦM NON CỦA BÉ",
+        "source": "Mục tiêu phát triển mở rộng",
+        "eduContent": "Trẻ biết giữ an toàn khi chơi khu vận động ngoài sân",
+        "activities": []
+      }
+    ]
+  },
+  "LA_5_6T": {
+    "id": "annual_LA_5_6T",
+    "ageGroupId": "LA_5_6T",
+    "updatedAt": "2026-11-25T00:50:04.323Z",
+    "profile": {
+      "ageGroupId": "LA_5_6T",
+      "schoolName": "TRƯỜNG MẦM NON HOÀNG GIA",
+      "governingBody": "UBND PHƯỜNG THUẬN AN – TP. HỒ CHÍ MINH",
+      "schoolYear": "2026 – 2027",
+      "className": "Lá 1 (5–6T)",
+      "teacherName": "Nguyễn Thị Bé Diệu",
+      "coTeacherName": "Trần Thị Minh Thư",
+      "principalName": "Nguyễn Thị Thủy",
+      "students": [
+        {
+          "id": "stu_LA_5_6T_1",
+          "fullName": "Nguyễn Minh An",
+          "gender": "Nam",
+          "dob": "12/03/2021"
+        },
+        {
+          "id": "stu_LA_5_6T_2",
+          "fullName": "Trần Bảo Ngọc",
+          "gender": "Nữ",
+          "dob": "24/05/2021"
+        },
+        {
+          "id": "stu_LA_5_6T_3",
+          "fullName": "Lê Hoàng Khôi",
+          "gender": "Nam",
+          "dob": "08/01/2021"
+        },
+        {
+          "id": "stu_LA_5_6T_4",
+          "fullName": "Phạm Hà My",
+          "gender": "Nữ",
+          "dob": "19/07/2021"
+        },
+        {
+          "id": "stu_LA_5_6T_5",
+          "fullName": "Hoàng Gia Huy",
+          "gender": "Nam",
+          "dob": "03/09/2021",
+          "note": "Cần khích lệ mạnh dạn phát biểu"
+        },
+        {
+          "id": "stu_LA_5_6T_6",
+          "fullName": "Vũ Tuệ Nhi",
+          "gender": "Nữ",
+          "dob": "15/04/2021"
+        },
+        {
+          "id": "stu_LA_5_6T_7",
+          "fullName": "Đặng Quốc Bảo",
+          "gender": "Nam",
+          "dob": "28/10/2021"
+        },
+        {
+          "id": "stu_LA_5_6T_8",
+          "fullName": "Bùi Khánh Linh",
+          "gender": "Nữ",
+          "dob": "11/06/2021"
+        },
+        {
+          "id": "stu_LA_5_6T_9",
+          "fullName": "Đỗ Minh Khang",
+          "gender": "Nam",
+          "dob": "22/02/2021"
+        },
+        {
+          "id": "stu_LA_5_6T_10",
+          "fullName": "Ngô Thảo Vy",
+          "gender": "Nữ",
+          "dob": "30/08/2021",
+          "note": "Cần rèn thêm kỹ năng cầm bút / tự xúc ăn"
+        },
+        {
+          "id": "stu_LA_5_6T_11",
+          "fullName": "Dương Tuấn Kiệt",
+          "gender": "Nam",
+          "dob": "14/11/2021"
+        },
+        {
+          "id": "stu_LA_5_6T_12",
+          "fullName": "Lý Ngọc Hân",
+          "gender": "Nữ",
+          "dob": "05/12/2021"
+        },
+        {
+          "id": "stu_LA_5_6T_13",
+          "fullName": "Phan Đức Phúc",
+          "gender": "Nam",
+          "dob": "17/05/2021"
+        },
+        {
+          "id": "stu_LA_5_6T_14",
+          "fullName": "Trương Bảo Châu",
+          "gender": "Nữ",
+          "dob": "09/03/2021"
+        },
+        {
+          "id": "stu_LA_5_6T_15",
+          "fullName": "Hồ Thiên Ân",
+          "gender": "Nam",
+          "dob": "26/09/2021"
+        }
+      ]
+    },
+    "themes": [
+      {
+        "id": "ath_LA_5_6T_m9",
+        "order": 1,
+        "monthNumber": 9,
+        "monthLabel": "Tháng 9",
+        "themeName": "TRƯỜNG MẦM NON CỦA BÉ",
+        "totalWeeks": 3,
+        "startDate": "2026-09-07",
+        "subThemes": [
+          "Trường Mầm non thân yêu của bé",
+          "Lớp học, cô giáo và bạn bè",
+          "Bé vui hội Trăng rằm Trung thu"
+        ],
+        "plannedMtCodes": [
+          "MT6",
+          "MT11",
+          "MT31",
+          "MT48",
+          "MT49",
+          "MT54",
+          "MT66",
+          "MT77",
+          "MT85",
+          "MT88",
+          "MT106",
+          "MT1",
+          "MT71",
+          "MT112"
+        ],
+        "assessmentMtCodes": [
+          "MT6",
+          "MT11",
+          "MT31",
+          "MT48",
+          "MT49",
+          "MT112"
+        ],
+        "weeklyMtAllocation": {
+          "0": [
+            "MT6",
+            "MT48",
+            "MT66",
+            "MT88",
+            "MT71",
+            "MT11"
+          ],
+          "1": [
+            "MT11",
+            "MT49",
+            "MT77",
+            "MT106",
+            "MT112"
+          ],
+          "2": [
+            "MT31",
+            "MT54",
+            "MT85",
+            "MT1"
+          ]
+        }
+      },
+      {
+        "id": "ath_LA_5_6T_m10",
+        "order": 2,
+        "monthNumber": 10,
+        "monthLabel": "Tháng 10",
+        "themeName": "BẢN THÂN BÉ",
+        "totalWeeks": 4,
+        "startDate": "2026-10-05",
+        "subThemes": [
+          "Tôi là ai – Cơ thể kỳ diệu của bé",
+          "Năm giác quan đáng quý của bé",
+          "Thực phẩm giúp bé lớn khỏe",
+          "Bé tự phục vụ và giữ an toàn"
+        ],
+        "plannedMtCodes": [
+          "MT2",
+          "MT8",
+          "MT18",
+          "MT38",
+          "MT45",
+          "MT50",
+          "MT56",
+          "MT68",
+          "MT72",
+          "MT73",
+          "MT74",
+          "MT79",
+          "MT80",
+          "MT12",
+          "MT86"
+        ],
+        "assessmentMtCodes": [
+          "MT2",
+          "MT8",
+          "MT18",
+          "MT38",
+          "MT45"
+        ]
+      },
+      {
+        "id": "ath_LA_5_6T_m11",
+        "order": 3,
+        "monthNumber": 11,
+        "monthLabel": "Tháng 11",
+        "themeName": "GIA ĐÌNH & NGÀY NHÀ GIÁO 20/11",
+        "totalWeeks": 4,
+        "startDate": "2026-11-02",
+        "subThemes": [
+          "Gia đình thân yêu của bé",
+          "Ngôi nhà và đồ dùng gia đình",
+          "Tri ân cô giáo ngày 20/11",
+          "Nhu cầu và niềm vui gia đình"
+        ],
+        "plannedMtCodes": [
+          "MT9",
+          "MT16",
+          "MT19",
+          "MT36",
+          "MT39",
+          "MT46",
+          "MT47",
+          "MT65",
+          "MT75",
+          "MT76",
+          "MT81",
+          "MT103",
+          "MT13",
+          "MT87"
+        ],
+        "assessmentMtCodes": [
+          "MT9",
+          "MT16",
+          "MT19",
+          "MT36",
+          "MT39"
+        ]
+      },
+      {
+        "id": "ath_LA_5_6T_m12",
+        "order": 4,
+        "monthNumber": 12,
+        "monthLabel": "Tháng 12",
+        "themeName": "NGHỀ NGHIỆP & THẾ GIỚI ĐỘNG VẬT",
+        "totalWeeks": 4,
+        "startDate": "2026-12-07",
+        "subThemes": [
+          "Một số nghề phổ biến quanh bé",
+          "Chú bộ đội kính yêu (22/12)",
+          "Những con vật nuôi trong gia đình",
+          "Động vật sống trong rừng & dưới nước"
+        ],
+        "plannedMtCodes": [
+          "MT4",
+          "MT28",
+          "MT33",
+          "MT42",
+          "MT51",
+          "MT58",
+          "MT78",
+          "MT89",
+          "MT101",
+          "MT14",
+          "MT94"
+        ],
+        "assessmentMtCodes": [
+          "MT4",
+          "MT28",
+          "MT33",
+          "MT42",
+          "MT51"
+        ]
+      },
+      {
+        "id": "ath_LA_5_6T_m1",
+        "order": 5,
+        "monthNumber": 1,
+        "monthLabel": "Tháng 1",
+        "themeName": "THẾ GIỚI THỰC VẬT & TẾT MÙA XUÂN",
+        "totalWeeks": 4,
+        "startDate": "2027-01-04",
+        "subThemes": [
+          "Cây xanh và môi trường sống",
+          "Các loại rau, củ, quả bổ dưỡng",
+          "Các loài hoa khoe sắc mùa xuân",
+          "Bé vui đón Tết cổ truyền dân tộc"
+        ],
+        "plannedMtCodes": [
+          "MT5",
+          "MT25",
+          "MT26",
+          "MT32",
+          "MT43",
+          "MT60",
+          "MT63",
+          "MT90",
+          "MT97",
+          "MT105",
+          "MT21",
+          "MT98"
+        ],
+        "assessmentMtCodes": [
+          "MT5",
+          "MT25",
+          "MT26",
+          "MT32",
+          "MT43"
+        ]
+      },
+      {
+        "id": "ath_LA_5_6T_m2",
+        "order": 6,
+        "monthNumber": 2,
+        "monthLabel": "Tháng 2",
+        "themeName": "MÙA XUÂN & LỄ HỘI QUÊ HƯƠNG",
+        "totalWeeks": 3,
+        "startDate": "2027-02-15",
+        "subThemes": [
+          "Không khí mùa xuân tươi đẹp",
+          "Côn trùng và chim chóc mùa xuân",
+          "Giữ gìn cây xanh vườn trường"
+        ],
+        "plannedMtCodes": [
+          "MT10",
+          "MT30",
+          "MT34",
+          "MT40",
+          "MT52",
+          "MT57",
+          "MT84",
+          "MT92",
+          "MT99",
+          "MT108",
+          "MT55",
+          "MT100"
+        ],
+        "assessmentMtCodes": [
+          "MT10",
+          "MT30",
+          "MT34",
+          "MT40",
+          "MT52"
+        ]
+      },
+      {
+        "id": "ath_LA_5_6T_m3",
+        "order": 7,
+        "monthNumber": 3,
+        "monthLabel": "Tháng 3",
+        "themeName": "PHƯƠNG TIỆN VÀ LUẬT LỆ GIAO THÔNG",
+        "totalWeeks": 4,
+        "startDate": "2027-03-08",
+        "subThemes": [
+          "Yêu thương bà, mẹ và cô ngày 8/3",
+          "Phương tiện giao thông đường bộ",
+          "Giao thông đường thủy – hàng không",
+          "Bé chấp hành tín hiệu & luật giao thông"
+        ],
+        "plannedMtCodes": [
+          "MT15",
+          "MT23",
+          "MT24",
+          "MT29",
+          "MT35",
+          "MT41",
+          "MT62",
+          "MT93",
+          "MT95",
+          "MT102",
+          "MT107",
+          "MT61"
+        ],
+        "assessmentMtCodes": [
+          "MT15",
+          "MT23",
+          "MT24",
+          "MT29",
+          "MT35"
+        ]
+      },
+      {
+        "id": "ath_LA_5_6T_m4",
+        "order": 8,
+        "monthNumber": 4,
+        "monthLabel": "Tháng 4",
+        "themeName": "NƯỚC & CÁC HIỆN TƯỢNG TỰ NHIÊN",
+        "totalWeeks": 4,
+        "startDate": "2027-04-05",
+        "subThemes": [
+          "Nguồn nước sạch và ích lợi của nước",
+          "Nắng, mưa, gió, mây và cầu vồng",
+          "Sự thay đổi ngày – đêm và các mùa",
+          "Bảo vệ môi trường – Tiết kiệm điện nước"
+        ],
+        "plannedMtCodes": [
+          "MT3",
+          "MT17",
+          "MT20",
+          "MT22",
+          "MT27",
+          "MT37",
+          "MT59",
+          "MT69",
+          "MT96",
+          "MT104",
+          "MT109",
+          "MT64"
+        ],
+        "assessmentMtCodes": [
+          "MT3",
+          "MT17",
+          "MT20",
+          "MT22",
+          "MT27"
+        ]
+      },
+      {
+        "id": "ath_LA_5_6T_m5",
+        "order": 9,
+        "monthNumber": 5,
+        "monthLabel": "Tháng 5",
+        "themeName": "QUÊ HƯƠNG – ĐẤT NƯỚC – BÁC HỒ & TRƯỜNG TIỂU HỌC",
+        "totalWeeks": 4,
+        "startDate": "2027-05-03",
+        "subThemes": [
+          "Quê hương, Thủ đô Hà Nội & đất nước Việt Nam",
+          "Bác Hồ kính yêu với các cháu thiếu nhi (19/5)",
+          "Mùa hè sôi động và an toàn phòng đuối nước",
+          "Bé sẵn sàng tâm thế vào Lớp 1 Trường Tiểu học"
+        ],
+        "plannedMtCodes": [
+          "MT7",
+          "MT44",
+          "MT53",
+          "MT67",
+          "MT82",
+          "MT83",
+          "MT91",
+          "MT110",
+          "MT111",
+          "MT70"
+        ],
+        "assessmentMtCodes": [
+          "MT7",
+          "MT44",
+          "MT53",
+          "MT67",
+          "MT82"
+        ]
+      }
+    ],
+    "timetable": {
+      "oddWeek": [
+        [
+          "GDAN",
+          "PTVĐ"
+        ],
+        [
+          "MTXQ",
+          "LQVH"
+        ],
+        [
+          "KNS",
+          "Tạo hình"
+        ],
+        [
+          "LQVT"
+        ],
+        [
+          "LQCC"
+        ]
+      ],
+      "evenWeek": [
+        [
+          "PTVĐ"
+        ],
+        [
+          "MTXQ"
+        ],
+        [
+          "LQVT",
+          "LQCC"
+        ],
+        [
+          "GDAN",
+          "LQVH"
+        ],
+        [
+          "Tạo hình",
+          "KNS"
+        ]
+      ]
+    },
+    "customObjectives": [
+      {
+        "id": "custom_LA_5_6T_1795567772079",
+        "ageGroupId": "LA_5_6T",
+        "ageGroupName": "Lá (5–6 tuổi)",
+        "code": "MT112",
+        "domain": "I. Giáo dục phát triển thể chất",
+        "subGroup": "Mục tiêu phát triển mở rộng của lớp",
+        "description": "Trẻ nhận biết và giữ an toàn khi vui chơi ở sân trường mầm non",
+        "month": "Tháng 9",
+        "theme": "TRƯỜNG MẦM NON CỦA BÉ",
+        "source": "Mục tiêu phát triển mở rộng",
+        "eduContent": "Trẻ nhận biết và giữ an toàn khi vui chơi ở sân trường mầm non",
+        "activities": []
+      }
+    ]
+  }
+}

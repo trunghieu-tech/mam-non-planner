@@ -1,0 +1,3507 @@
+[
+  {
+    "id": "plan_la_tuan1_hoanggia",
+    "status": "APPROVED",
+    "updatedAt": "2026-11-22T23:00:00.000Z",
+    "governingBody": "UBND PHƯỜNG THUẬN AN – TP. HỒ CHÍ MINH",
+    "schoolName": "TRƯỜNG MẦM NON HOÀNG GIA",
+    "schoolYear": "2026 – 2027",
+    "ageGroupId": "LA_5_6T",
+    "className": "Lá 1",
+    "teacherName": "Nguyễn Thị Bé Diệu",
+    "principalName": "Nguyễn Thị Thủy",
+    "themeName": "TRƯỜNG MẦM NON CỦA BÉ",
+    "themeTotalWeeks": 3,
+    "themeStartDate": "2026-09-07",
+    "themeEndDate": "2026-09-25",
+    "weekNumber": 1,
+    "subThemeName": "Trường Mầm Non Của Bé",
+    "weekStartDate": "2026-09-07",
+    "weekEndDate": "2026-09-11",
+    "includeThemeSection": true,
+    "themeObjectives": [
+      {
+        "domainKey": "PTTC",
+        "domainTitle": "1. Phát triển thể chất",
+        "customGoals": [
+          "Biết một số mónăn thông thườngở trường mầm non.",
+          "Sử dụng thành thạo các đồ dùng trong sinh hoạtở trường mầm non: khăn, bàn chải đánh răng, cốc uống nước, bátăn cơm, thìa xúc cơm.",
+          "Biết tránh những vật dụng và nơi nguy hiểm trong trường mầm non.",
+          "Thực hiện các vận động cơ bản theo nhu cầu và khả năng của bản thân."
+        ],
+        "mtCodes": [
+          "MT1",
+          "MT10",
+          "MT11",
+          "MT15",
+          "MT16"
+        ]
+      },
+      {
+        "domainKey": "PTNT",
+        "domainTitle": "2. Phát triển nhận thức",
+        "customGoals": [
+          "Biết tên, địa chỉ của trường, lớp đang học.",
+          "Phân biệt các khu vực trong trường và công việc của các cô bác trong trường.",
+          "Biết tên và một vài đặc điểm nổi bật của các bạn trong lớp.",
+          "Phân loại đồ dùng, đồ chơi theo 2–3 dấu hiệu: hình dạng, màu sắc, kích thước, chất liệu."
+        ],
+        "mtCodes": [
+          "MT25",
+          "MT27",
+          "MT31",
+          "MT34"
+        ]
+      },
+      {
+        "domainKey": "PTNN",
+        "domainTitle": "3. Phát triển ngôn ngữ",
+        "customGoals": [
+          "Biết bày tỏ nhu cầu, mong muốn, suy nghĩ của mình bằng lời nói rõ ràng.",
+          "Biết lắng nghe cô và các bạn nói, biết đặt và trả lời các câu hỏi.",
+          "Đọc thơ, kể chuyện diễn cảm về trường, lớp mầm non.",
+          "Nhận biết ký hiệu chữ viết qua các từ và thẻ tên đồ dùng cá nhân."
+        ],
+        "mtCodes": [
+          "MT54",
+          "MT56",
+          "MT67",
+          "MT69",
+          "MT71"
+        ]
+      },
+      {
+        "domainKey": "PT_TCKNXH",
+        "domainTitle": "4. Phát triển tình cảm và kỹ năng xã hội",
+        "customGoals": [
+          "Biết kính trọng, yêu quý cô giáo, các cô bác trong trường.",
+          "Biết giữ gìn đồ dùng, đồ chơi trong lớp, trong trường.",
+          "Biết thực hiện một số quy định của lớp, trường; lồng ghép chuyên đề Trường mầm non hạnh phúc."
+        ],
+        "mtCodes": [
+          "MT77",
+          "MT89",
+          "MT93",
+          "MT95"
+        ]
+      },
+      {
+        "domainKey": "PTTM",
+        "domainTitle": "5. Phát triển thẩm mỹ",
+        "customGoals": [
+          "Hào hứng tham gia các hoạt động nghệ thuật trong trường, lớp.",
+          "Thể hiện bài hát về trường mầm non một cách tự nhiên, đúng nhịp, có cảm xúc.",
+          "Thể hiện cảm xúc, khả năng sáng tạo trong các sản phẩm tạo hình về trường lớp, đồ dùng, đồ chơi."
+        ],
+        "mtCodes": [
+          "MT100",
+          "MT101",
+          "MT103"
+        ]
+      }
+    ],
+    "contentNetwork": [
+      {
+        "id": "branch_1",
+        "branchTitle": "Tuần 1: TRƯỜNG MẦM NON HOÀNG GIA CỦA BÉ",
+        "items": [
+          "Tên gọi, địa chỉ của trường mầm non đang học",
+          "Các khu vực và các phòng chức năng trong trường",
+          "Công việc của các cô, các bác trong trường",
+          "Các hoạt động hằng ngày của trẻ ở trường mầm non",
+          "Đồ dùng, đồ chơi và bạn bè trong trường"
+        ]
+      },
+      {
+        "id": "branch_2",
+        "branchTitle": "Tuần 2: ĐỒ DÙNG HỌC TẬP CỦA BÉ",
+        "items": [
+          "Tên lớp và ký hiệu đồ dùng cá nhân của bé",
+          "Các đồ dùng học tập và đồ chơi trong lớp",
+          "Công dụng và hoạt động sử dụng từng đồ dùng học tập",
+          "Phân loại, sắp xếp và giữ gìn đồ dùng gọn gàng"
+        ]
+      },
+      {
+        "id": "branch_3",
+        "branchTitle": "Tuần 3: BÉ VUI TRUNG THU",
+        "items": [
+          "Tên gọi và ý nghĩa ngày Tết Trung thu (Rằm tháng 8)",
+          "Lễ hội Trung thu, rước đèn, múa lân tại trường",
+          "Mónăn đặc trưng ngày Trung thu (bánh nướng, bánh dẻo, mâm ngũ quả)",
+          "Quà của bé và hoạt động vui chơi lễ hội cùng bạn bè"
+        ]
+      }
+    ],
+    "activityNetwork": [
+      {
+        "domainKey": "PTTC",
+        "domainTitle": "PHÁT TRIỂN THỂ CHẤT",
+        "items": [
+          "Trò chuyện về ích lợi của thực phẩm và các mónăn trong trường mầm non",
+          "Luyện tập các công việc tự phục vụ trong ăn uống, ngủ, chơi, vệ sinh",
+          "Nhận biết và phòng tránh những nơi nguy hiểm trong trường, lớp",
+          "Rèn kỹ năng VĐCB: Bật liên tiếp vào các vòng, đi trong đường hẹp",
+          "Luyện tập phát triển nhóm cơ, hô hấp và trò chơi vận động"
+        ]
+      },
+      {
+        "domainKey": "PTNT",
+        "domainTitle": "PHÁT TRIỂN NHẬN THỨC",
+        "items": [
+          "So sánh và phân loại đồ dùng theo 2–3 dấu hiệu (hình dạng, kích thước, chất liệu)",
+          "Ôn và nhận biết số lượng 1, đếm số lượng trong phạm vi 1–4",
+          "Tham quan các khu vực, phòng chức năng trong trường mầm non",
+          "Thảo luận về tên, địa chỉ trường, công việc của các cô bác trong trường"
+        ]
+      },
+      {
+        "domainKey": "PTNN",
+        "domainTitle": "PHÁT TRIỂN NGÔN NGỮ",
+        "items": [
+          "Quan sát, trò chuyện về các khu vực và hoạt động của trường, lớp",
+          "Đọc thơ diễn cảm (Cô và mẹ, Cô giáo của con), kể chuyện về trường lớp",
+          "Làm quen các nét cơ bản, nhận biết ký hiệu chữ viết qua thẻ tên góc chơi và thẻ tên bạn",
+          "Xem tranh ảnh, làm album về trường mầm non"
+        ]
+      },
+      {
+        "domainKey": "PTTM",
+        "domainTitle": "PHÁT TRIỂN THẨM MỸ",
+        "items": [
+          "Tô, đồ theo nét; sử dụng các vật liệu để vẽ, nặn, xé dán, xếp hình về trường lớp",
+          "Hát, múa, vận động theo nhạc bài hát về trường lớp (Em đi mẫu giáo, Trường chúng cháu là trường MN)",
+          "Nghe hát (Ngày đầu tiên đi học) và dân ca địa phương",
+          "Trò chơi âm nhạc: Tai ai thính"
+        ]
+      },
+      {
+        "domainKey": "PT_TCKNXH",
+        "domainTitle": "PHÁT TRIỂN TÌNH CẢM – XÃ HỘI",
+        "items": [
+          "Trò chơi đóng vai: Lớp mẫu giáo, Cửa hàng tạp hóa, Nấu ăn",
+          "Trò chơi xây dựng: Xây dựng Trường Mầm non của bé",
+          "Trò chuyện về tình cảm của trẻ với trường lớp, cô giáo và bạn bè",
+          "Thực hiện nội quy lớp học, chăm sóc cây xanh và lồng ghép Trường mầm non hạnh phúc"
+        ]
+      }
+    ],
+    "weeklyObjectives": [
+      {
+        "domainKey": "PTNT",
+        "domainTitle": "1. Phát triển nhận thức",
+        "goals": [
+          "Phát triểnóc quan sát, so sánh, phân loại, nhận xét về cách sắp xếp đồ dùng đồ chơi trong sân trường theo màu sắc, hình dạng, công dụng, chất liệu.",
+          "Biết tên trường, địa chỉ trường, các góc chơi ngoài trời và các hoạt động trong ngày tại trường mầm non.",
+          "Ôn và nhận biết nhóm đồ vật có số lượng 1, nhận biết chữ số 1."
+        ]
+      },
+      {
+        "domainKey": "PTNN",
+        "domainTitle": "2. Phát triển ngôn ngữ",
+        "goals": [
+          "Trẻ biết nhận xét, kể lại những điều quan sát được và trao đổi mạch lạc với cô, bạn về trường lớp mầm non.",
+          "Thuộc và đọc diễn cảm thơ Cô và mẹ, Cô giáo của con; làm quen các nét cơ bản và nhận biết ký hiệu cá nhân."
+        ]
+      },
+      {
+        "domainKey": "PTTC",
+        "domainTitle": "3. Phát triển thể chất",
+        "goals": [
+          "Thực hiện nhịp nhàng bài tập thể dục sáng và vận động cơ bản Bật liên tiếp vào các vòng.",
+          "Biết các bước rửa tay đúng thao tác và kỹ năng vệ sinh phòng chống bệnh truyền nhiễm."
+        ]
+      },
+      {
+        "domainKey": "PTTM",
+        "domainTitle": "4. Phát triển thẩm mỹ",
+        "goals": [
+          "Hát đúng giai điệu, nhịp điệu bài Em đi mẫu giáo; cảm nhận vẻ đẹp cây xanh, sân trường và sản phẩm tạo hình.",
+          "Cầm bút đúng tư thế, tô đồ theo nét gọn gàng, không chờm ra ngoài."
+        ]
+      },
+      {
+        "domainKey": "PT_TCKNXH",
+        "domainTitle": "5. Phát triển tình cảm – xã hội",
+        "goals": [
+          "Yêu mến trường lớp, lễ phép với cô giáo và người lớn; giữ gìn môi trường xanh – sạch – đẹp.",
+          "Có thói quen tự phục vụ, cất đồ dùng đúng nơi quy định và thực hiện tốt 3 tiêu chuẩn bé ngoan."
+        ]
+      }
+    ],
+    "etiquetteNotes": [
+      "Dạy trẻ đến lớp biết khoanh tay chào cô, chào ba mẹ và chào hỏi người lớn lễ phép.",
+      "Không hái hoa, bẻ cành, ngắt lá trước cổng trường và trong khuôn viên trường."
+    ],
+    "laborHygieneNotes": [
+      "Rèn nề nếp lấy và cất đồ dùng cá nhân (ba lô, dép, khăn, cốc) đúng ký hiệu, gọn gàng ngăn nắp.",
+      "Rèn nề nếp rửa tay bằng xà phòng trước và sau khi ăn, sau khi đi vệ sinh và sau khi ngủ dậy.",
+      "Phân công nhóm nòng cốt trực nhật giúp cô lau kệ, sắp xếp đồ chơi trong các hoạt động hằng ngày."
+    ],
+    "welcomeRoutineNotes": [
+      "Vệ sinh thông thoáng phòng lớp, kiểm tra an toàn đồ dùng đồ chơi trước khi đón trẻ.",
+      "Trò chuyện với phụ huynh về sức khỏe, sở thích và thói quen sinh hoạtở nhà của trẻ.",
+      "Trò chuyện cùng trẻ về trường mẫu giáo, lớp học, cô giáo và bạn bè; cho trẻ xem tranh ảnh các hoạt động trong trường.",
+      "Trao đổi, vận động phụ huynh hỗ trợ nguyên vật liệu mở, phế liệu sạch để làm đồ dùng đồ chơi các góc."
+    ],
+    "praiseStandards": [
+      "Tiêu chuẩn 1: Đi học đều, đúng giờ, quầnáo gọn gàng, biết chào hỏi lễ phép.",
+      "Tiêu chuẩn 2: Ngoan ngoãn trong giờ học, biết lắng nghe cô và giơ tay phát biểu.",
+      "Tiêu chuẩn 3: Biết giữ gìn vệ sinh, cất đồ chơi gọn gàng, chơi đoàn kết và chia sẻ với bạn."
+    ],
+    "praiseSongStart": "Càng lớn càng ngoan",
+    "praiseSongWeekEnd": "Cả tuần đều ngoan",
+    "morningExercise": {
+      "aims": [
+        "Trẻ biết tập thể dục sáng đúng nhịp theo từng động tác phát triển nhóm cơ và hô hấp.",
+        "Trẻ tích cực, hào hứng tham gia luyện tập theo hướng dẫn của cô.",
+        "Giáo dục trẻ tính kỷ luật, kiên trì và hiểu ích lợi của việc tập thể dục đối với sức khỏe."
+      ],
+      "preparation": [
+        "Sân tập rộng rãi, sạch sẽ, bằng phẳng.",
+        "Loa phát nhạc thể dục sáng, vòng/nơ thể dục."
+      ],
+      "warmup": "Cho trẻ đi thành vòng tròn kết hợp các kiểu chân (đi thường, đi mũi chân, đi gót chân), chạy nhanh – chạy chậm rồi về đội hình hàng ngang.",
+      "moves": [
+        {
+          "group": "Hô hấp",
+          "name": "Thở 2: Thổi bóng bay (2 lần × 8 nhịp)",
+          "steps": "TTCB: Đứng chân hình chữ V, hai tay buông lỏng. Nhịp 1: Đưa hai tay khum trước miệng. Nhịp 2: Thổi hơi dài như thổi bóng. Nhịp 3: Về nhịp 1. Nhịp 4: Về TTCB."
+        },
+        {
+          "group": "Tay",
+          "name": "Tay 1: Hai tay đưa ra trước, lên cao, hạ xuống (2 lần × 8 nhịp)",
+          "steps": "Đưa hai tay thẳng ra trước – đưa lên cao – hạ về trước – hạ xuống xuôi thân nhịp nhàng theo nhạc."
+        },
+        {
+          "group": "Bụng",
+          "name": "Bụng 1: Đứng cúi gập người về phía trước, tay chạm ngón chân (4 lần × 8 nhịp)",
+          "steps": "Hai chân rộng bằng vai, cúi gập người thẳng gối tay chạm mũi bàn chân, đứng thẳng người lên."
+        },
+        {
+          "group": "Chân",
+          "name": "Chân 1: Ngồi khuỵu gối (2 lần × 8 nhịp)",
+          "steps": "Hai tay đưa ra trước, khuỵu gối thẳng lưng, đứng thẳng dậy hạ tay xuống."
+        },
+        {
+          "group": "Bật",
+          "name": "Bật 1: Bật tiến về phía trước (2 lần × 8 nhịp)",
+          "steps": "Hai tay chống hông, bật chụm chân tiến về trước, tiếp đất nhẹ nhàng bằng mũi bàn chân."
+        }
+      ],
+      "cooldown": "Đi thường 1–2 vòng quanh sân, hít thở sâu thả lỏng cơ thể và xếp hàng vào lớp."
+    },
+    "outdoorTable": [
+      {
+        "category": "CHU_DICH",
+        "title": "Hoạt động có chủ đích: Quan sát và trò chuyện về Trường Mầm non (theo nội dung từng ngày)",
+        "requirements": [
+          "Hình thành khả năng quan sát, so sánh, dự đoán và chia sẻ nhận xét một cách tự nhiên.",
+          "Tạo điều kiện cho trẻ tiếp xúc thiên nhiên, yêu quý trường lớp và biết giữ gìn đồ chơi sân trường."
+        ],
+        "preparation": [
+          "Sân trường sạch sẽ, an toàn; phấn vẽ, rổ đựng, tranh ảnh lễ hội trường."
+        ],
+        "procedure": [
+          "Cô tập trung trẻ, giới thiệu mục đích buổi quan sát ngoài trời.",
+          "Cô đặt câu hỏi gợi mở để trẻ quan sát, thảo luận và nêu cảm xúc về trường lớp, sân chơi, cây xanh.",
+          "Củng cố kiến thức, giáo dục trẻ giữ gìn môi trường xanh – sạch – đẹp."
+        ]
+      },
+      {
+        "category": "TCVD",
+        "title": "TCVĐ: “Lộn cầu vồng”",
+        "requirements": [
+          "Rèn sự nhanh nhẹn, khéo léo, phối hợp nhịp nhàng cùng bạn và tính kỷ luật khi chơi."
+        ],
+        "preparation": [
+          "Sân bãi sạch sẽ, bằng phẳng, thoáng mát."
+        ],
+        "procedure": [
+          "Cô giới thiệu tên trò chơi, nhắc lại cách chơi và luật chơi.",
+          "Chia trẻ thành từng cặp nắm tay nhau vung tay theo nhịp đồng dao “Lộn cầu vồng”, đến câu cuối hai trẻ cùng chui qua tay lộn vòng.",
+          "Tổ chức cho trẻ chơi 3–4 lần, cô quan sát đảm bảo an toàn."
+        ]
+      },
+      {
+        "category": "TCDG",
+        "title": "TCDG: “Chi chi chành chành”",
+        "requirements": [
+          "Phát triển phản xạ nhanh nhẹn, khả năng ghi nhớ lời đồng dao và chơi đoàn kết vui vẻ."
+        ],
+        "preparation": [
+          "Không gian thoáng mát trên sân trường."
+        ],
+        "procedure": [
+          "Cô giới thiệu tên trò chơi, hướng dẫn luật chơi và cách chơi.",
+          "Chia trẻ theo tổ/nhóm nhỏ 4–5 bạn cùng đọc đồng dao và rút ngón tay nhanh ở tiếng “ù à ù ập”.",
+          "Cho trẻ chơi 3–4 lần, tuyên dương nhóm chơi đúng luật."
+        ]
+      },
+      {
+        "category": "TU_DO",
+        "title": "Chơi tự do với đồ chơi sân trường và đồ chơi mang theo",
+        "requirements": [
+          "Trẻ tích cực lựa chọn trò chơi theo hứng thú, biết chờ đến lượt và chơi an toàn cùng bạn."
+        ],
+        "preparation": [
+          "Phấn, vòng, bóng, đồ chơi cát nước và thiết bị vận động ngoài trời sẵn có."
+        ],
+        "procedure": [
+          "Trẻ tự chọn góc chơi ngoài trời, vẽ phấn, chơi cầu trượt, xích đu dưới sự giám sát của cô.",
+          "Kết thúc: Cô nhận xét buổi chơi, cho trẻ thu dọn đồ chơi, rửa tay sạch sẽ vào lớp."
+        ]
+      }
+    ],
+    "cornerTable": [
+      {
+        "cornerName": "Góc phân vai",
+        "contents": [
+          "Trò chơi: Cửa hàng tạp hóa, Nấu ăn, Gia đình / Lớp học mẫu giáo"
+        ],
+        "requirements": [
+          "Trẻ hứng thú nhập vai (cô giáo, mẹ – con, người bán – người mua), biết giao tiếp lịch sự.",
+          "Biết sử dụng đồ dùng chế biến mónăn, chơi đoàn kết và cất đồ chơi gọn gàng."
+        ],
+        "preparation": [
+          "Kệ bán hàng, thực phẩm mô hình, bánh kẹo đồ chơi, bộ đồ nấu ăn."
+        ],
+        "organization": [
+          "Cô gợi ý trẻ thỏa thuận phân vai chơi, kết nối liên góc giữa Cửa hàng thực phẩm và Nấu ăn gia đình."
+        ]
+      },
+      {
+        "cornerName": "Góc xây dựng – lắp ráp",
+        "contents": [
+          "Xây dựng Trường Mầm non Hoàng Gia của bé",
+          "Lắp ghép đồ chơi sân trường (cầu trượt, xích đu, hàng rào)"
+        ],
+        "requirements": [
+          "Trẻ biết phối hợp các khối gỗ, gạch nhựa và vật liệu mở để bố cục công trình hợp lý.",
+          "Biết hợp tác nhóm, phân công bạn xây tường, bạn xếp vườn hoa, khu vui chơi."
+        ],
+        "preparation": [
+          "Bộ khối gỗ xây dựng, hàng rào, cây xanh, hoa, ghế đá, đồ chơi lắp ghép."
+        ],
+        "organization": [
+          "Trẻ tự lấy đồ chơi, thống nhấtý tưởng kiến trúc cùng nhóm và giới thiệu công trình cuối giờ."
+        ]
+      },
+      {
+        "cornerName": "Góc nghệ thuật",
+        "contents": [
+          "Vẽ, tô màu, cắt dán tranh về trường mầm non và hoạt động của bé",
+          "Hát, múa, gõ đệm các bài hát trong chủ đề Trường mầm non"
+        ],
+        "requirements": [
+          "Biết cầm bút tô màu gọn gàng, phối hợp màu sắc hài hòa và giữ gìn sản phẩm.",
+          "Mạnh dạn biểu diễn ca hát, vận động nhịp nhàng theo giai điệu bài hát."
+        ],
+        "preparation": [
+          "Giấy vẽ, bút sáp màu, bút chì, hồ dán, kéo thủ công; nhạc cụ phách tre, trống lắc, xắc xô."
+        ],
+        "organization": [
+          "Cô hướng dẫn kỹ năng bố cục tranh và khuyến khích trẻ chọn nhạc cụ tự đệm nhịp khi biểu diễn."
+        ]
+      },
+      {
+        "cornerName": "Góc học tập – thư viện",
+        "contents": [
+          "Xem truyện tranh, kể chuyện theo tranh về trường mầm non",
+          "Làm sách, album ảnh về hoạt động và đồ chơi ở trường",
+          "Làm quen ngôi nhà hình học Kidsmart và ghép thẻ chữ cái/thẻ số 1"
+        ],
+        "requirements": [
+          "Biết mở từng trang sách nhẹ nhàng từ trái sang phải, kể lại nội dung tranh rõ ràng.",
+          "Biết ghép thẻ chữ cái theo mẫu từ và đếm nhóm số lượng 1."
+        ],
+        "preparation": [
+          "Sách tranh, album giấy, thẻ chữ cái, thẻ từ, thẻ số, bút chì, kéo, hồ dán."
+        ],
+        "organization": [
+          "Cô hướng dẫn trẻ cách giở sách đúng chiều, ghép thẻ từ theo chủ đề và giữ trật tự góc sách."
+        ]
+      },
+      {
+        "cornerName": "Góc thiên nhiên / khoa học",
+        "contents": [
+          "Chăm sóc cây xanh: lau lá, tỉa lá vàng, tưới nước cho cây"
+        ],
+        "requirements": [
+          "Trẻ biết cách tỉa lá úa, tưới lượng nước vừa đủ và yêu thiên nhiên."
+        ],
+        "preparation": [
+          "Bình tưới nhỏ, khănẩm lau lá, kéo an toàn, khay đựng lá khô."
+        ],
+        "organization": [
+          "Cô hướng dẫn trẻ quan sát độ ẩm đất, tưới nước nhẹ nhàng và lau sạch bụi trên lá cây."
+        ]
+      }
+    ],
+    "days": [
+      {
+        "dayOfWeek": 2,
+        "dayLabel": "Thứ hai",
+        "dateStr": "2026-09-07",
+        "showPraiseStandards": true,
+        "outdoorObservation": "Quan sát khung cảnh Trường Mầm non Hoàng Gia",
+        "mainLessons": [
+          {
+            "id": "les_d2_1",
+            "slotType": "MAIN",
+            "domainTitle": "LĨNH VỰC PHÁT TRIỂN THẨM MỸ",
+            "subjectCode": "GDAN",
+            "subjectFullTitle": "HOẠT ĐỘNG ÂM NHẠC",
+            "topicTitle": "Dạy hát: Em đi mẫu giáo",
+            "subTopics": [
+              "Nghe hát: Ngày đầu tiên đi học",
+              "TCAN: Tai ai thính"
+            ],
+            "linkedMtCodes": [
+              "MT100",
+              "MT101"
+            ],
+            "aims": [
+              "Trẻ nhớ tên bài hát, tên tác giả (Dương Minh Viên), thuộc lời và hát đúng giai điệu, nhịp điệu bài Em đi mẫu giáo.",
+              "Rèn kỹ năng hát rõ lời, nhún vận động nhịp nhàng theo nhạc; phát triển tai nghe và khả năng cảm thụ âm nhạc.",
+              "Phát triển sự linh hoạt, nhanh nhẹn qua trò chơi âm nhạc; giáo dục trẻ yêu quý cô giáo, bạn bè và trường lớp."
+            ],
+            "preparation": [
+              "Nhạc không lời và nhạc có lời bài hát “Em đi mẫu giáo”, “Ngày đầu tiên đi học”.",
+              "1 mũ chóp kín, xắc xô, phách tre, trống lắc."
+            ],
+            "steps": [
+              {
+                "title": "Hoạt động 1: Ổn định tổ chức – Gây hứng thú",
+                "details": [
+                  "Cô trò chuyện với trẻ về buổi sáng thức dậy đánh răng rửa mặt đến trường vui học cùng cô và các bạn.",
+                  "Giới thiệu bài hát “Em đi mẫu giáo” của nhạc sĩ Dương Minh Viên."
+                ]
+              },
+              {
+                "title": "Hoạt động 2: Dạy hát “Em đi mẫu giáo”",
+                "details": [
+                  "Cô hát mẫu 2 lần (lần 1 không nhạc, lần 2 kết hợp nhạc đệm) thể hiện sắc thái vui tươi.",
+                  "Đàm thoại với trẻ về tên bài hát, tác giả và nội dung bài hát.",
+                  "Cho cả lớp hát 2–3 lần; luân phiên tổ, nhóm, cá nhân hát, hát nối tiếp theo nhóm; cô chú ý sửa sai cao độ và nhịp."
+                ]
+              },
+              {
+                "title": "Hoạt động 3: Nghe hát “Ngày đầu tiên đi học”",
+                "details": [
+                  "Cô giới thiệu hoàn cảnh ra đời và tình cảm trìu mến của bài hát.",
+                  "Lần 1: Cô hát/mở nhạc diễn cảm cho trẻ lắng nghe. Lần 2: Trẻ nghe và đung đưa, vận động hưởngứng cùng cô."
+                ]
+              },
+              {
+                "title": "Hoạt động 4: Trò chơi âm nhạc “Tai ai thính”",
+                "details": [
+                  "Cách chơi: Mời 1 trẻ đội mũ chóp kín, cô gõ ngẫu nhiên một nhạc cụ (trống lắc, xắc xô, phách tre), trẻ lắng nghe và đoán đúng tên nhạc cụ.",
+                  "Luật chơi: Đoán đúng được cả lớp vỗ tay khen thưởng; đoán chưa đúng sẽ hát tặng lớp 1 câu hát. Tổ chức chơi 3–4 lượt."
+                ]
+              }
+            ]
+          },
+          {
+            "id": "les_d2_2",
+            "slotType": "MAIN",
+            "domainTitle": "LĨNH VỰC PHÁT TRIỂN THỂ CHẤT",
+            "subjectCode": "PTVĐ",
+            "subjectFullTitle": "HOẠT ĐỘNG THỂ DỤC GIỜ HỌC",
+            "topicTitle": "VĐCB: Bật liên tiếp vào các vòng",
+            "subTopics": [
+              "TCVĐ: Chuyền bóng"
+            ],
+            "linkedMtCodes": [
+              "MT1",
+              "MT3"
+            ],
+            "aims": [
+              "Trẻ biết bật chụm hai chân liên tiếp vào các vòng không chạm cạnh vòng, tiếp đất nhẹ nhàng bằng mũi bàn chân rồi đến cả bàn chân.",
+              "Biết cầm bóng bằng hai tay chuyền qua đầu và qua chân đúng luật, không làm rơi bóng.",
+              "Rèn luyện sức mạnh cơ chân, sự khéo léo, nhanh nhẹn và tinh thần kỷ luật, đoàn kết thi đua."
+            ],
+            "preparation": [
+              "10 vòng thể dục (2 hàng × 5 vòng), 2 quả bóng nhựa mềm.",
+              "Sân tập sạch sẽ, bằng phẳng, kẻ vạch xuất phát."
+            ],
+            "steps": [
+              {
+                "title": "Hoạt động 1: Khởi động & Bài tập phát triển chung",
+                "details": [
+                  "Cho trẻ đi chạy các kiểu chân theo nhạc bài “Trường chúng cháu là trường mầm non” rồi về 4 hàng ngang.",
+                  "Tập các động tác BTPTC (Thở, Tay, Bụng, Chân, Bật; nhấn mạnh động tác Bật 4 lần × 8 nhịp)."
+                ]
+              },
+              {
+                "title": "Hoạt động 2: Vận động cơ bản “Bật liên tiếp vào các vòng”",
+                "details": [
+                  "Đội hình 2 hàng ngang đối diện cách nhau 2,5m để quan sát cô làm mẫu.",
+                  "Cô làm mẫu lần 1 không giải thích; lần 2 kết hợp phân tích: TTCB đứng chụm hai chân trước vạch, hai tay chống hông; khi có hiệu lệnh bật liên tiếp vào từng vòng không chạm cạnh, rơi nhẹ bằng mũi bàn chân.",
+                  "Mời 2–4 trẻ làm thử, cô sửa kỹ thuật; tổ chức cả lớp thực hiện 2 lượt và chia 2 đội thi đua."
+                ]
+              },
+              {
+                "title": "Hoạt động 3: Trò chơi vận động “Chuyền bóng” & Hồi tỉnh",
+                "details": [
+                  "Chia 2 đội bằng nhau, chuyền bóng qua đầu từ đầu hàng xuống cuối hàng, bạn cuối chạy lên đầu hàng chuyền tiếp qua chân; đội về đích trước không rơi bóng thắng cuộc.",
+                  "Hồi tỉnh: Cho trẻ đi nhẹ nhàng 1–2 vòng hít thở sâu thả lỏng cơ thể."
+                ]
+              }
+            ]
+          }
+        ],
+        "extracurricularTitle": "",
+        "afternoonLesson": {
+          "id": "les_d2_aft",
+          "slotType": "AFTERNOON",
+          "domainTitle": "HOẠT ĐỘNG CHIỀU – LQVH",
+          "subjectCode": "LQVH",
+          "subjectFullTitle": "DẠY TRẺ BÀI THƠ, BÀI HÁT TRONG TUẦN",
+          "topicTitle": "Bài thơ: Cô giáo của con",
+          "subTopics": [],
+          "linkedMtCodes": [
+            "MT56",
+            "MT67"
+          ],
+          "aims": [
+            "Trẻ nhớ tên bài thơ “Cô giáo của con”, hiểu nội dung bài thơ nói về tình cảm yêu quý, kính trọng cô giáo.",
+            "Rèn kỹ năng chú ý lắng nghe, ghi nhớ có chủ định và đọc thơ rõ lời.",
+            "Giáo dục trẻ yêu thương, lễ phép và vâng lời cô giáo."
+          ],
+          "preparation": [
+            "Tranh minh họa nội dung bài thơ và hìnhảnh cô giáo chăm sóc, vui chơi cùng trẻ.",
+            "Nhạc bài hát về cô giáo."
+          ],
+          "steps": [
+            {
+              "title": "Hoạt động 1: Ổn định, gây hứng thú",
+              "details": [
+                "Cho trẻ hát vận động nhẹ bài hát về cô giáo và trò chuyện về những công việc hằng ngày cô làmở lớp.",
+                "Dẫn dắt giới thiệu bài thơ “Cô giáo của con”."
+              ]
+            },
+            {
+              "title": "Hoạt động 2: Cô đọc thơ & Đàm thoại",
+              "details": [
+                "Lần 1: Cô đọc diễn cảm nhẹ nhàng. Lần 2: Đọc kết hợp chỉ tranh minh họa.",
+                "Đàm thoại giúp trẻ hiểu nội dung: Trong bài thơ nhắc đến ai? Cô giáo chăm sóc bạn nhỏ như thế nào? Con làm gì để thể hiện tình yêu với cô?"
+              ]
+            },
+            {
+              "title": "Hoạt động 3: Dạy trẻ đọc thơ & Kết thúc",
+              "details": [
+                "Mời cả lớp, tổ, nhóm, cá nhân đọc thơ diễn cảm; cô khen ngợi và giáo dục trẻ luôn lễ phép."
+              ]
+            }
+          ]
+        },
+        "evalHealth": "",
+        "evalEmotionBehavior": "",
+        "evalKnowledgeSkill": ""
+      },
+      {
+        "dayOfWeek": 3,
+        "dayLabel": "Thứ ba",
+        "dateStr": "2026-09-08",
+        "showPraiseStandards": false,
+        "outdoorObservation": "Quan sát đồ chơi ngoài trời trong sân trường mầm non",
+        "mainLessons": [
+          {
+            "id": "les_d3_1",
+            "slotType": "MAIN",
+            "domainTitle": "LĨNH VỰC PHÁT TRIỂN NHẬN THỨC",
+            "subjectCode": "MTXQ",
+            "subjectFullTitle": "KHÁM PHÁ XÃ HỘI (MTXQ)",
+            "topicTitle": "Trò chuyện về Trường Mầm non của bé",
+            "subTopics": [],
+            "linkedMtCodes": [
+              "MT25",
+              "MT27"
+            ],
+            "aims": [
+              "Trẻ biết tên trường (Trường MN Hoàng Gia), địa chỉ trường, tên lớp Lá, tên cô giáo và các phòng chức năng trong trường.",
+              "Biết công việc của Ban Giám hiệu, cô giáo, cô cấp dưỡng, chú bảo vệ và các hoạt động trong ngày ở trường.",
+              "Giáo dục trẻ yêu quý trường lớp, kính trọng các cô bác và có ý thức giữ gìn đồ dùng đồ chơi chung."
+            ],
+            "preparation": [
+              "Slide hìnhảnh thực tế về cổng trường, sân chơi, lớp học, bếpăn và các cô bác trong trường.",
+              "Bộ tranh lô tô các khu vực và đồ dùng trong trường mầm non."
+            ],
+            "steps": [
+              {
+                "title": "Hoạt động 1: Gây hứng thú",
+                "details": [
+                  "Hát bài “Trường chúng cháu là trường mầm non” và trò chuyện dẫn dắt vào nội dung khám phá trường lớp."
+                ]
+              },
+              {
+                "title": "Hoạt động 2: Quan sát và trò chuyện về Trường Mầm non",
+                "details": [
+                  "Cho trẻ xem ảnh từng khu vực trong trường, đặt câu hỏi gợi mở: Trường mình tên gì? Ở đâu? Có những phòng nào?",
+                  "Thảo luận về công việc của cô giáo, cô nuôi dưỡng, bác bảo vệ và mở rộng giáo dục lòng biếtơn."
+                ]
+              },
+              {
+                "title": "Hoạt động 3: Trò chơi củng cố “Đoán nhanh khu vực”",
+                "details": [
+                  "Chia 3 đội thi chọn nhanh tranh khu vực đúng theo mô tả công việc cô nêu; nhận xét tuyên dương."
+                ]
+              }
+            ]
+          },
+          {
+            "id": "les_d3_2",
+            "slotType": "MAIN",
+            "domainTitle": "LĨNH VỰC PHÁT TRIỂN NGÔN NGỮ",
+            "subjectCode": "LQVH",
+            "subjectFullTitle": "LÀM QUEN VĂN HỌC",
+            "topicTitle": "Thơ: Cô và mẹ",
+            "subTopics": [],
+            "linkedMtCodes": [
+              "MT56",
+              "MT67"
+            ],
+            "aims": [
+              "Trẻ nhớ tên bài thơ “Cô và mẹ” (tác giả Trần Quốc Toàn) và nắm được nội dung bài thơ.",
+              "Phát triển ngôn ngữ mạch lạc, phátâm chuẩn, đọc thơ rõ ràng, diễn cảm.",
+              "Giáo dục trẻ biết yêu thương, lễ phép với cô giáo và ba mẹ, xứng đáng là cháu ngoan."
+            ],
+            "preparation": [
+              "Tranh minh họa bài thơ “Cô và mẹ” trên bảng và màn hình tivi."
+            ],
+            "steps": [
+              {
+                "title": "Hoạt động 1: Ổn định – tổ chức",
+                "details": [
+                  "Cả lớp hát bài “Em đi mẫu giáo”, đàm thoại ngắn về niềm vui đi học và dẫn dắt giới thiệu bài thơ “Cô và mẹ”."
+                ]
+              },
+              {
+                "title": "Hoạt động 2: Dạy trẻ đọc thơ & Đàm thoại",
+                "details": [
+                  "Cô đọc diễn cảm lần 1; lần 2 đọc kết hợp hìnhảnh trên tivi.",
+                  "Đàm thoại: Buổi sáng ai đưa bé đến trường? Đến trường bé được ai khen? Buổi chiều bé nói gì với mẹ? Cô và mẹ được ví như hai người mẹ hiền thế nào?",
+                  "Tổ chức cả lớp, tổ, nhóm đọc nối tiếp, đọc đuổi và mời cá nhân đọc diễn cảm; sửa phátâm cho trẻ."
+                ]
+              },
+              {
+                "title": "Hoạt động 3: Kết thúc",
+                "details": [
+                  "Cả lớp đọc lại toàn bài 1 lần, cô nhận xét tuyên dương và chuyển hoạt động."
+                ]
+              }
+            ]
+          }
+        ],
+        "extracurricularTitle": "HĐNK: Học nhảy Aerobic",
+        "afternoonLesson": {
+          "id": "les_d3_aft",
+          "slotType": "AFTERNOON",
+          "domainTitle": "HOẠT ĐỘNG CHIỀU – KỸ NĂNG TỰ PHỤC VỤ",
+          "subjectCode": "KNS",
+          "subjectFullTitle": "RÈN TRẺ NHẬN BIẾT KÝ HIỆU ĐỒ DÙNG CÁ NHÂN",
+          "topicTitle": "Nhận biết ký hiệu đồ dùng cá nhân của bé",
+          "subTopics": [],
+          "linkedMtCodes": [
+            "MT69",
+            "MT11"
+          ],
+          "aims": [
+            "Trẻ nhận biết đúng ký hiệu riêng trên tủ ba lô, kệ dép, khăn mặt, ca uống nước của mình.",
+            "Rèn kỹ năng quan sát, ghi nhớ có chủ định và nề nếp tự cất đồ dùng đúng vị trí."
+          ],
+          "preparation": [
+            "Đồ dùng cá nhân của trẻ đã dán sẵn ký hiệu rõ ràng theo 4 tổ."
+          ],
+          "steps": [
+            {
+              "title": "Hoạt động 1: Gây hứng thú",
+              "details": [
+                "Cả lớp đọc bài thơ “Của chung”, trò chuyện về các đồ dùng cá nhânở lớp và tác dụng của ký hiệu riêng."
+              ]
+            },
+            {
+              "title": "Hoạt động 2: Thực hành tìm đúng ký hiệu",
+              "details": [
+                "Chia 4 tổ theo màu quy định; từng trẻ quan sát và gọi tên ký hiệu của mình.",
+                "Chơi trò chơi “Tìm nhanh đồ dùng của bé”: trẻ đi vòng tròn hát, hết nhạc chạy nhanh lấy đúng đồ dùng có ký hiệu của mình."
+              ]
+            },
+            {
+              "title": "Hoạt động 3: Kết thúc",
+              "details": [
+                "Cả lớp tự cất đồ dùng đúng vị trí quy định, cô kiểm tra và khen ngợi."
+              ]
+            }
+          ]
+        },
+        "evalHealth": "",
+        "evalEmotionBehavior": "",
+        "evalKnowledgeSkill": ""
+      },
+      {
+        "dayOfWeek": 4,
+        "dayLabel": "Thứ tư",
+        "dateStr": "2026-09-09",
+        "showPraiseStandards": false,
+        "outdoorObservation": "Quan sát trang trí sân trường và vườn hoa của trường",
+        "mainLessons": [
+          {
+            "id": "les_d4_1",
+            "slotType": "MAIN",
+            "domainTitle": "LĨNH VỰC PHÁT TRIỂN THẨM MỸ",
+            "subjectCode": "Tạo hình",
+            "subjectFullTitle": "HOẠT ĐỘNG TẠO HÌNH",
+            "topicTitle": "Tô, đồ theo nét",
+            "subTopics": [],
+            "linkedMtCodes": [
+              "MT103",
+              "MT71"
+            ],
+            "aims": [
+              "Trẻ biết cách cầm bút bằng 3 đầu ngón tay, ngồi đúng tư thế và tô, đồ theo các nét đứt liền mạch.",
+              "Rèn sự khéo léo của cơ ngón tay, cổ tay và phối hợp tay – mắt.",
+              "Giáo dục trẻ cẩn thận, hoàn thành sản phẩm và biết giữ gìn sách vở sạch đẹp."
+            ],
+            "preparation": [
+              "Vở thực hành kỹ năng vận động tinh, bút chì, bút sáp màu đủ cho trẻ.",
+              "Tranh mẫu phóng to của cô."
+            ],
+            "steps": [
+              {
+                "title": "Hoạt động 1: Ổn định – tổ chức",
+                "details": [
+                  "Hát bài “Trường chúng cháu đây là trường mầm non”, trò chuyện về các hoạt động họcở lớp Lá và giới thiệu đề tài “Tô, đồ theo nét”."
+                ]
+              },
+              {
+                "title": "Hoạt động 2: Quan sát tranh mẫu & Hướng dẫn cách tô, đồ",
+                "details": [
+                  "Cho trẻ quan sát tranh mẫu, nhận xét các loại nét (nét thẳng, nét cong, đường di chuyển) và gợi ý phối màu.",
+                  "Cô nhắc lại tư thế ngồi thẳng lưng, cách cầm bút đúng và thao tác đồ theo chiều mũi tên từ trái sang phải, từ trên xuống dưới."
+                ]
+              },
+              {
+                "title": "Hoạt động 3: Trẻ thực hiện",
+                "details": [
+                  "Phát vở và bút cho trẻ thực hiện tại bàn; cô đi quan sát, uốn nắn tư thế ngồi và cách cầm bút cho từng trẻ."
+                ]
+              },
+              {
+                "title": "Hoạt động 4: Trưng bày & Nhận xét sản phẩm",
+                "details": [
+                  "Trẻ trưng bày bài, tự nhận xét bài của mình và của bạn; cô khen ngợi, động viên và nhắc trẻ thu dọn vở bút gọn gàng."
+                ]
+              }
+            ]
+          }
+        ],
+        "extracurricularTitle": "HĐNK: Học toán Soroban",
+        "afternoonLesson": {
+          "id": "les_d4_aft",
+          "slotType": "AFTERNOON",
+          "domainTitle": "HOẠT ĐỘNG CHIỀU – GIÁO DỤC SỨC KHỎE",
+          "subjectCode": "TTVS",
+          "subjectFullTitle": "DẠY TRẺ THAO TÁC VỆ SINH",
+          "topicTitle": "Thực hành 6 bước rửa tay bằng xà phòng",
+          "subTopics": [],
+          "linkedMtCodes": [
+            "MT11",
+            "MT15"
+          ],
+          "aims": [
+            "Trẻ nhớ trình tự 6 bước rửa tay bằng xà phòng và biết các thời điểm cần rửa tay (trướcăn, sau đi vệ sinh, khi tay bẩn).",
+            "Thực hiện đúng thao tác rửa tay sạch sẽ, không làm văng nướcướtáo.",
+            "Giáo dụcý thức giữ gìn vệ sinh cá nhân phòng bệnh."
+          ],
+          "preparation": [
+            "Tranh/video minh họa 6 bước rửa tay của Bộ Y tế, xà phòng, nước sạch, khăn lau tay."
+          ],
+          "steps": [
+            {
+              "title": "Hoạt động 1: Gây hứng thú",
+              "details": [
+                "Cả lớp hát bài “Năm ngón tay ngoan” và đàm thoại về việc giữ đôi tay sạch."
+              ]
+            },
+            {
+              "title": "Hoạt động 2: Xem video & Hướng dẫn 6 bước rửa tay",
+              "details": [
+                "Cho trẻ xem video rửa tay đúng cách và trò chuyện khi nào cần rửa tay bằng xà phòng.",
+                "Cô làm mẫu chậm từng bước (Bước 1 đến Bước 6), cho trẻ thực hành mô phỏng trên không."
+              ]
+            },
+            {
+              "title": "Hoạt động 3: Thực hành tại bồn rửa & Kết thúc",
+              "details": [
+                "Mời từng tổ, nhóm lần lượt thực hành rửa tay dưới vòi nước; cô quan sát sửa lỗi. Hát bài “Tay thơm tay ngoan” kết thúc."
+              ]
+            }
+          ]
+        },
+        "evalHealth": "",
+        "evalEmotionBehavior": "",
+        "evalKnowledgeSkill": ""
+      },
+      {
+        "dayOfWeek": 5,
+        "dayLabel": "Thứ năm",
+        "dateStr": "2026-09-10",
+        "showPraiseStandards": false,
+        "outdoorObservation": "Trò chuyện về các góc chơi ngoài trời và quy tắc an toàn khi chơi",
+        "mainLessons": [
+          {
+            "id": "les_d5_1",
+            "slotType": "MAIN",
+            "domainTitle": "LĨNH VỰC PHÁT TRIỂN NHẬN THỨC",
+            "subjectCode": "LQVT",
+            "subjectFullTitle": "HOẠT ĐỘNG LÀM QUEN VỚI TOÁN",
+            "topicTitle": "Ôn số lượng 1 – Nhận biết chữ số 1",
+            "subTopics": [],
+            "linkedMtCodes": [
+              "MT31",
+              "MT34"
+            ],
+            "aims": [
+              "Trẻ nhận biết được các nhóm đồ dùng, đồ chơi có số lượng 1 và nhận biết, phátâm đúng chữ số 1.",
+              "Phát triển khả năng quan sát, so sánh và sử dụng đúng thuật ngữ toán học: nhóm, số lượng, chữ số.",
+              "Giáo dục trẻ tập trung học tập, giữ gìn đồ dùng học toán và sách vở."
+            ],
+            "preparation": [
+              "Đồ dùng học toán của cô và trẻ (hoa hồng, mô hình cầu trượt, đồ chơi rời), thẻ chữ số 1.",
+              "Sách bài tập Toán và bút màu."
+            ],
+            "steps": [
+              {
+                "title": "Hoạt động 1: Ổn định – Ôn đếm trong lớp",
+                "details": [
+                  "Cả lớp hát bài “Tập đếm” và thi tìm các đồ vật trong lớp học có số lượng là 1 (1 chiếc bảng, 1 đồng hồ...)."
+                ]
+              },
+              {
+                "title": "Hoạt động 2: Nhận biết nhóm có số lượng 1 và chữ số 1",
+                "details": [
+                  "Cô gắn lên bảng 1 bông hoa hồng, 1 cầu trượt; hỏi trẻ số lượng và giới thiệu chữ số 1 để biểu thị nhóm có 1 đối tượng.",
+                  "Phân tích cấu tạo chữ số 1 (1 nét xiên trái kết hợp 1 nét thẳng đứng); cho lớp, tổ, cá nhân đọc số 1.",
+                  "Trẻ lấy đồ dùng rời xếp nhóm số lượng 1 và đặt thẻ số 1 tươngứng."
+                ]
+              },
+              {
+                "title": "Hoạt động 3: Trò chơi “Tai ai thính” & Thực hành sách",
+                "details": [
+                  "Trẻ lắng nghe số tiếng vỗ tay/tiếng trống của cô và giơ nhanh thẻ số tươngứng.",
+                  "Thực hành trên vở: khoanh tròn nhóm có số lượng 1 và tô màu chữ số 1."
+                ]
+              },
+              {
+                "title": "Hoạt động 4: Kết thúc",
+                "details": [
+                  "Cô nhận xét tuyên dương, cho trẻ thu dọn sách vở và chuyển hoạt động."
+                ]
+              }
+            ]
+          }
+        ],
+        "extracurricularTitle": "HĐNK: Học nhảy Aerobic",
+        "afternoonLesson": {
+          "id": "les_d5_aft",
+          "slotType": "AFTERNOON",
+          "domainTitle": "HOẠT ĐỘNG CHIỀU – PHÒNG CHỐNG DỊCH BỆNH",
+          "subjectCode": "TTVS",
+          "subjectFullTitle": "CỦNG CỐ KỸ NĂNG VỆ SINH PHÒNG CHỐNG BỆNH",
+          "topicTitle": "Kỹ năng vệ sinh phòng chống bệnh truyền nhiễm",
+          "subTopics": [],
+          "linkedMtCodes": [
+            "MT15",
+            "MT16"
+          ],
+          "aims": [
+            "Trẻ biết tên và dấu hiệu đơn giản của một số bệnh truyền nhiễm thường gặp (tay chân miệng, thủy đậu, đau mắt đỏ).",
+            "Biết các biện pháp phòng bệnh: rửa tay bằng xà phòng, che miệng bằng khuỷu tay khi ho/hắt hơi, không đưa tay lên mắt mũi miệng.",
+            "Giáo dục trẻ có thói quen vệ sinh cá nhân sạch sẽ và báo cô khi thấy mệt, sốt."
+          ],
+          "preparation": [
+            "Tranh ảnh, video ngắn minh họa cách phòng bệnh truyền nhiễm; phiếu bài tập cho 5 nhóm, bút chì."
+          ],
+          "steps": [
+            {
+              "title": "Hoạt động 1: Khởi động",
+              "details": [
+                "Cả lớp hát bài “Tay thơm tay ngoan” và dẫn dắt vào chủ đề phòng bệnh."
+              ]
+            },
+            {
+              "title": "Hoạt động 2: Xem video & Đàm thoại",
+              "details": [
+                "Trẻ xem video về bệnh tay chân miệng, đau mắt đỏ và trả lời câu hỏi về dấu hiệu nhận biết.",
+                "Giáo dục trẻ rửa tay thường xuyên, ho hắt hơi che bằng khuỷu tay, không dùng chung khăn/cốc."
+              ]
+            },
+            {
+              "title": "Hoạt động 3: Thực hành nhóm & Kết thúc",
+              "details": [
+                "Chia 5 nhóm khoanh tròn tranh hành vi đúng giúp phòng tránh bệnh; cô nhận xét tuyên dương."
+              ]
+            }
+          ]
+        },
+        "evalHealth": "",
+        "evalEmotionBehavior": "",
+        "evalKnowledgeSkill": ""
+      },
+      {
+        "dayOfWeek": 6,
+        "dayLabel": "Thứ sáu",
+        "dateStr": "2026-09-11",
+        "showPraiseStandards": false,
+        "outdoorObservation": "Quan sát bầu trời, thời tiết buổi sáng trên sân trường",
+        "mainLessons": [
+          {
+            "id": "les_d6_1",
+            "slotType": "MAIN",
+            "domainTitle": "LĨNH VỰC PHÁT TRIỂN NGÔN NGỮ",
+            "subjectCode": "LQCC",
+            "subjectFullTitle": "HOẠT ĐỘNG LÀM QUEN CHỮ CÁI",
+            "topicTitle": "Làm quen và tập tô các nét cơ bản",
+            "subTopics": [],
+            "linkedMtCodes": [
+              "MT71",
+              "MT69"
+            ],
+            "aims": [
+              "Trẻ nhận biết và gọi tên các nét cơ bản (nét thẳng đứng, nét nằm ngang, nét xiên trái/phải, nét cong tròn khép kín).",
+              "Biết tư thế ngồi viết đúng, cầm bút chì bằng 3 ngón tay và tập tô các nét cơ bản trong vở.",
+              "Hào hứng tham gia hoạt động làm quen tiền viết chuẩn bị vào lớp 1."
+            ],
+            "preparation": [
+              "Thẻ các nét cơ bản cỡ lớn của cô; vở tập tô và bút chì đủ cho trẻ."
+            ],
+            "steps": [
+              {
+                "title": "Hoạt động 1: Ổn định – tổ chức",
+                "details": [
+                  "Hát bài “Trường chúng cháu đây là trường mầm non”, trò chuyện về đồ dùng học tập lớp Lá và giới thiệu bài học."
+                ]
+              },
+              {
+                "title": "Hoạt động 2: Làm quen các nét cơ bản",
+                "details": [
+                  "Cô giới thiệu lần lượt từng nét cơ bản (thẳng đứng, nằm ngang, xiên, cong tròn), cho lớp, tổ, cá nhân gọi tên 2–3 lần.",
+                  "Cho trẻ dùng ngón tay viết mô phỏng từng nét trên không theo hướng dẫn của cô."
+                ]
+              },
+              {
+                "title": "Hoạt động 3: Tập tô các nét cơ bản",
+                "details": [
+                  "Cô hướng dẫn cách mở vở, đặt vở ngay ngắn, cầm bút đúng và tô trùng khít nét mờ theo chiều mũi tên.",
+                  "Phát vở bút cho trẻ thực hiện; cô bao quát hỗ trợ từng trẻ."
+                ]
+              },
+              {
+                "title": "Hoạt động 4: Kết thúc",
+                "details": [
+                  "Cô nhận xét sản phẩm, nhắc lại tên các nét vừa học và cho trẻ thu dọn vở bút gọn gàng."
+                ]
+              }
+            ]
+          }
+        ],
+        "extracurricularTitle": "HĐNK: Học toán Soroban",
+        "afternoonLesson": {
+          "id": "les_d6_aft",
+          "slotType": "AFTERNOON",
+          "domainTitle": "HOẠT ĐỘNG CHIỀU – LAO ĐỘNG TẬP THỂ",
+          "subjectCode": "LĐVS",
+          "subjectFullTitle": "LAO ĐỘNG TỔNG VỆ SINH CUỐI TUẦN",
+          "topicTitle": "Lao động vệ sinh lớp học gọn gàng sạch đẹp",
+          "subTopics": [],
+          "linkedMtCodes": [
+            "MT77",
+            "MT93",
+            "MT95"
+          ],
+          "aims": [
+            "Trẻ hiểu ý nghĩa của lao động giữ gìn lớp học sạch sẽ, ngăn nắp.",
+            "Biết thực hiện các công việc vừa sức: sắp xếp đồ chơi, lau kệ tủ, lau bảng con, rửa ca cốc, lau lá cây.",
+            "Trẻ vui vẻ, hào hứng hợp tác cùng cô và các bạn trong lao động tập thể."
+          ],
+          "preparation": [
+            "Khăn lau ẩm, chổi quét bụi nhỏ, thau nước sạch."
+          ],
+          "steps": [
+            {
+              "title": "Hoạt động 1: Ổn định – giới thiệu",
+              "details": [
+                "Cả lớp hát bài “Những em bé ngoan”, trò chuyện về niềm vui khi lớp học luôn sạch đẹp."
+              ]
+            },
+            {
+              "title": "Hoạt động 2: Phân công công việc theo nhóm",
+              "details": [
+                "Nhóm 1: Sắp xếp đồ chơi các góc gọn gàng.",
+                "Nhóm 2: Lau kệ tủ, lau bảng con.",
+                "Nhóm 3: Rửa ca cốc, đồ chơi nhựa phụ cô.",
+                "Nhóm 4: Lau lá cây trầu bà và tưới cây góc thiên nhiên."
+              ]
+            },
+            {
+              "title": "Hoạt động 3: Trẻ thực hiện & Nhận xét",
+              "details": [
+                "Trẻ hào hứng thực hiện nhiệm vụ dưới sự bao quát, hướng dẫn của cô; tuyên dương cuối buổi lao động và chuyển sang Nêu gương cuối tuần phát phiếu bé ngoan."
+              ]
+            }
+          ]
+        },
+        "evalHealth": "",
+        "evalEmotionBehavior": "",
+        "evalKnowledgeSkill": ""
+      }
+    ]
+  },
+  {
+    "id": "plan_choi_tuan1_demo",
+    "status": "APPROVED",
+    "updatedAt": "2026-11-22T23:00:00.000Z",
+    "governingBody": "UBND PHƯỜNG THUẬN AN – TP. HỒ CHÍ MINH",
+    "schoolName": "TRƯỜNG MẦM NON HOÀNG GIA",
+    "schoolYear": "2026 – 2027",
+    "ageGroupId": "CHOI_4_5T",
+    "className": "Chồi 1 (4–5T)",
+    "teacherName": "Phạm Thị Ngọc Lan",
+    "principalName": "Nguyễn Thị Thủy",
+    "themeName": "TRƯỜNG MẦM NON THÂN YÊU",
+    "themeTotalWeeks": 3,
+    "themeStartDate": "2026-09-07",
+    "themeEndDate": "2026-09-25",
+    "weekNumber": 1,
+    "subThemeName": "Lớp Chồi và những người bạn",
+    "weekStartDate": "2026-09-07",
+    "weekEndDate": "2026-09-11",
+    "includeThemeSection": true,
+    "themeObjectives": [
+      {
+        "domainKey": "PTTC",
+        "domainTitle": "1. Phát triển thể chất (Chồi 4–5T)",
+        "customGoals": [
+          "Trẻ thực hiện thuần thục thể dục sáng và vận động bò dích dắc, bật xa an toàn."
+        ],
+        "mtCodes": [
+          "MT1",
+          "MT5",
+          "MT15"
+        ]
+      },
+      {
+        "domainKey": "PTNT",
+        "domainTitle": "2. Phát triển nhận thức (Chồi 4–5T)",
+        "customGoals": [
+          "Trẻ khám phá công việc của cô giáo và làm quen số lượng trong phạm vi 3."
+        ],
+        "mtCodes": [
+          "MT30",
+          "MT37",
+          "MT45"
+        ]
+      },
+      {
+        "domainKey": "PTNN",
+        "domainTitle": "3. Phát triển ngôn ngữ (Chồi 4–5T)",
+        "customGoals": [
+          "Trẻ đọc diễn cảm bài thơ, kể chuyện sáng tạo theo tranh."
+        ],
+        "mtCodes": [
+          "MT60",
+          "MT62",
+          "MT66"
+        ]
+      },
+      {
+        "domainKey": "PT_TCKNXH",
+        "domainTitle": "4. Tình cảm & Kỹ năng xã hội (Chồi 4–5T)",
+        "customGoals": [
+          "Trẻ biết xếp hàng chờ đến lượt, chia sẻ đồ chơi và giữ gìn vệ sinh lớp."
+        ],
+        "mtCodes": [
+          "MT75",
+          "MT79",
+          "MT82"
+        ]
+      },
+      {
+        "domainKey": "PTTM",
+        "domainTitle": "5. Phát triển thẩm mỹ (Chồi 4–5T)",
+        "customGoals": [
+          "Trẻ hát vận động theo nhịp bài hát chủ đề và biết làm thiệp, vẽ tranh tặng cô/bạn."
+        ],
+        "mtCodes": [
+          "MT92",
+          "MT94",
+          "MT101"
+        ]
+      }
+    ],
+    "contentNetwork": [
+      {
+        "id": "branch_1",
+        "branchTitle": "Tuần 1: TRƯỜNG MẦM NON HOÀNG GIA CỦA BÉ",
+        "items": [
+          "Tên gọi, địa chỉ của trường mầm non đang học",
+          "Các khu vực và các phòng chức năng trong trường",
+          "Công việc của các cô, các bác trong trường",
+          "Các hoạt động hằng ngày của trẻ ở trường mầm non",
+          "Đồ dùng, đồ chơi và bạn bè trong trường"
+        ]
+      },
+      {
+        "id": "branch_2",
+        "branchTitle": "Tuần 2: ĐỒ DÙNG HỌC TẬP CỦA BÉ",
+        "items": [
+          "Tên lớp và ký hiệu đồ dùng cá nhân của bé",
+          "Các đồ dùng học tập và đồ chơi trong lớp",
+          "Công dụng và hoạt động sử dụng từng đồ dùng học tập",
+          "Phân loại, sắp xếp và giữ gìn đồ dùng gọn gàng"
+        ]
+      },
+      {
+        "id": "branch_3",
+        "branchTitle": "Tuần 3: BÉ VUI TRUNG THU",
+        "items": [
+          "Tên gọi và ý nghĩa ngày Tết Trung thu (Rằm tháng 8)",
+          "Lễ hội Trung thu, rước đèn, múa lân tại trường",
+          "Mónăn đặc trưng ngày Trung thu (bánh nướng, bánh dẻo, mâm ngũ quả)",
+          "Quà của bé và hoạt động vui chơi lễ hội cùng bạn bè"
+        ]
+      }
+    ],
+    "activityNetwork": [
+      {
+        "domainKey": "PTTC",
+        "domainTitle": "PHÁT TRIỂN THỂ CHẤT",
+        "items": [
+          "Trò chuyện về ích lợi của thực phẩm và các mónăn trong trường mầm non",
+          "Luyện tập các công việc tự phục vụ trong ăn uống, ngủ, chơi, vệ sinh",
+          "Nhận biết và phòng tránh những nơi nguy hiểm trong trường, lớp",
+          "Rèn kỹ năng VĐCB: Bật liên tiếp vào các vòng, đi trong đường hẹp",
+          "Luyện tập phát triển nhóm cơ, hô hấp và trò chơi vận động"
+        ]
+      },
+      {
+        "domainKey": "PTNT",
+        "domainTitle": "PHÁT TRIỂN NHẬN THỨC",
+        "items": [
+          "So sánh và phân loại đồ dùng theo 2–3 dấu hiệu (hình dạng, kích thước, chất liệu)",
+          "Ôn và nhận biết số lượng 1, đếm số lượng trong phạm vi 1–4",
+          "Tham quan các khu vực, phòng chức năng trong trường mầm non",
+          "Thảo luận về tên, địa chỉ trường, công việc của các cô bác trong trường"
+        ]
+      },
+      {
+        "domainKey": "PTNN",
+        "domainTitle": "PHÁT TRIỂN NGÔN NGỮ",
+        "items": [
+          "Quan sát, trò chuyện về các khu vực và hoạt động của trường, lớp",
+          "Đọc thơ diễn cảm (Cô và mẹ, Cô giáo của con), kể chuyện về trường lớp",
+          "Làm quen các nét cơ bản, nhận biết ký hiệu chữ viết qua thẻ tên góc chơi và thẻ tên bạn",
+          "Xem tranh ảnh, làm album về trường mầm non"
+        ]
+      },
+      {
+        "domainKey": "PTTM",
+        "domainTitle": "PHÁT TRIỂN THẨM MỸ",
+        "items": [
+          "Tô, đồ theo nét; sử dụng các vật liệu để vẽ, nặn, xé dán, xếp hình về trường lớp",
+          "Hát, múa, vận động theo nhạc bài hát về trường lớp (Em đi mẫu giáo, Trường chúng cháu là trường MN)",
+          "Nghe hát (Ngày đầu tiên đi học) và dân ca địa phương",
+          "Trò chơi âm nhạc: Tai ai thính"
+        ]
+      },
+      {
+        "domainKey": "PT_TCKNXH",
+        "domainTitle": "PHÁT TRIỂN TÌNH CẢM – XÃ HỘI",
+        "items": [
+          "Trò chơi đóng vai: Lớp mẫu giáo, Cửa hàng tạp hóa, Nấu ăn",
+          "Trò chơi xây dựng: Xây dựng Trường Mầm non của bé",
+          "Trò chuyện về tình cảm của trẻ với trường lớp, cô giáo và bạn bè",
+          "Thực hiện nội quy lớp học, chăm sóc cây xanh và lồng ghép Trường mầm non hạnh phúc"
+        ]
+      }
+    ],
+    "weeklyObjectives": [
+      {
+        "domainKey": "PTNT",
+        "domainTitle": "1. Phát triển nhận thức",
+        "goals": [
+          "Phát triểnóc quan sát, so sánh, phân loại, nhận xét về cách sắp xếp đồ dùng đồ chơi trong sân trường theo màu sắc, hình dạng, công dụng, chất liệu.",
+          "Biết tên trường, địa chỉ trường, các góc chơi ngoài trời và các hoạt động trong ngày tại trường mầm non.",
+          "Ôn và nhận biết nhóm đồ vật có số lượng 1, nhận biết chữ số 1."
+        ]
+      },
+      {
+        "domainKey": "PTNN",
+        "domainTitle": "2. Phát triển ngôn ngữ",
+        "goals": [
+          "Trẻ biết nhận xét, kể lại những điều quan sát được và trao đổi mạch lạc với cô, bạn về trường lớp mầm non.",
+          "Thuộc và đọc diễn cảm thơ Cô và mẹ, Cô giáo của con; làm quen các nét cơ bản và nhận biết ký hiệu cá nhân."
+        ]
+      },
+      {
+        "domainKey": "PTTC",
+        "domainTitle": "3. Phát triển thể chất",
+        "goals": [
+          "Thực hiện nhịp nhàng bài tập thể dục sáng và vận động cơ bản Bật liên tiếp vào các vòng.",
+          "Biết các bước rửa tay đúng thao tác và kỹ năng vệ sinh phòng chống bệnh truyền nhiễm."
+        ]
+      },
+      {
+        "domainKey": "PTTM",
+        "domainTitle": "4. Phát triển thẩm mỹ",
+        "goals": [
+          "Hát đúng giai điệu, nhịp điệu bài Em đi mẫu giáo; cảm nhận vẻ đẹp cây xanh, sân trường và sản phẩm tạo hình.",
+          "Cầm bút đúng tư thế, tô đồ theo nét gọn gàng, không chờm ra ngoài."
+        ]
+      },
+      {
+        "domainKey": "PT_TCKNXH",
+        "domainTitle": "5. Phát triển tình cảm – xã hội",
+        "goals": [
+          "Yêu mến trường lớp, lễ phép với cô giáo và người lớn; giữ gìn môi trường xanh – sạch – đẹp.",
+          "Có thói quen tự phục vụ, cất đồ dùng đúng nơi quy định và thực hiện tốt 3 tiêu chuẩn bé ngoan."
+        ]
+      }
+    ],
+    "etiquetteNotes": [
+      "Dạy trẻ đến lớp biết khoanh tay chào cô, chào ba mẹ và chào hỏi người lớn lễ phép.",
+      "Không hái hoa, bẻ cành, ngắt lá trước cổng trường và trong khuôn viên trường."
+    ],
+    "laborHygieneNotes": [
+      "Rèn nề nếp lấy và cất đồ dùng cá nhân (ba lô, dép, khăn, cốc) đúng ký hiệu, gọn gàng ngăn nắp.",
+      "Rèn nề nếp rửa tay bằng xà phòng trước và sau khi ăn, sau khi đi vệ sinh và sau khi ngủ dậy.",
+      "Phân công nhóm nòng cốt trực nhật giúp cô lau kệ, sắp xếp đồ chơi trong các hoạt động hằng ngày."
+    ],
+    "welcomeRoutineNotes": [
+      "Vệ sinh thông thoáng phòng lớp, kiểm tra an toàn đồ dùng đồ chơi trước khi đón trẻ.",
+      "Trò chuyện với phụ huynh về sức khỏe, sở thích và thói quen sinh hoạtở nhà của trẻ.",
+      "Trò chuyện cùng trẻ về trường mẫu giáo, lớp học, cô giáo và bạn bè; cho trẻ xem tranh ảnh các hoạt động trong trường.",
+      "Trao đổi, vận động phụ huynh hỗ trợ nguyên vật liệu mở, phế liệu sạch để làm đồ dùng đồ chơi các góc."
+    ],
+    "praiseStandards": [
+      "Tiêu chuẩn 1: Đi học đều, đúng giờ, quầnáo gọn gàng, biết chào hỏi lễ phép.",
+      "Tiêu chuẩn 2: Ngoan ngoãn trong giờ học, biết lắng nghe cô và giơ tay phát biểu.",
+      "Tiêu chuẩn 3: Biết giữ gìn vệ sinh, cất đồ chơi gọn gàng, chơi đoàn kết và chia sẻ với bạn."
+    ],
+    "praiseSongStart": "Càng lớn càng ngoan",
+    "praiseSongWeekEnd": "Cả tuần đều ngoan",
+    "morningExercise": {
+      "aims": [
+        "Trẻ biết tập thể dục sáng đúng nhịp theo từng động tác phát triển nhóm cơ và hô hấp.",
+        "Trẻ tích cực, hào hứng tham gia luyện tập theo hướng dẫn của cô.",
+        "Giáo dục trẻ tính kỷ luật, kiên trì và hiểu ích lợi của việc tập thể dục đối với sức khỏe."
+      ],
+      "preparation": [
+        "Sân tập rộng rãi, sạch sẽ, bằng phẳng.",
+        "Loa phát nhạc thể dục sáng, vòng/nơ thể dục."
+      ],
+      "warmup": "Cho trẻ đi thành vòng tròn kết hợp các kiểu chân (đi thường, đi mũi chân, đi gót chân), chạy nhanh – chạy chậm rồi về đội hình hàng ngang.",
+      "moves": [
+        {
+          "group": "Hô hấp",
+          "name": "Thở 2: Thổi bóng bay (2 lần × 8 nhịp)",
+          "steps": "TTCB: Đứng chân hình chữ V, hai tay buông lỏng. Nhịp 1: Đưa hai tay khum trước miệng. Nhịp 2: Thổi hơi dài như thổi bóng. Nhịp 3: Về nhịp 1. Nhịp 4: Về TTCB."
+        },
+        {
+          "group": "Tay",
+          "name": "Tay 1: Hai tay đưa ra trước, lên cao, hạ xuống (2 lần × 8 nhịp)",
+          "steps": "Đưa hai tay thẳng ra trước – đưa lên cao – hạ về trước – hạ xuống xuôi thân nhịp nhàng theo nhạc."
+        },
+        {
+          "group": "Bụng",
+          "name": "Bụng 1: Đứng cúi gập người về phía trước, tay chạm ngón chân (4 lần × 8 nhịp)",
+          "steps": "Hai chân rộng bằng vai, cúi gập người thẳng gối tay chạm mũi bàn chân, đứng thẳng người lên."
+        },
+        {
+          "group": "Chân",
+          "name": "Chân 1: Ngồi khuỵu gối (2 lần × 8 nhịp)",
+          "steps": "Hai tay đưa ra trước, khuỵu gối thẳng lưng, đứng thẳng dậy hạ tay xuống."
+        },
+        {
+          "group": "Bật",
+          "name": "Bật 1: Bật tiến về phía trước (2 lần × 8 nhịp)",
+          "steps": "Hai tay chống hông, bật chụm chân tiến về trước, tiếp đất nhẹ nhàng bằng mũi bàn chân."
+        }
+      ],
+      "cooldown": "Đi thường 1–2 vòng quanh sân, hít thở sâu thả lỏng cơ thể và xếp hàng vào lớp."
+    },
+    "outdoorTable": [
+      {
+        "category": "CHU_DICH",
+        "title": "Hoạt động có chủ đích: Quan sát và trò chuyện về Trường Mầm non (theo nội dung từng ngày)",
+        "requirements": [
+          "Hình thành khả năng quan sát, so sánh, dự đoán và chia sẻ nhận xét một cách tự nhiên.",
+          "Tạo điều kiện cho trẻ tiếp xúc thiên nhiên, yêu quý trường lớp và biết giữ gìn đồ chơi sân trường."
+        ],
+        "preparation": [
+          "Sân trường sạch sẽ, an toàn; phấn vẽ, rổ đựng, tranh ảnh lễ hội trường."
+        ],
+        "procedure": [
+          "Cô tập trung trẻ, giới thiệu mục đích buổi quan sát ngoài trời.",
+          "Cô đặt câu hỏi gợi mở để trẻ quan sát, thảo luận và nêu cảm xúc về trường lớp, sân chơi, cây xanh.",
+          "Củng cố kiến thức, giáo dục trẻ giữ gìn môi trường xanh – sạch – đẹp."
+        ]
+      },
+      {
+        "category": "TCVD",
+        "title": "TCVĐ: “Lộn cầu vồng”",
+        "requirements": [
+          "Rèn sự nhanh nhẹn, khéo léo, phối hợp nhịp nhàng cùng bạn và tính kỷ luật khi chơi."
+        ],
+        "preparation": [
+          "Sân bãi sạch sẽ, bằng phẳng, thoáng mát."
+        ],
+        "procedure": [
+          "Cô giới thiệu tên trò chơi, nhắc lại cách chơi và luật chơi.",
+          "Chia trẻ thành từng cặp nắm tay nhau vung tay theo nhịp đồng dao “Lộn cầu vồng”, đến câu cuối hai trẻ cùng chui qua tay lộn vòng.",
+          "Tổ chức cho trẻ chơi 3–4 lần, cô quan sát đảm bảo an toàn."
+        ]
+      },
+      {
+        "category": "TCDG",
+        "title": "TCDG: “Chi chi chành chành”",
+        "requirements": [
+          "Phát triển phản xạ nhanh nhẹn, khả năng ghi nhớ lời đồng dao và chơi đoàn kết vui vẻ."
+        ],
+        "preparation": [
+          "Không gian thoáng mát trên sân trường."
+        ],
+        "procedure": [
+          "Cô giới thiệu tên trò chơi, hướng dẫn luật chơi và cách chơi.",
+          "Chia trẻ theo tổ/nhóm nhỏ 4–5 bạn cùng đọc đồng dao và rút ngón tay nhanh ở tiếng “ù à ù ập”.",
+          "Cho trẻ chơi 3–4 lần, tuyên dương nhóm chơi đúng luật."
+        ]
+      },
+      {
+        "category": "TU_DO",
+        "title": "Chơi tự do với đồ chơi sân trường và đồ chơi mang theo",
+        "requirements": [
+          "Trẻ tích cực lựa chọn trò chơi theo hứng thú, biết chờ đến lượt và chơi an toàn cùng bạn."
+        ],
+        "preparation": [
+          "Phấn, vòng, bóng, đồ chơi cát nước và thiết bị vận động ngoài trời sẵn có."
+        ],
+        "procedure": [
+          "Trẻ tự chọn góc chơi ngoài trời, vẽ phấn, chơi cầu trượt, xích đu dưới sự giám sát của cô.",
+          "Kết thúc: Cô nhận xét buổi chơi, cho trẻ thu dọn đồ chơi, rửa tay sạch sẽ vào lớp."
+        ]
+      }
+    ],
+    "cornerTable": [
+      {
+        "cornerName": "Góc phân vai",
+        "contents": [
+          "Trò chơi: Cửa hàng tạp hóa, Nấu ăn, Gia đình / Lớp học mẫu giáo"
+        ],
+        "requirements": [
+          "Trẻ hứng thú nhập vai (cô giáo, mẹ – con, người bán – người mua), biết giao tiếp lịch sự.",
+          "Biết sử dụng đồ dùng chế biến mónăn, chơi đoàn kết và cất đồ chơi gọn gàng."
+        ],
+        "preparation": [
+          "Kệ bán hàng, thực phẩm mô hình, bánh kẹo đồ chơi, bộ đồ nấu ăn."
+        ],
+        "organization": [
+          "Cô gợi ý trẻ thỏa thuận phân vai chơi, kết nối liên góc giữa Cửa hàng thực phẩm và Nấu ăn gia đình."
+        ]
+      },
+      {
+        "cornerName": "Góc xây dựng – lắp ráp",
+        "contents": [
+          "Xây dựng Trường Mầm non Hoàng Gia của bé",
+          "Lắp ghép đồ chơi sân trường (cầu trượt, xích đu, hàng rào)"
+        ],
+        "requirements": [
+          "Trẻ biết phối hợp các khối gỗ, gạch nhựa và vật liệu mở để bố cục công trình hợp lý.",
+          "Biết hợp tác nhóm, phân công bạn xây tường, bạn xếp vườn hoa, khu vui chơi."
+        ],
+        "preparation": [
+          "Bộ khối gỗ xây dựng, hàng rào, cây xanh, hoa, ghế đá, đồ chơi lắp ghép."
+        ],
+        "organization": [
+          "Trẻ tự lấy đồ chơi, thống nhấtý tưởng kiến trúc cùng nhóm và giới thiệu công trình cuối giờ."
+        ]
+      },
+      {
+        "cornerName": "Góc nghệ thuật",
+        "contents": [
+          "Vẽ, tô màu, cắt dán tranh về trường mầm non và hoạt động của bé",
+          "Hát, múa, gõ đệm các bài hát trong chủ đề Trường mầm non"
+        ],
+        "requirements": [
+          "Biết cầm bút tô màu gọn gàng, phối hợp màu sắc hài hòa và giữ gìn sản phẩm.",
+          "Mạnh dạn biểu diễn ca hát, vận động nhịp nhàng theo giai điệu bài hát."
+        ],
+        "preparation": [
+          "Giấy vẽ, bút sáp màu, bút chì, hồ dán, kéo thủ công; nhạc cụ phách tre, trống lắc, xắc xô."
+        ],
+        "organization": [
+          "Cô hướng dẫn kỹ năng bố cục tranh và khuyến khích trẻ chọn nhạc cụ tự đệm nhịp khi biểu diễn."
+        ]
+      },
+      {
+        "cornerName": "Góc học tập – thư viện",
+        "contents": [
+          "Xem truyện tranh, kể chuyện theo tranh về trường mầm non",
+          "Làm sách, album ảnh về hoạt động và đồ chơi ở trường",
+          "Làm quen ngôi nhà hình học Kidsmart và ghép thẻ chữ cái/thẻ số 1"
+        ],
+        "requirements": [
+          "Biết mở từng trang sách nhẹ nhàng từ trái sang phải, kể lại nội dung tranh rõ ràng.",
+          "Biết ghép thẻ chữ cái theo mẫu từ và đếm nhóm số lượng 1."
+        ],
+        "preparation": [
+          "Sách tranh, album giấy, thẻ chữ cái, thẻ từ, thẻ số, bút chì, kéo, hồ dán."
+        ],
+        "organization": [
+          "Cô hướng dẫn trẻ cách giở sách đúng chiều, ghép thẻ từ theo chủ đề và giữ trật tự góc sách."
+        ]
+      },
+      {
+        "cornerName": "Góc thiên nhiên / khoa học",
+        "contents": [
+          "Chăm sóc cây xanh: lau lá, tỉa lá vàng, tưới nước cho cây"
+        ],
+        "requirements": [
+          "Trẻ biết cách tỉa lá úa, tưới lượng nước vừa đủ và yêu thiên nhiên."
+        ],
+        "preparation": [
+          "Bình tưới nhỏ, khănẩm lau lá, kéo an toàn, khay đựng lá khô."
+        ],
+        "organization": [
+          "Cô hướng dẫn trẻ quan sát độ ẩm đất, tưới nước nhẹ nhàng và lau sạch bụi trên lá cây."
+        ]
+      }
+    ],
+    "days": [
+      {
+        "dayOfWeek": 2,
+        "dayLabel": "Thứ hai",
+        "dateStr": "2026-09-07",
+        "showPraiseStandards": true,
+        "outdoorObservation": "Quan sát khung cảnh Trường Mầm non Hoàng Gia",
+        "mainLessons": [
+          {
+            "id": "choi_m1",
+            "slotType": "MAIN",
+            "domainTitle": "LĨNH VỰC PHÁT TRIỂN THỂ CHẤT",
+            "subjectCode": "PTVĐ",
+            "subjectFullTitle": "HOẠT ĐỘNG THỂ DỤC GIỜ HỌC",
+            "topicTitle": "VĐCB: Bò dích dắc qua 5 điểm – TCVĐ: Mèo đuổi chuột",
+            "subTopics": [],
+            "linkedMtCodes": [
+              "MT5"
+            ],
+            "aims": [
+              "Trẻ phối hợp tay nọ chân kia bò dích dắc khéo léo qua 5 điểm không chạm vật cản (MT5)."
+            ],
+            "preparation": [
+              "5 hộp/cọc mốc mỗi hàng, vạch chuẩn, nhạc khởi động."
+            ],
+            "steps": [
+              {
+                "title": "Hoạt động 1: Khởi động & BTPTC",
+                "details": [
+                  "Đi chạy kết hợp các kiểu chân; tập 4 động tác BTPTC."
+                ]
+              },
+              {
+                "title": "Hoạt động 2: VĐCB Bò dích dắc qua 5 điểm",
+                "details": [
+                  "Cô làm mẫu 2 lần, phân tích kỹ thuật, cho trẻ thực hiện lần lượt và thi đua 2 đội."
+                ]
+              },
+              {
+                "title": "Hoạt động 3: TCVĐ Mèo đuổi chuột & Hồi tỉnh",
+                "details": [
+                  "Tổ chức chơi 3–4 lượt vui vẻ rồi đi thả lỏng."
+                ]
+              }
+            ]
+          }
+        ],
+        "extracurricularTitle": "",
+        "afternoonLesson": {
+          "id": "les_d2_aft",
+          "slotType": "AFTERNOON",
+          "domainTitle": "HOẠT ĐỘNG CHIỀU – LQVH",
+          "subjectCode": "LQVH",
+          "subjectFullTitle": "DẠY TRẺ BÀI THƠ, BÀI HÁT TRONG TUẦN",
+          "topicTitle": "Bài thơ: Cô giáo của con",
+          "subTopics": [],
+          "linkedMtCodes": [
+            "MT56",
+            "MT67"
+          ],
+          "aims": [
+            "Trẻ nhớ tên bài thơ “Cô giáo của con”, hiểu nội dung bài thơ nói về tình cảm yêu quý, kính trọng cô giáo.",
+            "Rèn kỹ năng chú ý lắng nghe, ghi nhớ có chủ định và đọc thơ rõ lời.",
+            "Giáo dục trẻ yêu thương, lễ phép và vâng lời cô giáo."
+          ],
+          "preparation": [
+            "Tranh minh họa nội dung bài thơ và hìnhảnh cô giáo chăm sóc, vui chơi cùng trẻ.",
+            "Nhạc bài hát về cô giáo."
+          ],
+          "steps": [
+            {
+              "title": "Hoạt động 1: Ổn định, gây hứng thú",
+              "details": [
+                "Cho trẻ hát vận động nhẹ bài hát về cô giáo và trò chuyện về những công việc hằng ngày cô làmở lớp.",
+                "Dẫn dắt giới thiệu bài thơ “Cô giáo của con”."
+              ]
+            },
+            {
+              "title": "Hoạt động 2: Cô đọc thơ & Đàm thoại",
+              "details": [
+                "Lần 1: Cô đọc diễn cảm nhẹ nhàng. Lần 2: Đọc kết hợp chỉ tranh minh họa.",
+                "Đàm thoại giúp trẻ hiểu nội dung: Trong bài thơ nhắc đến ai? Cô giáo chăm sóc bạn nhỏ như thế nào? Con làm gì để thể hiện tình yêu với cô?"
+              ]
+            },
+            {
+              "title": "Hoạt động 3: Dạy trẻ đọc thơ & Kết thúc",
+              "details": [
+                "Mời cả lớp, tổ, nhóm, cá nhân đọc thơ diễn cảm; cô khen ngợi và giáo dục trẻ luôn lễ phép."
+              ]
+            }
+          ]
+        },
+        "evalHealth": "",
+        "evalEmotionBehavior": "",
+        "evalKnowledgeSkill": ""
+      },
+      {
+        "dayOfWeek": 3,
+        "dayLabel": "Thứ ba",
+        "dateStr": "2026-09-08",
+        "showPraiseStandards": false,
+        "outdoorObservation": "Quan sát đồ chơi ngoài trời trong sân trường mầm non",
+        "mainLessons": [
+          {
+            "id": "choi_m2",
+            "slotType": "MAIN",
+            "domainTitle": "LĨNH VỰC PHÁT TRIỂN NHẬN THỨC",
+            "subjectCode": "MTXQ",
+            "subjectFullTitle": "HOẠT ĐỘNG KHÁM PHÁ XÃ HỘI",
+            "topicTitle": "Tìm hiểu về công việc của cô giáo mầm non",
+            "subTopics": [],
+            "linkedMtCodes": [
+              "MT45"
+            ],
+            "aims": [
+              "Trẻ kể được các công việc hằng ngày của cô giáo chăm sóc, dạy dỗ trẻ (MT45)."
+            ],
+            "preparation": [
+              "Tranh ảnh/video các hoạt động của cô giáo ở trường."
+            ],
+            "steps": [
+              {
+                "title": "Hoạt động 1: Gây hứng thú",
+                "details": [
+                  "Nghe câu đố về cô giáo mầm non."
+                ]
+              },
+              {
+                "title": "Hoạt động 2: Khám phá nhóm",
+                "details": [
+                  "Chia 3 nhóm quan sát tranh công việc của cô (đón trẻ, dạy học, chămăn ngủ) và thảo luận."
+                ]
+              },
+              {
+                "title": "Hoạt động 3: Trò chơi Ai nhanh hơn",
+                "details": [
+                  "Chọn đồ dùng gắn với công việc của cô giáo; giáo dục trẻ biết yêu quý, vâng lời cô."
+                ]
+              }
+            ]
+          }
+        ],
+        "extracurricularTitle": "HĐNK: Học nhảy Aerobic",
+        "afternoonLesson": {
+          "id": "les_d3_aft",
+          "slotType": "AFTERNOON",
+          "domainTitle": "HOẠT ĐỘNG CHIỀU – KỸ NĂNG TỰ PHỤC VỤ",
+          "subjectCode": "KNS",
+          "subjectFullTitle": "RÈN TRẺ NHẬN BIẾT KÝ HIỆU ĐỒ DÙNG CÁ NHÂN",
+          "topicTitle": "Nhận biết ký hiệu đồ dùng cá nhân của bé",
+          "subTopics": [],
+          "linkedMtCodes": [
+            "MT69",
+            "MT11"
+          ],
+          "aims": [
+            "Trẻ nhận biết đúng ký hiệu riêng trên tủ ba lô, kệ dép, khăn mặt, ca uống nước của mình.",
+            "Rèn kỹ năng quan sát, ghi nhớ có chủ định và nề nếp tự cất đồ dùng đúng vị trí."
+          ],
+          "preparation": [
+            "Đồ dùng cá nhân của trẻ đã dán sẵn ký hiệu rõ ràng theo 4 tổ."
+          ],
+          "steps": [
+            {
+              "title": "Hoạt động 1: Gây hứng thú",
+              "details": [
+                "Cả lớp đọc bài thơ “Của chung”, trò chuyện về các đồ dùng cá nhânở lớp và tác dụng của ký hiệu riêng."
+              ]
+            },
+            {
+              "title": "Hoạt động 2: Thực hành tìm đúng ký hiệu",
+              "details": [
+                "Chia 4 tổ theo màu quy định; từng trẻ quan sát và gọi tên ký hiệu của mình.",
+                "Chơi trò chơi “Tìm nhanh đồ dùng của bé”: trẻ đi vòng tròn hát, hết nhạc chạy nhanh lấy đúng đồ dùng có ký hiệu của mình."
+              ]
+            },
+            {
+              "title": "Hoạt động 3: Kết thúc",
+              "details": [
+                "Cả lớp tự cất đồ dùng đúng vị trí quy định, cô kiểm tra và khen ngợi."
+              ]
+            }
+          ]
+        },
+        "evalHealth": "",
+        "evalEmotionBehavior": "",
+        "evalKnowledgeSkill": ""
+      },
+      {
+        "dayOfWeek": 4,
+        "dayLabel": "Thứ tư",
+        "dateStr": "2026-09-09",
+        "showPraiseStandards": false,
+        "outdoorObservation": "Quan sát trang trí sân trường và vườn hoa của trường",
+        "mainLessons": [
+          {
+            "id": "choi_m3",
+            "slotType": "MAIN",
+            "domainTitle": "LĨNH VỰC PHÁT TRIỂN NHẬN THỨC",
+            "subjectCode": "LQVT",
+            "subjectFullTitle": "HOẠT ĐỘNG LÀM QUEN VỚI TOÁN",
+            "topicTitle": "Đếm đến 3 – Nhận biết nhóm có 3 đối tượng và chữ số 3",
+            "subTopics": [],
+            "linkedMtCodes": [
+              "MT30"
+            ],
+            "aims": [
+              "Trẻ đếm thành thạo đến 3, tạo nhóm có 3 đồ vật và chọn đúng thẻ số 3 (MT30)."
+            ],
+            "preparation": [
+              "Mỗi trẻ 3 bông hoa, 3 chiếc lá, thẻ số 1–2–3."
+            ],
+            "steps": [
+              {
+                "title": "Hoạt động 1: Ôn số lượng 1, 2",
+                "details": [
+                  "Trò chơi tìm nhóm đồ vật có số lượng 1, 2 quanh lớp."
+                ]
+              },
+              {
+                "title": "Hoạt động 2: Đếm đến 3 & Nhận biết số 3",
+                "details": [
+                  "Xếp 3 bông hoa, xếp tươngứng 2 chiếc lá, thêm 1 chiếc lá thành 3 và gắn thẻ số 3."
+                ]
+              },
+              {
+                "title": "Hoạt động 3: Trò chơi Tìm đúng nhà",
+                "details": [
+                  "Trẻ cầm thẻ chấm tròn chạy về đúng ngôi nhà có chữ số tươngứng."
+                ]
+              }
+            ]
+          }
+        ],
+        "extracurricularTitle": "HĐNK: Học toán Soroban",
+        "afternoonLesson": {
+          "id": "les_d4_aft",
+          "slotType": "AFTERNOON",
+          "domainTitle": "HOẠT ĐỘNG CHIỀU – GIÁO DỤC SỨC KHỎE",
+          "subjectCode": "TTVS",
+          "subjectFullTitle": "DẠY TRẺ THAO TÁC VỆ SINH",
+          "topicTitle": "Thực hành 6 bước rửa tay bằng xà phòng",
+          "subTopics": [],
+          "linkedMtCodes": [
+            "MT11",
+            "MT15"
+          ],
+          "aims": [
+            "Trẻ nhớ trình tự 6 bước rửa tay bằng xà phòng và biết các thời điểm cần rửa tay (trướcăn, sau đi vệ sinh, khi tay bẩn).",
+            "Thực hiện đúng thao tác rửa tay sạch sẽ, không làm văng nướcướtáo.",
+            "Giáo dụcý thức giữ gìn vệ sinh cá nhân phòng bệnh."
+          ],
+          "preparation": [
+            "Tranh/video minh họa 6 bước rửa tay của Bộ Y tế, xà phòng, nước sạch, khăn lau tay."
+          ],
+          "steps": [
+            {
+              "title": "Hoạt động 1: Gây hứng thú",
+              "details": [
+                "Cả lớp hát bài “Năm ngón tay ngoan” và đàm thoại về việc giữ đôi tay sạch."
+              ]
+            },
+            {
+              "title": "Hoạt động 2: Xem video & Hướng dẫn 6 bước rửa tay",
+              "details": [
+                "Cho trẻ xem video rửa tay đúng cách và trò chuyện khi nào cần rửa tay bằng xà phòng.",
+                "Cô làm mẫu chậm từng bước (Bước 1 đến Bước 6), cho trẻ thực hành mô phỏng trên không."
+              ]
+            },
+            {
+              "title": "Hoạt động 3: Thực hành tại bồn rửa & Kết thúc",
+              "details": [
+                "Mời từng tổ, nhóm lần lượt thực hành rửa tay dưới vòi nước; cô quan sát sửa lỗi. Hát bài “Tay thơm tay ngoan” kết thúc."
+              ]
+            }
+          ]
+        },
+        "evalHealth": "",
+        "evalEmotionBehavior": "",
+        "evalKnowledgeSkill": ""
+      },
+      {
+        "dayOfWeek": 5,
+        "dayLabel": "Thứ năm",
+        "dateStr": "2026-09-10",
+        "showPraiseStandards": false,
+        "outdoorObservation": "Trò chuyện về các góc chơi ngoài trời và quy tắc an toàn khi chơi",
+        "mainLessons": [
+          {
+            "id": "choi_m4",
+            "slotType": "MAIN",
+            "domainTitle": "LĨNH VỰC PHÁT TRIỂN NGÔN NGỮ",
+            "subjectCode": "LQVH",
+            "subjectFullTitle": "HOẠT ĐỘNG LÀM QUEN VĂN HỌC",
+            "topicTitle": "Đọc diễn cảm bài thơ: Cô và mẹ (Trần Quốc Toàn)",
+            "subTopics": [],
+            "linkedMtCodes": [
+              "MT60"
+            ],
+            "aims": [
+              "Trẻ thuộc thơ và đọc diễn cảm thể hiện tình cảm yêu thương cô giáo và mẹ (MT60)."
+            ],
+            "preparation": [
+              "Tranh minh họa bài thơ Cô và mẹ, nhạc nền nhẹ."
+            ],
+            "steps": [
+              {
+                "title": "Hoạt động 1: Ổn định gây hứng thú",
+                "details": [
+                  "Trò chuyện buổi sáng ai đưa bé đến lớp, đến lớp gặp ai?"
+                ]
+              },
+              {
+                "title": "Hoạt động 2: Cô đọc thơ diễn cảm 2 lần",
+                "details": [
+                  "Đọc diễn cảm kết hợp tranh minh họa và đàm thoại nội dung."
+                ]
+              },
+              {
+                "title": "Hoạt động 3: Trẻ đọc thơ cùng cô",
+                "details": [
+                  "Lớp – tổ – nhóm – cá nhân đọc diễn cảm."
+                ]
+              }
+            ]
+          }
+        ],
+        "extracurricularTitle": "HĐNK: Học nhảy Aerobic",
+        "afternoonLesson": {
+          "id": "les_d5_aft",
+          "slotType": "AFTERNOON",
+          "domainTitle": "HOẠT ĐỘNG CHIỀU – PHÒNG CHỐNG DỊCH BỆNH",
+          "subjectCode": "TTVS",
+          "subjectFullTitle": "CỦNG CỐ KỸ NĂNG VỆ SINH PHÒNG CHỐNG BỆNH",
+          "topicTitle": "Kỹ năng vệ sinh phòng chống bệnh truyền nhiễm",
+          "subTopics": [],
+          "linkedMtCodes": [
+            "MT15",
+            "MT16"
+          ],
+          "aims": [
+            "Trẻ biết tên và dấu hiệu đơn giản của một số bệnh truyền nhiễm thường gặp (tay chân miệng, thủy đậu, đau mắt đỏ).",
+            "Biết các biện pháp phòng bệnh: rửa tay bằng xà phòng, che miệng bằng khuỷu tay khi ho/hắt hơi, không đưa tay lên mắt mũi miệng.",
+            "Giáo dục trẻ có thói quen vệ sinh cá nhân sạch sẽ và báo cô khi thấy mệt, sốt."
+          ],
+          "preparation": [
+            "Tranh ảnh, video ngắn minh họa cách phòng bệnh truyền nhiễm; phiếu bài tập cho 5 nhóm, bút chì."
+          ],
+          "steps": [
+            {
+              "title": "Hoạt động 1: Khởi động",
+              "details": [
+                "Cả lớp hát bài “Tay thơm tay ngoan” và dẫn dắt vào chủ đề phòng bệnh."
+              ]
+            },
+            {
+              "title": "Hoạt động 2: Xem video & Đàm thoại",
+              "details": [
+                "Trẻ xem video về bệnh tay chân miệng, đau mắt đỏ và trả lời câu hỏi về dấu hiệu nhận biết.",
+                "Giáo dục trẻ rửa tay thường xuyên, ho hắt hơi che bằng khuỷu tay, không dùng chung khăn/cốc."
+              ]
+            },
+            {
+              "title": "Hoạt động 3: Thực hành nhóm & Kết thúc",
+              "details": [
+                "Chia 5 nhóm khoanh tròn tranh hành vi đúng giúp phòng tránh bệnh; cô nhận xét tuyên dương."
+              ]
+            }
+          ]
+        },
+        "evalHealth": "",
+        "evalEmotionBehavior": "",
+        "evalKnowledgeSkill": ""
+      },
+      {
+        "dayOfWeek": 6,
+        "dayLabel": "Thứ sáu",
+        "dateStr": "2026-09-11",
+        "showPraiseStandards": false,
+        "outdoorObservation": "Quan sát bầu trời, thời tiết buổi sáng trên sân trường",
+        "mainLessons": [
+          {
+            "id": "choi_m5",
+            "slotType": "MAIN",
+            "domainTitle": "LĨNH VỰC PHÁT TRIỂN THẨM MỸ",
+            "subjectCode": "Tạo hình",
+            "subjectFullTitle": "HOẠT ĐỘNG TẠO HÌNH",
+            "topicTitle": "Vẽ và trang trí thiệp tặng cô giáo và bạn thân",
+            "subTopics": [],
+            "linkedMtCodes": [
+              "MT92"
+            ],
+            "aims": [
+              "Trẻ biết phối hợp nét cong, nét thẳng vẽ hoa/trái tim và tô màu gọn đẹp làm thiệp (MT92)."
+            ],
+            "preparation": [
+              "2 tấm thiệp mẫu, giấy bìa gấp sẵn, sáp màu, sticker hoa."
+            ],
+            "steps": [
+              {
+                "title": "Hoạt động 1: Quan sát thiệp mẫu",
+                "details": [
+                  "Đàm thoại về bố cục, màu sắc và ý tưởng trang trí."
+                ]
+              },
+              {
+                "title": "Hoạt động 2: Cô gợi ý kỹ năng & Trẻ thực hiện",
+                "details": [
+                  "Trẻ vẽ và tô màu trang trí thiệp trên nền nhạc nhẹ; cô bao quát hỗ trợ."
+                ]
+              },
+              {
+                "title": "Hoạt động 3: Trưng bày & Tặng thiệp",
+                "details": [
+                  "Trẻ giới thiệu tấm thiệp đẹp nhất và gửi lời chúc đáng yêu."
+                ]
+              }
+            ]
+          }
+        ],
+        "extracurricularTitle": "HĐNK: Học toán Soroban",
+        "afternoonLesson": {
+          "id": "les_d6_aft",
+          "slotType": "AFTERNOON",
+          "domainTitle": "HOẠT ĐỘNG CHIỀU – LAO ĐỘNG TẬP THỂ",
+          "subjectCode": "LĐVS",
+          "subjectFullTitle": "LAO ĐỘNG TỔNG VỆ SINH CUỐI TUẦN",
+          "topicTitle": "Lao động vệ sinh lớp học gọn gàng sạch đẹp",
+          "subTopics": [],
+          "linkedMtCodes": [
+            "MT77",
+            "MT93",
+            "MT95"
+          ],
+          "aims": [
+            "Trẻ hiểu ý nghĩa của lao động giữ gìn lớp học sạch sẽ, ngăn nắp.",
+            "Biết thực hiện các công việc vừa sức: sắp xếp đồ chơi, lau kệ tủ, lau bảng con, rửa ca cốc, lau lá cây.",
+            "Trẻ vui vẻ, hào hứng hợp tác cùng cô và các bạn trong lao động tập thể."
+          ],
+          "preparation": [
+            "Khăn lau ẩm, chổi quét bụi nhỏ, thau nước sạch."
+          ],
+          "steps": [
+            {
+              "title": "Hoạt động 1: Ổn định – giới thiệu",
+              "details": [
+                "Cả lớp hát bài “Những em bé ngoan”, trò chuyện về niềm vui khi lớp học luôn sạch đẹp."
+              ]
+            },
+            {
+              "title": "Hoạt động 2: Phân công công việc theo nhóm",
+              "details": [
+                "Nhóm 1: Sắp xếp đồ chơi các góc gọn gàng.",
+                "Nhóm 2: Lau kệ tủ, lau bảng con.",
+                "Nhóm 3: Rửa ca cốc, đồ chơi nhựa phụ cô.",
+                "Nhóm 4: Lau lá cây trầu bà và tưới cây góc thiên nhiên."
+              ]
+            },
+            {
+              "title": "Hoạt động 3: Trẻ thực hiện & Nhận xét",
+              "details": [
+                "Trẻ hào hứng thực hiện nhiệm vụ dưới sự bao quát, hướng dẫn của cô; tuyên dương cuối buổi lao động và chuyển sang Nêu gương cuối tuần phát phiếu bé ngoan."
+              ]
+            }
+          ]
+        },
+        "evalHealth": "",
+        "evalEmotionBehavior": "",
+        "evalKnowledgeSkill": ""
+      }
+    ]
+  },
+  {
+    "id": "plan_mam_tuan1_demo",
+    "status": "APPROVED",
+    "updatedAt": "2026-11-22T23:00:00.000Z",
+    "governingBody": "UBND PHƯỜNG THUẬN AN – TP. HỒ CHÍ MINH",
+    "schoolName": "TRƯỜNG MẦM NON HOÀNG GIA",
+    "schoolYear": "2026 – 2027",
+    "ageGroupId": "MAM_3_4T",
+    "className": "Mầm 1 (3–4T)",
+    "teacherName": "Lê Thị Thu Hà",
+    "principalName": "Nguyễn Thị Thủy",
+    "themeName": "TRƯỜNG MẦM NON CỦA BÉ",
+    "themeTotalWeeks": 3,
+    "themeStartDate": "2026-09-07",
+    "themeEndDate": "2026-09-25",
+    "weekNumber": 1,
+    "subThemeName": "Lớp Mầm vui vẻ của bé",
+    "weekStartDate": "2026-09-07",
+    "weekEndDate": "2026-09-11",
+    "includeThemeSection": true,
+    "themeObjectives": [
+      {
+        "domainKey": "PTTC",
+        "domainTitle": "1. Phát triển thể chất (Mầm 3–4T)",
+        "customGoals": [
+          "Trẻ thực hiện nhịp nhàng động tác thể dục sáng và vận động đi/bật cơ bản."
+        ],
+        "mtCodes": [
+          "MT1",
+          "MT2",
+          "MT4",
+          "MT11"
+        ]
+      },
+      {
+        "domainKey": "PTNT",
+        "domainTitle": "2. Phát triển nhận thức (Mầm 3–4T)",
+        "customGoals": [
+          "Trẻ nhận biết trường lớp, cô giáo và phân biệt số lượng 1 – nhiều."
+        ],
+        "mtCodes": [
+          "MT25",
+          "MT30",
+          "MT35"
+        ]
+      },
+      {
+        "domainKey": "PTNN",
+        "domainTitle": "3. Phát triển ngôn ngữ (Mầm 3–4T)",
+        "customGoals": [
+          "Trẻ lắng nghe, đọc thuộc bài thơ ngắn và mạnh dạn trả lời câu hỏi của cô."
+        ],
+        "mtCodes": [
+          "MT52",
+          "MT56"
+        ]
+      },
+      {
+        "domainKey": "PT_TCKNXH",
+        "domainTitle": "4. Tình cảm & Kỹ năng xã hội (Mầm 3–4T)",
+        "customGoals": [
+          "Trẻ biết chào hỏi lễ phép, chơi hòa đồng và tự cất đồ chơi sau khi chơi."
+        ],
+        "mtCodes": [
+          "MT65",
+          "MT70"
+        ]
+      },
+      {
+        "domainKey": "PTTM",
+        "domainTitle": "5. Phát triển thẩm mỹ (Mầm 3–4T)",
+        "customGoals": [
+          "Trẻ thích ca hát, vận động theo nhạc và biết tô màu, nặn đơn giản."
+        ],
+        "mtCodes": [
+          "MT80",
+          "MT85",
+          "MT87"
+        ]
+      }
+    ],
+    "contentNetwork": [
+      {
+        "id": "branch_1",
+        "branchTitle": "Tuần 1: TRƯỜNG MẦM NON HOÀNG GIA CỦA BÉ",
+        "items": [
+          "Tên gọi, địa chỉ của trường mầm non đang học",
+          "Các khu vực và các phòng chức năng trong trường",
+          "Công việc của các cô, các bác trong trường",
+          "Các hoạt động hằng ngày của trẻ ở trường mầm non",
+          "Đồ dùng, đồ chơi và bạn bè trong trường"
+        ]
+      },
+      {
+        "id": "branch_2",
+        "branchTitle": "Tuần 2: ĐỒ DÙNG HỌC TẬP CỦA BÉ",
+        "items": [
+          "Tên lớp và ký hiệu đồ dùng cá nhân của bé",
+          "Các đồ dùng học tập và đồ chơi trong lớp",
+          "Công dụng và hoạt động sử dụng từng đồ dùng học tập",
+          "Phân loại, sắp xếp và giữ gìn đồ dùng gọn gàng"
+        ]
+      },
+      {
+        "id": "branch_3",
+        "branchTitle": "Tuần 3: BÉ VUI TRUNG THU",
+        "items": [
+          "Tên gọi và ý nghĩa ngày Tết Trung thu (Rằm tháng 8)",
+          "Lễ hội Trung thu, rước đèn, múa lân tại trường",
+          "Mónăn đặc trưng ngày Trung thu (bánh nướng, bánh dẻo, mâm ngũ quả)",
+          "Quà của bé và hoạt động vui chơi lễ hội cùng bạn bè"
+        ]
+      }
+    ],
+    "activityNetwork": [
+      {
+        "domainKey": "PTTC",
+        "domainTitle": "PHÁT TRIỂN THỂ CHẤT",
+        "items": [
+          "Trò chuyện về ích lợi của thực phẩm và các mónăn trong trường mầm non",
+          "Luyện tập các công việc tự phục vụ trong ăn uống, ngủ, chơi, vệ sinh",
+          "Nhận biết và phòng tránh những nơi nguy hiểm trong trường, lớp",
+          "Rèn kỹ năng VĐCB: Bật liên tiếp vào các vòng, đi trong đường hẹp",
+          "Luyện tập phát triển nhóm cơ, hô hấp và trò chơi vận động"
+        ]
+      },
+      {
+        "domainKey": "PTNT",
+        "domainTitle": "PHÁT TRIỂN NHẬN THỨC",
+        "items": [
+          "So sánh và phân loại đồ dùng theo 2–3 dấu hiệu (hình dạng, kích thước, chất liệu)",
+          "Ôn và nhận biết số lượng 1, đếm số lượng trong phạm vi 1–4",
+          "Tham quan các khu vực, phòng chức năng trong trường mầm non",
+          "Thảo luận về tên, địa chỉ trường, công việc của các cô bác trong trường"
+        ]
+      },
+      {
+        "domainKey": "PTNN",
+        "domainTitle": "PHÁT TRIỂN NGÔN NGỮ",
+        "items": [
+          "Quan sát, trò chuyện về các khu vực và hoạt động của trường, lớp",
+          "Đọc thơ diễn cảm (Cô và mẹ, Cô giáo của con), kể chuyện về trường lớp",
+          "Làm quen các nét cơ bản, nhận biết ký hiệu chữ viết qua thẻ tên góc chơi và thẻ tên bạn",
+          "Xem tranh ảnh, làm album về trường mầm non"
+        ]
+      },
+      {
+        "domainKey": "PTTM",
+        "domainTitle": "PHÁT TRIỂN THẨM MỸ",
+        "items": [
+          "Tô, đồ theo nét; sử dụng các vật liệu để vẽ, nặn, xé dán, xếp hình về trường lớp",
+          "Hát, múa, vận động theo nhạc bài hát về trường lớp (Em đi mẫu giáo, Trường chúng cháu là trường MN)",
+          "Nghe hát (Ngày đầu tiên đi học) và dân ca địa phương",
+          "Trò chơi âm nhạc: Tai ai thính"
+        ]
+      },
+      {
+        "domainKey": "PT_TCKNXH",
+        "domainTitle": "PHÁT TRIỂN TÌNH CẢM – XÃ HỘI",
+        "items": [
+          "Trò chơi đóng vai: Lớp mẫu giáo, Cửa hàng tạp hóa, Nấu ăn",
+          "Trò chơi xây dựng: Xây dựng Trường Mầm non của bé",
+          "Trò chuyện về tình cảm của trẻ với trường lớp, cô giáo và bạn bè",
+          "Thực hiện nội quy lớp học, chăm sóc cây xanh và lồng ghép Trường mầm non hạnh phúc"
+        ]
+      }
+    ],
+    "weeklyObjectives": [
+      {
+        "domainKey": "PTNT",
+        "domainTitle": "1. Phát triển nhận thức",
+        "goals": [
+          "Phát triểnóc quan sát, so sánh, phân loại, nhận xét về cách sắp xếp đồ dùng đồ chơi trong sân trường theo màu sắc, hình dạng, công dụng, chất liệu.",
+          "Biết tên trường, địa chỉ trường, các góc chơi ngoài trời và các hoạt động trong ngày tại trường mầm non.",
+          "Ôn và nhận biết nhóm đồ vật có số lượng 1, nhận biết chữ số 1."
+        ]
+      },
+      {
+        "domainKey": "PTNN",
+        "domainTitle": "2. Phát triển ngôn ngữ",
+        "goals": [
+          "Trẻ biết nhận xét, kể lại những điều quan sát được và trao đổi mạch lạc với cô, bạn về trường lớp mầm non.",
+          "Thuộc và đọc diễn cảm thơ Cô và mẹ, Cô giáo của con; làm quen các nét cơ bản và nhận biết ký hiệu cá nhân."
+        ]
+      },
+      {
+        "domainKey": "PTTC",
+        "domainTitle": "3. Phát triển thể chất",
+        "goals": [
+          "Thực hiện nhịp nhàng bài tập thể dục sáng và vận động cơ bản Bật liên tiếp vào các vòng.",
+          "Biết các bước rửa tay đúng thao tác và kỹ năng vệ sinh phòng chống bệnh truyền nhiễm."
+        ]
+      },
+      {
+        "domainKey": "PTTM",
+        "domainTitle": "4. Phát triển thẩm mỹ",
+        "goals": [
+          "Hát đúng giai điệu, nhịp điệu bài Em đi mẫu giáo; cảm nhận vẻ đẹp cây xanh, sân trường và sản phẩm tạo hình.",
+          "Cầm bút đúng tư thế, tô đồ theo nét gọn gàng, không chờm ra ngoài."
+        ]
+      },
+      {
+        "domainKey": "PT_TCKNXH",
+        "domainTitle": "5. Phát triển tình cảm – xã hội",
+        "goals": [
+          "Yêu mến trường lớp, lễ phép với cô giáo và người lớn; giữ gìn môi trường xanh – sạch – đẹp.",
+          "Có thói quen tự phục vụ, cất đồ dùng đúng nơi quy định và thực hiện tốt 3 tiêu chuẩn bé ngoan."
+        ]
+      }
+    ],
+    "etiquetteNotes": [
+      "Dạy trẻ đến lớp biết khoanh tay chào cô, chào ba mẹ và chào hỏi người lớn lễ phép.",
+      "Không hái hoa, bẻ cành, ngắt lá trước cổng trường và trong khuôn viên trường."
+    ],
+    "laborHygieneNotes": [
+      "Rèn nề nếp lấy và cất đồ dùng cá nhân (ba lô, dép, khăn, cốc) đúng ký hiệu, gọn gàng ngăn nắp.",
+      "Rèn nề nếp rửa tay bằng xà phòng trước và sau khi ăn, sau khi đi vệ sinh và sau khi ngủ dậy.",
+      "Phân công nhóm nòng cốt trực nhật giúp cô lau kệ, sắp xếp đồ chơi trong các hoạt động hằng ngày."
+    ],
+    "welcomeRoutineNotes": [
+      "Vệ sinh thông thoáng phòng lớp, kiểm tra an toàn đồ dùng đồ chơi trước khi đón trẻ.",
+      "Trò chuyện với phụ huynh về sức khỏe, sở thích và thói quen sinh hoạtở nhà của trẻ.",
+      "Trò chuyện cùng trẻ về trường mẫu giáo, lớp học, cô giáo và bạn bè; cho trẻ xem tranh ảnh các hoạt động trong trường.",
+      "Trao đổi, vận động phụ huynh hỗ trợ nguyên vật liệu mở, phế liệu sạch để làm đồ dùng đồ chơi các góc."
+    ],
+    "praiseStandards": [
+      "Tiêu chuẩn 1: Đi học đều, đúng giờ, quầnáo gọn gàng, biết chào hỏi lễ phép.",
+      "Tiêu chuẩn 2: Ngoan ngoãn trong giờ học, biết lắng nghe cô và giơ tay phát biểu.",
+      "Tiêu chuẩn 3: Biết giữ gìn vệ sinh, cất đồ chơi gọn gàng, chơi đoàn kết và chia sẻ với bạn."
+    ],
+    "praiseSongStart": "Càng lớn càng ngoan",
+    "praiseSongWeekEnd": "Cả tuần đều ngoan",
+    "morningExercise": {
+      "aims": [
+        "Trẻ biết tập thể dục sáng đúng nhịp theo từng động tác phát triển nhóm cơ và hô hấp.",
+        "Trẻ tích cực, hào hứng tham gia luyện tập theo hướng dẫn của cô.",
+        "Giáo dục trẻ tính kỷ luật, kiên trì và hiểu ích lợi của việc tập thể dục đối với sức khỏe."
+      ],
+      "preparation": [
+        "Sân tập rộng rãi, sạch sẽ, bằng phẳng.",
+        "Loa phát nhạc thể dục sáng, vòng/nơ thể dục."
+      ],
+      "warmup": "Cho trẻ đi thành vòng tròn kết hợp các kiểu chân (đi thường, đi mũi chân, đi gót chân), chạy nhanh – chạy chậm rồi về đội hình hàng ngang.",
+      "moves": [
+        {
+          "group": "Hô hấp",
+          "name": "Thở 2: Thổi bóng bay (2 lần × 8 nhịp)",
+          "steps": "TTCB: Đứng chân hình chữ V, hai tay buông lỏng. Nhịp 1: Đưa hai tay khum trước miệng. Nhịp 2: Thổi hơi dài như thổi bóng. Nhịp 3: Về nhịp 1. Nhịp 4: Về TTCB."
+        },
+        {
+          "group": "Tay",
+          "name": "Tay 1: Hai tay đưa ra trước, lên cao, hạ xuống (2 lần × 8 nhịp)",
+          "steps": "Đưa hai tay thẳng ra trước – đưa lên cao – hạ về trước – hạ xuống xuôi thân nhịp nhàng theo nhạc."
+        },
+        {
+          "group": "Bụng",
+          "name": "Bụng 1: Đứng cúi gập người về phía trước, tay chạm ngón chân (4 lần × 8 nhịp)",
+          "steps": "Hai chân rộng bằng vai, cúi gập người thẳng gối tay chạm mũi bàn chân, đứng thẳng người lên."
+        },
+        {
+          "group": "Chân",
+          "name": "Chân 1: Ngồi khuỵu gối (2 lần × 8 nhịp)",
+          "steps": "Hai tay đưa ra trước, khuỵu gối thẳng lưng, đứng thẳng dậy hạ tay xuống."
+        },
+        {
+          "group": "Bật",
+          "name": "Bật 1: Bật tiến về phía trước (2 lần × 8 nhịp)",
+          "steps": "Hai tay chống hông, bật chụm chân tiến về trước, tiếp đất nhẹ nhàng bằng mũi bàn chân."
+        }
+      ],
+      "cooldown": "Đi thường 1–2 vòng quanh sân, hít thở sâu thả lỏng cơ thể và xếp hàng vào lớp."
+    },
+    "outdoorTable": [
+      {
+        "category": "CHU_DICH",
+        "title": "Hoạt động có chủ đích: Quan sát và trò chuyện về Trường Mầm non (theo nội dung từng ngày)",
+        "requirements": [
+          "Hình thành khả năng quan sát, so sánh, dự đoán và chia sẻ nhận xét một cách tự nhiên.",
+          "Tạo điều kiện cho trẻ tiếp xúc thiên nhiên, yêu quý trường lớp và biết giữ gìn đồ chơi sân trường."
+        ],
+        "preparation": [
+          "Sân trường sạch sẽ, an toàn; phấn vẽ, rổ đựng, tranh ảnh lễ hội trường."
+        ],
+        "procedure": [
+          "Cô tập trung trẻ, giới thiệu mục đích buổi quan sát ngoài trời.",
+          "Cô đặt câu hỏi gợi mở để trẻ quan sát, thảo luận và nêu cảm xúc về trường lớp, sân chơi, cây xanh.",
+          "Củng cố kiến thức, giáo dục trẻ giữ gìn môi trường xanh – sạch – đẹp."
+        ]
+      },
+      {
+        "category": "TCVD",
+        "title": "TCVĐ: “Lộn cầu vồng”",
+        "requirements": [
+          "Rèn sự nhanh nhẹn, khéo léo, phối hợp nhịp nhàng cùng bạn và tính kỷ luật khi chơi."
+        ],
+        "preparation": [
+          "Sân bãi sạch sẽ, bằng phẳng, thoáng mát."
+        ],
+        "procedure": [
+          "Cô giới thiệu tên trò chơi, nhắc lại cách chơi và luật chơi.",
+          "Chia trẻ thành từng cặp nắm tay nhau vung tay theo nhịp đồng dao “Lộn cầu vồng”, đến câu cuối hai trẻ cùng chui qua tay lộn vòng.",
+          "Tổ chức cho trẻ chơi 3–4 lần, cô quan sát đảm bảo an toàn."
+        ]
+      },
+      {
+        "category": "TCDG",
+        "title": "TCDG: “Chi chi chành chành”",
+        "requirements": [
+          "Phát triển phản xạ nhanh nhẹn, khả năng ghi nhớ lời đồng dao và chơi đoàn kết vui vẻ."
+        ],
+        "preparation": [
+          "Không gian thoáng mát trên sân trường."
+        ],
+        "procedure": [
+          "Cô giới thiệu tên trò chơi, hướng dẫn luật chơi và cách chơi.",
+          "Chia trẻ theo tổ/nhóm nhỏ 4–5 bạn cùng đọc đồng dao và rút ngón tay nhanh ở tiếng “ù à ù ập”.",
+          "Cho trẻ chơi 3–4 lần, tuyên dương nhóm chơi đúng luật."
+        ]
+      },
+      {
+        "category": "TU_DO",
+        "title": "Chơi tự do với đồ chơi sân trường và đồ chơi mang theo",
+        "requirements": [
+          "Trẻ tích cực lựa chọn trò chơi theo hứng thú, biết chờ đến lượt và chơi an toàn cùng bạn."
+        ],
+        "preparation": [
+          "Phấn, vòng, bóng, đồ chơi cát nước và thiết bị vận động ngoài trời sẵn có."
+        ],
+        "procedure": [
+          "Trẻ tự chọn góc chơi ngoài trời, vẽ phấn, chơi cầu trượt, xích đu dưới sự giám sát của cô.",
+          "Kết thúc: Cô nhận xét buổi chơi, cho trẻ thu dọn đồ chơi, rửa tay sạch sẽ vào lớp."
+        ]
+      }
+    ],
+    "cornerTable": [
+      {
+        "cornerName": "Góc phân vai",
+        "contents": [
+          "Trò chơi: Cửa hàng tạp hóa, Nấu ăn, Gia đình / Lớp học mẫu giáo"
+        ],
+        "requirements": [
+          "Trẻ hứng thú nhập vai (cô giáo, mẹ – con, người bán – người mua), biết giao tiếp lịch sự.",
+          "Biết sử dụng đồ dùng chế biến mónăn, chơi đoàn kết và cất đồ chơi gọn gàng."
+        ],
+        "preparation": [
+          "Kệ bán hàng, thực phẩm mô hình, bánh kẹo đồ chơi, bộ đồ nấu ăn."
+        ],
+        "organization": [
+          "Cô gợi ý trẻ thỏa thuận phân vai chơi, kết nối liên góc giữa Cửa hàng thực phẩm và Nấu ăn gia đình."
+        ]
+      },
+      {
+        "cornerName": "Góc xây dựng – lắp ráp",
+        "contents": [
+          "Xây dựng Trường Mầm non Hoàng Gia của bé",
+          "Lắp ghép đồ chơi sân trường (cầu trượt, xích đu, hàng rào)"
+        ],
+        "requirements": [
+          "Trẻ biết phối hợp các khối gỗ, gạch nhựa và vật liệu mở để bố cục công trình hợp lý.",
+          "Biết hợp tác nhóm, phân công bạn xây tường, bạn xếp vườn hoa, khu vui chơi."
+        ],
+        "preparation": [
+          "Bộ khối gỗ xây dựng, hàng rào, cây xanh, hoa, ghế đá, đồ chơi lắp ghép."
+        ],
+        "organization": [
+          "Trẻ tự lấy đồ chơi, thống nhấtý tưởng kiến trúc cùng nhóm và giới thiệu công trình cuối giờ."
+        ]
+      },
+      {
+        "cornerName": "Góc nghệ thuật",
+        "contents": [
+          "Vẽ, tô màu, cắt dán tranh về trường mầm non và hoạt động của bé",
+          "Hát, múa, gõ đệm các bài hát trong chủ đề Trường mầm non"
+        ],
+        "requirements": [
+          "Biết cầm bút tô màu gọn gàng, phối hợp màu sắc hài hòa và giữ gìn sản phẩm.",
+          "Mạnh dạn biểu diễn ca hát, vận động nhịp nhàng theo giai điệu bài hát."
+        ],
+        "preparation": [
+          "Giấy vẽ, bút sáp màu, bút chì, hồ dán, kéo thủ công; nhạc cụ phách tre, trống lắc, xắc xô."
+        ],
+        "organization": [
+          "Cô hướng dẫn kỹ năng bố cục tranh và khuyến khích trẻ chọn nhạc cụ tự đệm nhịp khi biểu diễn."
+        ]
+      },
+      {
+        "cornerName": "Góc học tập – thư viện",
+        "contents": [
+          "Xem truyện tranh, kể chuyện theo tranh về trường mầm non",
+          "Làm sách, album ảnh về hoạt động và đồ chơi ở trường",
+          "Làm quen ngôi nhà hình học Kidsmart và ghép thẻ chữ cái/thẻ số 1"
+        ],
+        "requirements": [
+          "Biết mở từng trang sách nhẹ nhàng từ trái sang phải, kể lại nội dung tranh rõ ràng.",
+          "Biết ghép thẻ chữ cái theo mẫu từ và đếm nhóm số lượng 1."
+        ],
+        "preparation": [
+          "Sách tranh, album giấy, thẻ chữ cái, thẻ từ, thẻ số, bút chì, kéo, hồ dán."
+        ],
+        "organization": [
+          "Cô hướng dẫn trẻ cách giở sách đúng chiều, ghép thẻ từ theo chủ đề và giữ trật tự góc sách."
+        ]
+      },
+      {
+        "cornerName": "Góc thiên nhiên / khoa học",
+        "contents": [
+          "Chăm sóc cây xanh: lau lá, tỉa lá vàng, tưới nước cho cây"
+        ],
+        "requirements": [
+          "Trẻ biết cách tỉa lá úa, tưới lượng nước vừa đủ và yêu thiên nhiên."
+        ],
+        "preparation": [
+          "Bình tưới nhỏ, khănẩm lau lá, kéo an toàn, khay đựng lá khô."
+        ],
+        "organization": [
+          "Cô hướng dẫn trẻ quan sát độ ẩm đất, tưới nước nhẹ nhàng và lau sạch bụi trên lá cây."
+        ]
+      }
+    ],
+    "days": [
+      {
+        "dayOfWeek": 2,
+        "dayLabel": "Thứ hai",
+        "dateStr": "2026-09-07",
+        "showPraiseStandards": true,
+        "outdoorObservation": "Quan sát khung cảnh Trường Mầm non Hoàng Gia",
+        "mainLessons": [
+          {
+            "id": "mam_m1",
+            "slotType": "MAIN",
+            "domainTitle": "LĨNH VỰC PHÁT TRIỂN THẨM MỸ",
+            "subjectCode": "GDAN",
+            "subjectFullTitle": "HOẠT ĐỘNG ÂM NHẠC",
+            "topicTitle": "Dạy hát: Trường chúng cháu là trường mầm non – TCAN: Tai ai thính",
+            "subTopics": [],
+            "linkedMtCodes": [
+              "MT80"
+            ],
+            "aims": [
+              "Trẻ hát thuộc lời, đúng nhịp bài hát Trường chúng cháu là trường mầm non (MT80)."
+            ],
+            "preparation": [
+              "Nhạc đệm, xắc xô, mũ chóp kín."
+            ],
+            "steps": [
+              {
+                "title": "Hoạt động 1: Ổn định – Gây hứng thú",
+                "details": [
+                  "Trò chuyện về lớp Mầm mới và dẫn vào bài hát."
+                ]
+              },
+              {
+                "title": "Hoạt động 2: Dạy hát",
+                "details": [
+                  "Cô hát mẫu 2 lần, dạy cả lớp – tổ – nhóm – cá nhân hát vui tươi."
+                ]
+              },
+              {
+                "title": "Hoạt động 3: Nghe hát & TCAN Tai ai thính",
+                "details": [
+                  "Cô hát tặng bài Ngày vui của bé và tổ chức chơi Tai ai thính 3 lượt."
+                ]
+              }
+            ]
+          }
+        ],
+        "extracurricularTitle": "",
+        "afternoonLesson": {
+          "id": "les_d2_aft",
+          "slotType": "AFTERNOON",
+          "domainTitle": "HOẠT ĐỘNG CHIỀU – LQVH",
+          "subjectCode": "LQVH",
+          "subjectFullTitle": "DẠY TRẺ BÀI THƠ, BÀI HÁT TRONG TUẦN",
+          "topicTitle": "Bài thơ: Cô giáo của con",
+          "subTopics": [],
+          "linkedMtCodes": [
+            "MT56",
+            "MT67"
+          ],
+          "aims": [
+            "Trẻ nhớ tên bài thơ “Cô giáo của con”, hiểu nội dung bài thơ nói về tình cảm yêu quý, kính trọng cô giáo.",
+            "Rèn kỹ năng chú ý lắng nghe, ghi nhớ có chủ định và đọc thơ rõ lời.",
+            "Giáo dục trẻ yêu thương, lễ phép và vâng lời cô giáo."
+          ],
+          "preparation": [
+            "Tranh minh họa nội dung bài thơ và hìnhảnh cô giáo chăm sóc, vui chơi cùng trẻ.",
+            "Nhạc bài hát về cô giáo."
+          ],
+          "steps": [
+            {
+              "title": "Hoạt động 1: Ổn định, gây hứng thú",
+              "details": [
+                "Cho trẻ hát vận động nhẹ bài hát về cô giáo và trò chuyện về những công việc hằng ngày cô làmở lớp.",
+                "Dẫn dắt giới thiệu bài thơ “Cô giáo của con”."
+              ]
+            },
+            {
+              "title": "Hoạt động 2: Cô đọc thơ & Đàm thoại",
+              "details": [
+                "Lần 1: Cô đọc diễn cảm nhẹ nhàng. Lần 2: Đọc kết hợp chỉ tranh minh họa.",
+                "Đàm thoại giúp trẻ hiểu nội dung: Trong bài thơ nhắc đến ai? Cô giáo chăm sóc bạn nhỏ như thế nào? Con làm gì để thể hiện tình yêu với cô?"
+              ]
+            },
+            {
+              "title": "Hoạt động 3: Dạy trẻ đọc thơ & Kết thúc",
+              "details": [
+                "Mời cả lớp, tổ, nhóm, cá nhân đọc thơ diễn cảm; cô khen ngợi và giáo dục trẻ luôn lễ phép."
+              ]
+            }
+          ]
+        },
+        "evalHealth": "",
+        "evalEmotionBehavior": "",
+        "evalKnowledgeSkill": ""
+      },
+      {
+        "dayOfWeek": 3,
+        "dayLabel": "Thứ ba",
+        "dateStr": "2026-09-08",
+        "showPraiseStandards": false,
+        "outdoorObservation": "Quan sát đồ chơi ngoài trời trong sân trường mầm non",
+        "mainLessons": [
+          {
+            "id": "mam_m2",
+            "slotType": "MAIN",
+            "domainTitle": "LĨNH VỰC PHÁT TRIỂN THỂ CHẤT",
+            "subjectCode": "PTVĐ",
+            "subjectFullTitle": "HOẠT ĐỘNG THỂ DỤC GIỜ HỌC",
+            "topicTitle": "VĐCB: Đi bằng gót chân – TCVĐ: Ô tô và chim sẻ",
+            "subTopics": [],
+            "linkedMtCodes": [
+              "MT2"
+            ],
+            "aims": [
+              "Trẻ giữ thăng bằng đi bằng gót chân theo đường thẳng (MT2)."
+            ],
+            "preparation": [
+              "Sân sạch, vạch kẻ, vòng vô lăngô tô."
+            ],
+            "steps": [
+              {
+                "title": "Hoạt động 1: Khởi động & BTPTC",
+                "details": [
+                  "Đi vòng tròn các kiểu chân, tập 4 động tác BTPTC."
+                ]
+              },
+              {
+                "title": "Hoạt động 2: VĐCB Đi bằng gót chân",
+                "details": [
+                  "Cô làm mẫu 2 lần, tổ chức cho từng trẻ thực hiện 2–3 lượt."
+                ]
+              },
+              {
+                "title": "Hoạt động 3: TCVĐ Ô tô và chim sẻ & Hồi tỉnh",
+                "details": [
+                  "Chơi 3–4 lượt hào hứng rồi đi thả lỏng."
+                ]
+              }
+            ]
+          }
+        ],
+        "extracurricularTitle": "HĐNK: Học nhảy Aerobic",
+        "afternoonLesson": {
+          "id": "les_d3_aft",
+          "slotType": "AFTERNOON",
+          "domainTitle": "HOẠT ĐỘNG CHIỀU – KỸ NĂNG TỰ PHỤC VỤ",
+          "subjectCode": "KNS",
+          "subjectFullTitle": "RÈN TRẺ NHẬN BIẾT KÝ HIỆU ĐỒ DÙNG CÁ NHÂN",
+          "topicTitle": "Nhận biết ký hiệu đồ dùng cá nhân của bé",
+          "subTopics": [],
+          "linkedMtCodes": [
+            "MT69",
+            "MT11"
+          ],
+          "aims": [
+            "Trẻ nhận biết đúng ký hiệu riêng trên tủ ba lô, kệ dép, khăn mặt, ca uống nước của mình.",
+            "Rèn kỹ năng quan sát, ghi nhớ có chủ định và nề nếp tự cất đồ dùng đúng vị trí."
+          ],
+          "preparation": [
+            "Đồ dùng cá nhân của trẻ đã dán sẵn ký hiệu rõ ràng theo 4 tổ."
+          ],
+          "steps": [
+            {
+              "title": "Hoạt động 1: Gây hứng thú",
+              "details": [
+                "Cả lớp đọc bài thơ “Của chung”, trò chuyện về các đồ dùng cá nhânở lớp và tác dụng của ký hiệu riêng."
+              ]
+            },
+            {
+              "title": "Hoạt động 2: Thực hành tìm đúng ký hiệu",
+              "details": [
+                "Chia 4 tổ theo màu quy định; từng trẻ quan sát và gọi tên ký hiệu của mình.",
+                "Chơi trò chơi “Tìm nhanh đồ dùng của bé”: trẻ đi vòng tròn hát, hết nhạc chạy nhanh lấy đúng đồ dùng có ký hiệu của mình."
+              ]
+            },
+            {
+              "title": "Hoạt động 3: Kết thúc",
+              "details": [
+                "Cả lớp tự cất đồ dùng đúng vị trí quy định, cô kiểm tra và khen ngợi."
+              ]
+            }
+          ]
+        },
+        "evalHealth": "",
+        "evalEmotionBehavior": "",
+        "evalKnowledgeSkill": ""
+      },
+      {
+        "dayOfWeek": 4,
+        "dayLabel": "Thứ tư",
+        "dateStr": "2026-09-09",
+        "showPraiseStandards": false,
+        "outdoorObservation": "Quan sát trang trí sân trường và vườn hoa của trường",
+        "mainLessons": [
+          {
+            "id": "mam_m3",
+            "slotType": "MAIN",
+            "domainTitle": "LĨNH VỰC PHÁT TRIỂN NHẬN THỨC",
+            "subjectCode": "LQVT",
+            "subjectFullTitle": "HOẠT ĐỘNG LÀM QUEN VỚI TOÁN",
+            "topicTitle": "Nhận biết và so sánh nhiều hơn – ít hơn (nhóm đồ chơi trong lớp)",
+            "subTopics": [],
+            "linkedMtCodes": [
+              "MT30"
+            ],
+            "aims": [
+              "Trẻ biết xếp tươngứng 1–1 và nói đúng nhóm nào nhiều hơn, nhóm nào ít hơn (MT30)."
+            ],
+            "preparation": [
+              "Mỗi trẻ rổ 3 búp bê và 2 chiếc mũ đồ chơi."
+            ],
+            "steps": [
+              {
+                "title": "Hoạt động 1: Ôn nhận biết 1 và nhiều",
+                "details": [
+                  "Tìm đồ vật có số lượng 1 và nhiều quanh lớp."
+                ]
+              },
+              {
+                "title": "Hoạt động 2: Dạy so sánh nhiều hơn – ít hơn",
+                "details": [
+                  "Xếp tươngứng 1–1 búp bê và mũ, nhận xét nhóm thừa/thiếu."
+                ]
+              },
+              {
+                "title": "Hoạt động 3: Trò chơi Ai nhanh hơn",
+                "details": [
+                  "Chơi chọn nhóm nhiều hơn / ít hơn theo hiệu lệnh."
+                ]
+              }
+            ]
+          }
+        ],
+        "extracurricularTitle": "HĐNK: Học toán Soroban",
+        "afternoonLesson": {
+          "id": "les_d4_aft",
+          "slotType": "AFTERNOON",
+          "domainTitle": "HOẠT ĐỘNG CHIỀU – GIÁO DỤC SỨC KHỎE",
+          "subjectCode": "TTVS",
+          "subjectFullTitle": "DẠY TRẺ THAO TÁC VỆ SINH",
+          "topicTitle": "Thực hành 6 bước rửa tay bằng xà phòng",
+          "subTopics": [],
+          "linkedMtCodes": [
+            "MT11",
+            "MT15"
+          ],
+          "aims": [
+            "Trẻ nhớ trình tự 6 bước rửa tay bằng xà phòng và biết các thời điểm cần rửa tay (trướcăn, sau đi vệ sinh, khi tay bẩn).",
+            "Thực hiện đúng thao tác rửa tay sạch sẽ, không làm văng nướcướtáo.",
+            "Giáo dụcý thức giữ gìn vệ sinh cá nhân phòng bệnh."
+          ],
+          "preparation": [
+            "Tranh/video minh họa 6 bước rửa tay của Bộ Y tế, xà phòng, nước sạch, khăn lau tay."
+          ],
+          "steps": [
+            {
+              "title": "Hoạt động 1: Gây hứng thú",
+              "details": [
+                "Cả lớp hát bài “Năm ngón tay ngoan” và đàm thoại về việc giữ đôi tay sạch."
+              ]
+            },
+            {
+              "title": "Hoạt động 2: Xem video & Hướng dẫn 6 bước rửa tay",
+              "details": [
+                "Cho trẻ xem video rửa tay đúng cách và trò chuyện khi nào cần rửa tay bằng xà phòng.",
+                "Cô làm mẫu chậm từng bước (Bước 1 đến Bước 6), cho trẻ thực hành mô phỏng trên không."
+              ]
+            },
+            {
+              "title": "Hoạt động 3: Thực hành tại bồn rửa & Kết thúc",
+              "details": [
+                "Mời từng tổ, nhóm lần lượt thực hành rửa tay dưới vòi nước; cô quan sát sửa lỗi. Hát bài “Tay thơm tay ngoan” kết thúc."
+              ]
+            }
+          ]
+        },
+        "evalHealth": "",
+        "evalEmotionBehavior": "",
+        "evalKnowledgeSkill": ""
+      },
+      {
+        "dayOfWeek": 5,
+        "dayLabel": "Thứ năm",
+        "dateStr": "2026-09-10",
+        "showPraiseStandards": false,
+        "outdoorObservation": "Trò chuyện về các góc chơi ngoài trời và quy tắc an toàn khi chơi",
+        "mainLessons": [
+          {
+            "id": "mam_m4",
+            "slotType": "MAIN",
+            "domainTitle": "LĨNH VỰC PHÁT TRIỂN NGÔN NGỮ",
+            "subjectCode": "LQVH",
+            "subjectFullTitle": "HOẠT ĐỘNG LÀM QUEN VĂN HỌC",
+            "topicTitle": "Kể chuyện: Nhổ củ cải",
+            "subTopics": [],
+            "linkedMtCodes": [
+              "MT52"
+            ],
+            "aims": [
+              "Trẻ nhớ tên truyện, các nhân vật và biết hợp tác giúp đỡ nhau qua truyện Nhổ củ cải (MT52)."
+            ],
+            "preparation": [
+              "Tranh minh họa truyện Nhổ củ cải, rối tay nhân vật."
+            ],
+            "steps": [
+              {
+                "title": "Hoạt động 1: Gây hứng thú",
+                "details": [
+                  "Cho trẻ quan sát củ cải thật và giới thiệu câu chuyện."
+                ]
+              },
+              {
+                "title": "Hoạt động 2: Cô kể diễn cảm lần 1 & 2",
+                "details": [
+                  "Kể diễn cảm kết hợp rối tay minh họa sinh động."
+                ]
+              },
+              {
+                "title": "Hoạt động 3: Đàm thoại & Tập nói lời nhân vật",
+                "details": [
+                  "Cho trẻ đồng thanh hô “Nhổ cải lên, nhổ cải lên! Ái chà chà!” thật hào hứng."
+                ]
+              }
+            ]
+          }
+        ],
+        "extracurricularTitle": "HĐNK: Học nhảy Aerobic",
+        "afternoonLesson": {
+          "id": "les_d5_aft",
+          "slotType": "AFTERNOON",
+          "domainTitle": "HOẠT ĐỘNG CHIỀU – PHÒNG CHỐNG DỊCH BỆNH",
+          "subjectCode": "TTVS",
+          "subjectFullTitle": "CỦNG CỐ KỸ NĂNG VỆ SINH PHÒNG CHỐNG BỆNH",
+          "topicTitle": "Kỹ năng vệ sinh phòng chống bệnh truyền nhiễm",
+          "subTopics": [],
+          "linkedMtCodes": [
+            "MT15",
+            "MT16"
+          ],
+          "aims": [
+            "Trẻ biết tên và dấu hiệu đơn giản của một số bệnh truyền nhiễm thường gặp (tay chân miệng, thủy đậu, đau mắt đỏ).",
+            "Biết các biện pháp phòng bệnh: rửa tay bằng xà phòng, che miệng bằng khuỷu tay khi ho/hắt hơi, không đưa tay lên mắt mũi miệng.",
+            "Giáo dục trẻ có thói quen vệ sinh cá nhân sạch sẽ và báo cô khi thấy mệt, sốt."
+          ],
+          "preparation": [
+            "Tranh ảnh, video ngắn minh họa cách phòng bệnh truyền nhiễm; phiếu bài tập cho 5 nhóm, bút chì."
+          ],
+          "steps": [
+            {
+              "title": "Hoạt động 1: Khởi động",
+              "details": [
+                "Cả lớp hát bài “Tay thơm tay ngoan” và dẫn dắt vào chủ đề phòng bệnh."
+              ]
+            },
+            {
+              "title": "Hoạt động 2: Xem video & Đàm thoại",
+              "details": [
+                "Trẻ xem video về bệnh tay chân miệng, đau mắt đỏ và trả lời câu hỏi về dấu hiệu nhận biết.",
+                "Giáo dục trẻ rửa tay thường xuyên, ho hắt hơi che bằng khuỷu tay, không dùng chung khăn/cốc."
+              ]
+            },
+            {
+              "title": "Hoạt động 3: Thực hành nhóm & Kết thúc",
+              "details": [
+                "Chia 5 nhóm khoanh tròn tranh hành vi đúng giúp phòng tránh bệnh; cô nhận xét tuyên dương."
+              ]
+            }
+          ]
+        },
+        "evalHealth": "",
+        "evalEmotionBehavior": "",
+        "evalKnowledgeSkill": ""
+      },
+      {
+        "dayOfWeek": 6,
+        "dayLabel": "Thứ sáu",
+        "dateStr": "2026-09-11",
+        "showPraiseStandards": false,
+        "outdoorObservation": "Quan sát bầu trời, thời tiết buổi sáng trên sân trường",
+        "mainLessons": [
+          {
+            "id": "mam_m5",
+            "slotType": "MAIN",
+            "domainTitle": "LĨNH VỰC PHÁT TRIỂN THẨM MỸ",
+            "subjectCode": "Tạo hình",
+            "subjectFullTitle": "HOẠT ĐỘNG TẠO HÌNH",
+            "topicTitle": "Tô màu chiếc khăn tay tặng cô giáo",
+            "subTopics": [],
+            "linkedMtCodes": [
+              "MT85",
+              "MT87"
+            ],
+            "aims": [
+              "Trẻ biết chọn màu tươi sáng và tô màu gọn trong khung hình chiếc khăn (MT85)."
+            ],
+            "preparation": [
+              "Tranh mẫu, vở tạo hình, sáp màu đủ cho trẻ."
+            ],
+            "steps": [
+              {
+                "title": "Hoạt động 1: Quan sát mẫu",
+                "details": [
+                  "Đàm thoại về màu sắc, họa tiết chiếc khăn mẫu."
+                ]
+              },
+              {
+                "title": "Hoạt động 2: Cô làm mẫu & Trẻ thực hiện",
+                "details": [
+                  "Nhắc cách cầm bút, ngồi thẳng lưng; mở nhạc nhẹ cho trẻ tô màu."
+                ]
+              },
+              {
+                "title": "Hoạt động 3: Trưng bày & Nhận xét",
+                "details": [
+                  "Trưng bày tranh đẹp tặng cô và khen ngợi trẻ."
+                ]
+              }
+            ]
+          }
+        ],
+        "extracurricularTitle": "HĐNK: Học toán Soroban",
+        "afternoonLesson": {
+          "id": "les_d6_aft",
+          "slotType": "AFTERNOON",
+          "domainTitle": "HOẠT ĐỘNG CHIỀU – LAO ĐỘNG TẬP THỂ",
+          "subjectCode": "LĐVS",
+          "subjectFullTitle": "LAO ĐỘNG TỔNG VỆ SINH CUỐI TUẦN",
+          "topicTitle": "Lao động vệ sinh lớp học gọn gàng sạch đẹp",
+          "subTopics": [],
+          "linkedMtCodes": [
+            "MT77",
+            "MT93",
+            "MT95"
+          ],
+          "aims": [
+            "Trẻ hiểu ý nghĩa của lao động giữ gìn lớp học sạch sẽ, ngăn nắp.",
+            "Biết thực hiện các công việc vừa sức: sắp xếp đồ chơi, lau kệ tủ, lau bảng con, rửa ca cốc, lau lá cây.",
+            "Trẻ vui vẻ, hào hứng hợp tác cùng cô và các bạn trong lao động tập thể."
+          ],
+          "preparation": [
+            "Khăn lau ẩm, chổi quét bụi nhỏ, thau nước sạch."
+          ],
+          "steps": [
+            {
+              "title": "Hoạt động 1: Ổn định – giới thiệu",
+              "details": [
+                "Cả lớp hát bài “Những em bé ngoan”, trò chuyện về niềm vui khi lớp học luôn sạch đẹp."
+              ]
+            },
+            {
+              "title": "Hoạt động 2: Phân công công việc theo nhóm",
+              "details": [
+                "Nhóm 1: Sắp xếp đồ chơi các góc gọn gàng.",
+                "Nhóm 2: Lau kệ tủ, lau bảng con.",
+                "Nhóm 3: Rửa ca cốc, đồ chơi nhựa phụ cô.",
+                "Nhóm 4: Lau lá cây trầu bà và tưới cây góc thiên nhiên."
+              ]
+            },
+            {
+              "title": "Hoạt động 3: Trẻ thực hiện & Nhận xét",
+              "details": [
+                "Trẻ hào hứng thực hiện nhiệm vụ dưới sự bao quát, hướng dẫn của cô; tuyên dương cuối buổi lao động và chuyển sang Nêu gương cuối tuần phát phiếu bé ngoan."
+              ]
+            }
+          ]
+        },
+        "evalHealth": "",
+        "evalEmotionBehavior": "",
+        "evalKnowledgeSkill": ""
+      }
+    ]
+  },
+  {
+    "id": "plan_nhatre_tuan1_demo",
+    "status": "DRAFT",
+    "updatedAt": "2026-09-07T08:00:00.000Z",
+    "governingBody": "UBND PHƯỜNG THUẬN AN – TP. HỒ CHÍ MINH",
+    "schoolName": "TRƯỜNG MẦM NON HOÀNG GIA",
+    "schoolYear": "2026 – 2027",
+    "ageGroupId": "NHA_TRE_24_36T",
+    "className": "Nhà trẻ 1 (24–36T)",
+    "teacherName": "Trần Thị Mai Anh",
+    "principalName": "Nguyễn Thị Thủy",
+    "themeName": "BÉ VÀ CÁC BẠN",
+    "themeTotalWeeks": 3,
+    "themeStartDate": "2026-09-07",
+    "themeEndDate": "2026-09-25",
+    "weekNumber": 1,
+    "subThemeName": "Cô giáo và lớp học của bé",
+    "weekStartDate": "2026-09-07",
+    "weekEndDate": "2026-09-11",
+    "includeThemeSection": true,
+    "themeObjectives": [
+      {
+        "domainKey": "PTTC",
+        "domainTitle": "1. Phát triển thể chất (Nhà trẻ 24–36T)",
+        "customGoals": [
+          "Trẻ thích nghi vui vẻ với chế độ sinh hoạtở lớp Nhà trẻ và tập thể dục sáng cùng cô."
+        ],
+        "mtCodes": [
+          "MT1",
+          "MT2",
+          "MT5",
+          "MT11"
+        ]
+      },
+      {
+        "domainKey": "PTNT",
+        "domainTitle": "2. Phát triển nhận thức (Nhà trẻ 24–36T)",
+        "customGoals": [
+          "Trẻ nhận biết tên gọi cô giáo, các bạn và một số đồ dùng, đồ chơi quen thuộc trong lớp."
+        ],
+        "mtCodes": [
+          "MT18",
+          "MT19",
+          "MT20"
+        ]
+      },
+      {
+        "domainKey": "PTNN",
+        "domainTitle": "3. Phát triển ngôn ngữ (Nhà trẻ 24–36T)",
+        "customGoals": [
+          "Trẻ biết lắng nghe cô trò chuyện, đọc thơ ngắn và nói câu 3–5 từ rõ ràng."
+        ],
+        "mtCodes": [
+          "MT24",
+          "MT26"
+        ]
+      },
+      {
+        "domainKey": "PT_TCKNXH",
+        "domainTitle": "4. Phát triển tình cảm, kỹ năng xã hội và thẩm mỹ (Nhà trẻ 24–36T)",
+        "customGoals": [
+          "Trẻ vui vẻ đến lớp, thích nghe hát, vận động và cầm bút di màu theo hướng dẫn."
+        ],
+        "mtCodes": [
+          "MT31",
+          "MT39",
+          "MT41",
+          "MT42"
+        ]
+      }
+    ],
+    "contentNetwork": [
+      {
+        "id": "nt_b1",
+        "branchTitle": "Tuần 1: Cô giáo và lớp học của bé",
+        "items": [
+          "Tên cô giáo, tên lớp Nhà trẻ",
+          "Đồ chơi quen thuộc trong lớp"
+        ]
+      },
+      {
+        "id": "nt_b2",
+        "branchTitle": "Tuần 2: Bạn thân của bé",
+        "items": [
+          "Chơi đoàn kết, không tranh đồ chơi",
+          "Chia sẻ cùng bạn"
+        ]
+      },
+      {
+        "id": "nt_b3",
+        "branchTitle": "Tuần 3: Đồ dùng của bé",
+        "items": [
+          "Ký hiệu cá nhân (cốc, khăn, dép)",
+          "Tự cất đồ chơi gọn gàng"
+        ]
+      }
+    ],
+    "activityNetwork": [
+      {
+        "domainKey": "PTTC",
+        "domainTitle": "PHÁT TRIỂN THỂ CHẤT",
+        "items": [
+          "Thể dục sáng đơn giản, đi trong đường hẹp, lăn bóng cùng cô, tập rửa tay lau mặt"
+        ]
+      },
+      {
+        "domainKey": "PTNT",
+        "domainTitle": "PHÁT TRIỂN NHẬN THỨC",
+        "items": [
+          "Nhận biết tập nói (NBTN): Đồ chơi lớp bé, Con gà trống; chọn màu đỏ – xanh"
+        ]
+      },
+      {
+        "domainKey": "PTNN",
+        "domainTitle": "PHÁT TRIỂN NGÔN NGỮ",
+        "items": [
+          "Đọc thơ ngắn: Yêu mẹ, Bạn mới; kể chuyện tranh ngắn Đôi bạn nhỏ"
+        ]
+      },
+      {
+        "domainKey": "PT_TCKNXH",
+        "domainTitle": "TÌNH CẢM – KNXH & THẨM MỸ",
+        "items": [
+          "Nghe hát – vận động: Cháu đi mẫu giáo; Cầm bút di màu, xếp chồng khối gỗ"
+        ]
+      }
+    ],
+    "weeklyObjectives": [
+      {
+        "domainKey": "PTTC",
+        "domainTitle": "1. Phát triển thể chất",
+        "goals": [
+          "Thực hiện được bài tập thể dục đơn giản và đi trong đường hẹp không dẫm vạch (MT1, MT2)."
+        ]
+      },
+      {
+        "domainKey": "PTNT",
+        "domainTitle": "2. Phát triển nhận thức",
+        "goals": [
+          "Nhận biết, gọi tên đúng đồ chơi quen thuộc và phân biệt màu đỏ – xanh (MT18, MT19)."
+        ]
+      },
+      {
+        "domainKey": "PTNN",
+        "domainTitle": "3. Phát triển ngôn ngữ",
+        "goals": [
+          "Lắng nghe và đọc theo cô bài thơ ngắn 4 câu (MT26)."
+        ]
+      },
+      {
+        "domainKey": "PT_TCKNXH",
+        "domainTitle": "4. Tình cảm – KNXH & Thẩm mỹ",
+        "goals": [
+          "Thích nghe hát, vỗ tay theo nhịp và biết cầm bút di màu (MT41, MT42)."
+        ]
+      }
+    ],
+    "etiquetteNotes": [
+      "Vẫy tay chào ba mẹ, khoanh tay chào cô khi đến lớp.",
+      "Chơi hòa đồng, không tranh giành đồ chơi của bạn."
+    ],
+    "laborHygieneNotes": [
+      "Tập tự cầm thìa xúcăn, uống nước bằng cốc không đổ.",
+      "Tập lau mặt, rửa tay với sự hỗ trợ của cô."
+    ],
+    "welcomeRoutineNotes": [
+      "Đón trẻ âu yếm, vỗ về trẻ mới đi học; trao đổi kỹ tình hìnhăn ngủ với phụ huynh."
+    ],
+    "praiseStandards": [
+      "Đến lớp vui vẻ, không khóc nhè.",
+      "Biếtăn ngoan, ngủ ngoan và chơi vui với bạn.",
+      "Biết cất đồ chơi vào rổ cùng cô."
+    ],
+    "praiseSongStart": "Cháu đi mẫu giáo",
+    "praiseSongWeekEnd": "Bé khỏe bé ngoan",
+    "morningExercise": {
+      "aims": [
+        "Trẻ vui vẻ tập theo cô các động tác đơn giản giúp cơ thể khỏe khoắn (MT1)."
+      ],
+      "preparation": [
+        "Sân tập sạch mát, nhạc thiếu nhi vui tươi."
+      ],
+      "warmup": "Cho trẻ đi vòng tròn nối đuôi nhau theo tiếng xắc xô (đi thường – đi nhanh – đi chậm).",
+      "moves": [
+        {
+          "group": "Hô hấp",
+          "name": "Thở 1: Gà gáy ò ó o (2 lần × 4 nhịp)",
+          "steps": "Hai tay khum trước miệng hít sâu rồi gáy vang."
+        },
+        {
+          "group": "Tay",
+          "name": "Tay 1: Hai tay đưa lên cao, hạ xuống (2 lần × 4 nhịp)",
+          "steps": "Đưa tay cao quá đầu rồi hạ nhẹ nhàng."
+        },
+        {
+          "group": "Bụng",
+          "name": "Bụng 1: Cúi người gõ đầu gối (2 lần × 4 nhịp)",
+          "steps": "Cúi người nhẹ nhàng vỗ tay lên đầu gối."
+        },
+        {
+          "group": "Chân",
+          "name": "Chân 1: Ngồi xổm đứng lên (2 lần × 4 nhịp)",
+          "steps": "Ngồi xổm xuống rồi đứng thẳng lên."
+        },
+        {
+          "group": "Bật",
+          "name": "Bật 1: Bật nhún tại chỗ như thỏ (2 lần × 4 nhịp)",
+          "steps": "Hai tay chống hông bật nhún nhẹ."
+        }
+      ],
+      "cooldown": "Đi nhẹ nhàng vẫy tay chim bay 1 vòng rồi vào lớp."
+    },
+    "outdoorTable": [
+      {
+        "category": "CHU_DICH",
+        "title": "Quan sát gần gũi sân trường & đồ chơi ngoài trời",
+        "requirements": [
+          "Trẻ gọi tên được cầu trượt, xích đu, cây xanh."
+        ],
+        "preparation": [
+          "Sân trường bằng phẳng, râm mát."
+        ],
+        "procedure": [
+          "Cô dắt trẻ dạo sân, chỉ gọi tên và trò chuyện ngắn 5–7 phút."
+        ]
+      },
+      {
+        "category": "TCVD",
+        "title": "TCVĐ: Bong bóng xà phòng / Trời nắng trời mưa",
+        "requirements": [
+          "Trẻ hào hứng chạy nhẹ theo hiệu lệnh của cô."
+        ],
+        "preparation": [
+          "Nước thổi bong bóng / vòng trú mưa."
+        ],
+        "procedure": [
+          "Cô thổi bong bóng cho trẻ đuổi bắt an toàn, chơi 3–4 lượt."
+        ]
+      },
+      {
+        "category": "TCDG",
+        "title": "TCDG: Dung dăng dung dẻ",
+        "requirements": [
+          "Trẻ nắm tay bạn đi nhịp nhàng đọc đồng dao."
+        ],
+        "preparation": [
+          "Sân sạch sẽ."
+        ],
+        "procedure": [
+          "Cô và trẻ nắm tay nhau vừa đi vừa đọc đồng dao."
+        ]
+      },
+      {
+        "category": "TU_DO",
+        "title": "Chơi tự do với bóng nhựa, xe lắc, cầu trượt nhỏ",
+        "requirements": [
+          "Chơi an toàn dưới sự bao quát sát sao của cô."
+        ],
+        "preparation": [
+          "Bóng nhựa mềm, xe chòi chân."
+        ],
+        "procedure": [
+          "Cô bao quát liên tục, lau mồ hôi và rửa tay cho trẻ vào lớp."
+        ]
+      }
+    ],
+    "cornerTable": [
+      {
+        "cornerName": "Góc phân vai (Thao tác vai)",
+        "contents": [
+          "Bế em búp bê, cho em ăn bột, ru em ngủ"
+        ],
+        "requirements": [
+          "Trẻ biếtâu yếm búp bê, bắt chước hành động chăm sóc."
+        ],
+        "preparation": [
+          "Búp bê, bình sữa, bát thìa nhựa mềm."
+        ],
+        "organization": [
+          "Cô nhập vai mẫu hướng dẫn trẻ cùng chơi."
+        ]
+      },
+      {
+        "cornerName": "Góc xây dựng (Hoạt động với đồ vật)",
+        "contents": [
+          "Xếp chồng 3–4 khối gỗ thành tháp, xếp hàng rào"
+        ],
+        "requirements": [
+          "Phát triển vận động tinh và phối hợp tay mắt."
+        ],
+        "preparation": [
+          "Khối gỗ xốp mềm nhiều màu sắc."
+        ],
+        "organization": [
+          "Cô gợi ý xếp tháp cao cùng nhóm 3–4 trẻ."
+        ]
+      },
+      {
+        "cornerName": "Góc nghệ thuật",
+        "contents": [
+          "Cầm bút sáp di màu tự do, lắc phách tre theo nhạc"
+        ],
+        "requirements": [
+          "Trẻ thích tạo nét màu và nghe âm thanh vui nhộn."
+        ],
+        "preparation": [
+          "Giấy A4, sáp màu to, xắc xô, trống lắc."
+        ],
+        "organization": [
+          "Khuyến khích trẻ cầm bút đúng tay và nghe nhạc nhẹ."
+        ]
+      },
+      {
+        "cornerName": "Góc học tập – Thư viện",
+        "contents": [
+          "Xem sách tranh khổ to nhiều màu sắc, ghép hình 2 mảnh"
+        ],
+        "requirements": [
+          "Biết lật từng trang sách vải/bìa cứng không xé rách."
+        ],
+        "preparation": [
+          "Sách tranh bìa cứng chủ đề trường lớp, bộ ghép hình đơn giản."
+        ],
+        "organization": [
+          "Cô ngồi cùng trẻ chỉ hình gọi tên."
+        ]
+      },
+      {
+        "cornerName": "Góc thiên nhiên",
+        "contents": [
+          "Chơi với nước – cát sạch, tưới cây lá nhỏ"
+        ],
+        "requirements": [
+          "Cảm nhận sự vật gần gũi qua giác quan."
+        ],
+        "preparation": [
+          "Chậu cây xanh thấp, bình tưới mini."
+        ],
+        "organization": [
+          "Cô hướng dẫn trẻ tưới nhẹ từng cây."
+        ]
+      }
+    ],
+    "days": [
+      {
+        "dayOfWeek": 2,
+        "dayLabel": "Thứ hai",
+        "dateStr": "2026-09-07",
+        "showPraiseStandards": true,
+        "outdoorObservation": "Dạo sân quan sát cầu trượt và bập bênh của lớp Nhà trẻ",
+        "mainLessons": [
+          {
+            "id": "nt_m1",
+            "slotType": "MAIN",
+            "domainTitle": "LĨNH VỰC PHÁT TRIỂN THỂ CHẤT",
+            "subjectCode": "PTVĐ",
+            "subjectFullTitle": "HOẠT ĐỘNG THỂ DỤC GIỜ HỌC",
+            "topicTitle": "VĐCB: Đi trong đường hẹp – TCVĐ: Lăn bóng cùng cô",
+            "subTopics": [],
+            "linkedMtCodes": [
+              "MT2",
+              "MT5"
+            ],
+            "aims": [
+              "Trẻ biết đi thẳng trong đường hẹp rộng 25cm không dẫm vạch (MT2).",
+              "Trẻ thích lăn bóng bằng 2 tay về phía cô (MT5)."
+            ],
+            "preparation": [
+              "Đường hẹp dán vạch sạch sẽ, 10 quả bóng nhựa mềm."
+            ],
+            "steps": [
+              {
+                "title": "Hoạt động 1: Khởi động & BTPTC",
+                "details": [
+                  "Đi vòng tròn theo nhạc, tập 3 động tác đơn giản tay – bụng – chân."
+                ]
+              },
+              {
+                "title": "Hoạt động 2: VĐCB Đi trong đường hẹp",
+                "details": [
+                  "Cô làm mẫu chậm 2 lần, dắt từng trẻ tập đi 2–3 lượt, vỗ tay khen trẻ."
+                ]
+              },
+              {
+                "title": "Hoạt động 3: TCVĐ Lăn bóng & Hồi tỉnh",
+                "details": [
+                  "Cô ngồi đối diện lăn bóng qua lại cùng trẻ rồi đi thả lỏng."
+                ]
+              }
+            ]
+          }
+        ],
+        "extracurricularTitle": "",
+        "afternoonLesson": {
+          "id": "nt_a1",
+          "slotType": "AFTERNOON",
+          "domainTitle": "TÌNH CẢM – KNXH & THẨM MỸ",
+          "subjectCode": "KNS",
+          "subjectFullTitle": "RÈN KỸ NĂNG TỰ PHỤC VỤ",
+          "topicTitle": "Tập nhận biết ký hiệu cốc uống nước và khăn mặt của bé",
+          "subTopics": [],
+          "linkedMtCodes": [
+            "MT11"
+          ],
+          "aims": [
+            "Trẻ chỉ đúng ký hiệu hình quả/hoa trên cốc và khăn của mình."
+          ],
+          "preparation": [
+            "Giá cốc, giá khăn dán hình ký hiệu rõ ràng."
+          ],
+          "steps": [
+            {
+              "title": "Thực hành",
+              "details": [
+                "Cô gọi từng nhóm 3–4 trẻ tìm đúng ký hiệu của mình và khen thưởng."
+              ]
+            }
+          ]
+        },
+        "evalHealth": "",
+        "evalEmotionBehavior": "",
+        "evalKnowledgeSkill": ""
+      },
+      {
+        "dayOfWeek": 3,
+        "dayLabel": "Thứ ba",
+        "dateStr": "2026-09-08",
+        "showPraiseStandards": false,
+        "outdoorObservation": "Quan sát hoa lá trong vườn trường",
+        "mainLessons": [
+          {
+            "id": "nt_m2",
+            "slotType": "MAIN",
+            "domainTitle": "LĨNH VỰC PHÁT TRIỂN NHẬN THỨC",
+            "subjectCode": "NBTN",
+            "subjectFullTitle": "NHẬN BIẾT TẬP NÓI",
+            "topicTitle": "Nhận biết gọi tên đồ chơi quen thuộc trong lớp (bóng, búp bê, ô tô)",
+            "subTopics": [],
+            "linkedMtCodes": [
+              "MT18",
+              "MT19"
+            ],
+            "aims": [
+              "Trẻ chỉ và gọi tên đúng quả bóng, búp bê, ô tô (MT18).",
+              "Rèn phátâm rõ từng từ ngắn."
+            ],
+            "preparation": [
+              "Hộp quà bí mật chứa quả bóng đỏ, búp bê, ô tô nhựa."
+            ],
+            "steps": [
+              {
+                "title": "Hoạt động 1: Hộp quà bí mật",
+                "details": [
+                  "Cô mở hộp quà tạo sự tò mò cho trẻ."
+                ]
+              },
+              {
+                "title": "Hoạt động 2: Quan sát & Tập nói",
+                "details": [
+                  "Cho trẻ sờ đồ chơi, cô phátâm mẫu chậm rãi, cả lớp và từng trẻ nói theo."
+                ]
+              },
+              {
+                "title": "Hoạt động 3: Trò chơi Chọn nhanh đồ chơi",
+                "details": [
+                  "Cô gọi tên đồ chơi, trẻ chọn đúng giơ lên."
+                ]
+              }
+            ]
+          }
+        ],
+        "extracurricularTitle": "",
+        "afternoonLesson": null,
+        "evalHealth": "",
+        "evalEmotionBehavior": "",
+        "evalKnowledgeSkill": ""
+      },
+      {
+        "dayOfWeek": 4,
+        "dayLabel": "Thứ tư",
+        "dateStr": "2026-09-09",
+        "showPraiseStandards": false,
+        "outdoorObservation": "Quan sát thời tiết nắngấm buổi sáng",
+        "mainLessons": [
+          {
+            "id": "nt_m3",
+            "slotType": "MAIN",
+            "domainTitle": "TÌNH CẢM – KNXH & THẨM MỸ",
+            "subjectCode": "GDAN",
+            "subjectFullTitle": "HOẠT ĐỘNG ÂM NHẠC",
+            "topicTitle": "Dạy hát: Cháu đi mẫu giáo – Nghe hát: Cô giáo",
+            "subTopics": [],
+            "linkedMtCodes": [
+              "MT41"
+            ],
+            "aims": [
+              "Trẻ thích nghe nhạc, vỗ tay và hát theo cô những câu ngắn trong bài Cháu đi mẫu giáo (MT41)."
+            ],
+            "preparation": [
+              "Nhạc beat vui tươi, xắc xô cho mỗi trẻ."
+            ],
+            "steps": [
+              {
+                "title": "Hoạt động 1: Gây hứng thú",
+                "details": [
+                  "Cô lắc xắc xô dẫn dắt vào bài hát."
+                ]
+              },
+              {
+                "title": "Hoạt động 2: Hát và vận động vui vẻ",
+                "details": [
+                  "Cô hát mẫu diễn cảm 2 lần, cho trẻ vỗ tay đung đưa hát theo cô."
+                ]
+              },
+              {
+                "title": "Hoạt động 3: Nghe hát Cô giáo",
+                "details": [
+                  "Cô hát dịu dàng giao lưu ômấp cùng trẻ."
+                ]
+              }
+            ]
+          }
+        ],
+        "extracurricularTitle": "",
+        "afternoonLesson": null,
+        "evalHealth": "",
+        "evalEmotionBehavior": "",
+        "evalKnowledgeSkill": ""
+      },
+      {
+        "dayOfWeek": 5,
+        "dayLabel": "Thứ năm",
+        "dateStr": "2026-09-10",
+        "showPraiseStandards": false,
+        "outdoorObservation": "Quan sát các anh chị lớp lớn tập thể dục",
+        "mainLessons": [
+          {
+            "id": "nt_m4",
+            "slotType": "MAIN",
+            "domainTitle": "LĨNH VỰC PHÁT TRIỂN NGÔN NGỮ",
+            "subjectCode": "LQVH",
+            "subjectFullTitle": "HOẠT ĐỘNG LÀM QUEN VĂN HỌC",
+            "topicTitle": "Đọc thơ: Bạn mới (Nguyệt Mai)",
+            "subTopics": [],
+            "linkedMtCodes": [
+              "MT24",
+              "MT26"
+            ],
+            "aims": [
+              "Trẻ lắng nghe cô đọc thơ và đọc theo những từ cuối câu đơn giản (MT26)."
+            ],
+            "preparation": [
+              "Tranh minh họa em bé đến lớp vui vẻ cùng bạn."
+            ],
+            "steps": [
+              {
+                "title": "Hoạt động 1: Trò chuyện về bạn mới",
+                "details": [
+                  "Giới thiệu bài thơ Bạn mới."
+                ]
+              },
+              {
+                "title": "Hoạt động 2: Cô đọc thơ diễn cảm",
+                "details": [
+                  "Đọc lần 1 diễn cảm, lần 2 kết hợp chỉ tranh minh họa."
+                ]
+              },
+              {
+                "title": "Hoạt động 3: Trẻ đọc thơ cùng cô",
+                "details": [
+                  "Đọc chậm rãi cùng cả lớp và từng nhóm nhỏ 3–4 trẻ."
+                ]
+              }
+            ]
+          }
+        ],
+        "extracurricularTitle": "",
+        "afternoonLesson": null,
+        "evalHealth": "",
+        "evalEmotionBehavior": "",
+        "evalKnowledgeSkill": ""
+      },
+      {
+        "dayOfWeek": 6,
+        "dayLabel": "Thứ sáu",
+        "dateStr": "2026-09-11",
+        "showPraiseStandards": false,
+        "outdoorObservation": "Quan sát cây xanh và chim hót trên sân trường",
+        "mainLessons": [
+          {
+            "id": "nt_m5",
+            "slotType": "MAIN",
+            "domainTitle": "TÌNH CẢM – KNXH & THẨM MỸ",
+            "subjectCode": "Tạo hình",
+            "subjectFullTitle": "HOẠT ĐỘNG TẠO HÌNH",
+            "topicTitle": "Tập cầm bút sáp di màu quả bóng đỏ",
+            "subTopics": [],
+            "linkedMtCodes": [
+              "MT42"
+            ],
+            "aims": [
+              "Trẻ biết cầm bút sáp bằng tay phải và di màu kín hình quả bóng (MT42)."
+            ],
+            "preparation": [
+              "Tranh vẽ sẵn hình quả bóng to, bút sáp màu đỏ thân to dễ cầm."
+            ],
+            "steps": [
+              {
+                "title": "Hoạt động 1: Xem quả bóng màu đỏ",
+                "details": [
+                  "Cho trẻ quan sát quả bóng thật và tranh mẫu."
+                ]
+              },
+              {
+                "title": "Hoạt động 2: Cô làm mẫu cầm bút di màu",
+                "details": [
+                  "Hướng dẫn từng trẻ cách cầm bút, tay kia giữ giấy."
+                ]
+              },
+              {
+                "title": "Hoạt động 3: Trẻ di màu & Khen ngợi",
+                "details": [
+                  "Cô cầm tay hỗ trợ trẻ còn yếu và trưng bày khen ngợi tất cả trẻ."
+                ]
+              }
+            ]
+          }
+        ],
+        "extracurricularTitle": "",
+        "afternoonLesson": {
+          "id": "nt_a5",
+          "slotType": "AFTERNOON",
+          "domainTitle": "TÌNH CẢM – KNXH & THẨM MỸ",
+          "subjectCode": "KNS",
+          "subjectFullTitle": "NÊU GƯƠNG CUỐI TUẦN",
+          "topicTitle": "Văn nghệ cuối tuần & Phát phiếu bé ngoan",
+          "subTopics": [],
+          "linkedMtCodes": [
+            "MT39"
+          ],
+          "aims": [
+            "Trẻ vui vẻ vỗ tay chúc mừng bạn và nhận phiếu bé ngoan."
+          ],
+          "preparation": [
+            "Phiếu bé ngoan, nhạc vui cuối tuần."
+          ],
+          "steps": [
+            {
+              "title": "Tổ chức",
+              "details": [
+                "Cô khen ngợi cả lớp đi học ngoan và phát phiếu bé ngoan cho trẻ mang về khoe ba mẹ."
+              ]
+            }
+          ]
+        },
+        "evalHealth": "",
+        "evalEmotionBehavior": "",
+        "evalKnowledgeSkill": ""
+      }
+    ]
+  }
+]
