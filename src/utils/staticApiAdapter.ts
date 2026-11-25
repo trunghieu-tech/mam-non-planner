@@ -207,18 +207,24 @@ export async function initStaticApiIfNeeded(): Promise<void> {
     return list;
   };
 
+  let cachedSeedMedia: SharedMediaResource[] | null = null;
+
   const getMediaList = async (): Promise<SharedMediaResource[]> => {
+    if (!cachedSeedMedia) {
+      cachedSeedMedia = await fetchStaticJson<SharedMediaResource[]>('media_resources.json', []);
+    }
+    let userItems: SharedMediaResource[] = [];
     const rawLs = localStorage.getItem(LS_KEYS.MEDIA);
     if (rawLs) {
       try {
-        return JSON.parse(rawLs) as SharedMediaResource[];
+        const parsed = JSON.parse(rawLs) as SharedMediaResource[];
+        userItems = parsed.filter((x) => x.id.startsWith('med_17') || x.id.startsWith('med_user_'));
       } catch {
         // ignore
       }
     }
-    const list = await fetchStaticJson<SharedMediaResource[]>('media_resources.json', []);
-    localStorage.setItem(LS_KEYS.MEDIA, JSON.stringify(list));
-    return list;
+    const seen = new Set(userItems.map((x) => x.id));
+    return [...userItems, ...cachedSeedMedia.filter((x) => !seen.has(x.id))];
   };
 
   const getCrawledDocs = async (): Promise<StaticCrawledDoc[]> => {
@@ -505,13 +511,13 @@ export async function initStaticApiIfNeeded(): Promise<void> {
           const ageGroupId = sp.get('ageGroupId') || '';
           const subjectCode = sp.get('subjectCode') || '';
           const kind = sp.get('kind') || '';
-          const q = (sp.get('q') || '').trim().toLowerCase();
+          const q = normVN(sp.get('q') || '');
           return jsonResponse({
             items: list.filter((m) => {
               if (ageGroupId && ageGroupId !== 'ALL' && m.ageGroupId !== 'ALL' && m.ageGroupId !== ageGroupId) return false;
               if (subjectCode && subjectCode !== 'ALL' && m.subjectCode !== 'ALL' && m.subjectCode !== subjectCode) return false;
               if (kind && kind !== 'ALL' && m.kind !== kind) return false;
-              if (q && !`${m.title} ${m.themeName} ${m.subjectCode} ${m.author}`.toLowerCase().includes(q)) return false;
+              if (q && !normVN(`${m.title} ${m.themeName} ${m.subjectCode} ${m.author}`).includes(q)) return false;
               return true;
             }),
           });
@@ -523,10 +529,11 @@ export async function initStaticApiIfNeeded(): Promise<void> {
             id: body.id || `med_${Date.now()}`,
             createdAt: body.createdAt || new Date().toISOString(),
           };
-          const idx = list.findIndex((x) => x.id === saved.id);
-          if (idx >= 0) list[idx] = saved;
-          else list.unshift(saved);
-          localStorage.setItem(LS_KEYS.MEDIA, JSON.stringify(list));
+          const userOnly = list.filter((x) => x.id.startsWith('med_17') || x.id.startsWith('med_user_'));
+          const idx = userOnly.findIndex((x) => x.id === saved.id);
+          if (idx >= 0) userOnly[idx] = saved;
+          else userOnly.unshift(saved);
+          localStorage.setItem(LS_KEYS.MEDIA, JSON.stringify(userOnly));
           return jsonResponse({ item: saved });
         }
       }
@@ -534,7 +541,10 @@ export async function initStaticApiIfNeeded(): Promise<void> {
       if (apiPath.startsWith('/api/media/') && method === 'DELETE') {
         const id = decodeURIComponent(apiPath.split('/').pop() || '');
         const list = await getMediaList();
-        localStorage.setItem(LS_KEYS.MEDIA, JSON.stringify(list.filter((x) => x.id !== id)));
+        const userOnly = list.filter(
+          (x) => (x.id.startsWith('med_17') || x.id.startsWith('med_user_')) && x.id !== id
+        );
+        localStorage.setItem(LS_KEYS.MEDIA, JSON.stringify(userOnly));
         return jsonResponse({ ok: true });
       }
 

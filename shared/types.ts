@@ -285,12 +285,16 @@ export interface SavedLessonTemplate {
   createdAt: string;
 }
 
-/** Tài nguyên Kho Media & Học liệu điện tử chia sẻ (YC-053) */
+/** Tài nguyên Kho Media & Học liệu điện tử chia sẻ (YC-053, YC-064) */
 export interface SharedMediaResource {
   id: string;
   kind: 'VIDEO' | 'SLIDE' | 'IMAGE' | 'ELEARNING' | 'DOC';
   title: string;
   url: string;
+  sourceUrl?: string;
+  thumbnailUrl?: string;
+  fileExt?: string;
+  galleryUrls?: string[];
   subjectCode: string;
   ageGroupId: AgeGroupId | 'ALL';
   themeName: string;

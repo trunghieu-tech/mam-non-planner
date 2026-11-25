@@ -674,9 +674,16 @@ export function getMediaResources(opts?: {
   if (!fs.existsSync(MEDIA_PATH)) {
     fs.writeFileSync(MEDIA_PATH, JSON.stringify(DEFAULT_MEDIA_RESOURCES, null, 2), 'utf-8');
   }
+  const stripVN = (s: string) =>
+    (s || '')
+      .replace(/đ/g, 'd')
+      .replace(/Đ/g, 'D')
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase();
   try {
     const all = JSON.parse(fs.readFileSync(MEDIA_PATH, 'utf-8')) as SharedMediaResource[];
-    const qLower = (opts?.q || '').trim().toLowerCase();
+    const qNorm = stripVN((opts?.q || '').trim());
     return all.filter((m) => {
       if (opts?.ageGroupId && opts.ageGroupId !== 'ALL' && m.ageGroupId !== 'ALL' && m.ageGroupId !== opts.ageGroupId) {
         return false;
@@ -685,7 +692,7 @@ export function getMediaResources(opts?: {
         return false;
       }
       if (opts?.kind && opts.kind !== 'ALL' && m.kind !== opts.kind) return false;
-      if (qLower && !`${m.title} ${m.themeName} ${m.subjectCode} ${m.author}`.toLowerCase().includes(qLower)) {
+      if (qNorm && !stripVN(`${m.title} ${m.themeName} ${m.subjectCode} ${m.author}`).includes(qNorm)) {
         return false;
       }
       return true;

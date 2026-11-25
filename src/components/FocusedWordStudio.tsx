@@ -907,7 +907,7 @@ export const FocusedWordStudio: React.FC<Props> = ({
                   >
                     + Đính kèm
                   </button>
-                  {mediaSuggestions.slice(0, 2).map((ms) => (
+                  {mediaSuggestions.slice(0, 4).map((ms) => (
                     <button
                       key={ms.id}
                       type="button"
@@ -920,9 +920,16 @@ export const FocusedWordStudio: React.FC<Props> = ({
                       }
                       className="rounded-lg border border-sky-200 bg-white px-2 py-1 text-[10px] font-semibold text-sky-800 hover:bg-sky-100"
                     >
-                      + Gợi ý: {ms.title.slice(0, 26)}...
+                      + [{ms.kind === 'SLIDE' ? 'PPT' : ms.kind === 'VIDEO' ? 'Clip' : ms.kind}] {ms.title.slice(0, 28)}...
                     </button>
                   ))}
+                  <button
+                    type="button"
+                    onClick={() => onOpenFullLibrary('media')}
+                    className="rounded-lg border border-[#0B6E5C]/30 bg-white px-2.5 py-1 text-[10px] font-bold text-[#0B6E5C] hover:bg-[#E6F4F1]"
+                  >
+                    Mở Kho PPT / Clip / Ảnh →
+                  </button>
                 </div>
               </div>
             )}
@@ -984,6 +991,10 @@ export const FocusedWordStudio: React.FC<Props> = ({
             linkedMtCodes={activeLesson.linkedMtCodes || []}
             templatesRevision={templatesRevision}
             onApplyTemplate={handleApplySavedTemplate}
+            onAttachMedia={(item) => {
+              handleAttachMediaItem(item);
+              setShowMediaBar(true);
+            }}
             onInsertHtml={handleInsertHtmlAtCursor}
             onToggleLessonMt={handleToggleLessonMt}
             onOpenFullLibrary={onOpenFullLibrary}

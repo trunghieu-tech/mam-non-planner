@@ -41,12 +41,25 @@ interface Props {
 }
 
 const MEDIA_KIND_LABELS: Record<SharedMediaResource['kind'], string> = {
-  VIDEO: 'Video giảng dạy',
-  SLIDE: 'Bài giảng PowerPoint',
-  ELEARNING: 'Bài giảng E-Learning',
-  IMAGE: 'Tranh ảnh trực quan',
-  DOC: 'Văn bản / SKKN',
+  VIDEO: 'Video / Clip',
+  SLIDE: 'PowerPoint',
+  ELEARNING: 'E-Learning',
+  IMAGE: 'Tranh ảnh',
+  DOC: 'Tài liệu',
 };
+
+const MEDIA_KIND_BADGE: Record<SharedMediaResource['kind'], string> = {
+  VIDEO: 'bg-rose-50 text-rose-800 ring-1 ring-rose-200',
+  SLIDE: 'bg-amber-50 text-amber-900 ring-1 ring-amber-200',
+  ELEARNING: 'bg-violet-50 text-violet-800 ring-1 ring-violet-200',
+  IMAGE: 'bg-sky-50 text-sky-800 ring-1 ring-sky-200',
+  DOC: 'bg-emerald-50 text-emerald-800 ring-1 ring-emerald-200',
+};
+
+function toYoutubeEmbed(url: string): string | null {
+  const m = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([A-Za-z0-9_-]{11})/);
+  return m ? `https://www.youtube.com/embed/${m[1]}` : null;
+}
 
 export const ReferenceLibraryModal: React.FC<Props> = ({
   initialTab,
@@ -65,10 +78,13 @@ export const ReferenceLibraryModal: React.FC<Props> = ({
   const [workKind, setWorkKind] = useState<'ALL' | 'POEM' | 'STORY' | 'SONG' | 'LQCC'>('ALL');
   const [workQuery, setWorkQuery] = useState('');
 
-  // State cho Kho Media & Bài giảng mẫu cá nhân (YC-053)
+  // State cho Kho Media & Bài giảng mẫu cá nhân (YC-053, YC-064)
+  const [mediaAgeFilter, setMediaAgeFilter] = useState<'ALL' | AgeGroupId>('ALL');
+  const [mediaSubjFilter, setMediaSubjFilter] = useState<string>('ALL');
   const [mediaKind, setMediaKind] = useState<'ALL' | SharedMediaResource['kind']>('ALL');
   const [mediaQuery, setMediaQuery] = useState('');
-  const [mediaList, setMediaList] = useState<SharedMediaResource[]>([]);
+  const [allMediaPool, setAllMediaPool] = useState<SharedMediaResource[]>([]);
+  const [previewMedia, setPreviewMedia] = useState<SharedMediaResource | null>(null);
   const [savedTemplates, setSavedTemplates] = useState<SavedLessonTemplate[]>([]);
   const [showAddMedia, setShowAddMedia] = useState(false);
   const [newMediaTitle, setNewMediaTitle] = useState('');
@@ -82,13 +98,14 @@ export const ReferenceLibraryModal: React.FC<Props> = ({
   }, [selectedAgeGroup, workKind, workQuery]);
 
   const loadMediaAndTemplates = () => {
-    const pm = new URLSearchParams({ ageGroupId: selectedAgeGroup });
-    if (mediaKind !== 'ALL') pm.set('kind', mediaKind);
+    const pm = new URLSearchParams();
+    if (mediaAgeFilter !== 'ALL') pm.set('ageGroupId', mediaAgeFilter);
+    if (mediaSubjFilter !== 'ALL') pm.set('subjectCode', mediaSubjFilter);
     if (mediaQuery.trim()) pm.set('q', mediaQuery.trim());
     fetch(`/api/media?${pm.toString()}`)
       .then((r) => r.json())
-      .then((d) => setMediaList(d.items || []))
-      .catch(() => setMediaList([]));
+      .then((d) => setAllMediaPool(d.items || []))
+      .catch(() => setAllMediaPool([]));
 
     fetch(`/api/templates?ageGroupId=${selectedAgeGroup}`)
       .then((r) => r.json())
@@ -100,7 +117,20 @@ export const ReferenceLibraryModal: React.FC<Props> = ({
     if (tab === 'media') {
       loadMediaAndTemplates();
     }
-  }, [tab, selectedAgeGroup, mediaKind, mediaQuery]);
+  }, [tab, selectedAgeGroup, mediaAgeFilter, mediaSubjFilter, mediaQuery]);
+
+  const mediaCountsByKind = useMemo(() => {
+    const counts: Record<string, number> = { ALL: allMediaPool.length };
+    for (const m of allMediaPool) {
+      counts[m.kind] = (counts[m.kind] || 0) + 1;
+    }
+    return counts;
+  }, [allMediaPool]);
+
+  const mediaList = useMemo(
+    () => (mediaKind === 'ALL' ? allMediaPool : allMediaPool.filter((m) => m.kind === mediaKind)),
+    [allMediaPool, mediaKind]
+  );
 
   const handleCreateMedia = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -126,7 +156,7 @@ export const ReferenceLibraryModal: React.FC<Props> = ({
 
   const handleDeleteMedia = async (id: string) => {
     await fetch(`/api/media/${id}`, { method: 'DELETE' });
-    setMediaList((prev) => prev.filter((m) => m.id !== id));
+    setAllMediaPool((prev) => prev.filter((m) => m.id !== id));
   };
 
   const handleDeleteTemplate = async (id: string) => {
@@ -363,15 +393,15 @@ export const ReferenceLibraryModal: React.FC<Props> = ({
                 )}
               </div>
 
-              {/* Khối 2: Kho Học liệu Điện tử & Media chia sẻ (Video / Slide / E-Learning / Ảnh) */}
+              {/* Khối 2: Kho Học liệu Điện tử & Media chia sẻ (Video / Slide / E-Learning / Ảnh / Tài liệu) */}
               <div className="rounded-2xl border border-slate-200 bg-white p-4">
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <div>
                     <h4 className="text-sm font-bold text-slate-900">
-                      Kho Học liệu Điện tử &amp; Media Giảng dạy ({mediaList.length})
+                      Kho Học liệu Điện tử, PowerPoint, Clip &amp; Tranh ảnh ({mediaList.length})
                     </h4>
                     <p className="text-xs text-slate-500">
-                      Quản lý link Video YouTube, Slide PowerPoint, E-Learning và tranh trực quan phục vụ tiết dạy
+                      Tài liệu thực tế từ hệ thống trường mầm non công lập: tải trực tiếp PowerPoint (.pptx), xem clip tiết dạy (.mp4), bộ tranh ảnh và E-Learning
                     </p>
                   </div>
                   <button
@@ -430,77 +460,259 @@ export const ReferenceLibraryModal: React.FC<Props> = ({
                   </form>
                 )}
 
-                <div className="mt-3 flex flex-wrap items-center justify-between gap-2">
-                  <div className="flex flex-wrap gap-1.5">
-                    {(
-                      [
-                        { id: 'ALL', label: 'Tất cả' },
-                        { id: 'VIDEO', label: 'Video' },
-                        { id: 'SLIDE', label: 'PowerPoint' },
-                        { id: 'ELEARNING', label: 'E-Learning' },
-                        { id: 'IMAGE', label: 'Tranh ảnh' },
-                        { id: 'DOC', label: 'Văn bản' },
-                      ] as const
-                    ).map((k) => (
-                      <button
-                        key={k.id}
-                        onClick={() => setMediaKind(k.id)}
-                        className={`rounded-lg px-2.5 py-1 text-xs font-semibold transition ${
-                          mediaKind === k.id
-                            ? 'bg-[#E6F4F1] text-[#0B6E5C]'
-                            : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
-                        }`}
+                {/* Bộ lọc đa chiều: Loại học liệu + Khối độ tuổi + Bộ môn + Tìm kiếm */}
+                <div className="mt-3.5 space-y-2.5 border-t border-slate-100 pt-3">
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <div className="flex flex-wrap gap-1.5">
+                      {(
+                        [
+                          { id: 'ALL', label: 'Tất cả' },
+                          { id: 'SLIDE', label: 'PowerPoint' },
+                          { id: 'VIDEO', label: 'Video / Clip' },
+                          { id: 'IMAGE', label: 'Tranh ảnh' },
+                          { id: 'ELEARNING', label: 'E-Learning' },
+                          { id: 'DOC', label: 'Tài liệu' },
+                        ] as const
+                      ).map((k) => (
+                        <button
+                          key={k.id}
+                          onClick={() => setMediaKind(k.id)}
+                          className={`rounded-lg px-2.5 py-1 text-xs font-semibold transition ${
+                            mediaKind === k.id
+                              ? 'bg-[#0B6E5C] text-white'
+                              : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+                          }`}
+                        >
+                          {k.label} ({mediaCountsByKind[k.id] || 0})
+                        </button>
+                      ))}
+                    </div>
+
+                    <div className="flex flex-wrap items-center gap-2">
+                      <select
+                        value={mediaAgeFilter}
+                        onChange={(e) => setMediaAgeFilter(e.target.value as 'ALL' | AgeGroupId)}
+                        className="rounded-xl border border-slate-200 bg-slate-50 px-2.5 py-1.5 text-xs font-semibold text-slate-700"
                       >
-                        {k.label}
-                      </button>
-                    ))}
+                        <option value="ALL">Tất cả độ tuổi</option>
+                        {dataset.ageGroups.map((ag) => (
+                          <option key={ag.id} value={ag.id}>
+                            {ag.name}
+                          </option>
+                        ))}
+                      </select>
+
+                      <select
+                        value={mediaSubjFilter}
+                        onChange={(e) => setMediaSubjFilter(e.target.value)}
+                        className="rounded-xl border border-slate-200 bg-slate-50 px-2.5 py-1.5 text-xs font-semibold text-slate-700"
+                      >
+                        <option value="ALL">Tất cả bộ môn</option>
+                        {['MTXQ', 'LQVT', 'LQVH', 'GDAN', 'Tạo hình', 'PTVĐ', 'KNS', 'LQCC', 'NBTN'].map((sc) => (
+                          <option key={sc} value={sc}>
+                            {sc}
+                          </option>
+                        ))}
+                      </select>
+
+                      <input
+                        value={mediaQuery}
+                        onChange={(e) => setMediaQuery(e.target.value)}
+                        placeholder="Tìm tên bài giảng, trường, chủ đề..."
+                        className="w-56 rounded-xl border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs focus:border-[#0B6E5C] focus:bg-white focus:outline-none"
+                      />
+                    </div>
                   </div>
-                  <input
-                    value={mediaQuery}
-                    onChange={(e) => setMediaQuery(e.target.value)}
-                    placeholder="Tìm học liệu..."
-                    className="w-52 rounded-xl border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs focus:border-[#0B6E5C] focus:bg-white focus:outline-none"
-                  />
                 </div>
 
-                <div className="mt-3 grid gap-3 md:grid-cols-2">
-                  {mediaList.map((m) => (
-                    <div
-                      key={m.id}
-                      className="flex items-start justify-between gap-3 rounded-xl border border-slate-200 bg-slate-50/50 p-3.5 text-xs"
-                    >
-                      <div className="min-w-0">
-                        <div className="flex items-center gap-1.5">
-                          <span className="rounded bg-[#E6F4F1] px-2 py-0.5 text-[10px] font-bold text-[#0B6E5C]">
-                            {MEDIA_KIND_LABELS[m.kind]}
-                          </span>
-                          <span className="text-[11px] font-semibold text-slate-500">{m.subjectCode}</span>
+                {/* Khung xem trực tiếp Video Clip / Bộ tranh ảnh ngay trong trang */}
+                {previewMedia && (
+                  <div className="mt-3 rounded-2xl border-2 border-[#0B6E5C] bg-slate-900 p-4 text-white">
+                    <div className="flex items-start justify-between gap-3 pb-3">
+                      <div>
+                        <div className="text-[11px] font-bold uppercase text-emerald-300">
+                          {MEDIA_KIND_LABELS[previewMedia.kind]} · {previewMedia.subjectCode} · {previewMedia.author}
                         </div>
-                        <div className="mt-1.5 font-bold text-slate-900">{m.title}</div>
-                        <div className="mt-0.5 text-[11px] text-slate-400">
-                          {m.themeName} · {m.author}
-                        </div>
+                        <div className="mt-0.5 text-sm font-bold">{previewMedia.title}</div>
                       </div>
-                      <div className="flex shrink-0 items-center gap-1">
-                        <a
-                          href={m.url}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="rounded-lg border border-slate-200 bg-white px-2.5 py-1 text-xs font-semibold text-slate-700 hover:border-[#0B6E5C] hover:text-[#0B6E5C]"
-                        >
-                          Mở xem
-                        </a>
-                        {m.id.startsWith('med_17') && (
-                          <button
-                            onClick={() => handleDeleteMedia(m.id)}
-                            className="rounded p-1 text-slate-400 hover:text-rose-600"
-                          >
-                            <Trash2 className="h-3.5 w-3.5" />
-                          </button>
-                        )}
-                      </div>
+                      <button
+                        onClick={() => setPreviewMedia(null)}
+                        className="rounded-lg bg-white/10 p-1.5 text-white hover:bg-white/20"
+                      >
+                        <X className="h-4 w-4" />
+                      </button>
                     </div>
-                  ))}
+
+                    {previewMedia.url.match(/\.(mp4|webm)(\?|$|#)/i) ? (
+                      <video
+                        controls
+                        autoPlay
+                        src={previewMedia.url}
+                        className="max-h-[380px] w-full rounded-xl bg-black"
+                      />
+                    ) : toYoutubeEmbed(previewMedia.url) ? (
+                      <iframe
+                        src={toYoutubeEmbed(previewMedia.url) || ''}
+                        title={previewMedia.title}
+                        allowFullScreen
+                        className="h-[380px] w-full rounded-xl bg-black"
+                      />
+                    ) : (
+                      <div className="grid max-h-[400px] gap-3 overflow-y-auto sm:grid-cols-2 md:grid-cols-3">
+                        {(previewMedia.galleryUrls?.length
+                          ? previewMedia.galleryUrls
+                          : previewMedia.thumbnailUrl
+                          ? [previewMedia.thumbnailUrl]
+                          : [previewMedia.url]
+                        ).map((imgUrl, idx) => (
+                          <a
+                            key={idx}
+                            href={imgUrl}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="overflow-hidden rounded-xl bg-slate-800"
+                          >
+                            <img
+                              src={imgUrl}
+                              alt={`${previewMedia.title} - ${idx + 1}`}
+                              loading="lazy"
+                              className="h-48 w-full object-cover transition hover:scale-105"
+                            />
+                          </a>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                )}
+
+                <div className="mt-3.5 grid gap-3 md:grid-cols-2 lg:grid-cols-3">
+                  {mediaList.map((m) => {
+                    const canPreviewInline =
+                      Boolean(m.url.match(/\.(mp4|webm)(\?|$|#)/i)) ||
+                      Boolean(toYoutubeEmbed(m.url)) ||
+                      m.kind === 'IMAGE' ||
+                      Boolean(m.galleryUrls?.length);
+                    const ageShort =
+                      m.ageGroupId === 'ALL'
+                        ? 'Mọi độ tuổi'
+                        : dataset.ageGroups.find((g) => g.id === m.ageGroupId)?.short || m.ageGroupId;
+
+                    return (
+                      <div
+                        key={m.id}
+                        className="flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xs transition hover:border-slate-300"
+                      >
+                        <div>
+                          {m.thumbnailUrl && (
+                            <div
+                              onClick={() => {
+                                if (canPreviewInline) setPreviewMedia(m);
+                              }}
+                              className={`relative h-36 w-full overflow-hidden bg-slate-100 ${
+                                canPreviewInline ? 'cursor-pointer' : ''
+                              }`}
+                            >
+                              <img
+                                src={m.thumbnailUrl}
+                                alt={m.title}
+                                loading="lazy"
+                                onError={(e) => {
+                                  const wrap = e.currentTarget.parentElement;
+                                  if (wrap) wrap.style.display = 'none';
+                                }}
+                                className="h-full w-full object-cover"
+                              />
+                              {m.fileExt && (
+                                <span className="absolute top-2 right-2 rounded bg-slate-900/75 px-1.5 py-0.5 text-[10px] font-bold uppercase text-white">
+                                  {m.fileExt}
+                                </span>
+                              )}
+                            </div>
+                          )}
+
+                          <div className="p-3.5 text-xs">
+                            <div className="flex flex-wrap items-center gap-1.5">
+                              <span className={`rounded px-2 py-0.5 text-[10px] font-bold ${MEDIA_KIND_BADGE[m.kind]}`}>
+                                {MEDIA_KIND_LABELS[m.kind]}
+                              </span>
+                              <span className="rounded bg-slate-100 px-1.5 py-0.5 text-[10px] font-semibold text-slate-700">
+                                {m.subjectCode}
+                              </span>
+                              <span className="text-[10px] text-slate-400">{ageShort}</span>
+                            </div>
+
+                            <div className="mt-1.5 line-clamp-2 font-bold leading-snug text-slate-900">
+                              {m.title}
+                            </div>
+                            <div className="mt-1 truncate text-[11px] text-slate-500">
+                              {m.author}
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="flex flex-wrap items-center justify-between gap-1.5 border-t border-slate-100 bg-slate-50/70 px-3.5 py-2.5 text-[11px]">
+                          <div className="flex flex-wrap items-center gap-1.5">
+                            {canPreviewInline && (
+                              <button
+                                type="button"
+                                onClick={() => setPreviewMedia(m)}
+                                className="rounded-lg bg-[#0B6E5C] px-2.5 py-1 font-bold text-white hover:bg-[#085A4B]"
+                              >
+                                {m.kind === 'IMAGE'
+                                  ? `Xem ảnh${m.galleryUrls?.length ? ` (${m.galleryUrls.length})` : ''}`
+                                  : 'Xem clip'}
+                              </button>
+                            )}
+                            <a
+                              href={m.url}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="rounded-lg border border-slate-200 bg-white px-2.5 py-1 font-semibold text-slate-700 hover:border-[#0B6E5C] hover:text-[#0B6E5C]"
+                            >
+                              {m.kind === 'SLIDE'
+                                ? 'Tải PPT'
+                                : m.kind === 'DOC'
+                                ? 'Mở tài liệu'
+                                : 'Mở file'}
+                            </a>
+                            {m.sourceUrl && m.sourceUrl !== m.url && (
+                              <a
+                                href={m.sourceUrl}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="px-1 font-semibold text-slate-400 hover:text-[#0B6E5C] hover:underline"
+                              >
+                                Bài gốc ↗
+                              </a>
+                            )}
+                          </div>
+
+                          <div className="flex items-center gap-1">
+                            <button
+                              type="button"
+                              onClick={() => {
+                                const subj = m.subjectCode === 'ALL' ? 'MTXQ' : m.subjectCode;
+                                const ag = m.ageGroupId === 'ALL' ? selectedAgeGroup : m.ageGroupId;
+                                onInsertCrawledLesson({ subject: subj, topic: m.title }, '', ag);
+                                onClose();
+                              }}
+                              className="rounded-lg bg-emerald-50 px-2 py-1 font-bold text-[#0B6E5C] ring-1 ring-emerald-200 hover:bg-[#0B6E5C] hover:text-white"
+                            >
+                              + Xếp tiết
+                            </button>
+                            {(m.id.startsWith('med_17') || m.id.startsWith('med_user_')) && (
+                              <button
+                                onClick={() => handleDeleteMedia(m.id)}
+                                className="rounded p-1 text-slate-400 hover:text-rose-600"
+                              >
+                                <Trash2 className="h-3.5 w-3.5" />
+                              </button>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             </div>

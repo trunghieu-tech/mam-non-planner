@@ -1,9 +1,11 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { Trash2, X } from 'lucide-react';
 import type {
+  LessonMediaAttachment,
   ObjectiveItem,
   ObjectivesDataset,
   SavedLessonTemplate,
+  SharedMediaResource,
   WeeklyPlanDocument,
 } from '../../shared/types';
 import type { SmartInsertOptions } from '../utils/editorInsert';
@@ -32,9 +34,10 @@ interface Props {
   linkedMtCodes: string[];
   templatesRevision?: number;
   onApplyTemplate?: (tpl: SavedLessonTemplate) => void;
+  onAttachMedia?: (item: Omit<LessonMediaAttachment, 'id'>) => void;
   onInsertHtml: (html: string, label: string, opts?: SmartInsertOptions) => void;
   onToggleLessonMt: (mtCode: string) => void;
-  onOpenFullLibrary: (tab: 'bank' | 'crawled') => void;
+  onOpenFullLibrary: (tab: 'bank' | 'crawled' | 'works' | 'media') => void;
   onClose: () => void;
 }
 
@@ -45,15 +48,17 @@ export const FocusedAssistant: React.FC<Props> = ({
   linkedMtCodes,
   templatesRevision = 1,
   onApplyTemplate,
+  onAttachMedia,
   onInsertHtml,
   onToggleLessonMt,
   onOpenFullLibrary,
   onClose,
 }) => {
   const [lockSubject, setLockSubject] = useState(true);
-  const [tab, setTab] = useState<'blocks' | 'works' | 'lessons' | 'mt'>('blocks');
+  const [tab, setTab] = useState<'blocks' | 'works' | 'media' | 'lessons' | 'mt'>('blocks');
   const [search, setSearch] = useState('');
   const [lessons, setLessons] = useState<CrawledLessonRow[]>([]);
+  const [mediaItems, setMediaItems] = useState<SharedMediaResource[]>([]);
   const [savedTemplates, setSavedTemplates] = useState<SavedLessonTemplate[]>([]);
   const [kbByMt, setKbByMt] = useState<
     Record<
@@ -111,6 +116,16 @@ export const FocusedAssistant: React.FC<Props> = ({
   };
 
   useEffect(() => {
+    const pm = new URLSearchParams({ ageGroupId: plan.ageGroupId });
+    if (lockSubject) pm.set('subjectCode', subjectMeta.code);
+    if (search.trim()) pm.set('q', search.trim());
+    fetch(`/api/media?${pm.toString()}`)
+      .then((r) => r.json())
+      .then((d) => setMediaItems(d.items || []))
+      .catch(() => setMediaItems([]));
+  }, [plan.ageGroupId, subjectMeta.code, lockSubject, search]);
+
+  useEffect(() => {
     setLoading(true);
     const params = new URLSearchParams({ ageGroupId: plan.ageGroupId, slotType: 'MAIN', limit: '30' });
     if (lockSubject) params.set('subject', subjectMeta.code);
@@ -163,15 +178,15 @@ export const FocusedAssistant: React.FC<Props> = ({
           </button>
         </div>
 
-        {/* Clean 4 Tabs (including Literary/Song/LQCC Corpus) */}
-        <div className="mt-3 grid grid-cols-4 gap-1 rounded-xl bg-slate-100 p-1 text-[11px] font-semibold">
+        {/* Clean 5 Tabs (Blocks, Literary Corpus, PPT/Video/Image Media, Real Lessons, MT) */}
+        <div className="mt-3 grid grid-cols-5 gap-1 rounded-xl bg-slate-100 p-1 text-[10px] font-semibold">
           <button
             onClick={() => setTab('blocks')}
             className={`rounded-lg py-1.5 transition ${
               tab === 'blocks' ? 'bg-white text-[#0B6E5C] shadow-2xs' : 'text-slate-600 hover:text-slate-900'
             }`}
           >
-            Mẫu nhanh
+            Mẫu
           </button>
           <button
             onClick={() => setTab('works')}
@@ -180,6 +195,14 @@ export const FocusedAssistant: React.FC<Props> = ({
             }`}
           >
             Ngữ liệu ({matchingWorks.length})
+          </button>
+          <button
+            onClick={() => setTab('media')}
+            className={`rounded-lg py-1.5 transition ${
+              tab === 'media' ? 'bg-white text-[#0B6E5C] shadow-2xs' : 'text-slate-600 hover:text-slate-900'
+            }`}
+          >
+            Media ({mediaItems.length})
           </button>
           <button
             onClick={() => setTab('lessons')}
@@ -378,6 +401,81 @@ export const FocusedAssistant: React.FC<Props> = ({
           </>
         )}
 
+        {tab === 'media' && (
+          <>
+            {mediaItems.length === 0 ? (
+              <div className="rounded-xl border border-dashed border-slate-300 bg-white p-5 text-center text-xs text-slate-500">
+                Chưa có học liệu khớp bộ lọc — bấm <strong>“Xem tất cả môn”</strong> phía trên hoặc mở toàn bộ Kho Media.
+              </div>
+            ) : (
+              mediaItems.slice(0, 30).map((m) => {
+                const kindLabel =
+                  m.kind === 'SLIDE'
+                    ? 'PowerPoint'
+                    : m.kind === 'VIDEO'
+                    ? 'Video / Clip'
+                    : m.kind === 'ELEARNING'
+                    ? 'E-Learning'
+                    : m.kind === 'IMAGE'
+                    ? 'Tranh ảnh'
+                    : 'Tài liệu';
+                return (
+                  <div
+                    key={m.id}
+                    className="overflow-hidden rounded-xl border border-slate-200 bg-white text-xs shadow-2xs"
+                  >
+                    {m.thumbnailUrl && (
+                      <img
+                        src={m.thumbnailUrl}
+                        alt={m.title}
+                        loading="lazy"
+                        onError={(e) => {
+                          e.currentTarget.style.display = 'none';
+                        }}
+                        className="h-28 w-full object-cover"
+                      />
+                    )}
+                    <div className="p-3">
+                      <div className="flex items-center justify-between gap-1.5">
+                        <span className="rounded bg-[#E6F4F1] px-2 py-0.5 text-[10px] font-bold text-[#0B6E5C]">
+                          {kindLabel}
+                        </span>
+                        <span className="truncate text-[10px] text-slate-400">{m.author}</span>
+                      </div>
+                      <div className="mt-1.5 font-bold leading-snug text-slate-900">{m.title}</div>
+                      <div className="mt-2 flex flex-wrap items-center gap-1.5">
+                        {onAttachMedia && (
+                          <button
+                            type="button"
+                            onClick={() =>
+                              onAttachMedia({
+                                kind: m.kind === 'ELEARNING' ? 'SLIDE' : m.kind,
+                                title: m.title,
+                                url: m.url,
+                              })
+                            }
+                            className="rounded-md bg-[#0B6E5C] px-2.5 py-1 text-[10px] font-semibold text-white hover:bg-[#085A4B]"
+                          >
+                            + Đính kèm tiết này
+                          </button>
+                        )}
+                        <a
+                          href={m.url}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="rounded-md border border-slate-200 bg-white px-2 py-1 text-[10px] font-semibold text-slate-700 hover:border-[#0B6E5C] hover:text-[#0B6E5C]"
+                        >
+                          {m.kind === 'SLIDE' ? 'Tải PPT' : m.kind === 'VIDEO' ? 'Mở clip' : 'Mở xem'}
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })
+            )}
+          </>
+        )}
+
         {tab === 'lessons' && (
           <>
             {loading ? (
@@ -543,7 +641,11 @@ export const FocusedAssistant: React.FC<Props> = ({
 
       <div className="border-t border-slate-200 bg-white px-3.5 py-2.5">
         <button
-          onClick={() => onOpenFullLibrary(tab === 'lessons' ? 'crawled' : 'bank')}
+          onClick={() =>
+            onOpenFullLibrary(
+              tab === 'lessons' ? 'crawled' : tab === 'media' ? 'media' : tab === 'works' ? 'works' : 'bank'
+            )
+          }
           className="w-full rounded-lg border border-slate-200 py-1.5 text-[11px] font-semibold text-slate-700 hover:border-[#0B6E5C] hover:text-[#0B6E5C]"
         >
           Mở rộng toàn bộ kho tham khảo →
