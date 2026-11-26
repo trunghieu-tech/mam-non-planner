@@ -2,7 +2,13 @@ import type { AgeGroupId, LiteraryWorkItem } from '../../shared/types';
 import rawCorpus from '../data/worksCorpus.json';
 import { normVN } from './helpers';
 
-export const WORKS_CORPUS: LiteraryWorkItem[] = rawCorpus as LiteraryWorkItem[];
+export const WORKS_CORPUS: LiteraryWorkItem[] = [...(rawCorpus as LiteraryWorkItem[])];
+
+export function setWorksCorpusFromServer(items: LiteraryWorkItem[] | undefined | null): void {
+  if (Array.isArray(items) && items.length > 0) {
+    WORKS_CORPUS.splice(0, WORKS_CORPUS.length, ...items);
+  }
+}
 
 function esc(s: string): string {
   return (s || '')
@@ -64,7 +70,7 @@ export function findMatchingWork(topicTitle: string, subjectCode: string): Liter
 
 export function filterWorksForAssistant(
   subjectCode: string,
-  ageGroupId: AgeGroupId,
+  ageGroupId: AgeGroupId | 'ALL',
   search = ''
 ): LiteraryWorkItem[] {
   const subj = normVN(subjectCode);
@@ -78,7 +84,7 @@ export function filterWorksForAssistant(
     } else if (subj.includes('lqvh')) {
       if (w.kind !== 'POEM' && w.kind !== 'STORY') return false;
     }
-    if (!q && !w.ageGroups.includes(ageGroupId) && w.kind !== 'LQCC') return false;
+    if (ageGroupId !== 'ALL' && !q && !w.ageGroups.includes(ageGroupId) && w.kind !== 'LQCC') return false;
     if (q) {
       const hay = normVN(`${w.title} ${w.author} ${w.themes.join(' ')} ${w.contentText}`);
       if (!hay.includes(q)) return false;

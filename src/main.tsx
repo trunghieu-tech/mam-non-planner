@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import './index.css';
-import { initStaticApiIfNeeded } from './utils/staticApiAdapter';
+import { initApiLayer } from './utils/hdsbeApiClient';
 
-initStaticApiIfNeeded().finally(() => {
+initApiLayer().finally(() => {
   ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
       <App />

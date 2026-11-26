@@ -729,5 +729,555 @@
       "Tìm chữ v, r trong các từ “quyển vở”, “rạng rỡ”, “Việt Nam”."
     ],
     "educationalNote": "Tổng kết bảng 29 chữ cái tiếng Việt giúp trẻ tự tin bước vào Lớp 1."
+  },
+  {
+    "id": "story_cay_tao",
+    "kind": "STORY",
+    "title": "Cây táo",
+    "author": "Theo Vũ Ngọc Bình",
+    "ageGroups": [
+      "NHA_TRE_24_36T",
+      "MAM_3_4T"
+    ],
+    "themes": [
+      "Thực vật",
+      "Mùa xuân"
+    ],
+    "contentText": "Mưa phùn bay, hoa đào nở, ông trồng cây táo xuống đất.\nBé tưới nước cho cây, mưa tưới nước cho cây, ông mặt trời sưởi nắng ấm cho cây.\nCon gà trống đi qua nói to: “Cây ơi, lớn mau!”. Thế là những chiếc lá non bật ra.\nNhững con bướm bay qua cũng nói to: “Cây ơi, lớn mau!”. Thế là cây ra đầy hoa thơm.\nMột hôm, ông, bé, gà trống và bướm cùng gọi to: “Cây ơi, lớn mau!”. Thế là những quả táo chín đỏ ngon lành hiện ra, rơi đầy vào lòng bé!",
+    "dialogueQuestions": [
+      "Ai đã trồng cây táo xuống đất vào mùa xuân?",
+      "Bé, mưa và ông mặt trời đã làm gì giúp cây táo lớn lên?",
+      "Gà trống và đàn bướm đi qua đã gọi cây táo như thế nào?",
+      "Khi mọi người cùng gọi “Cây ơi, lớn mau!”, điều kỳ diệu gì đã xảy ra?",
+      "Muốn cây xanh ở lớp và ở nhà mau lớn, hằng ngày các con sẽ chăm sóc cây thế nào?"
+    ],
+    "educationalNote": "Giáo dục trẻ yêu thiên nhiên, biết tưới nước chăm sóc cây xanh và không bứt lá, bẻ cành."
+  },
+  {
+    "id": "story_chu_do_con",
+    "kind": "STORY",
+    "title": "Chú đỗ con",
+    "author": "Viết Linh",
+    "ageGroups": [
+      "CHOI_4_5T",
+      "LA_5_6T"
+    ],
+    "themes": [
+      "Thực vật",
+      "Hiện tượng tự nhiên",
+      "Mùa xuân"
+    ],
+    "contentText": "Một chú đỗ con ngủ khì trong cái chum khô ráo và tối om suốt một năm. Một hôm tỉnh dậy, chú thấy mình nằm giữa những hạt đất li ti xôm xốp. Chợt có tiếng lộp độp bên ngoài, cô Mưa Xuân đem nước mát đến tắm cho Đỗ con.\nÍt hôm sau, chị Gió Xuân bay qua hát vi vu gọi Đỗ con dậy. Rồi ông Mặt Trời hiền từ chiếu những tia nắng ấm áp giục Đỗ con vươn lên. Đỗ con mạnh dạn cựa mình nứt vỏ, xòe hai cánh tay lá mầm xanh biếc vươn lên đón ánh mặt trời rực rỡ!",
+    "dialogueQuestions": [
+      "Lúc đầu chú Đỗ con ngủ ở đâu và vì sao chú còn rụt rè chưa dám chui lên?",
+      "Cô Mưa Xuân, chị Gió Xuân và ông Mặt Trời đã giúp chú Đỗ con những gì?",
+      "Nhờ có đất, nước, gió và ánh nắng ấm áp, chú Đỗ con đã thay đổi ra sao?",
+      "Qua câu chuyện, hạt cây muốn nảy mầm xanh tốt thì cần những yếu tố tự nhiên nào?"
+    ],
+    "educationalNote": "Giúp trẻ hiểu quá trình nảy mầm của hạt cần đất, nước, không khí, ánh sáng mặt trời và rèn sự mạnh dạn, tự tin."
+  },
+  {
+    "id": "story_coc_goi_troi_mua",
+    "kind": "STORY",
+    "title": "Cóc kiện trời (Cóc gọi trời mưa)",
+    "author": "Truyện cổ tích Việt Nam",
+    "ageGroups": [
+      "CHOI_4_5T",
+      "LA_5_6T"
+    ],
+    "themes": [
+      "Nước & Hiện tượng tự nhiên",
+      "Động vật"
+    ],
+    "contentText": "Ngày xưa có một năm trời hạn hán rất lâu, ruộng đồng nứt nẻ, cây cỏ héo khô, muông thú khát nước. Cóc tuy nhỏ bé nhưng rất dũng cảm quyết định lên thiên đình xin Ngọc Hoàng làm mưa. Trên đường đi, Cua, Gấu, Cọp, Ong và Cáo cùng xin đi theo giúp sức.\nĐến cửa nhà Trời, Cóc sắp xếp đội hình thông minh chiến thắng Thần Sét và Thiên Lôi. Ngọc Hoàng cảm phục lòng dũng cảm của Cóc nên lập tức cho mưa rơi mát mẻ khắp trần gian và dặn: từ nay hễ Cóc nghiến răng là Trời đổ mưa!",
+    "dialogueQuestions": [
+      "Vì sao Cóc và các bạn thú lại quyết tâm lên thiên đình gặp Ngọc Hoàng?",
+      "Trên đường đi, Cóc đã đoàn kết cùng những người bạn nào?",
+      "Nhờ sự thông minh và đoàn kết của Cóc cùng các bạn, điều tốt đẹp gì đã đến với muôn loài?",
+      "Câu chuyện giải thích hiện tượng dân gian nào mỗi khi trời sắp mưa?"
+    ],
+    "educationalNote": "Giáo dục tinh thần đoàn kết, lòng dũng cảm và ý thức tiết kiệm, quý trọng nguồn nước sạch."
+  },
+  {
+    "id": "story_giot_nuoc_ti_xiu",
+    "kind": "STORY",
+    "title": "Giọt nước tí xíu",
+    "author": "Nguyễn Linh",
+    "ageGroups": [
+      "MAM_3_4T",
+      "CHOI_4_5T",
+      "LA_5_6T"
+    ],
+    "themes": [
+      "Nước & Hiện tượng tự nhiên"
+    ],
+    "contentText": "Tí Xíu là một giọt nước trong vắt ở biển cả mênh mông. Một buổi sáng đẹp trời, ông Mặt Trời tỏa nắng ấm gọi: “Tí Xíu ơi, cháu có đi chơi với ông không?”. Ông Mặt Trời làm phép cho Tí Xíu biến thành hơi nước nhẹ bổng bay lên cao.\nTrên bầu trời, Tí Xíu tụ họp với biết bao anh em tạo thành đám mây trắng xốp, rồi gặp gió lạnh hóa thành mây đen nặng trĩu. Chớp rạch ngang trời, Tí Xíu cùng các bạn òa xuống thành cơn mưa mát lành tưới tắm cho cây cối, sông ngòi rồi lại chảy về với mẹ Biển khơi!",
+    "dialogueQuestions": [
+      "Giọt nước Tí Xíu sống ở đâu và nhờ ai mà Tí Xíu bay lên bầu trời được?",
+      "Khi bay lên cao gặp các bạn và gặp gió lạnh, Tí Xíu đã biến đổi thành gì?",
+      "Cơn mưa rơi xuống đã mang lại lợi ích gì cho cây cối và con người?",
+      "Hằng ngày khi rửa tay và uống nước, các con cần làm gì để không lãng phí nước?"
+    ],
+    "educationalNote": "Giúp trẻ khám phá sơ đồ vòng tuần hoàn của nước (Nước -> Hơi nước -> Mây -> Mưa) một cách sinh động, dễ nhớ."
+  },
+  {
+    "id": "story_su_tich_qua_dua_hau",
+    "kind": "STORY",
+    "title": "Sự tích quả dưa hấu (Mai An Tiêm)",
+    "author": "Truyện cổ tích Việt Nam",
+    "ageGroups": [
+      "LA_5_6T"
+    ],
+    "themes": [
+      "Tết & Mùa xuân",
+      "Thực vật",
+      "Quê hương"
+    ],
+    "contentText": "Đời vua Hùng Vương thứ mười bảy có chàng Mai An Tiêm hiền lành, chăm chỉ và tự lập. Bị kẻ xấu gièm pha, vợ chồng An Tiêm bị đày ra đảo hoang. Không nản lòng, chàng dựng nhà, đào giếng. Một hôm có đàn chim lạ từ phương Tây bay tới đánh rơi những hạt đen nhánh.\nAn Tiêm đem hạt gieo trồng, tận tụy chăm bón. Chẳng bao lâu dây bò xanh mướt, kết thành những quả to tròn, vỏ xanh thẫm, bổ ra ruột đỏ tươi, hạt đen nhánh, ăn ngọt mát lịm. An Tiêm khắc tên mình thả dưa trôi theo sóng biển vào đất liền, được nhà vua đón về. Từ đó dân gian gọi là quả dưa hấu thường bày trên mâm ngũ quả ngày Tết.",
+    "dialogueQuestions": [
+      "Khi phải ra sống ở đảo hoang, gia đình Mai An Tiêm đã vượt qua khó khăn như thế nào?",
+      "Quả dưa hấu do An Tiêm trồng có đặc điểm màu sắc vỏ, ruột, hạt và hương vị ra sao?",
+      "Nhờ phẩm chất chăm chỉ và sáng tạo nào mà Mai An Tiêm được nhà vua hiểu lòng và đón về?",
+      "Vào dịp Tết cổ truyền, gia đình con thường dùng quả dưa hấu để làm gì?"
+    ],
+    "educationalNote": "Giáo dục trẻ đức tính chăm chỉ lao động, tự lập, không nản lòng trước khó khăn và tự hào văn hóa Tết Việt Nam."
+  },
+  {
+    "id": "story_ai_dang_khen_nhieu_hon",
+    "kind": "STORY",
+    "title": "Ai đáng khen nhiều hơn",
+    "author": "Phong Thu",
+    "ageGroups": [
+      "MAM_3_4T",
+      "CHOI_4_5T"
+    ],
+    "themes": [
+      "Gia đình",
+      "Động vật"
+    ],
+    "contentText": "Nhà Thỏ mẹ có hai anh em Thỏ Trắng và Thỏ Xám. Sáng Chủ nhật, mẹ dặn anh Thỏ Trắng đi hái nấm hương, em Thỏ Xám đi hái hoa tươi. Thỏ Trắng mải ngắm bướm quên hái nấm nhưng gặp Sóc con bị lạc mẹ nên đã tận tình dắt Sóc con về tận nhà.\nEm Thỏ Xám nhớ lời mẹ hái được giỏ hoa cúc vàng rực rỡ và nhường phần hạt dẻ cho chim sâu. Nghe hai con kể chuyện, Thỏ mẹ âu yếm ôm cả hai anh em vào lòng: cả hai con đều ngoan, biết thương yêu giúp đỡ bạn nên ai cũng đáng khen!",
+    "dialogueQuestions": [
+      "Buổi sáng Chủ nhật, Thỏ mẹ đã giao việc gì cho anh Thỏ Trắng và em Thỏ Xám?",
+      "Trên đường đi, anh Thỏ Trắng và em Thỏ Xám đã làm được những việc tốt gì giúp bạn?",
+      "Vì sao Thỏ mẹ lại khen ngợi cả hai anh em?",
+      "Ở nhà và ở lớp, con đã biết giúp đỡ bố mẹ và các bạn những việc gì vừa sức?"
+    ],
+    "educationalNote": "Giáo dục trẻ lòng nhân ái, biết quan tâm chia sẻ, giúp đỡ bạn bè và vâng lời ông bà cha mẹ."
+  },
+  {
+    "id": "story_bac_gau_den_va_hai_chu_tho",
+    "kind": "STORY",
+    "title": "Bác Gấu đen và hai chú Thỏ",
+    "author": "Vũ Ngọc Bình",
+    "ageGroups": [
+      "MAM_3_4T",
+      "CHOI_4_5T"
+    ],
+    "themes": [
+      "Động vật",
+      "Kỹ năng xã hội"
+    ],
+    "contentText": "Trời mưa to gió lớn trong rừng, bác Gấu đen ướt lướt thướt đi tìm chỗ trú. Bác gõ cửa nhà Thỏ Nâu xin trú nhờ nhưng Thỏ Nâu ích kỷ xua tay không mở cửa. Bác Gấu đi tiếp đến nhà Thỏ Trắng.\nVừa nghe tiếng bác Gấu, Thỏ Trắng vội mở cửa mời bác vào sưởi lửa ấm, lấy bánh mật mời bác ăn. Đêm ấy bão làm đổ cây đè hỏng mái nhà Thỏ Nâu. Thỏ Nâu chạy sang nhà Thỏ Trắng gõ cửa. Bác Gấu đen và Thỏ Trắng vẫn rộng lòng mở cửa đón Thỏ Nâu vào sưởi ấm, khiến Thỏ Nâu vô cùng ân hận và xin lỗi bác Gấu.",
+    "dialogueQuestions": [
+      "Khi trời mưa to, thái độ của Thỏ Nâu và Thỏ Trắng đối với bác Gấu đen khác nhau như thế nào?",
+      "Thỏ Trắng đã chăm sóc bác Gấu đen chu đáo ra sao?",
+      "Khi nhà Thỏ Nâu bị gió làm hỏng, bác Gấu đen và Thỏ Trắng đã cư xử cao thượng thế nào?",
+      "Qua câu chuyện, con học tập tính tốt của nhân vật nào?"
+    ],
+    "educationalNote": "Giáo dục trẻ lòng hiếu khách, biết yêu thương giúp đỡ người gặp khó khăn và biết nhận lỗi khi làm sai."
+  },
+  {
+    "id": "story_ga_to_di_hoc",
+    "kind": "STORY",
+    "title": "Gà Tơ đi học",
+    "author": "Vũ Tú Nam",
+    "ageGroups": [
+      "CHOI_4_5T",
+      "LA_5_6T"
+    ],
+    "themes": [
+      "Trường mầm non",
+      "Trường Tiểu học"
+    ],
+    "contentText": "Sáng đầu thu, Gà mẹ đánh thức Gà Tơ dậy đi học lớp thầy Gà Trống Gáy. Nhưng Gà Tơ cứ nướng ngủ, trốn đi chơi bắt châu chấu nên bỏ lỡ các buổi học chữ. Hôm cả lớp tổ chức đi cắm trại bên hồ sen, thầy giáo gửi giấy thông báo cho từng bạn.\nVì không biết đọc chữ, Gà Tơ cầm ngược tờ giấy cứ tưởng là giấy khen nên ở nhà khoe khắp xóm, bỏ lỡ buổi cắm trại vui ơi là vui. Khi các bạn về kể chuyện, Gà Tơ xấu hổ đỏ mặt và từ hôm ấy dậy thật sớm chăm chỉ đến trường học chữ cùng các bạn.",
+    "dialogueQuestions": [
+      "Vì sao lúc đầu Gà Tơ không đọc được tờ giấy thông báo đi cắm trại của thầy giáo?",
+      "Khi bỏ lỡ buổi cắm trại vui vẻ cùng cả lớp, Gà Tơ cảm thấy thế nào?",
+      "Sau chuyện đó, Gà Tơ đã thay đổi thói quen đi học ra sao?",
+      "Để chuẩn bị tâm thế vững vàng bước vào Lớp 1, hằng ngày các con cần rèn thói quen tốt gì?"
+    ],
+    "educationalNote": "Khơi dậy niềm hào hứng đi học đúng giờ, chăm chú làm quen chữ cái để chuẩn bị sẵn sàng vào Lớp 1."
+  },
+  {
+    "id": "story_de_con_nhanh_tri",
+    "kind": "STORY",
+    "title": "Dê con nhanh trí",
+    "author": "Truyện ngụ ngôn chọn lọc",
+    "ageGroups": [
+      "MAM_3_4T",
+      "CHOI_4_5T",
+      "LA_5_6T"
+    ],
+    "themes": [
+      "Bản thân",
+      "Gia đình",
+      "Kỹ năng xã hội"
+    ],
+    "contentText": "Trước khi đi kiếm cỏ trên đồi, Dê mẹ dặn Dê con khóa chặt cửa, chỉ mở khi nghe đúng tiếng mẹ trầm ấm và nhìn thấy móng chân trắng của mẹ qua khe cửa. Chó Sói nấp gần đó nghe lén liền giả giọng Dê mẹ gõ cửa.\nDê con bình tĩnh hỏi mật khẩu và yêu cầu đưa chân qua khe cửa kiểm tra. Thấy bàn chân đen xù đầy móng nhọn của Sói, Dê con kiên quyết không mở cửa và gọi to bác Ngựa hàng xóm tới đuổi Sói chạy mất. Dê mẹ về khen Dê con thật thông minh, cảnh giác!",
+    "dialogueQuestions": [
+      "Trước khi ra ngoài, Dê mẹ đã dặn Dê con quy tắc an toàn gì?",
+      "Chó Sói đã dùng mưu gì để lừa Dê con mở cửa?",
+      "Nhờ sự bình tĩnh quan sát điều gì mà Dê con phát hiện ra kẻ lạ xấu?",
+      "Khi ở nhà một mình hoặc gặp người lạ cho bánh kẹo rủ đi theo, con phải xử lý thế nào?"
+    ],
+    "educationalNote": "Giáo dục kỹ năng sống phòng tránh người lạ xâm hại/bắt cóc: tuyệt đối không mở cửa và không đi theo người lạ."
+  },
+  {
+    "id": "story_doi_ban_tot",
+    "kind": "STORY",
+    "title": "Đôi bạn tốt",
+    "author": "Việt Linh",
+    "ageGroups": [
+      "NHA_TRE_24_36T",
+      "MAM_3_4T"
+    ],
+    "themes": [
+      "Động vật",
+      "Trường mầm non"
+    ],
+    "contentText": "Vịt con và Gà con là đôi bạn thân cùng rủ nhau ra vườn kiếm ăn. Gà con bới đất trên bãi cỏ xanh, còn Vịt con bơi lội mò ốc dưới ao. Chợt một con Cáo xám thò đầu ra rình bắt Gà con.\nGà con sợ quá kêu “Chiếp, chiếp!”. Vịt con bơi vội vào bờ gọi bạn trèo lên lưng mình rồi bơi nhanh ra giữa ao sâu. Cáo không biết bơi đành tiu nghỉu bỏ đi. Gà con và Vịt con vui sướng hát vang tình bạn đoàn kết!",
+    "dialogueQuestions": [
+      "Trong truyện có hai người bạn nhỏ nào chơi thân với nhau?",
+      "Ai đã xuất hiện định bắt bạn Gà con?",
+      "Bạn Vịt con đã nhanh trí cứu bạn Gà con bằng cách nào?",
+      "Chơi với bạn ở lớp, các con cần đoàn kết và bảo vệ nhau như thế nào?"
+    ],
+    "educationalNote": "Giáo dục trẻ tình bạn thân thiết, biết nhường nhịn, yêu thương và giúp đỡ bạn khi gặp khó khăn."
+  },
+  {
+    "id": "poem_tham_nha_ba",
+    "kind": "POEM",
+    "title": "Thăm nhà bà",
+    "author": "Như Mao",
+    "ageGroups": [
+      "NHA_TRE_24_36T",
+      "MAM_3_4T",
+      "CHOI_4_5T"
+    ],
+    "themes": [
+      "Gia đình",
+      "Động vật"
+    ],
+    "contentText": "Đến thăm bà\nBà đi vắng\nCó đàn gà\nChơi ngoài nắng.\n\nCháu đứng ngắm\nĐàn gà con\nRồi gọi luôn:\nBập, bập, bập!\n\nChúng lật đật\nChạy nhanh nhanh\nXúm vòng quanh\nKêu “chiếp chiếp”\n\nGà mải miết\nNhặt thóc vàng\nCháu nhẹ nhàng\nLùa vào mát.",
+    "dialogueQuestions": [
+      "Bạn nhỏ đến thăm nhà bà nhưng gặp ai đang chơi ngoài nắng?",
+      "Bạn nhỏ đã gọi đàn gà con bằng tiếng gọi đáng yêu nào?",
+      "Nghe tiếng gọi, đàn gà con chạy tới và kêu như thế nào?",
+      "Thấy trời nắng, bạn nhỏ đã làm việc tốt gì giúp bà chăm sóc đàn gà?"
+    ],
+    "educationalNote": "Bồi dưỡng tình cảm hiếu thảo với ông bà và lòng yêu thương, chăm sóc vật nuôi trong gia đình."
+  },
+  {
+    "id": "poem_doi_dep",
+    "kind": "POEM",
+    "title": "Đôi dép",
+    "author": "Nguyễn Trung Thu",
+    "ageGroups": [
+      "NHA_TRE_24_36T",
+      "MAM_3_4T"
+    ],
+    "themes": [
+      "Bản thân",
+      "Đồ dùng của bé"
+    ],
+    "contentText": "Chân được đi dép\nThấy êm êm là\nDép cũng vui lắm\nĐược đi khắp nhà.",
+    "dialogueQuestions": [
+      "Bài thơ “Đôi dép” nói về đồ dùng quen thuộc nào của bé?",
+      "Khi chân bé đi dép thì cảm thấy thế nào?",
+      "Khi từ sân vào lớp hoặc về nhà, con cất dép lên kệ gọn gàng ra sao?"
+    ],
+    "educationalNote": "Rèn thói quen đi giày dép giữ sạch đôi bàn chân và tự giác xếp dép ngay ngắn lên giá của lớp."
+  },
+  {
+    "id": "poem_cau_vong",
+    "kind": "POEM",
+    "title": "Cầu vồng",
+    "author": "Nhược Thủy",
+    "ageGroups": [
+      "MAM_3_4T",
+      "CHOI_4_5T",
+      "LA_5_6T"
+    ],
+    "themes": [
+      "Nước & Hiện tượng tự nhiên"
+    ],
+    "contentText": "Mưa rào vừa tạnh\nCó cái cầu vồng\nAi vẽ cong cong\nTô màu rực rỡ.\n\nTím, xanh, vàng, đỏ\nỒ, hai cái cơ\nCái rõ, cái mờ\nAi tài thế nhỉ?",
+    "dialogueQuestions": [
+      "Cầu vồng thường xuất hiện trên bầu trời vào lúc nào?",
+      "Hình dáng chiếc cầu vồng như thế nào và có những màu sắc rực rỡ gì?",
+      "Bạn nhỏ trong bài thơ ngạc nhiên khi nhìn thấy mấy chiếc cầu vồng?"
+    ],
+    "educationalNote": "Khơi gợi trí tò mò thẩm mỹ và khả năng quan sát các hiện tượng kỳ thú của thiên nhiên sau cơn mưa."
+  },
+  {
+    "id": "poem_trang_oi_tu_dau_den",
+    "kind": "POEM",
+    "title": "Trăng ơi... từ đâu đến?",
+    "author": "Trần Đăng Khoa",
+    "ageGroups": [
+      "CHOI_4_5T",
+      "LA_5_6T"
+    ],
+    "themes": [
+      "Tết Trung thu",
+      "Hiện tượng tự nhiên",
+      "Trường mầm non"
+    ],
+    "contentText": "Trăng ơi... từ đâu đến?\nHay từ cánh rừng xa\nTrăng hồng như quả chín\nLửng lơ lên trước nhà.\n\nTrăng ơi... từ đâu đến?\nHay biển xanh diệu kỳ\nTrăng tròn như mắt cá\nChẳng bao giờ chớp mi.\n\nTrăng ơi... từ đâu đến?\nHay từ một sân chơi\nTrăng bay như quả bóng\nBạn nào đá lên trời.",
+    "dialogueQuestions": [
+      "Nhà thơ Trần Đăng Khoa đã so sánh vầng trăng tròn đẹp với những hình ảnh gần gũi nào?",
+      "Vì sao trăng được ví hồng như quả chín, tròn như mắt cá và bay như quả bóng?",
+      "Vào đêm rằm Trung thu, các con thường cùng bạn bè làm gì dưới ánh trăng?"
+    ],
+    "educationalNote": "Phát triển trí tưởng tượng phong phú, cảm nhận vẻ đẹp ngôn từ thơ ca và niềm vui Tết Trung thu."
+  },
+  {
+    "id": "poem_hat_gao_lang_ta",
+    "kind": "POEM",
+    "title": "Hạt gạo làng ta (Trích)",
+    "author": "Trần Đăng Khoa",
+    "ageGroups": [
+      "CHOI_4_5T",
+      "LA_5_6T"
+    ],
+    "themes": [
+      "Nghề nghiệp",
+      "Thực vật",
+      "Quê hương"
+    ],
+    "contentText": "Hạt gạo làng ta\nCó vị phù sa\nCủa sông Kinh Thầy\nCó hương sen thơm\nTrong hồ nước đầy\nCó lời mẹ hát\nNgọt bùi đắng cay...\n\nHạt gạo làng ta\nCó bão tháng Bảy\nCó mưa tháng Ba\nGiọt mồ hôi sa\nNhững trưa tháng Sáu\nNước như ai nấu\nChết cả cá cờ\nCua ngoi lên bờ\nMẹ em xuống cấy...",
+    "dialogueQuestions": [
+      "Trong hạt gạo trắng ngần có hương vị gì của quê hương và lời hát của ai?",
+      "Các bác nông dân và mẹ đã vất vả làm ra hạt gạo dưới trời mưa nắng như thế nào?",
+      "Để biết ơn người làm ra hạt gạo, trong giờ ăn trưa ở lớp con sẽ ăn như thế nào (ăn hết suất, không làm rơi vãi cơm)?"
+    ],
+    "educationalNote": "Giáo dục trẻ lòng biết ơn các bác nông dân và thói quen quý trọng từng hạt cơm trong bữa ăn hằng ngày."
+  },
+  {
+    "id": "poem_chu_bo_doi_hanh_quan_trong_mua",
+    "kind": "POEM",
+    "title": "Chú bộ đội hành quân trong mưa",
+    "author": "Vũ Thùy Hương",
+    "ageGroups": [
+      "MAM_3_4T",
+      "CHOI_4_5T",
+      "LA_5_6T"
+    ],
+    "themes": [
+      "Nghề nghiệp",
+      "22/12",
+      "Quê hương"
+    ],
+    "contentText": "Mưa rơi mưa rơi\nLộp bộp lộp bộp\nÁo dù có ướt\nVẫn đi vẫn đi\nĐường ra mặt trận\nCòn dài còn dài\nCho dù mưa rơi\nChú vẫn đi tới\nChú đi trong đêm\nLong lanh sao đỏ\nNhư ngọn đèn nhỏ\nSoi đường hành quân.",
+    "dialogueQuestions": [
+      "Các chú bộ đội hành quân trong thời tiết như thế nào?",
+      "Dù mưa ướt và đường dài, tinh thần của các chú bộ đội ra sao?",
+      "Trên mũ chú bộ đội có hình ảnh gì lấp lánh soi đường trong đêm?",
+      "Nhân ngày 22/12, con muốn gửi lời chúc hay món quà gì tặng các chú bộ đội?"
+    ],
+    "educationalNote": "Giáo dục lòng kính yêu, biết ơn các chú bộ đội ngày đêm canh giữ bình yên cho Tổ quốc."
+  },
+  {
+    "id": "poem_be_lam_hoa_si",
+    "kind": "POEM",
+    "title": "Bé làm họa sĩ",
+    "author": "Toàn Tâm",
+    "ageGroups": [
+      "MAM_3_4T",
+      "CHOI_4_5T"
+    ],
+    "themes": [
+      "Nghề nghiệp",
+      "Bản thân"
+    ],
+    "contentText": "Bé muốn làm họa sĩ\nĐể vẽ ông mặt trời\nVới những tia nắng ấm\nSáng rực khắp muôn nơi.\n\nBé thích làm họa sĩ\nĐể vẽ mẹ vẽ bà\nMẹ có đôi mắt tròn\nCòn bà cười hiền hậu.",
+    "dialogueQuestions": [
+      "Bạn nhỏ trong bài thơ ước mơ làm nghề gì?",
+      "Bạn nhỏ đã vẽ những ai và những hình ảnh đẹp nào trong bức tranh của mình?",
+      "Nếu làm họa sĩ nhí hôm nay, con thích vẽ bức tranh gì tặng người thân?"
+    ],
+    "educationalNote": "Nuôi dưỡng ước mơ nghề nghiệp đẹp đẽ và niềm say mê sáng tạo nghệ thuật ở trẻ."
+  },
+  {
+    "id": "poem_tam_biet_bup_be",
+    "kind": "POEM",
+    "title": "Tạm biệt búp bê",
+    "author": "Hoàng Thông",
+    "ageGroups": [
+      "LA_5_6T"
+    ],
+    "themes": [
+      "Trường Tiểu học",
+      "Trường mầm non"
+    ],
+    "contentText": "Tạm biệt búp bê thân yêu\nMai em vào lớp Một rồi\nNhớ lắm quên sao được\nTrường mầm non thân yêu!",
+    "dialogueQuestions": [
+      "Vì sao bạn nhỏ lại nói lời tạm biệt búp bê và các đồ chơi góc lớp?",
+      "Tình cảm của bạn nhỏ dành cho cô giáo và mái trường mầm non như thế nào?",
+      "Bước sang trường Tiểu học, con mong chờ được học những điều mới mẻ gì?"
+    ],
+    "educationalNote": "Bồi đắp tình cảm lưu luyến mái trường mầm non và tâm thế tự hào khi bước vào Lớp 1."
+  },
+  {
+    "id": "song_di_nha_tre",
+    "kind": "SONG",
+    "title": "Đi nhà trẻ",
+    "author": "Nguyễn Văn Tý",
+    "ageGroups": [
+      "NHA_TRE_24_36T"
+    ],
+    "themes": [
+      "Trường mầm non",
+      "Gia đình"
+    ],
+    "contentText": "Mẹ mua cho em bàn chải xinh\nNhư các anh em đánh răng một mình\nMẹ khen em bé mà vệ sinh!\nThật đáng yêu răng ai trắng tinh.\n\nNgày mai em đi ra nhà trẻ\nCô đón em vào lớp của em\nEm không khóc nhè để mẹ trồng cây trái\nBố vào nhà máy ông bà vui cấy cày.",
+    "dialogueQuestions": [
+      "Buổi sáng trước khi đi nhà trẻ, em bé tự giác làm việc gì giỏi như các anh?",
+      "Đến nhà trẻ gặp cô giáo và các bạn, em bé ngoan như thế nào (có khóc nhè không)?",
+      "Bé đi học ngoan giúp bố mẹ và ông bà yên tâm làm những công việc gì?"
+    ],
+    "educationalNote": "Tạo tâm thế vui tươi thích đi nhà trẻ, không khóc nhè và tập thói quen vệ sinh răng miệng sạch sẽ."
+  },
+  {
+    "id": "song_inh_la_oi",
+    "kind": "SONG",
+    "title": "Inh lả ơi",
+    "author": "Dân ca Thái",
+    "ageGroups": [
+      "CHOI_4_5T",
+      "LA_5_6T"
+    ],
+    "themes": [
+      "Quê hương",
+      "Tết & Mùa xuân"
+    ],
+    "contentText": "Inh lả ơi! Sao noọng ới!\nKhắp chốn núi rừng Tây Bắc sáng ngời\nMùa xuân đến ngàn hoa hé cười\nInh lả ơi! Sao noọng ới!\nHát múa vang lừng đón mùa xuân mới!",
+    "dialogueQuestions": [
+      "Bài hát “Inh lả ơi” là làn điệu dân ca của đồng bào dân tộc nào ở vùng núi Tây Bắc?",
+      "Giai điệu bài hát rộn ràng miêu tả cảnh sắc mùa xuân Tây Bắc đẹp như thế nào?",
+      "Khi vận động bộ gõ cơ thể hoặc múa xòe theo bài hát, con cảm thấy thế nào?"
+    ],
+    "educationalNote": "Giúp trẻ cảm nhận nét đẹp âm nhạc dân tộc Việt Nam và lòng tự hào bản sắc văn hóa các vùng miền."
+  },
+  {
+    "id": "song_chu_voi_con_o_ban_don",
+    "kind": "SONG",
+    "title": "Chú voi con ở Bản Đôn",
+    "author": "Phạm Tuyên",
+    "ageGroups": [
+      "MAM_3_4T",
+      "CHOI_4_5T",
+      "LA_5_6T"
+    ],
+    "themes": [
+      "Động vật",
+      "Quê hương"
+    ],
+    "contentText": "Chú voi con ở Bản Đôn\nChưa có ngà nên còn trẻ con\nTừ rừng già chú đến với người\nRất ham ăn với lại ham chơi...\nVoi con ơi, voi con ơi\nMau lớn nhanh có đôi ngà to\nCó sức đi khắp miền rừng xa\nKéo gỗ cho buôn làng của ta!",
+    "dialogueQuestions": [
+      "Chú voi con trong bài hát của nhạc sĩ Phạm Tuyên sống ở đâu và có nét gì ngộ nghĩnh?",
+      "Mọi người ở buôn làng mong chú voi con mau lớn khỏe để làm việc gì có ích?",
+      "Các con cần làm gì để bảo vệ các loài động vật quý hiếm trong rừng xanh?"
+    ],
+    "educationalNote": "Giáo dục trẻ yêu quý, bảo vệ động vật hoang dã và rèn cảm giác nhịp phách rộn ràng, vui tươi."
+  },
+  {
+    "id": "song_chu_bo_doi",
+    "kind": "SONG",
+    "title": "Chú bộ đội",
+    "author": "Hoàng Hà",
+    "ageGroups": [
+      "MAM_3_4T",
+      "CHOI_4_5T",
+      "LA_5_6T"
+    ],
+    "themes": [
+      "Nghề nghiệp",
+      "22/12",
+      "Quê hương"
+    ],
+    "contentText": "Vai chú mang súng mũ cài ngôi sao đẹp xinh\nĐi trong hàng ngũ chú hành quân trông thật nhanh\nChú bộ đội chúng cháu yêu chú lắm\nSúng chắc trong tay chú canh giữ cho hòa bình!",
+    "dialogueQuestions": [
+      "Hình ảnh chú bộ đội trong bài hát hiện lên oai nghiêm và đẹp như thế nào?",
+      "Chú bộ đội cầm chắc tay súng để làm nhiệm vụ cao cả gì cho đất nước?",
+      "Chúng mình cùng đứng nghiêm dậm chân hành quân theo nhịp 2/4 bài hát thật đều nhé!"
+    ],
+    "educationalNote": "Bồi dưỡng lòng tự hào, kính yêu các chú bộ đội và rèn vận động dậm chân theo nhịp mạnh mẽ."
+  },
+  {
+    "id": "song_tam_biet_bup_be_than_yeu",
+    "kind": "SONG",
+    "title": "Tạm biệt búp bê thân yêu",
+    "author": "Hoàng Thông",
+    "ageGroups": [
+      "LA_5_6T"
+    ],
+    "themes": [
+      "Trường Tiểu học",
+      "Trường mầm non"
+    ],
+    "contentText": "Tạm biệt búp bê thân yêu\nTạm biệt gấu Misa nhé\nTạm biệt thỏ trắng xinh xinh\nMai tôi vào lớp Một rồi\nNhớ lắm quên sao được\nTrường mầm non thân yêu!",
+    "dialogueQuestions": [
+      "Giai điệu bài hát dịu dàng tình cảm nhắc tới những người bạn đồ chơi thân thiết nào?",
+      "Cảm xúc của bạn nhỏ khi chia tay lớp Mẫu giáo Lớn để vào Lớp Một như thế nào?",
+      "Con hãy hát thật tình cảm gửi tặng cô giáo và các bạn trước ngày ra trường nhé!"
+    ],
+    "educationalNote": "Khắc sâu kỷ niệm đẹp tuổi thần tiên dưới mái trường mầm non và niềm vui khôn lớn bước vào Lớp 1."
+  },
+  {
+    "id": "riddle_dong_dao_dung_dang_dung_de",
+    "kind": "RIDDLE",
+    "title": "Đồng dao: Dung dăng dung dẻ – Nu na nu nống",
+    "author": "Đồng dao dân gian Việt Nam",
+    "ageGroups": [
+      "NHA_TRE_24_36T",
+      "MAM_3_4T",
+      "CHOI_4_5T",
+      "LA_5_6T"
+    ],
+    "themes": [
+      "Trường mầm non",
+      "Gia đình",
+      "Tết & Mùa xuân"
+    ],
+    "contentText": "Dung dăng dung dẻ\nDắt trẻ đi chơi\nĐến ngõ nhà trời\nLạy cậu lạy mợ\nCho cháu về quê\nCho dê đi học\nCho cóc ở nhà\nCho gà bới bếp\nXì xà xì xụp\nNgồi thụp xuống đây!\n\n---\nNu na nu nống\nĐánh trống phất cờ\nMở cuộc thi đua\nThi chân đẹp đẽ\nChân ai sạch sẽ\nGót đỏ hồng hào\nKhông bẩn tí nào\nĐược vào đánh trống!",
+    "dialogueQuestions": [
+      "Khi đọc đồng dao “Dung dăng dung dẻ”, đến câu cuối “Ngồi thụp xuống đây!” cả nhóm sẽ làm động tác gì?",
+      "Trong bài đồng dao “Nu na nu nống”, đôi chân của bạn nào sẽ được khen thưởng vào đánh trống?",
+      "Các con cùng nắm tay nhau vừa đi vừa đọc nhịp nhàng theo phách đồng dao nhé!"
+    ],
+    "educationalNote": "Phát triển ngôn ngữ mạch lạc, cảm nhận vần điệu dân gian và gắn kết tinh thần tập thể qua trò chơi dân gian."
+  },
+  {
+    "id": "riddle_do_vui_phuong_tien_con_vat",
+    "kind": "RIDDLE",
+    "title": "Bộ câu đố vui Phương tiện giao thông & Thế giới động vật",
+    "author": "Sưu tầm dân gian",
+    "ageGroups": [
+      "MAM_3_4T",
+      "CHOI_4_5T",
+      "LA_5_6T"
+    ],
+    "themes": [
+      "Giao thông",
+      "Động vật"
+    ],
+    "contentText": "1. Xe gì hai bánh / Đạp chạy bon bon / Chuông kêu kính coong / Đứng yên thì đổ? (Đáp án: Xe đạp)\n2. Chẳng phải chim mà có cánh / Chở hành khách vượt mây cao? (Đáp án: Máy bay)\n3. Con gì mào đỏ / Gáy ò ó o / Từ sáng tinh mơ / Gọi người thức dậy? (Đáp án: Con gà trống)\n4. Con gì tai dài / Mắt hồng lông mượt / Nhảy nhót nhanh nhẹn / Thích ăn cà rốt? (Đáp án: Con thỏ)",
+    "dialogueQuestions": [
+      "Nhờ đặc điểm “hai bánh, chuông kêu kính coong” mà con đoán ra ngay phương tiện gì?",
+      "Phương tiện nào có cánh bay trên bầu trời (giao thông đường hàng không)?",
+      "Con thử tự đặt một câu đố ngắn về con vật mà con yêu thích để đố các bạn trong lớp nhé!"
+    ],
+    "educationalNote": "Rèn tư duy suy luận nhanh nhạy, khả năng khái quát đặc điểm nổi bật của sự vật và vốn từ miêu tả."
   }
 ]

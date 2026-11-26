@@ -90,6 +90,28 @@ export const WeeklyBoardView: React.FC<Props> = ({
     );
   }, [annualPlan, plan.annualThemeId, plan.themeName]);
 
+  // Cảnh báo chuẩn Vietec (Video #3): Phát hiện Mục tiêu tích sao đánh giá (★) của tháng chưa được gán vào bất kỳ bài giảng hay giờ sinh hoạt nào
+  const unassignedStarMts = useMemo(() => {
+    if (!matchedAnnualTheme?.assessmentMtCodes?.length) return [];
+    const monthPlans = allPlans.filter(
+      (p) =>
+        p.ageGroupId === plan.ageGroupId &&
+        (p.annualThemeId === matchedAnnualTheme.id ||
+          p.themeName.trim().toLowerCase() === matchedAnnualTheme.themeName.trim().toLowerCase())
+    );
+    const assigned = new Set<string>();
+    const pool = monthPlans.length > 0 ? monthPlans : [plan];
+    for (const wp of pool) {
+      (wp.routineMtCodes || []).forEach((c) => assigned.add(c));
+      for (const d of wp.days) {
+        if (d.isHoliday) continue;
+        d.mainLessons.forEach((l) => l.linkedMtCodes.forEach((c) => assigned.add(c)));
+        d.afternoonLesson?.linkedMtCodes.forEach((c) => assigned.add(c));
+      }
+    }
+    return matchedAnnualTheme.assessmentMtCodes.filter((c) => !assigned.has(c));
+  }, [matchedAnnualTheme, allPlans, plan]);
+
   // Tính chỉ số tuần trong tháng (0..3) của kế hoạch tuần hiện tại
   const currentMonthWeekIdx = useMemo(() => {
     if (!matchedAnnualTheme) return 0;
@@ -512,6 +534,22 @@ export const WeeklyBoardView: React.FC<Props> = ({
                 )}
               </div>
             </div>
+
+            {unassignedStarMts.length > 0 && (
+              <div className="mt-3 flex flex-wrap items-center justify-between gap-2 rounded-xl border border-rose-200 bg-rose-50/80 px-3.5 py-2 text-xs text-rose-900">
+                <div>
+                  <strong>Mục tiêu đánh giá (★) của chủ đề chưa gán vào tiết dạy / sinh hoạt:</strong>{' '}
+                  <span className="font-bold text-rose-700">{unassignedStarMts.join(', ')}</span>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setShowMtGuide(true)}
+                  className="rounded-lg bg-white px-2.5 py-1 text-[11px] font-bold text-rose-700 ring-1 ring-rose-200 hover:bg-rose-100"
+                >
+                  Mở danh sách MT để gán
+                </button>
+              </div>
+            )}
 
             {/* Inline Cover & Date Editor (hidden until clicked) */}
             {showMetaEdit && (

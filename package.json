@@ -4,7 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "tsx server/index.ts",
+    "dev": "vite --port 3000",
+    "dev:express": "tsx server/index.ts",
     "prebuild": "node scripts/prepare-static-data.mjs",
     "build": "vite build",
     "preview": "vite preview --port 4173",

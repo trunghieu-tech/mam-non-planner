@@ -21,6 +21,17 @@ import { UserGuideModal } from './components/UserGuideModal';
 import { addDaysISO, createBlankPlan, domainToKey, syncWeekDates } from './utils/helpers';
 import { buildInitialWordHtml } from './utils/planToHtml';
 import { buildPedagogicalLessonPlan } from './utils/subjectTemplates';
+import { setWorksCorpusFromServer } from './utils/worksLookup';
+import {
+  copyPlanAcrossSchoolClasses,
+  fetchTrashedWeeks,
+  getHdsbeSchoolState,
+  restoreWeekFromTrash,
+  setActiveSchoolClassForGrade,
+  subscribeHdsbeSchoolState,
+  type HdsbeSchoolContextState,
+  type HdsbeTrashedWeekItem,
+} from './utils/hdsbeApiClient';
 
 type WorkspaceStep = 'annual' | 'board' | 'shared' | 'focus' | 'preview' | 'closing';
 
@@ -50,6 +61,14 @@ export default function App() {
   const [libraryModalTab, setLibraryModalTab] = useState<'bank' | 'crawled' | 'works' | 'media' | null>(null);
   const [libraryAgeGroup, setLibraryAgeGroup] = useState<AgeGroupId>('LA_5_6T');
   const [toast, setToast] = useState<{ msg: string; canUndo?: boolean } | null>(null);
+  const [schoolCtx, setSchoolCtx] = useState<HdsbeSchoolContextState>(() => getHdsbeSchoolState());
+  const [showCopyClassModal, setShowCopyClassModal] = useState(false);
+  const [copyMode, setCopyMode] = useState<'WEEK' | 'ANNUAL'>('WEEK');
+  const [copyTargets, setCopyTargets] = useState<string[]>([]);
+  const [copyingBusy, setCopyingBusy] = useState(false);
+  const [showTrashModal, setShowTrashModal] = useState(false);
+  const [trashClassFilter, setTrashClassFilter] = useState<string>('ALL');
+  const [trashedWeeks, setTrashedWeeks] = useState<HdsbeTrashedWeekItem[]>([]);
   const docxInputRef = useRef<HTMLInputElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
   const toastTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -81,31 +100,50 @@ export default function App() {
   };
 
   useEffect(() => {
-    Promise.all([
+    return subscribeHdsbeSchoolState((next) => setSchoolCtx(next));
+  }, []);
+
+  const reloadWorkspaceData = useCallback(async (preferredGrade?: AgeGroupId) => {
+    const [objData, planData, annualData, assessData] = await Promise.all([
       fetch('/api/objectives').then((r) => r.json()),
       fetch('/api/plans').then((r) => r.json()),
       fetch('/api/annual-plans').then((r) => r.json()).catch(() => ({ annualPlans: null })),
       fetch('/api/assessments').then((r) => r.json()).catch(() => ({ assessments: [] })),
-    ]).then(([objData, planData, annualData, assessData]) => {
-      const ds = objData as ObjectivesDataset;
-      setDataset(ds);
-      const list = (planData.plans || []) as WeeklyPlanDocument[];
-      setPlans(list);
-      if (annualData?.annualPlans) {
-        setAnnualPlans(annualData.annualPlans as Record<AgeGroupId, AnnualPlanDocument>);
+    ]);
+    const ds = objData as ObjectivesDataset;
+    setDataset(ds);
+    const list = (planData.plans || []) as WeeklyPlanDocument[];
+    setPlans(list);
+    if (annualData?.annualPlans) {
+      setAnnualPlans(annualData.annualPlans as Record<AgeGroupId, AnnualPlanDocument>);
+    }
+    if (Array.isArray(assessData?.assessments)) {
+      setAssessments(assessData.assessments as ThemeAssessmentDocument[]);
+    }
+    if (preferredGrade) {
+      const matchGrade = list.find((p) => p.ageGroupId === preferredGrade);
+      setLibraryAgeGroup(preferredGrade);
+      if (matchGrade) {
+        setActivePlanId(matchGrade.id);
+      } else {
+        setStep('annual');
       }
-      if (Array.isArray(assessData?.assessments)) {
-        setAssessments(assessData.assessments as ThemeAssessmentDocument[]);
-      }
-      if (list.length > 0) {
-        const storedId = sessionStorage.getItem('mn_active_plan_id');
-        const picked = list.find((p) => p.id === storedId) || list[0];
-        setActivePlanId(picked.id);
-        setLibraryAgeGroup(picked.ageGroupId);
-      }
-    });
-    fetchCrawledSummary();
+    } else if (list.length > 0) {
+      const storedId = sessionStorage.getItem('mn_active_plan_id');
+      const picked = list.find((p) => p.id === storedId) || list[0];
+      setActivePlanId(picked.id);
+      setLibraryAgeGroup(picked.ageGroupId);
+    }
   }, []);
+
+  useEffect(() => {
+    reloadWorkspaceData();
+    fetchCrawledSummary();
+    fetch('/api/kb/works')
+      .then((r) => r.json())
+      .then((d) => setWorksCorpusFromServer(d?.works))
+      .catch(() => {});
+  }, [reloadWorkspaceData]);
 
   useEffect(() => {
     sessionStorage.setItem('mn_active_step', step);
@@ -207,12 +245,84 @@ export default function App() {
         setUndoSnapshot(null);
         const agName = dataset?.ageGroups.find((g) => g.id === ageGroupId)?.name || ageGroupId;
         notify(`Đã chuyển sang ${agName} — Lớp ${target.className}`);
-      } else if (step !== 'annual') {
-        setShowNewModal(true);
+      } else {
+        setStep('annual');
+        const agName = dataset?.ageGroups.find((g) => g.id === ageGroupId)?.name || ageGroupId;
+        notify(`Đang xem Sổ Năm học ${agName} — bấm "+ Khởi tạo Tuần" để bắt đầu soạn!`);
       }
     },
-    [plans, dataset, notify, step]
+    [plans, dataset, notify]
   );
+
+  const handleSelectRealSchoolClass = useCallback(
+    async (lopCode: string) => {
+      const cls = await setActiveSchoolClassForGrade(lopCode);
+      if (!cls) return;
+      setShowPlanMenu(false);
+      notify(`Đang tải dữ liệu lớp ${cls.ten_lop} (${schoolCtx.tenTruong})...`);
+      await reloadWorkspaceData(cls.nhom_tuoi);
+      notify(`Đã chuyển sang lớp ${cls.ten_lop} (${schoolCtx.tenTruong})!`);
+    },
+    [notify, reloadWorkspaceData, schoolCtx.tenTruong]
+  );
+
+  const handleOpenCopyModal = () => {
+    setShowPlanMenu(false);
+    const curAg = activePlan?.ageGroupId || libraryAgeGroup;
+    const curLop = schoolCtx.selectedLopByGrade[curAg];
+    const peers = schoolCtx.classes
+      .filter((c) => c.nhom_tuoi === curAg && c.lop_code !== curLop)
+      .map((c) => c.lop_code);
+    setCopyTargets(peers.slice(0, 1));
+    setCopyMode('WEEK');
+    setShowCopyClassModal(true);
+  };
+
+  const handleExecuteCopyAcrossClasses = async () => {
+    if (!activePlan || copyTargets.length === 0) return;
+    const curLop = schoolCtx.selectedLopByGrade[activePlan.ageGroupId];
+    setCopyingBusy(true);
+    try {
+      const count = await copyPlanAcrossSchoolClasses({
+        mode: copyMode,
+        srcLopCode: curLop,
+        targetLopCodes: copyTargets,
+        weekNumber: activePlan.weekNumber,
+      });
+      setShowCopyClassModal(false);
+      notify(
+        copyMode === 'ANNUAL'
+          ? `Đã sao chép Khung Kế hoạch Năm học sang ${count} lớp cùng khối!`
+          : `Đã sao chép Giáo án Tuần ${activePlan.weekNumber} sang ${count} lớp cùng khối!`
+      );
+    } catch {
+      notify('Không thể sao chép kế hoạch sang lớp khác.');
+    } finally {
+      setCopyingBusy(false);
+    }
+  };
+
+  const handleOpenTrashModal = async () => {
+    setShowPlanMenu(false);
+    setTrashClassFilter('ALL');
+    const items = await fetchTrashedWeeks('ALL').catch(() => []);
+    setTrashedWeeks(items);
+    setShowTrashModal(true);
+  };
+
+  const handleRestoreTrashedWeek = async (item: HdsbeTrashedWeekItem) => {
+    await setActiveSchoolClassForGrade(item.lop_code);
+    const restored = await restoreWeekFromTrash(item.lop_code, item.tuan_thu).catch(() => null);
+    if (restored) {
+      setTrashedWeeks((prev) =>
+        prev.filter((x) => !(x.lop_code === item.lop_code && x.tuan_thu === item.tuan_thu))
+      );
+      await reloadWorkspaceData();
+      setActivePlanId(restored.id);
+      setShowTrashModal(false);
+      notify(`Đã khôi phục Giáo án Tuần ${item.tuan_thu} (${item.ten_lop || item.lop_code}) từ thùng rác!`);
+    }
+  };
 
   // Khóa an toàn chống mất chỉnh sửa gõ tay ở Bước 4 khi sửa ngược Bước 1–3
   const handleStructuredUpdate = useCallback(
@@ -293,7 +403,7 @@ export default function App() {
     });
     const data = await res.json();
     if (data.plan) {
-      setPlans((prev) => [data.plan, ...prev]);
+      setPlans((prev) => [data.plan, ...prev.filter((p) => p.id !== data.plan.id)]);
       setActivePlanId(data.plan.id);
       setLibraryAgeGroup(data.plan.ageGroupId);
       setStep('board');
@@ -507,10 +617,11 @@ export default function App() {
       for (let i = 0; i < bytes.length; i++) binary += String.fromCharCode(bytes[i]);
       const base64 = btoa(binary);
 
+      const curAg = activePlan?.ageGroupId || libraryAgeGroup;
       const res = await fetch('/api/import/docx', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ filename: file.name, base64 }),
+        body: JSON.stringify({ filename: file.name, base64, ageGroupId: curAg }),
       });
       const data = await res.json();
       if (!res.ok || !data.imported) {
@@ -518,21 +629,42 @@ export default function App() {
         return;
       }
       const imp = data.imported;
-      const prof = annualPlans?.[imp.ageGroupId as AgeGroupId]?.profile;
+      // Giữ giáo án nhập ở đúng lớp/khối giáo viên đang mở làm việc (chỉ suy luận khối từ file khi chưa có lớp đang mở)
+      const targetAg = (activePlan?.ageGroupId || imp.ageGroupId || curAg) as AgeGroupId;
+      const prof = annualPlans?.[targetAg]?.profile;
+      const targetClassName =
+        (targetAg === activePlan?.ageGroupId ? activePlan?.className : undefined) ||
+        prof?.className ||
+        imp.className ||
+        'Lá 1';
+      const targetLopCode = schoolCtx.selectedLopByGrade[targetAg];
+
+      // Không tự động ghi đè tuần đã tồn tại (đặc biệt là tuần ĐÃ DUYỆT) khi file .docx không ghi rõ số tuần mới
+      const existingWeeksOfClass = new Set(
+        plans.filter((p) => p.ageGroupId === targetAg && p.className === targetClassName).map((p) => p.weekNumber)
+      );
+      let safeWeekNumber = Number(imp.detectedWeekNumber || imp.weekNumber) || 1;
+      if (existingWeeksOfClass.has(safeWeekNumber)) {
+        let candidate = Math.max(1, ...Array.from(existingWeeksOfClass)) + 1;
+        while (existingWeeksOfClass.has(candidate) && candidate < 53) candidate++;
+        safeWeekNumber = Math.min(53, candidate);
+      }
+
       const blank = createBlankPlan({
-        ageGroupId: imp.ageGroupId,
-        className: imp.className || prof?.className || 'Lá 1',
-        teacherName: imp.teacherName || prof?.teacherName || 'Giáo viên lớp',
-        schoolName: imp.schoolName || prof?.schoolName || 'TRƯỜNG MẦM NON',
-        governingBody: prof?.governingBody || 'PHÒNG GIÁO DỤC VÀ ĐÀO TẠO',
+        ageGroupId: targetAg,
+        className: targetClassName,
+        teacherName: imp.teacherName || prof?.teacherName || activePlan?.teacherName || 'Giáo viên lớp',
+        schoolName: imp.schoolName || prof?.schoolName || activePlan?.schoolName || 'TRƯỜNG MẦM NON',
+        governingBody: prof?.governingBody || activePlan?.governingBody || 'PHÒNG GIÁO DỤC VÀ ĐÀO TẠO',
         principalName: prof?.principalName || activePlan?.principalName || 'Ban Giám hiệu',
         themeName: imp.themeName,
         subThemeName: imp.subThemeName,
-        weekNumber: imp.weekNumber,
+        weekNumber: safeWeekNumber,
         weekStartDate: activePlan?.weekStartDate || '2026-09-07',
       });
-      const importedPlan: WeeklyPlanDocument = {
+      const importedPlan: WeeklyPlanDocument & { lop_code?: string } = {
         ...blank,
+        lop_code: targetLopCode,
         editorHtml: imp.editorHtml,
         hasManualFullDocEdits: true,
       };
@@ -543,12 +675,12 @@ export default function App() {
       });
       const saved = await saveRes.json();
       if (saved.plan) {
-        setPlans((prev) => [saved.plan, ...prev]);
+        setPlans((prev) => [saved.plan, ...prev.filter((p) => p.id !== saved.plan.id)]);
         setActivePlanId(saved.plan.id);
         setLibraryAgeGroup(saved.plan.ageGroupId);
         setStep('preview');
         setDirty(false);
-        notify(`Đã nhập "${file.name}" (${imp.wordCount.toLocaleString('vi-VN')} từ)!`);
+        notify(`Đã nhập "${file.name}" vào Tuần ${saved.plan.weekNumber} (${imp.wordCount.toLocaleString('vi-VN')} từ)!`);
       }
     } catch {
       notify('Có lỗi khi tải file .docx lên.');
@@ -802,9 +934,33 @@ export default function App() {
             </div>
           </button>
 
-          {/* Clean Dropdown Menu containing 4 Grades, Saved Plans & Actions */}
+          {/* Clean Dropdown Menu containing School Class Selector, 4 Grades, Saved Plans & Actions */}
           {showPlanMenu && (
-            <div className="absolute top-13 left-0 z-50 w-80 rounded-2xl border border-slate-200 bg-white p-3 shadow-xl">
+            <div className="absolute top-13 left-0 z-50 w-84 rounded-2xl border border-slate-200 bg-white p-3 shadow-xl">
+              {schoolCtx.connected && (
+                <div className="mb-3 rounded-xl border border-blue-100 bg-[#EFF6FF] p-2.5">
+                  <div className="flex items-center justify-between gap-2 text-[11px] font-bold text-[#1E3A8A]">
+                    <span className="truncate">{schoolCtx.tenTruong}</span>
+                    <span className="shrink-0 rounded bg-[#DBEAFE] px-1.5 py-0.5 text-[10px] text-[#1D4ED8]">
+                      {schoolCtx.namHoc}
+                    </span>
+                  </div>
+                  <div className="mt-1.5">
+                    <select
+                      value={schoolCtx.selectedLopByGrade[activeAnnualAgeGroup] || ''}
+                      onChange={(e) => handleSelectRealSchoolClass(e.target.value)}
+                      className="w-full rounded-lg border border-blue-200 bg-white px-2 py-1.5 text-xs font-semibold text-slate-800 outline-none focus:border-[#1D4ED8]"
+                    >
+                      {schoolCtx.classes.map((cls) => (
+                        <option key={cls.lop_code} value={cls.lop_code}>
+                          Lớp {cls.ten_lop} (Mã lớp: {cls.lop_code})
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+              )}
+
               <div className="px-2 pb-1.5 text-[11px] font-bold uppercase tracking-wide text-slate-400">
                 Chuyển nhanh 4 Khối lớp
               </div>
@@ -874,6 +1030,22 @@ export default function App() {
                 >
                   Nhân bản sang tuần kế tiếp
                 </button>
+                {schoolCtx.connected && (
+                  <>
+                    <button
+                      onClick={handleOpenCopyModal}
+                      className="block w-full rounded-lg px-2.5 py-2 text-left font-medium text-slate-700 hover:bg-slate-100"
+                    >
+                      Sao chép KH sang lớp khác cùng khối
+                    </button>
+                    <button
+                      onClick={handleOpenTrashModal}
+                      className="block w-full rounded-lg px-2.5 py-2 text-left font-medium text-slate-700 hover:bg-slate-100"
+                    >
+                      Thùng rác / Khôi phục tuần đã xóa
+                    </button>
+                  </>
+                )}
                 <button
                   onClick={() => docxInputRef.current?.click()}
                   className="block w-full rounded-lg px-2.5 py-2 text-left font-medium text-slate-700 hover:bg-slate-100"
@@ -920,7 +1092,7 @@ export default function App() {
         </div>
 
         {/* GROUP 2 (Center): Clean End-to-End Text Stepper */}
-        <nav className="flex items-center gap-0.5 overflow-x-auto rounded-xl bg-slate-100 p-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <nav className="flex min-w-0 flex-1 items-center justify-start gap-0.5 overflow-x-auto rounded-xl bg-slate-100 p-1 xl:flex-none xl:justify-center [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {STEPS.map((st) => {
             const active = step === st.id;
             const showBadge = st.id === 'closing' && unresolvedComments > 0;
@@ -1092,10 +1264,173 @@ export default function App() {
             onJumpToSection={handleJumpToSectionFromReview}
             onGoToAnnualRoster={() => setStep('annual')}
             onGoToPreview={() => setStep('preview')}
+            onSelectSchoolClass={handleSelectRealSchoolClass}
             onNotify={notify}
           />
         )}
       </div>
+
+      {/* Modal Sao chép KH giữa các lớp cùng khối (chuẩn Vietec Video #14) */}
+      {showCopyClassModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/50 p-4 backdrop-blur-xs">
+          <div className="w-full max-w-md rounded-2xl bg-white p-5 shadow-2xl">
+            <h3 className="text-sm font-bold text-slate-900">
+              Sao chép Kế hoạch sang lớp khác cùng khối
+            </h3>
+            <p className="mt-1 text-xs text-slate-500">
+              Nguồn: <strong>Lớp {activePlan.className}</strong> ({schoolCtx.tenTruong}). Hệ thống tự động cập nhật tên lớp và giáo viên chủ nhiệm tương ứng ở lớp nhận.
+            </p>
+
+            <div className="mt-3 space-y-2 rounded-xl bg-slate-50 p-3 text-xs">
+              <label className="flex items-center gap-2 font-semibold text-slate-800">
+                <input
+                  type="radio"
+                  checked={copyMode === 'WEEK'}
+                  onChange={() => setCopyMode('WEEK')}
+                />
+                <span>Sao chép trọn bộ Giáo án Tuần {activePlan.weekNumber} ({activePlan.subThemeName})</span>
+              </label>
+              <label className="flex items-center gap-2 font-semibold text-slate-800">
+                <input
+                  type="radio"
+                  checked={copyMode === 'ANNUAL'}
+                  onChange={() => setCopyMode('ANNUAL')}
+                />
+                <span>Sao chép Khung Kế hoạch Năm học, TKB &amp; 9 Chủ đề Tháng</span>
+              </label>
+            </div>
+
+            <div className="mt-3">
+              <div className="text-xs font-bold text-slate-700">Chọn các lớp cùng khối nhận bản sao:</div>
+              <div className="mt-2 max-h-44 space-y-1.5 overflow-y-auto rounded-xl border border-slate-200 p-2.5 text-xs">
+                {schoolCtx.classes
+                  .filter(
+                    (c) =>
+                      c.nhom_tuoi === activePlan.ageGroupId &&
+                      c.lop_code !== schoolCtx.selectedLopByGrade[activePlan.ageGroupId]
+                  )
+                  .map((cls) => {
+                    const checked = copyTargets.includes(cls.lop_code);
+                    return (
+                      <label key={cls.lop_code} className="flex items-center gap-2 py-0.5 text-slate-800">
+                        <input
+                          type="checkbox"
+                          checked={checked}
+                          onChange={() =>
+                            setCopyTargets((prev) =>
+                              checked ? prev.filter((x) => x !== cls.lop_code) : [...prev, cls.lop_code]
+                            )
+                          }
+                        />
+                        <span className="font-medium">
+                          Lớp {cls.ten_lop} <span className="text-slate-400">(Mã: {cls.lop_code})</span>
+                        </span>
+                      </label>
+                    );
+                  })}
+              </div>
+            </div>
+
+            <div className="mt-4 flex justify-end gap-2">
+              <button
+                type="button"
+                onClick={() => setShowCopyClassModal(false)}
+                className="rounded-xl border border-slate-200 px-3.5 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-50"
+              >
+                Hủy
+              </button>
+              <button
+                type="button"
+                disabled={copyingBusy || copyTargets.length === 0}
+                onClick={handleExecuteCopyAcrossClasses}
+                className="rounded-xl bg-[#1D4ED8] px-4 py-2 text-xs font-bold text-white hover:bg-[#1E40AF] disabled:opacity-50"
+              >
+                {copyingBusy ? 'Đang sao chép...' : `Sao chép sang ${copyTargets.length} lớp`}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Modal Thùng rác & Khôi phục giáo án tuần đã xóa (chuẩn Vietec Video #23) */}
+      {showTrashModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/50 p-4 backdrop-blur-xs">
+          <div className="w-full max-w-lg rounded-2xl bg-white p-5 shadow-2xl">
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <h3 className="text-sm font-bold text-slate-900">
+                Thùng rác — Khôi phục Giáo án Tuần đã xóa ({schoolCtx.tenTruong})
+              </h3>
+              <select
+                value={trashClassFilter}
+                onChange={(e) => setTrashClassFilter(e.target.value)}
+                className="rounded-lg border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs font-semibold text-slate-700 focus:border-[#1D4ED8] focus:outline-none"
+              >
+                <option value="ALL">Tất cả các lớp ({trashedWeeks.length})</option>
+                {schoolCtx.classes.map((c) => (
+                  <option key={c.lop_code} value={c.lop_code}>
+                    Lớp {c.ten_lop} ({c.lop_code})
+                  </option>
+                ))}
+              </select>
+            </div>
+            <p className="mt-1 text-xs text-slate-500">
+              Các giáo án tuần khi xóa được giữ an toàn trong thùng rác để khôi phục lại ngay cả khi lớp đã xóa hết tuần đang soạn.
+            </p>
+            {(() => {
+              const visibleTrash =
+                trashClassFilter === 'ALL'
+                  ? trashedWeeks
+                  : trashedWeeks.filter((tw) => tw.lop_code === trashClassFilter);
+              return (
+                <div className="mt-3 max-h-64 space-y-2 overflow-y-auto">
+                  {visibleTrash.length === 0 ? (
+                    <div className="rounded-xl border border-dashed border-slate-200 py-8 text-center text-xs text-slate-400">
+                      Thùng rác trống — không có giáo án tuần nào đang chờ khôi phục.
+                    </div>
+                  ) : (
+                    visibleTrash.map((tw) => (
+                      <div
+                        key={`${tw.lop_code}_${tw.tuan_thu}`}
+                        className="flex items-center justify-between gap-3 rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2.5 text-xs"
+                      >
+                        <div className="min-w-0">
+                          <div className="flex items-center gap-1.5 font-bold text-slate-900">
+                            <span className="rounded bg-[#DBEAFE] px-1.5 py-0.5 text-[10px] font-bold text-[#1D4ED8]">
+                              {tw.ten_lop || `Lớp ${tw.lop_code}`}
+                            </span>
+                            <span className="truncate">
+                              Tuần {tw.tuan_thu} (Tháng {tw.thang}): {tw.ten_nhanh_tuan}
+                            </span>
+                          </div>
+                          <div className="mt-0.5 truncate text-[11px] text-slate-500">
+                            Chủ đề: {tw.ten_chu_de} · {tw.tu_ngay} → {tw.den_ngay}
+                          </div>
+                        </div>
+                        <button
+                          type="button"
+                          onClick={() => handleRestoreTrashedWeek(tw)}
+                          className="shrink-0 rounded-lg bg-[#1D4ED8] px-3 py-1.5 text-xs font-bold text-white hover:bg-[#1E40AF]"
+                        >
+                          Khôi phục
+                        </button>
+                      </div>
+                    ))
+                  )}
+                </div>
+              );
+            })()}
+            <div className="mt-4 flex justify-end">
+              <button
+                type="button"
+                onClick={() => setShowTrashModal(false)}
+                className="rounded-xl border border-slate-200 px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50"
+              >
+                Đóng
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Modals */}
       {showGuideModal && (

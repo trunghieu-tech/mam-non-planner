@@ -111,8 +111,10 @@ export const FocusedAssistant: React.FC<Props> = ({
   }, [plan.ageGroupId, subjectMeta.code, lockSubject, templatesRevision]);
 
   const handleDeleteSavedTemplate = async (id: string) => {
-    await fetch(`/api/templates/${id}`, { method: 'DELETE' });
-    setSavedTemplates((prev) => prev.filter((t) => t.id !== id));
+    const res = await fetch(`/api/templates/${id}`, { method: 'DELETE' });
+    if (res.ok) {
+      setSavedTemplates((prev) => prev.filter((t) => t.id !== id));
+    }
   };
 
   useEffect(() => {
@@ -250,14 +252,16 @@ export const FocusedAssistant: React.FC<Props> = ({
                   >
                     <div className="flex items-start justify-between gap-2">
                       <div className="font-bold text-slate-900">{tpl.topicTitle}</div>
-                      <button
-                        type="button"
-                        onClick={() => handleDeleteSavedTemplate(tpl.id)}
-                        title="Xóa bài mẫu này"
-                        className="text-slate-300 hover:text-rose-600"
-                      >
-                        <Trash2 className="h-3.5 w-3.5" />
-                      </button>
+                      {!tpl.isSystem && (
+                        <button
+                          type="button"
+                          onClick={() => handleDeleteSavedTemplate(tpl.id)}
+                          title="Xóa bài mẫu này"
+                          className="text-slate-300 hover:text-rose-600"
+                        >
+                          <Trash2 className="h-3.5 w-3.5" />
+                        </button>
+                      )}
                     </div>
                     <div className="mt-0.5 text-[10px] text-slate-500">
                       {tpl.subjectCode}

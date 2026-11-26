@@ -313,6 +313,7 @@ export interface SavedLessonTemplate {
   routineSlot?: string;
   createdBy: string;
   createdAt: string;
+  isSystem?: boolean;
 }
 
 /** Tài nguyên Kho Media & Học liệu điện tử chia sẻ (YC-053, YC-064) */

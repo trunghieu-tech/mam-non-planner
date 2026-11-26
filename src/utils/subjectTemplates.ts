@@ -85,6 +85,15 @@ export const SUBJECT_CATALOG: SubjectMeta[] = [
     rhythm: 'ACTIVE',
     pedagogySummary: 'Tình huống gợi mở → Thảo luận xử lý → Thực hành đóng vai → Củng cố',
   },
+  {
+    code: 'STEAM',
+    shortLabel: 'STEAM (5E / EDP)',
+    fullTitle: 'HOẠT ĐỘNG GIÁO DỤC STEAM (MÔ HÌNH 5E / QUY TRÌNH EDP)',
+    domainKey: 'PTNT',
+    domainTitle: 'LĨNH VỰC PHÁT TRIỂN NHẬN THỨC – TÍCH HỢP STEAM',
+    rhythm: 'ACTIVE',
+    pedagogySummary: '5E (Gắn kết → Khám phá → Giải thích → Áp dụng → Đánh giá) hoặc EDP (Hỏi → Tưởng tượng → Bản vẽ → Chế tạo → Cải tiến)',
+  },
 ];
 
 export function getSubjectsForAgeGroup(ageGroupId: AgeGroupId): SubjectMeta[] {
@@ -145,6 +154,7 @@ export function resolveSubjectMeta(subjectCodeOrHint: string): SubjectMeta {
       pedagogySummary: 'Tạo hứng thú → Thao tác với đồ vật → Nhận biết màu sắc/kích thước → Trò chơi',
     };
   }
+  if (s.includes('steam') || s.includes('stem') || s.includes('5e') || s.includes('edp') || s.includes('thi nghiem')) return SUBJECT_CATALOG[8];
   if (s.includes('ptvd') || s.includes('the duc') || s.includes('van dong')) return SUBJECT_CATALOG[0];
   if (s.includes('gdan') || s.includes('am nhac') || s.includes('hat')) return SUBJECT_CATALOG[1];
   if (s.includes('tao hinh') || s.includes('ve') || s.includes('nan') || s.includes('xe dan')) return SUBJECT_CATALOG[2];
@@ -724,6 +734,88 @@ export function buildPedagogicalSteps(
           },
         ],
       };
+
+    case 'STEAM': {
+      const isEdp = /(che tao|thiet ke|lam |lap rap|edp|mo hinh)/.test(normVN(topicTitle));
+      if (isEdp) {
+        return {
+          preparation: [
+            `Nguyên vật liệu mở cho dự án "${cleanTopicForSentence(topicTitle)}": Bìa carton, que kem, ống hút, giấy màu, kéo an toàn, keo sữa, băng dính, thước đo.`,
+            'Giấy A3 & bút dạ cho từng nhóm vẽ bản thiết kế sơ phác; bàn trưng bày sản phẩm STEAM.',
+          ],
+          steps: [
+            {
+              title: 'Bước 1 (Ask – Đặt vấn đề / Xác định thử thách thực tế)',
+              details: [
+                `Cô đưa ra câu chuyện / tình huống có vấn đề gắn với đề tài "${cleanTopicForSentence(topicTitle)}" và thống nhất tiêu chí sản phẩm cần đạt (bền chắc, đúng công năng, thẩm mỹ).`,
+              ],
+            },
+            {
+              title: 'Bước 2 (Imagine – Tưởng tượng & Thảo luận giải pháp)',
+              details: [
+                'Trẻ thảo luận theo nhóm nhỏ, khám phá các vật liệu trên khay và đề xuất ý tưởng chế tạo sản phẩm.',
+              ],
+            },
+            {
+              title: 'Bước 3 (Plan – Lập kế hoạch & Vẽ bản thiết kế)',
+              details: [
+                'Đại diện nhóm phác thảo bản vẽ thiết kế trên giấy A3, phân công nhiệm vụ và lựa chọn nguyên vật liệu phù hợp.',
+              ],
+            },
+            {
+              title: 'Bước 4 (Create – Chế tạo sản phẩm theo bản thiết kế)',
+              details: [
+                'Các nhóm tiến hành đo, cắt, ghép nối, trang trí tạo sản phẩm theo bản vẽ; cô quan sát và đặt câu hỏi gợi mở hỗ trợ kỹ thuật.',
+              ],
+            },
+            {
+              title: 'Bước 5 (Improve – Thử nghiệm, Đánh giá & Cải tiến)',
+              details: [
+                'Trẻ kiểm thử sản phẩm trước lớp đối chiếu với tiêu chí ban đầu, chia sẻ điểm muốn cải tiến tốt hơn và thu dọn góc STEAM.',
+              ],
+            },
+          ],
+        };
+      }
+      return {
+        preparation: [
+          `Bộ học liệu khám phá "${cleanTopicForSentence(topicTitle)}" cho 3–4 nhóm: Khay trải nghiệm, kính lúp, vật mẫu thật, phiếu ghi chép quan sát bằng hình vẽ của trẻ.`,
+          'Video/hình ảnh mở rộng hiện tượng thực tế, nhạc nhẹ khi trẻ làm thí nghiệm.',
+        ],
+        steps: [
+          {
+            title: 'Bước 1 (E1: Engage – Gắn kết & Khơi gợi tò mò)',
+            details: [
+              `Cô tạo tình huống bất ngờ liên quan đến "${cleanTopicForSentence(topicTitle)}", đặt câu hỏi dự đoán "Điều gì sẽ xảy ra?" để huy động hiểu biết ban đầu của trẻ.`,
+            ],
+          },
+          {
+            title: 'Bước 2 (E2: Explore – Trực tiếp Khám phá & Thử nghiệm)',
+            details: [
+              'Trẻ chia nhóm tự tay thao tác thí nghiệm, quan sát bằng đa giác quan và ghi nhận kết quả vào bảng ghi chép hình ảnh của nhóm.',
+            ],
+          },
+          {
+            title: 'Bước 3 (E3: Explain – Chia sẻ & Giải thích)',
+            details: [
+              'Các nhóm trình bày bảng ghi chép quan sát; cô đặt câu hỏi mở giúp trẻ tự rút ra bản chất khoa học (S) và mối liên hệ toán học/đo lường (M).',
+            ],
+          },
+          {
+            title: 'Bước 4 (E4: Elaborate – Áp dụng & Mở rộng thực tiễn)',
+            details: [
+              'Đặt thử thách mở rộng (thay đổi chất liệu/điều kiện) hoặc ứng dụng kiến thức vừa khám phá vào đời sống hằng ngày của trẻ.',
+            ],
+          },
+          {
+            title: 'Bước 5 (E5: Evaluate – Đánh giá & Tổng kết)',
+            details: [
+              'Trẻ tự đánh giá quá trình hợp tác nhóm; cô tổng kết kiến thức cốt lõi và khen ngợi các nhà khoa học nhí.',
+            ],
+          },
+        ],
+      };
+    }
   }
 }
 

@@ -23,9 +23,9 @@ import { smartInsertIntoEditor, type SmartInsertOptions } from '../utils/editorI
 import {
   buildPedagogicalLessonPlan,
   DAILY_EVAL_PRESETS,
+  getSubjectsForAgeGroup,
   lessonPlanToRichHtml,
   resolveSubjectMeta,
-  SUBJECT_CATALOG,
 } from '../utils/subjectTemplates';
 import { getSubjectVisual } from '../utils/visualMeta';
 import { WordEditor } from './WordEditor';
@@ -814,11 +814,18 @@ export const FocusedWordStudio: React.FC<Props> = ({
                   }}
                   className="rounded-lg border border-slate-200 bg-white px-2 py-1 text-xs font-bold text-slate-800"
                 >
-                  {SUBJECT_CATALOG.map((s) => (
-                    <option key={s.code} value={s.code}>
-                      {s.shortLabel}
-                    </option>
-                  ))}
+                  {(() => {
+                    const allowed = getSubjectsForAgeGroup(plan.ageGroupId);
+                    const curMeta = resolveSubjectMeta(activeLesson.subjectCode);
+                    const opts = allowed.some((s) => s.code === curMeta.code)
+                      ? allowed
+                      : [curMeta, ...allowed];
+                    return opts.map((s) => (
+                      <option key={s.code} value={s.code}>
+                        {s.shortLabel}
+                      </option>
+                    ));
+                  })()}
                 </select>
                 <input
                   value={activeLesson.topicTitle}
@@ -881,7 +888,13 @@ export const FocusedWordStudio: React.FC<Props> = ({
                   Khung chuẩn {resolveSubjectMeta(activeLesson.subjectCode).code}
                 </button>
                 <button
-                  onClick={() => setZenMode((v) => !v)}
+                  onClick={() =>
+                    setZenMode((prev) => {
+                      const next = !prev;
+                      setShowAssistant(!next);
+                      return next;
+                    })
+                  }
                   title={zenMode ? 'Thoát chế độ tập trung' : 'Chế độ tập trung toàn màn hình'}
                   className={`rounded-lg border p-1.5 transition ${
                     zenMode
@@ -894,7 +907,7 @@ export const FocusedWordStudio: React.FC<Props> = ({
                 <button
                   onClick={() => setShowAssistant((v) => !v)}
                   className={`rounded-lg border px-2.5 py-1 text-[11px] font-semibold ${
-                    showAssistant && !zenMode
+                    showAssistant
                       ? 'border-[#1D4ED8]/30 bg-[#DBEAFE] text-[#1D4ED8]'
                       : 'border-slate-200 bg-white text-slate-600'
                   }`}
@@ -1039,8 +1052,8 @@ export const FocusedWordStudio: React.FC<Props> = ({
       </main>
 
       {/* RIGHT ZERO-NOISE SUBJECT-LOCKED ASSISTANT */}
-      {showAssistant && !zenMode && activeLesson && target.kind !== 'eval' && target.kind !== 'dayBook' && (
-        <div className="hidden w-[340px] shrink-0 lg:block xl:w-[370px]">
+      {showAssistant && activeLesson && target.kind !== 'eval' && target.kind !== 'dayBook' && (
+        <div className="fixed inset-y-0 right-0 z-40 w-[340px] shrink-0 bg-white shadow-2xl lg:static lg:z-auto lg:block lg:shadow-none xl:w-[370px]">
           <FocusedAssistant
             plan={plan}
             dataset={dataset}

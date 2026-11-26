@@ -9,6 +9,11 @@ import type {
   WeeklyPlanDocument,
 } from '../../shared/types';
 import { fmtDateVN } from '../utils/helpers';
+import {
+  fetchSchoolWideClassStats,
+  getHdsbeSchoolState,
+  type HdsbeClassApprovalStat,
+} from '../utils/hdsbeApiClient';
 
 interface Props {
   plan: WeeklyPlanDocument;
@@ -22,6 +27,7 @@ interface Props {
   onJumpToSection: (section: string) => void;
   onGoToAnnualRoster: () => void;
   onGoToPreview: () => void;
+  onSelectSchoolClass?: (lopCode: string) => void;
   onNotify: (msg: string) => void;
 }
 
@@ -73,9 +79,11 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
   onJumpToSection,
   onGoToAnnualRoster,
   onGoToPreview,
+  onSelectSchoolClass,
   onNotify,
 }) => {
   const [subTab, setSubTab] = useState<'daily' | 'assessment' | 'yearEnd' | 'approval'>('assessment');
+  const [schoolClassStats, setSchoolClassStats] = useState<HdsbeClassApprovalStat[]>([]);
   const [selectedDayIdx, setSelectedDayIdx] = useState<number>(0);
   const [activeRole, setActiveRole] = useState<'TEACHER' | 'BGH'>('TEACHER');
   const [selectedThemeName, setSelectedThemeName] = useState<string>(plan.themeName);
@@ -100,6 +108,14 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
   useEffect(() => {
     setApproverInput(plan.principalName || annualPlan.profile.principalName || 'Ban Giám hiệu');
   }, [plan.principalName, annualPlan.profile.principalName]);
+
+  useEffect(() => {
+    if (subTab === 'approval' && getHdsbeSchoolState().connected) {
+      fetchSchoolWideClassStats()
+        .then((rows) => setSchoolClassStats(rows))
+        .catch(() => {});
+    }
+  }, [subTab, plan.status, allPlans.length]);
 
   const gradeObjectives = useMemo(
     () => dataset.objectives.filter((o) => o.ageGroupId === plan.ageGroupId),
@@ -169,8 +185,14 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
   }, [plan.ageGroupId, selectedThemeName]);
 
   const existingAssessment = useMemo(
-    () => assessments.find((a) => a.id === assessmentId),
-    [assessments, assessmentId]
+    () =>
+      assessments.find((a) => a.id === assessmentId) ||
+      assessments.find(
+        (a) =>
+          a.ageGroupId === plan.ageGroupId &&
+          (a.themeName || '').trim().toLowerCase() === selectedThemeName.trim().toLowerCase()
+      ),
+    [assessments, assessmentId, plan.ageGroupId, selectedThemeName]
   );
 
   const [draftAssessment, setDraftAssessment] = useState<ThemeAssessmentDocument>(() => {
@@ -1901,6 +1923,76 @@ export const AssessmentAndApprovalView: React.FC<Props> = ({
                   )}
                 </div>
               </div>
+
+              {schoolClassStats.length > 0 && (
+                <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-2xs">
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <div>
+                      <h3 className="text-sm font-bold text-slate-900">
+                        Bảng tiến độ KHGD toàn trường ({schoolClassStats.length} lớp — {getHdsbeSchoolState().tenTruong})
+                      </h3>
+                      <p className="mt-0.5 text-xs text-slate-500">
+                        Tổng hợp trực tiếp từ DB trường dành cho Hiệu phó chuyên môn / Tổ trưởng khối theo dõi và mở duyệt nhanh từng lớp.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="mt-3 max-h-64 overflow-y-auto rounded-xl border border-slate-200">
+                    <table className="w-full text-left text-xs">
+                      <thead className="sticky top-0 bg-slate-100 font-bold text-slate-700">
+                        <tr>
+                          <th className="px-3 py-2">Lớp học</th>
+                          <th className="px-2 py-2 text-center">Đã soạn</th>
+                          <th className="px-2 py-2 text-center">Chờ duyệt</th>
+                          <th className="px-2 py-2 text-center">Đã duyệt</th>
+                          <th className="px-3 py-2 text-right">Thao tác</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-slate-100">
+                        {schoolClassStats.map((st) => (
+                          <tr key={st.lop_code} className="hover:bg-slate-50">
+                            <td className="px-3 py-2 font-semibold text-slate-800">
+                              {st.ten_lop}{' '}
+                              <span className="text-[10px] font-normal text-slate-400">({st.lop_code})</span>
+                            </td>
+                            <td className="px-2 py-2 text-center font-semibold text-slate-700">
+                              {st.tong_tuan_da_soan} tuần
+                            </td>
+                            <td className="px-2 py-2 text-center">
+                              {st.so_cho_duyet > 0 ? (
+                                <span className="rounded-full bg-amber-100 px-2 py-0.5 text-[10px] font-bold text-amber-800">
+                                  {st.so_cho_duyet}
+                                </span>
+                              ) : (
+                                <span className="text-slate-300">0</span>
+                              )}
+                            </td>
+                            <td className="px-2 py-2 text-center">
+                              {st.so_da_duyet > 0 ? (
+                                <span className="rounded-full bg-blue-100 px-2 py-0.5 text-[10px] font-bold text-blue-800">
+                                  {st.so_da_duyet}
+                                </span>
+                              ) : (
+                                <span className="text-slate-300">0</span>
+                              )}
+                            </td>
+                            <td className="px-3 py-2 text-right">
+                              {onSelectSchoolClass && (
+                                <button
+                                  type="button"
+                                  onClick={() => onSelectSchoolClass(st.lop_code)}
+                                  className="font-bold text-[#1D4ED8] hover:underline"
+                                >
+                                  Mở lớp
+                                </button>
+                              )}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         )}

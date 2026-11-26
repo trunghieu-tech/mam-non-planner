@@ -79,7 +79,8 @@ export const ReferenceLibraryModal: React.FC<Props> = ({
   onClose,
 }) => {
   const [tab, setTab] = useState<'bank' | 'crawled' | 'works' | 'media'>(initialTab);
-  const [workKind, setWorkKind] = useState<'ALL' | 'POEM' | 'STORY' | 'SONG' | 'LQCC'>('ALL');
+  const [workAgeFilter, setWorkAgeFilter] = useState<'ALL' | AgeGroupId>('ALL');
+  const [workKind, setWorkKind] = useState<'ALL' | 'POEM' | 'STORY' | 'SONG' | 'LQCC' | 'RIDDLE'>('ALL');
   const [workQuery, setWorkQuery] = useState('');
 
   // State cho Kho Media & Bài giảng mẫu cá nhân (YC-053, YC-064)
@@ -90,6 +91,7 @@ export const ReferenceLibraryModal: React.FC<Props> = ({
   const [allMediaPool, setAllMediaPool] = useState<SharedMediaResource[]>([]);
   const [previewMedia, setPreviewMedia] = useState<SharedMediaResource | null>(null);
   const [savedTemplates, setSavedTemplates] = useState<SavedLessonTemplate[]>([]);
+  const [loadingMedia, setLoadingMedia] = useState(false);
   const [showAddMedia, setShowAddMedia] = useState(false);
   const [newMediaTitle, setNewMediaTitle] = useState('');
   const [newMediaUrl, setNewMediaUrl] = useState('');
@@ -99,30 +101,50 @@ export const ReferenceLibraryModal: React.FC<Props> = ({
   const [newMediaSubj, setNewMediaSubj] = useState('MTXQ');
 
   const worksList = useMemo(() => {
-    const all = filterWorksForAssistant('ALL', selectedAgeGroup, workQuery);
+    const all = filterWorksForAssistant('ALL', workAgeFilter, workQuery);
     return workKind === 'ALL' ? all : all.filter((w) => w.kind === workKind);
-  }, [selectedAgeGroup, workKind, workQuery]);
+  }, [workAgeFilter, workKind, workQuery]);
 
-  const loadMediaAndTemplates = () => {
+  const loadMediaAndTemplates = (checkCancelled?: () => boolean) => {
+    setLoadingMedia(true);
     const pm = new URLSearchParams();
     if (mediaAgeFilter !== 'ALL') pm.set('ageGroupId', mediaAgeFilter);
     if (mediaSubjFilter !== 'ALL') pm.set('subjectCode', mediaSubjFilter);
     if (mediaQuery.trim()) pm.set('q', mediaQuery.trim());
-    fetch(`/api/media?${pm.toString()}`)
-      .then((r) => r.json())
-      .then((d) => setAllMediaPool(d.items || []))
-      .catch(() => setAllMediaPool([]));
 
-    fetch(`/api/templates?ageGroupId=${selectedAgeGroup}`)
-      .then((r) => r.json())
-      .then((d) => setSavedTemplates(d.templates || []))
-      .catch(() => setSavedTemplates([]));
+    const tplParams = new URLSearchParams();
+    if (mediaAgeFilter !== 'ALL') tplParams.set('ageGroupId', mediaAgeFilter);
+    if (mediaSubjFilter !== 'ALL') tplParams.set('subjectCode', mediaSubjFilter);
+
+    Promise.all([
+      fetch(`/api/media?${pm.toString()}`)
+        .then((r) => r.json())
+        .then((d) => {
+          if (!checkCancelled?.()) setAllMediaPool(d.items || []);
+        })
+        .catch(() => {
+          if (!checkCancelled?.()) setAllMediaPool([]);
+        }),
+      fetch(`/api/templates?${tplParams.toString()}`)
+        .then((r) => r.json())
+        .then((d) => {
+          if (!checkCancelled?.()) setSavedTemplates(d.templates || []);
+        })
+        .catch(() => {
+          if (!checkCancelled?.()) setSavedTemplates([]);
+        }),
+    ]).finally(() => {
+      if (!checkCancelled?.()) setLoadingMedia(false);
+    });
   };
 
   useEffect(() => {
-    if (tab === 'media') {
-      loadMediaAndTemplates();
-    }
+    if (tab !== 'media') return;
+    let cancelled = false;
+    loadMediaAndTemplates(() => cancelled);
+    return () => {
+      cancelled = true;
+    };
   }, [tab, selectedAgeGroup, mediaAgeFilter, mediaSubjFilter, mediaQuery]);
 
   const mediaCountsByKind = useMemo(() => {
@@ -262,12 +284,25 @@ export const ReferenceLibraryModal: React.FC<Props> = ({
             <div className="space-y-4">
               <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-slate-200 bg-white p-4">
                 <div className="flex flex-wrap items-center gap-1.5">
+                  <button
+                    onClick={() => setWorkAgeFilter('ALL')}
+                    className={`rounded-lg px-3 py-1.5 text-xs font-bold transition ${
+                      workAgeFilter === 'ALL'
+                        ? 'bg-[#1D4ED8] text-white'
+                        : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+                    }`}
+                  >
+                    Tất cả 4 độ tuổi ({worksList.length})
+                  </button>
                   {dataset.ageGroups.map((ag) => (
                     <button
                       key={ag.id}
-                      onClick={() => onSelectAgeGroup(ag.id)}
+                      onClick={() => {
+                        setWorkAgeFilter(ag.id);
+                        onSelectAgeGroup(ag.id);
+                      }}
                       className={`rounded-lg px-3 py-1.5 text-xs font-bold transition ${
-                        selectedAgeGroup === ag.id
+                        workAgeFilter === ag.id
                           ? 'bg-[#1D4ED8] text-white'
                           : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
                       }`}
@@ -284,6 +319,7 @@ export const ReferenceLibraryModal: React.FC<Props> = ({
                       { id: 'POEM', label: 'Thơ' },
                       { id: 'STORY', label: 'Truyện kể' },
                       { id: 'SONG', label: 'Bài hát' },
+                      { id: 'RIDDLE', label: 'Đồng dao / Đố vui' },
                       { id: 'LQCC', label: '29 Chữ cái' },
                     ] as const
                   ).map((k) => (
@@ -373,14 +409,18 @@ export const ReferenceLibraryModal: React.FC<Props> = ({
               <div className="rounded-2xl border border-slate-200 bg-white p-4">
                 <div className="flex items-center justify-between">
                   <div className="text-sm font-bold text-slate-900">
-                    Bài giảng mẫu cá nhân đã lưu ({savedTemplates.length})
+                    Kho Giáo án mẫu chuẩn toàn quốc &amp; Cá nhân ({savedTemplates.length})
                   </div>
                   <span className="text-xs text-slate-400">
                     Bấm “Lưu bài mẫu” khi soạn ở mục Giáo án Ngày để cất vào đây
                   </span>
                 </div>
 
-                {savedTemplates.length === 0 ? (
+                {loadingMedia && savedTemplates.length === 0 ? (
+                  <p className="mt-3 text-xs font-medium text-[#1D4ED8]">
+                    Đang tải kho giáo án mẫu chuẩn toàn quốc...
+                  </p>
+                ) : savedTemplates.length === 0 ? (
                   <p className="mt-3 text-xs text-slate-500">
                     Chưa có bài giảng mẫu cá nhân nào cho khối tuổi này.
                   </p>
@@ -416,12 +456,14 @@ export const ReferenceLibraryModal: React.FC<Props> = ({
                           >
                             + Xếp vào tuần
                           </button>
-                          <button
-                            onClick={() => handleDeleteTemplate(tpl.id)}
-                            className="rounded p-1 text-slate-400 hover:text-rose-600"
-                          >
-                            <Trash2 className="h-3.5 w-3.5" />
-                          </button>
+                          {!tpl.isSystem && (
+                            <button
+                              onClick={() => handleDeleteTemplate(tpl.id)}
+                              className="rounded p-1 text-slate-400 hover:text-rose-600"
+                            >
+                              <Trash2 className="h-3.5 w-3.5" />
+                            </button>
+                          )}
                         </div>
                       </div>
                     ))}

@@ -2,6 +2,8 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 
+const HDSBE_TARGET = process.env.VITE_HDSBE_TARGET || 'https://api-mnmyxuan.titkul.edu.vn';
+
 export default defineConfig({
   base: './',
   plugins: [react(), tailwindcss()],
@@ -9,6 +11,12 @@ export default defineConfig({
     port: 3000,
     watch: {
       ignored: ['**/data/**'],
+    },
+    proxy: {
+      '/HDSBE': {
+        target: HDSBE_TARGET,
+        changeOrigin: true,
+      },
     },
   },
   build: {

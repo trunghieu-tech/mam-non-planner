@@ -508,6 +508,74 @@ export const WORD_SNIPPETS: Record<string, { label: string; html: string }> = {
       </tbody></table>
     `,
   },
+  bgd_two_col: {
+    label: 'Giáo án chuẩn BGD Bảng 2 cột (Hoạt động Cô | Hoạt động Trẻ)',
+    html: `
+      <h3 style="text-align: center;">KẾ HOẠCH TỔ CHỨC HOẠT ĐỘNG HỌC (MẪU 2 CỘT THI GVDG)</h3>
+      <p><strong>I. Mục đích – Yêu cầu:</strong></p>
+      <ul>
+        <li><strong>1. Kiến thức:</strong> Trẻ biết...</li>
+        <li><strong>2. Kỹ năng:</strong> Rèn kỹ năng quan sát, diễn đạt mạch lạc...</li>
+        <li><strong>3. Thái độ:</strong> Trẻ hứng thú, đoàn kết hợp tác cùng bạn...</li>
+      </ul>
+      <p><strong>II. Chuẩn bị:</strong></p>
+      <ul>
+        <li><strong>1. Đồ dùng của cô:</strong> Giáo án điện tử, nhạc nền, mô hình trực quan...</li>
+        <li><strong>2. Đồ dùng của trẻ:</strong> Trang phục gọn gàng, rổ đồ dùng thực hành...</li>
+      </ul>
+      <p><strong>III. Tiến trình tổ chức hoạt động:</strong></p>
+      <table><tbody>
+        <tr><th><p style="text-align: center;"><strong>HOẠT ĐỘNG CỦA CÔ</strong></p></th><th><p style="text-align: center;"><strong>HOẠT ĐỘNG CỦA TRẺ</strong></p></th></tr>
+        <tr><td><p><strong>1. Hoạt động 1: Gây hứng thú (3–4 phút)</strong></p><p>- Cô tổ chức trò chơi / câu đố dẫn dắt vào đề tài...</p></td><td><p>- Trẻ hào hứng hưởng ứng và trò chuyện cùng cô.</p></td></tr>
+        <tr><td><p><strong>2. Hoạt động 2: Trọng tâm bài mới (18–20 phút)</strong></p><p>- Cô hướng dẫn, gợi mở câu hỏi tư duy...</p><p>- Tổ chức cho trẻ thực hành theo tổ, nhóm, cá nhân...</p></td><td><p>- Trẻ chú ý quan sát, trả lời câu hỏi và thực hành tích cực.</p></td></tr>
+        <tr><td><p><strong>3. Hoạt động 3: Củng cố &amp; Kết thúc (3–5 phút)</strong></p><p>- Tổ chức trò chơi vận động / nhận xét tuyên dương lớp.</p></td><td><p>- Trẻ chơi hào hứng và thu dọn đồ dùng gọn gàng.</p></td></tr>
+      </tbody></table>
+    `,
+  },
+  steam_5e: {
+    label: 'Giáo án STEAM – Mô hình 5E (Khám phá khoa học)',
+    html: `
+      <h3 style="text-align: center;">GIÁO ÁN STEAM THEO QUY TRÌNH 5E: ................................</h3>
+      <p><strong>I. Các thành tố STEAM hướng tới:</strong></p>
+      <ul>
+        <li><strong>S (Khoa học):</strong> Khám phá đặc điểm, tính chất, sự biến đổi của đối tượng...</li>
+        <li><strong>T (Công nghệ):</strong> Sử dụng dụng cụ hỗ trợ quan sát, thử nghiệm (kính lúp, pipet, cốc đong...).</li>
+        <li><strong>E (Kỹ thuật):</strong> Quy trình thực hiện thí nghiệm và ghi chép bảng kết quả dự đoán – thực tế.</li>
+        <li><strong>A (Nghệ thuật):</strong> Vẽ sơ đồ kết quả quan sát thẩm mỹ, thuyết trình tự tin.</li>
+        <li><strong>M (Toán học):</strong> Đếm số lượng, đo lường, so sánh kích thước / dung tích.</li>
+      </ul>
+      <p><strong>II. Tiến trình 5 bước (5E):</strong></p>
+      <ul>
+        <li><strong>E1 – Gắn kết (Engage):</strong> Đưa tình huống bất ngờ, đặt câu hỏi dự đoán kích thích tò mò.</li>
+        <li><strong>E2 – Khám phá (Explore):</strong> Trẻ chia nhóm trực tiếp thử nghiệm với nguyên vật liệu và ghi vào phiếu quan sát.</li>
+        <li><strong>E3 – Giải thích (Explain):</strong> Đại diện nhóm thuyết trình kết quả; cô đặt câu hỏi mở chốt kiến thức cốt lõi.</li>
+        <li><strong>E4 – Áp dụng / Mở rộng (Elaborate):</strong> Vận dụng kiến thức vừa tìm được vào thử thách mới hoặc thực tế đời sống.</li>
+        <li><strong>E5 – Đánh giá (Evaluate):</strong> Trẻ tự nhận xét sản phẩm/quá trình làm việc nhóm; cô tổng kết tuyên dương.</li>
+      </ul>
+    `,
+  },
+  steam_edp: {
+    label: 'Giáo án STEAM – Quy trình EDP (Thiết kế chế tạo)',
+    html: `
+      <h3 style="text-align: center;">DỰ ÁN STEAM THEO QUY TRÌNH EDP: CHẾ TẠO ........................</h3>
+      <p><strong>I. Mục tiêu 5 thành tố (S – T – E – A – M):</strong></p>
+      <ul>
+        <li><strong>S – Khoa học:</strong> Hiểu cấu tạo và nguyên lý hoạt động/độ bền của sản phẩm.</li>
+        <li><strong>T – Công nghệ:</strong> Biết sử dụng kéo an toàn, thước đo, băng dính, súng keo nguội/hồ dán.</li>
+        <li><strong>E – Kỹ thuật:</strong> Thiết kế bản vẽ sơ phác và lắp ráp theo đúng bản vẽ.</li>
+        <li><strong>A – Nghệ thuật:</strong> Phối màu sắc, trang trí sản phẩm hài hòa sáng tạo.</li>
+        <li><strong>M – Toán học:</strong> Nhận biết hình khối, đo kích thước dài – ngắn, cao – thấp, cân đối tỷ lệ.</li>
+      </ul>
+      <p><strong>II. Quy trình thiết kế kỹ thuật 5 bước (EDP):</strong></p>
+      <ul>
+        <li><strong>Bước 1 – Hỏi / Đặt vấn đề (Ask):</strong> Nêu nhu cầu thực tế và thống nhất tiêu chí sản phẩm cần đạt.</li>
+        <li><strong>Bước 2 – Tưởng tượng (Imagine):</strong> Khảo sát nguyên vật liệu mở và thảo luận ý tưởng giải pháp.</li>
+        <li><strong>Bước 3 – Lập kế hoạch / Bản vẽ (Plan):</strong> Vẽ bản thiết kế nhóm trên giấy A3 và phân công nhiệm vụ.</li>
+        <li><strong>Bước 4 – Chế tạo (Create):</strong> Thực hành lắp ráp, cắt dán tạo sản phẩm theo bản thiết kế.</li>
+        <li><strong>Bước 5 – Thử nghiệm &amp; Cải tiến (Improve):</strong> Kiểm thử độ bền/công năng sản phẩm, rút kinh nghiệm và hoàn thiện.</li>
+      </ul>
+    `,
+  },
 };
 
 export function buildLessonSnippetHtml(

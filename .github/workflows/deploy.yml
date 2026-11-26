@@ -35,6 +35,8 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: Build static web demo
+        env:
+          VITE_HDSBE_API_ORIGIN: https://api-mnmyxuan.titkul.edu.vn
         run: npm run build
 
       - name: Upload Pages artifact
